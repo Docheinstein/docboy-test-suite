@@ -13,19 +13,23 @@ MACRO HaltForever
 ENDM
 
 MACRO WaitVBlank
-.loop
+.loop\@
 	ldh a, [rLY]
 	cp 144
-	jr nz,.loop
+	jr nz,.loop\@
 ENDM
 
+; Args:
+; \1: scanline number
 MACRO WaitScanline
-.loop
+.loop\@
 	ldh a, [rLY]
 	cp \1
-	jr nz,.loop
+	jr nz,.loop\@
 ENDM
 
+; Args:
+; \1: number of nops
 MACRO Nops
 REPT \1
     nop
@@ -33,60 +37,57 @@ ENDR
 ENDM
 
 ; Args:
-; BC: tilemap start
-; DE: tilemap end
-PrintTilemap:
+; \1: destination address
+; \2: source address
+; \3: length
+MACRO Memcpy
+    ld hl, \1 ; destination address
+    ld bc, \2 ; source address
+    ld de, \3 ; length
+
+.memcpyloop\@
+    ; Transfer one byte from [BC++] to [HL++]
+    ld a, [bc]
+    inc bc
+	ld [hli], a
+
+	; Restart if DE != 0
+	dec de
+	ld a, d
+	or e
+	jp nz, .memcpyloop\@
+ENDM
+
+; Args:
+; \1: tilemap start
+; \2: tilemap end
+MACRO PrintTilemap
     WaitVBlank
 
     ; Turn the LCD off
-	ld a, 0
+	xor a
 	ldh [rLCDC], a
 
-    ; Setup the copy
-	ld hl, $9000
-
-.copyloop
-    ; Transfer one byte
-    ld a, [bc]
-	ld [hli], a
-	inc bc
-
-	; Restart if bc != de
-	ld a, b
-	cp d
-    jp nz, .copyloop
-	ld a, c
-	cp e
-    jp nz, .copyloop
+    ; Copy the tilemap to VRAM
+	Memcpy $9000, \1, \2
 
     ; Turn on LCD
 	ld a, LCDCF_ON | LCDCF_BGON
 	ldh [rLCDC], a
 
     HaltForever
-
+ENDM
 
 TestSuccess:
-    ; Disable interrupts
     di
-    nop
-
-	ld bc, TestSuccessTilemap
-	ld de, TestSuccessTilemapEnd
-	jp PrintTilemap
+	PrintTilemap TestSuccessTilemap, TestSuccessTilemapEnd - TestSuccessTilemap
 
 TestFail:
-    ; Disable interrupts
     di
-    nop
-
-	ld bc, TestFailTilemap
-	ld de, TestFailTilemapEnd
-    jp PrintTilemap
+    PrintTilemap TestFailTilemap, TestFailTilemapEnd - TestFailTilemap
 
 TestSuccessTilemap:
 	db $00, $00, $00, $00, $00, $00, $00, $ff, $ff, $ff, $ff, $00, $00, $00, $00, $00,
-;	db $00, $00, $01, $01, $02, $02, $04, $04, $88, $88, $50, $50, $20, $20, $00, $00
 TestSuccessTilemapEnd:
 
 TestFailTilemap:
