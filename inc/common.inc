@@ -37,6 +37,11 @@ ENDR
 ENDM
 
 ; Args:
+; \1: number of scanline to skip
+MACRO SkipLines
+    Nops \1 * 114
+ENDM
+; Args:
 ; \1: destination address
 ; \2: source address
 ; \3: length

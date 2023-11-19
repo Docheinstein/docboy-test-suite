@@ -6,6 +6,10 @@ INCLUDE "common.inc"
 EntryPoint:
 
 Round1:
+    ; Write something to TMA [debug]
+    ; ld a, $42
+    ; ldh [rTMA], a
+
     ; Reset IF
     xor a
     ldh [rIF], a
