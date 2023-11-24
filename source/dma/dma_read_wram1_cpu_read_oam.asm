@@ -1,55 +1,55 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 
-; Check what happens by trying to fetch operations while DMA is copying from WRAM.
+; Check what happens by trying to read OAM while DMA is copying from WRAM1.
+; It should read FF since OAM is taken by DMA.
+;
+; DMA source : WRAM1 (c000) [ext bus]
+; DMA dest   : OAM   (fe00) [oam bus] -+
+; CPU routine: HRAM  (ff80) [cpu bus]  |
+; CPU read:    OAM   (fe00) [oam bus] -+
 
 EntryPoint:
     WaitVBlank
 
-    ; Copy some code to DMA source (c000)
-    Memcpy $c000, Code, CodeEnd - Code
+    ; Copy random data to DMA source (WRAM1 : c000)
+    Memcpy $c000, Data, DataEnd - Data
 
-    ; Reset DE and HL
-    ld de, $00
-    ld hl, $00
+    ; Copy the DMA transfer routine to HRAM (ff80)
+    Memcpy $ff80, DmaTransferRoutine, DmaTransferRoutineEnd - DmaTransferRoutine
+
+    ; Jump to DMA transfer routine
+    call $ff80
+
+    ; Check result: we should have read ff
+    ld a, $ff
+    cp b
+
+    jp nz, TestFail
+    jp TestSuccess
+
+DmaTransferRoutine:
+    ld hl, $fe00 ; OAM
 
     ; Start DMA with source WRAM1 (c000)
     ld a, $c0
     ldh [rDMA], a
 
-    ; Try to execute some code while DMA is in progress.
-    ; We should read the data we copied to WRAM1 instead (inc h, inc l).
-REPT 90
-    inc d
-    inc e
-ENDR
-
-    ; Check DE
-    ld a, $0a
-    cp d
-    jp nz, TestFail
-    cp e
-    jp nz, TestFail
-
-    ; Check HL
-    ld a, $50
-    cp h
-    jp nz, TestFail
-    cp l
-    jp nz, TestFail
-
-    ; Check DMA transferred data
-    ld bc, $fe00
-    ld a, [bc]
+    ; Try to read from OAM (fe00): we should read FF
+    ld a, [hl]
     ld b, a
-    ld a, $24
-    cp b
-    jp nz, TestFail
 
-    jp TestSuccess
+    ; Wait until the end of DMA
+    ld a, 40
+.dmaloop
+    dec a
+    jr nz, .dmaloop
 
-Code:
-; INC H, INC L, ...
+    ret
+DmaTransferRoutineEnd:
+
+
+Data:
 db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C,
 db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C,
 db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C,
@@ -60,4 +60,4 @@ db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2
 db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C,
 db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C,
 db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C,
-CodeEnd:
+DataEnd:

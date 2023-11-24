@@ -19,6 +19,18 @@ MACRO WaitVBlank
 	jr nz,.loop\@
 ENDM
 
+; Args
+; \1 mode
+MACRO WaitMode
+    ld b, $3
+    ld c, \1
+.loop\@
+	ldh a, [rSTAT]
+	and b
+	cp c
+	jr nz,.loop\@
+ENDM
+
 ; Args:
 ; \1: scanline number
 MACRO WaitScanline
@@ -41,6 +53,30 @@ ENDM
 MACRO SkipLines
     Nops \1 * 114
 ENDM
+
+
+; Args:
+; \1: destination address
+; \2: value
+; \3: length
+MACRO Memset
+    ld hl, \1 ; destination address
+    ld b,  \2 ; value
+    ld de, \3 ; length
+
+.loop\@
+    ; Set [HL++]=value
+    ld a, b
+	ld [hli], a
+
+	; Restart if DE != 0
+	dec de
+	ld a, d
+	or e
+	jp nz, .loop\@
+ENDM
+
+
 ; Args:
 ; \1: destination address
 ; \2: source address
@@ -50,8 +86,8 @@ MACRO Memcpy
     ld bc, \2 ; source address
     ld de, \3 ; length
 
-.memcpyloop\@
-    ; Transfer one byte from [BC++] to [HL++]
+.loop\@
+    ; Transfer one byte: [HL++]=[BC++]
     ld a, [bc]
     inc bc
 	ld [hli], a
@@ -60,8 +96,67 @@ MACRO Memcpy
 	dec de
 	ld a, d
 	or e
-	jp nz, .memcpyloop\@
+	jp nz, .loop\@
 ENDM
+
+
+; Args:
+; \1: first address
+; \2: second address
+; \3: length
+; OUT: Z=0 if success
+MACRO Memcmp
+    ld hl, \1 ; first address
+    ld bc, \2 ; second address
+    ld de, \3 ; length
+
+.loop\@
+    ; Compare one byte
+    ld a, [bc]
+	cp [hl]
+	jp nz, .fail\@
+
+    inc bc
+    inc hl
+
+	; Restart if DE != 0
+	dec de
+	ld a, d
+	or e
+	jp nz, .loop\@
+
+	xor a
+	jp .end\@
+
+.fail\@
+    xor a
+    inc a
+.end\@
+ENDM
+
+
+; Args:
+; \1: address
+; \2: expected value
+; OUT: Z=0 if success
+MACRO Memtest
+    ld hl, \1 ; address
+    ld b,  \2 ; expected value
+
+    ; Compare byte
+    ld a, [hl]
+	cp b
+	jp nz, .fail\@
+
+	xor a
+	jp .end\@
+
+.fail\@
+    xor a
+    inc a
+.end\@
+ENDM
+
 
 ; Args:
 ; \1: tilemap start
