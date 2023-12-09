@@ -54,6 +54,15 @@ MACRO SkipLines
     Nops \1 * 114
 ENDM
 
+MACRO EnablePPU
+	ld a, LCDCF_ON | LCDCF_BGON
+	ldh [rLCDC], a
+ENDM
+
+MACRO DisablePPU
+	xor a
+	ldh [rLCDC], a
+ENDM
 
 ; Args:
 ; \1: destination address
@@ -165,25 +174,25 @@ MACRO PrintTilemap
     WaitVBlank
 
     ; Turn the LCD off
-	xor a
-	ldh [rLCDC], a
+    DisablePPU
 
     ; Copy the tilemap to VRAM
 	Memcpy $9000, \1, \2
 
-    ; Turn on LCD
-	ld a, LCDCF_ON | LCDCF_BGON
-	ldh [rLCDC], a
+    ; Turn on LCD on
+    EnablePPU
 
     HaltForever
 ENDM
 
 TestSuccess:
     di
+    EnablePPU
 	PrintTilemap TestSuccessTilemap, TestSuccessTilemapEnd - TestSuccessTilemap
 
 TestFail:
     di
+    EnablePPU
     PrintTilemap TestFailTilemap, TestFailTilemapEnd - TestFailTilemap
 
 TestSuccessTilemap:

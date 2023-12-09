@@ -16,15 +16,15 @@ EntryPoint:
     ld a, STATF_MODE10
     ldh [rSTAT], a
 
-    ; 106 nops should not be enough for read OAM mode from STAT
-    Nops 107
+    ; 108 nops should be enough for read OAM mode from STAT
+    Nops 108
 
     ; Read IF
     ldh a, [rSTAT]
     ld b, a
 
     ; Check result
-    ld a, $a0 ; <- LYC EQ LY should be reset this cycle!
+    ld a, $a2
     cp b
     jp nz, TestFail
 

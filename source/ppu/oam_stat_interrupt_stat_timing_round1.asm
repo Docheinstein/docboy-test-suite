@@ -16,8 +16,8 @@ EntryPoint:
     ld a, STATF_MODE10
     ldh [rSTAT], a
 
-    ; 107 nops should not be enough for read OAM mode from STAT
-    Nops 107
+    ; 106 nops should not be enough for read OAM mode from STAT
+    Nops 106
 
     ; Read IF
     ldh a, [rSTAT]

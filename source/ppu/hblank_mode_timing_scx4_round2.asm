@@ -4,12 +4,12 @@ INCLUDE "common.inc"
 ; Check how much time it takes to read HBLANK mode from STAT with a certain SCX.
 
 EntryPoint:
-    ; Load SCX=2
-    ld a, $02
+    ; Load SCX=4
+    ld a, $04
     ldh [rSCX], a
 
-    ; 66 nops should read HBLANK.
-    Nops 66
+    ; 67 nops should read HBLANK.
+    Nops 67
 
     ; Check result
     ldh a, [rSTAT]

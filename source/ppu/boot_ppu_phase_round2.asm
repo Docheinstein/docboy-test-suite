@@ -4,7 +4,7 @@ INCLUDE "common.inc"
 ; Check the phase of PPU at boot time.
 
 EntryPoint:
-    ; 7 nops should read OAM SCAN from STAT mode
+    ; 8 nops should read OAM SCAN from STAT mode
     Nops 8
 
     ; Read STAT's mode bits

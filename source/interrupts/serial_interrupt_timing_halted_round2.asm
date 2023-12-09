@@ -34,8 +34,8 @@ EntryPoint:
     jp TestFail
 
 TestFinish:
-    ; 53 nops should read DIV=11
-    Nops 53
+    ; 52 nops should read DIV=11
+    Nops 52
 
     ; Read DIV
     ldh a, [rDIV]

@@ -13,7 +13,7 @@ EntryPoint:
     and b
 
     ; Check result
-    ld b, STATF_VBL
+    ld b, STATF_HBL
     cp b
     jp nz, TestFail
 
