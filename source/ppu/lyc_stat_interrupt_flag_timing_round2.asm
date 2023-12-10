@@ -1,7 +1,7 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 
-; STAT interrupt with LYC_EQ_LY should be triggered after 454 t-cycles.
+; Check the timing of STAT interrupt flag with LYC_EQ_LY.
 
 EntryPoint:
     ; Reset IF
