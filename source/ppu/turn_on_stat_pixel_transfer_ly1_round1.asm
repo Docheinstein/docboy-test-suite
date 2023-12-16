@@ -4,8 +4,7 @@ INCLUDE "common.inc"
 ; Check the value of STAT at Pixel Transfer at LY=1 after PPU is turned on.
 
 EntryPoint:
-    DisablePPU
-    EnablePPU
+    ResetPPU
 
     Nops 128
 

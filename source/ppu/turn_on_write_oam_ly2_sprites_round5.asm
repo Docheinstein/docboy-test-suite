@@ -11,8 +11,7 @@ EntryPoint:
 
     ld hl, $fe00 ; OAM
 
-    DisablePPU
-    EnablePPU
+    ResetPPU
 
     Nops 244
 

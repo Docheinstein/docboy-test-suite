@@ -16,8 +16,7 @@ EntryPoint:
     ; Set IF=0
     ldh [rIF], a
 
-    DisablePPU
-    EnablePPU
+    ResetPPU
 
     ; Read IF
     ldh a, [rIF]

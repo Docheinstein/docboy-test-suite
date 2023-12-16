@@ -15,8 +15,7 @@ EntryPoint:
     ; Set IF=0
     ldh [rIF], a
 
-    DisablePPU
-    EnablePPU
+    ResetPPU
 
     Nops 4
 

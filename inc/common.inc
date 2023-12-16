@@ -55,7 +55,7 @@ MACRO SkipLines
 ENDM
 
 MACRO EnablePPU
-	ld a, LCDCF_ON | LCDCF_BGON
+	ld a, LCDCF_ON | LCDCF_BGON | LCDCF_OBJON
 	ldh [rLCDC], a
 ENDM
 
@@ -63,6 +63,13 @@ MACRO DisablePPU
 	xor a
 	ldh [rLCDC], a
 ENDM
+
+MACRO ResetPPU
+	DisablePPU
+	EnablePPU
+ENDM
+
+
 
 ; Args:
 ; \1: destination address

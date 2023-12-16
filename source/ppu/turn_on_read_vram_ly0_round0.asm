@@ -11,8 +11,7 @@ EntryPoint:
     ld hl, $8000 ; VRAM
     ld [hl], a
 
-    DisablePPU
-    EnablePPU
+    ResetPPU
 
     ; Read VRAM
     ld hl, $8000

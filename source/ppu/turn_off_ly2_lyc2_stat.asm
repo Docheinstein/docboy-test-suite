@@ -6,7 +6,7 @@ INCLUDE "common.inc"
 
 EntryPoint:
     ld a, $02
-    ld [rLYC], a
+    ldh [rLYC], a
 
     WaitScanline 2
 

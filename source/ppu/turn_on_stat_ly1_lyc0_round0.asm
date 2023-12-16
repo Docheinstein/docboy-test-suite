@@ -8,8 +8,7 @@ EntryPoint:
     xor a
     ldh [rLYC], a
 
-    DisablePPU
-    EnablePPU
+    ResetPPU
 
     ; Wait LY=1
     Nops 109

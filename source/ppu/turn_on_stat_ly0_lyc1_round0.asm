@@ -8,8 +8,7 @@ EntryPoint:
     ld a, $01
     ldh [rLYC], a
 
-    DisablePPU
-    EnablePPU
+    ResetPPU
 
     ; Read STAT
     ldh a, [rSTAT]

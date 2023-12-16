@@ -11,8 +11,7 @@ EntryPoint:
     ld hl, $fe00 ; OAM
     ld [hl], a
 
-    DisablePPU
-    EnablePPU
+    ResetPPU
 
     ; Wait LY=1
     Nops 130

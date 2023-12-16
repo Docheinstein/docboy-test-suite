@@ -8,8 +8,7 @@ EntryPoint:
     xor a
     ldh [rLYC], a
 
-    DisablePPU
-    EnablePPU
+    ResetPPU
 
     ; Read STAT
     ldh a, [rSTAT]

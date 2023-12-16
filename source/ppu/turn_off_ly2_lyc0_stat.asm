@@ -6,7 +6,7 @@ INCLUDE "common.inc"
 
 EntryPoint:
     xor a
-    ld [rLYC], a
+    ldh [rLYC], a
 
     WaitScanline 2
 
