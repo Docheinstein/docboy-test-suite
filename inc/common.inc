@@ -192,14 +192,30 @@ MACRO PrintTilemap
     HaltForever
 ENDM
 
-TestSuccess:
+MACRO TestEndCleanup
+    ; Disable interrupts
     di
+
+    ; Turn off PPU
+    DisablePPU
+
+    ; Reset VRAM
+    Memset $8000, $00, $2000
+
+    ; Reset BG palette
+    ld a, $fc
+    ldh [rBGP], a
+
+    ; Turn on PPU again
     EnablePPU
+ENDM
+
+TestSuccess:
+    TestEndCleanup
 	PrintTilemap TestSuccessTilemap, TestSuccessTilemapEnd - TestSuccessTilemap
 
 TestFail:
-    di
-    EnablePPU
+    TestEndCleanup
     PrintTilemap TestFailTilemap, TestFailTilemapEnd - TestFailTilemap
 
 TestSuccessTilemap:
