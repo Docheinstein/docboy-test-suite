@@ -1,7 +1,7 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 
-; Check how much time it takes to read HBLANK mode from STAT with a certain SCX.
+; Check the duration of Pixel Transfer with a certain SCX coming from boot.
 
 EntryPoint:
     ; Load SCX=4

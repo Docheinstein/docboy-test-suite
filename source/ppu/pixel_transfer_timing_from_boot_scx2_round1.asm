@@ -1,11 +1,11 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 
-; Check how much time it takes to read HBLANK mode from STAT with a certain SCX.
+; Check the duration of Pixel Transfer with a certain SCX coming from boot.
 
 EntryPoint:
-    ; Load SCX=3
-    ld a, $03
+    ; Load SCX=2
+    ld a, $02
     ldh [rSCX], a
 
     ; 65 nops should read PIXEL TRANSFER.
