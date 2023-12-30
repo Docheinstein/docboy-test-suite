@@ -9,7 +9,7 @@ INCLUDE "common.inc"
 ; CPU routine: HRAM (ff80) [cpu bus]
 
 EntryPoint:
-    WaitVBlank
+    DisablePPU
 
     ; Copy some data to df00
     Memset $df00, $42, $20
@@ -19,8 +19,6 @@ EntryPoint:
 
     ; Jump to DMA transfer routine
     call $ff80
-
-    WaitVBlank
 
     ; Read from df00: we should read 42
     Memtest $df00, $42

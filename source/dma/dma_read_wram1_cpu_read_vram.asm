@@ -10,7 +10,7 @@ INCLUDE "common.inc"
 ; CPU read:    VRAM  (9000) [vram bus]
 
 EntryPoint:
-    WaitVBlank
+    DisablePPU
 
     ; Write something to 9000
     ld hl, $9000

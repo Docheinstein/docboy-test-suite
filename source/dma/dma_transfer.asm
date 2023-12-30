@@ -8,7 +8,7 @@ INCLUDE "common.inc"
 ; CPU routine: HRAM  (ff80) [cpu bus]
 
 EntryPoint:
-    WaitVBlank
+    DisablePPU
 
     ; Copy some data to DMA source (WRAM1 : c000)
     Memcpy $c000, Data, DataEnd - Data
@@ -18,8 +18,6 @@ EntryPoint:
 
     ; Jump to DMA transfer routine
     call $ff80
-
-    WaitVBlank
 
     ; Check OAM content
     Memcmp $fe00, Data, 10

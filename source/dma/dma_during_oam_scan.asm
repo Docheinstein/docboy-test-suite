@@ -1,7 +1,7 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 
-; Check what happens by starting the DMA timing during OAM SCAN.
+; Check what happens by starting the DMA during OAM SCAN.
 ;
 ; DMA source : WRAM1 (c000) [ext bus]
 ; DMA dest   : OAM   (fe00) [oam bus]

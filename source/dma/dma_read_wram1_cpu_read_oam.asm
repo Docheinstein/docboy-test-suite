@@ -10,7 +10,7 @@ INCLUDE "common.inc"
 ; CPU read:    OAM   (fe00) [oam bus] -+
 
 EntryPoint:
-    WaitVBlank
+    DisablePPU
 
     ; Copy random data to DMA source (WRAM1 : c000)
     Memcpy $c000, Data, DataEnd - Data

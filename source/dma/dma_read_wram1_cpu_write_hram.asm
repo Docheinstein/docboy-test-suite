@@ -10,7 +10,7 @@ INCLUDE "common.inc"
 ; CPU write:   HRAM  (ff88) [cpu bus]
 
 EntryPoint:
-    WaitVBlank
+    DisablePPU
 
     ; Copy a certain value to HRAM (ff88)
     ld a, $42

@@ -10,7 +10,7 @@ INCLUDE "common.inc"
 ; CPU write:   WRAM2 (d000) [ext bus] -+
 
 EntryPoint:
-    WaitVBlank
+    DisablePPU
 
     ; Copy a certain value to WRAM2 (d008)
     ld a, $42

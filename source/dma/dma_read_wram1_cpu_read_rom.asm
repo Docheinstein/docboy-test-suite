@@ -9,7 +9,7 @@ INCLUDE "common.inc"
 ; CPU routine: ROM   (0000) [ext bus] -+
 
 EntryPoint:
-    WaitVBlank
+    DisablePPU
 
     ; Copy some code to DMA source (WRAM1 : c000)
     Memcpy $c000, Code, CodeEnd - Code

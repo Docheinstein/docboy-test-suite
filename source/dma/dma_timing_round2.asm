@@ -9,7 +9,7 @@ INCLUDE "common.inc"
 ; CPU routine: HRAM  (ff80) [cpu bus]
 
 EntryPoint:
-    WaitVBlank
+    DisablePPU
 
     ; Copy random data to DMA source (WRAM1 : c000)
     Memcpy $c000, Data, DataEnd - Data
