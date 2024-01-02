@@ -1,7 +1,7 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 
-; Render with window enabled and WX=0.
+; Render with window enabled and WX=0 and SCX=2.
 
 EntryPoint:
     ; Disable PPU
@@ -13,12 +13,16 @@ EntryPoint:
     ; Reset VRAM Tile Map
     Memset $9C00, $00, $0400
 
-    ; Write Index 1 to VRAM Tile Map[0]
-    Memset $9C00, $01, $01
+    ; Write Index 1 to VRAM Tile Map[0] and [1]
+    Memset $9C00, $01, $02
 
-    ; Set WX
-    ld a, 00
+    ; Write WX=0
+    ld a, $00
     ldh [rWX], a
+
+    ; Write SCX=2
+    ld a, $02
+    ldh [rSCX], a
 
     ; Enable PPU with window on
     ld a, LCDCF_ON | LCDCF_BGON | LCDCF_WINON | LCDCF_WIN9C00
