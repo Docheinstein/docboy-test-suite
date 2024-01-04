@@ -2,7 +2,10 @@ INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 INCLUDE "vram.inc"
 
-; Render with window enabled but move WX forward during Pixel Transfer.
+; Render with window enabled, wait for WX to trigger the window,
+; than move WX ahead so that the window will encounter it again.
+; The internal window line counter should be increased and it
+; should render one line less of the window tile.
 
 EntryPoint:
     ; Disable PPU
@@ -19,12 +22,9 @@ EntryPoint:
     ; Reset VRAM
     ResetVRAM
 
-    ; Place 32 tiles to VRAM Tile Data[1]
-    ; Memset $9010, $ff, $0200
-    Memcpy $9010, VramTileData, VramTileDataEnd - VramTileData
-
-    ; Write Indexes 1:32 to VRAM Tile Map[0]
-    Memcpy $9C00, VramTileMapData, VramTileMapDataEnd - VramTileMapData
+    ; Set Window VRAM data
+    Memcpy $9010, WindowVramTileData, WindowVramTileDataEnd - WindowVramTileData
+    Memcpy $9C00, WindowVramTileMapData, WindowVramTileMapDataEnd - WindowVramTileMapData
 
     ; Enable PPU with window on
     ld a, LCDCF_ON | LCDCF_BGON | LCDCF_WINON | LCDCF_WIN9C00
@@ -32,13 +32,15 @@ EntryPoint:
 
 Loop:
     ; Set WX
-    ld a, 31
+    ld a, 15
     ldh [rWX], a
 
     WaitScanline 12
 
-    ; Should render last 3 lines of window tile with WX=63
-    Nops 20
+    ; 16 nops are enough to read both the first WX and the second WX,
+    ; this increases the internal line counter and the window
+    ; will render only last 3 lines of the window tile.
+    Nops 16
 
     ; Set WX
     ld a, 63
@@ -48,15 +50,13 @@ Loop:
 
     jp Loop
 
-
-VramTileData:
+WindowVramTileData:
     db $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
     db $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
     db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
     db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
-VramTileDataEnd:
+WindowVramTileDataEnd:
 
-
-VramTileMapData:
+WindowVramTileMapData:
     db $01, $02, $03, $04
-VramTileMapDataEnd:
+WindowVramTileMapDataEnd:

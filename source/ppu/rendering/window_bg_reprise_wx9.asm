@@ -2,9 +2,8 @@ INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 INCLUDE "vram.inc"
 
-; Render with window enabled, turn it off and reenable it again
-; with WX moved ahead so that it retriggers the window.
-
+; Render with window enabled, turn it off at a certain WX
+; and see which tile the BG fetcher will use.
 EntryPoint:
     ; Disable PPU
     DisablePPU
@@ -20,11 +19,11 @@ EntryPoint:
     ; Reset VRAM
     ResetVRAM
 
-    ; Window
+    ; Set Window VRAM data
     Memcpy $9010, WindowVramTileData, WindowVramTileDataEnd - WindowVramTileData
     Memcpy $9C00, WindowVramTileMapData, WindowVramTileMapDataEnd - WindowVramTileMapData
 
-    ; Background
+    ; Set BG VRAM data
     Memcpy $8800, BackgroundVramTileData, BackgroundVramTileDataEnd - BackgroundVramTileData
     Memcpy $9800, BackgroundVramTileMapData, BackgroundVramTileMapDataEnd - BackgroundVramTileMapData
 

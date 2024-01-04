@@ -1,7 +1,7 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 
-; Render with window enabled and WX=0 and SCX=6.
+; Render with window enabled, WX=0 and SCX=7.
 
 EntryPoint:
     ; Disable PPU
