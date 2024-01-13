@@ -4,6 +4,8 @@ INCLUDE "common.inc"
 ; Check the timing of STAT interrupt flag with LYC_EQ_LY.
 
 EntryPoint:
+    ResetPPU
+
     ; Reset IF
     xor a
     ldh [rIF], a
@@ -20,8 +22,8 @@ EntryPoint:
     ld a, STATF_LYC
     ldh [rSTAT], a
 
-    ; 102 nops should not be enough for IF to be set
-    Nops 102
+    ; 91 nops should not be enough for IF to be set
+    Nops 91
 
     ; Read IF
     ldh a, [rIF]
