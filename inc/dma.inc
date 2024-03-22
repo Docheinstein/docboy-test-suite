@@ -11,9 +11,15 @@ MACRO SetupDmaTransfer
     ld [hl], \1
 ENDM
 
-MACRO ResetOAM
-    SetupDmaTransfer $20
+; Args:
+; \1: source
+MACRO DmaTransfer
+    SetupDmaTransfer \1
     call DmaTransferRoutine
+ENDM
+
+MACRO ResetOAM
+    DmaTransfer $20
 ENDM
 
 
