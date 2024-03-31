@@ -1,9 +1,36 @@
+DEF LcdPosition = $c000 ; WRAM1
+
+; Args:
+; de: position (as VRAM tile)
+MACRO WriteLcdPosition
+    push hl
+    ld hl, LcdPosition
+    ld [hl], d
+    inc hl
+    ld [hl], e
+    pop hl
+ENDM
+
+; Output:
+; de: position (as VRAM tile)
+MACRO ReadLcdPosition
+    push hl
+    ld hl, LcdPosition
+    ld d, [hl]
+    inc hl
+    ld e, [hl]
+    pop hl
+ENDM
+
+
+; Initialize ASCII tilemap and reset LCD position.
 MACRO InitPrint
-    ; Copy ASCII tilemap
+    ; Copy ASCII tilemap to VRAM $9000 area.
     Memcpy $9200, AsciiTilemap, AsciiTilemapEnd - AsciiTilemap
 
-    ; Reset print coordinate to (0,0)
-    ld bc, $9800
+    ; Reset print coordinate to (0,0) = $9800.
+    ld de, $9800
+    WriteLcdPosition
 ENDM
 
 ; Args:
@@ -18,26 +45,26 @@ MACRO HexDigit
     add a, $30 ; '0'
 ENDM
 
-; Args
-; bc: next print tile
 MACRO NewLine
-    ld a, b
-    and a, $d0
+    ReadLcdPosition
+    ld a, e
+    and a, $e0
     add a, $20
-    ld b, a
+    ld e, a
+    WriteLcdPosition
 ENDM
 
 ; Args
 ; a: ascii character
-; bc: next print tile
 MACRO PutChar
-    ld [bc], a
-    inc bc
+    ReadLcdPosition
+    ld [de], a
+    inc de
+    WriteLcdPosition
 ENDM
 
 ; Args
 ; a: number
-; bc: next print tile
 MACRO PutHex4
     and a, $0f
     HexDigit
@@ -46,21 +73,32 @@ ENDM
 
 ; Args
 ; a: number
-; bc: next print tile
 MACRO PutHex8
     ; First nibble
-    ld d, a
+    ld b, a
     swap a
     PutHex4
 
     ; Second nibble
-    ld a, d
+    ld a, b
     PutHex4
 ENDM
 
 ; Args
-; \1: string address
-; bc: next print tile
+; bc: number
+MACRO PutHex16
+    ; First byte
+    ld a, b
+    PutHex8
+
+    ; Second byte
+    ld a, c
+    PutHex8
+ENDM
+
+
+; Args
+; \1: string address (00 terminated)
 MACRO PutString
     ld hl, \1 ; string address
 
@@ -75,6 +113,16 @@ MACRO PutString
     PutChar
     jp .loop\@
 .end\@
+ENDM
+
+; Args
+; \1 string
+MACRO PrintString
+    jp .DoPrint\@
+.String\@
+    db \1, $00
+.DoPrint\@
+    PutString .String\@
 ENDM
 
 
