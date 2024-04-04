@@ -1,0 +1,42 @@
+INCLUDE "hardware.inc"
+INCLUDE "common.inc"
+
+; Check the timing of STAT's LYC_EQ_LY interrupt for LY=LYC=0 when passing through VBlank.
+
+EntryPoint:
+    ResetPPU
+
+    ; Go out of first line
+    Nops 114
+
+    ; Enable interrupt
+    ei
+
+    ; Enable STAT interrupt
+    ld a, IEF_STAT
+    ldh [rIE], a
+
+    ; Enable LYC_EQ_LY interrupt
+    ld a, STATF_LYC
+    ldh [rSTAT], a
+
+    ; Write LYC=0
+    xor a
+    ldh [rLYC], a
+
+    ; Go to line 8 of next frame
+    LongWait 162 * 114
+
+    ; 55 nops should read DIV=$12
+    Nops 55
+
+    ldh a, [rDIV]
+    cp $12
+    jp nz, TestFail
+    jp TestSuccess
+
+
+SECTION "STAT handler", ROM0[$48]
+    ; Reset DIV
+    ldh [rDIV], a
+    reti
