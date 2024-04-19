@@ -36,11 +36,10 @@ EntryPoint:
     REPT 8
         inc b
     ENDR
-
     halt
 
     ld a, [rDIV]
-    cp 0 ; TODO: verify whether this is 0x00 or 0x40 with real hardware
+    cp $40
     jp nz, TestFail
 
     ld a, b
