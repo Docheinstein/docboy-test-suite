@@ -1,7 +1,7 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 
-; Check the Interrupts registers at boot time.
+; Check the Video registers at boot time.
 
 MACRO Expect
     ldh a, [\1]
