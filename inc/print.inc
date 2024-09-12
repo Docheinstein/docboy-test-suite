@@ -47,10 +47,19 @@ ENDM
 
 MACRO NewLine
     ReadLcdPosition
+    push hl
+
     ld a, e
     and a, $e0
-    add a, $20
-    ld e, a
+
+    ld h, d
+    ld l, a
+    ld de, $0020
+    add hl, de
+    ld d, h
+    ld e, l
+
+    pop hl
     WriteLcdPosition
 ENDM
 
