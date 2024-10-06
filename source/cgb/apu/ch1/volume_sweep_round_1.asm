@@ -1,8 +1,9 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 INCLUDE "apu.inc"
+INCLUDE "cgb.inc"
 
-; Check the timing of CH2's volume sweep.
+; Check the timing of CH1's volume sweep.
 ; Uses PCM (CGB only).
 
 EntryPoint:
@@ -13,25 +14,28 @@ EntryPoint:
     DisableAPU
     EnableAPU
 
+    xor a
+    ldh [rNR10], a
+
     ; Duty cycle = 75%
     ; Initial length = 3E
     ld a, $FE
-    ldh [rNR21], a
+    ldh [rNR11], a
 
     ; Initial volume = F
     ; Volume sweep = 1
     ld a, $F1
-    ldh [rNR22], a
+    ldh [rNR12], a
 
     ; Period = 0x7FC
     ld a, $FC
-    ldh [rNR23], a
+    ldh [rNR13], a
 
     ; Trigger = 1
     ld a, $8F
-    ldh [rNR24], a
+    ldh [rNR14], a
 
-    LongWait 16337
+    LongWait 16332
 
     ; Read PCMs
     ldh a, [rPCM34]
@@ -40,12 +44,12 @@ EntryPoint:
     ldh a, [rPCM12]
 
     ; Check PCM12
-    cp $E0
-    jp nz, TestFail
+    cp $0F
+    jp nz, TestFailCGB
 
     ; Check PCM34
     ld a, b
     cp $00
-    jp nz, TestFail
+    jp nz, TestFailCGB
 
-    jp TestSuccess
+    jp TestSuccessCGB

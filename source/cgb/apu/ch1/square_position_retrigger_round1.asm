@@ -1,40 +1,47 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 INCLUDE "apu.inc"
+INCLUDE "cgb.inc"
 
-; Check the timing of CH1's volume sweep.
+; Check the timing of CH1's square wave position.
 ; Uses PCM (CGB only).
 
 EntryPoint:
-    ; Reset DIV
-    xor a
-    ldh [rDIV], a
-
     DisableAPU
+
     EnableAPU
 
     xor a
     ldh [rNR10], a
 
-    ; Duty cycle = 75%
-    ; Initial length = 3E
-    ld a, $FE
+    ; Initial length = 1
+    ld a, $01
     ldh [rNR11], a
 
     ; Initial volume = F
-    ; Volume sweep = 1
-    ld a, $F1
+    ld a, $F0
     ldh [rNR12], a
 
-    ; Period = 0x7FC
-    ld a, $FC
+    ; Period = 0x7FD
+    ld a, $FD
     ldh [rNR13], a
 
     ; Trigger = 1
-    ld a, $8F
+    ; Length enable = 1
+    ld a, $CF
     ldh [rNR14], a
 
-    LongWait 16333
+    ; Wait
+    Nops 20
+
+    ; Retrigger
+
+    ; Trigger = 1
+    ; Length enable = 1
+    ld a, $CF
+    ldh [rNR14], a
+
+    Nops 18
 
     ; Read PCMs
     ldh a, [rPCM34]
@@ -43,12 +50,12 @@ EntryPoint:
     ldh a, [rPCM12]
 
     ; Check PCM12
-    cp $0E
+    cp $00
     jp nz, TestFail
 
     ; Check PCM34
     ld a, b
     cp $00
-    jp nz, TestFail
+    jp nz, TestFailCGB
 
-    jp TestSuccess
+    jp TestSuccessCGB

@@ -1,6 +1,7 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 INCLUDE "apu.inc"
+INCLUDE "cgb.inc"
 
 ; Check the timing of CH1's square wave position.
 ; Uses PCM (CGB only).
@@ -10,25 +11,22 @@ EntryPoint:
 
     EnableAPU
 
-    xor a
-    ldh [rNR10], a
-
     ; Initial length = 1
     ld a, $01
-    ldh [rNR11], a
+    ldh [rNR21], a
 
     ; Initial volume = F
     ld a, $F0
-    ldh [rNR12], a
+    ldh [rNR22], a
 
     ; Period = 0x7FD
     ld a, $FD
-    ldh [rNR13], a
+    ldh [rNR23], a
 
     ; Trigger = 1
     ; Length enable = 1
     ld a, $CF
-    ldh [rNR14], a
+    ldh [rNR24], a
 
     ; Wait
     Nops 20
@@ -38,7 +36,7 @@ EntryPoint:
     ; Trigger = 1
     ; Length enable = 1
     ld a, $CF
-    ldh [rNR14], a
+    ldh [rNR24], a
 
     Nops 18
 
@@ -50,11 +48,11 @@ EntryPoint:
 
     ; Check PCM12
     cp $00
-    jp nz, TestFail
+    jp nz, TestFailCGB
 
     ; Check PCM34
     ld a, b
     cp $00
-    jp nz, TestFail
+    jp nz, TestFailCGB
 
-    jp TestSuccess
+    jp TestSuccessCGB
