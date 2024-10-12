@@ -32,7 +32,7 @@ roms/dmg/%.gb: roms/dmg/%.o
 
 roms/cgb/%.o: source/cgb/%.asm $(INCLUDES)
 	mkdir -p $(shell dirname $@)
-	rgbasm -h -i inc -o $@ $<
+	rgbasm -i inc -o $@ $<
 
 	$(eval MBC_TYPE := $(shell sed -nr 's#;! MBC_TYPE=([0-9]+)#\1#p' $<))
 	$(eval MBC_TYPE := $(or $(MBC_TYPE),"0"))
@@ -49,7 +49,7 @@ roms/cgb/%.gbc: roms/cgb/%.o
 
 roms/cgb_dmg_mode/%.o: source/cgb_dmg_mode/%.asm $(INCLUDES)
 	mkdir -p $(shell dirname $@)
-	rgbasm -h -i inc -o $@ $<
+	rgbasm -i inc -o $@ $<
 
 	$(eval MBC_TYPE := $(shell sed -nr 's#;! MBC_TYPE=([0-9]+)#\1#p' $<))
 	$(eval MBC_TYPE := $(or $(MBC_TYPE),"0"))
