@@ -3,6 +3,7 @@ INCLUDE "common.inc"
 INCLUDE "cgb.inc"
 
 ; Perform a basic HDMA (General Purpose) transfer.
+; Check that data is transferred.
 
 EntryPoint:
     DisablePPU

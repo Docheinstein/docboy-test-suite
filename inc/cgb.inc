@@ -147,13 +147,17 @@ MACRO CheckOBJP
 ENDM
 
 TestFailCGB:
+    DisablePPU
     SetBGP 0, $ff, $ff, $00, $00, $00, $00, $00, $00
+    EnablePPU
     xor a
     ldh [rVBK], a
     jp TestFail
 
 TestSuccessCGB:
+    DisablePPU
     SetBGP 0, $ff, $ff, $00, $00, $00, $00, $00, $00
+    EnablePPU
     xor a
     ldh [rVBK], a
     jp TestSuccess

@@ -15,7 +15,7 @@ all: $(DMG_TARGETS) $(CGB_TARGETS) $(CGB_DMG_MODE_TARGETS)
 
 roms/dmg/%.o: source/dmg/%.asm $(INCLUDES)
 	mkdir -p $(shell dirname $@)
-	rgbasm -h -i inc -o $@ $<
+	rgbasm -i inc -o $@ $<
 
 	$(eval MBC_TYPE := $(shell sed -nr 's#;! MBC_TYPE=([0-9]+)#\1#p' $<))
 	$(eval MBC_TYPE := $(or $(MBC_TYPE),"0"))
