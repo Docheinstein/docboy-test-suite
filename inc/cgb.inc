@@ -146,9 +146,13 @@ MACRO CheckOBJP
     CheckOCPD 8 * \1 + 7, \9
 ENDM
 
+MACRO SetDefaultBGP
+    SetBGP 0, $ff, $ff, $00, $00, $00, $00, $00, $00
+ENDM
+
 TestFailCGB:
     DisablePPU
-    SetBGP 0, $ff, $ff, $00, $00, $00, $00, $00, $00
+    SetDefaultBGP
     EnablePPU
     xor a
     ldh [rVBK], a
@@ -156,7 +160,7 @@ TestFailCGB:
 
 TestSuccessCGB:
     DisablePPU
-    SetBGP 0, $ff, $ff, $00, $00, $00, $00, $00, $00
+    SetDefaultBGP
     EnablePPU
     xor a
     ldh [rVBK], a
