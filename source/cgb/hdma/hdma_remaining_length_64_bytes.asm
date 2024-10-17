@@ -28,13 +28,8 @@ EntryPoint:
     ; Bit 7 = 1 (HBlank)
     ; Length = 64 bytes / $10 - 1 => 3
     ld a, $83
-StartDMA:
+
     ldh [rHDMA5], a
-
-    ; --- transfer happens here ---
-
-    Nops 48
-
     ldh a, [rHDMA5]
 
     cp $02

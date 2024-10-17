@@ -3,10 +3,13 @@ INCLUDE "common.inc"
 INCLUDE "cgb.inc"
 
 ; Perform a basic HDMA (HBlank) transfer.
-; Check that HDMA5 contains the remaining transfer length and its timing.
+; Check that the first chunk of bytes instantly transferred.
 
 EntryPoint:
     DisablePPU
+
+    ; Copy data to WRAM2
+    Memset $D000, $f0, 16
 
     ; Source address = D000
     ld a, $D0
@@ -26,18 +29,17 @@ EntryPoint:
     EnablePPU
 
     ; Bit 7 = 1 (HBlank)
-    ; Length = 64 bytes / $10 - 1 => 3
-    ld a, $83
-StartDMA:
+    ; Length = 16 bytes / $10 - 1 => 0
+    ld a, $80
     ldh [rHDMA5], a
 
-    ; --- transfer happens here ---
+    DisablePPU
 
-    Nops 48
+    ; Check that the first chunk of 16 bytes are transferred.
+    ld hl, $800f
+    ld a, [hl]
 
-    ldh a, [rHDMA5]
-
-    cp $02
+    cp $f0
     jp nz, TestFailCGB
 
     jp TestSuccessCGB

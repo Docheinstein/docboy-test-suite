@@ -5,6 +5,13 @@ INCLUDE "cgb.inc"
 ; Check write/read behavior of HDMA5 register.
 
 EntryPoint:
+    ; Dest address = 9000
+    ld a, $90
+    ldh [rHDMA3], a
+
+    ld a, $00
+    ldh [rHDMA4], a
+
     ; Write 00 -> Read FF
     ld a, $00
     ldh [rHDMA5], a

@@ -26,18 +26,13 @@ EntryPoint:
     EnablePPU
 
     ; Bit 7 = 1 (HBlank)
-    ; Length = 64 bytes / $10 - 1 => 3
-    ld a, $83
-StartDMA:
+    ; Length = 16 bytes / $10 - 1 => 0
+    ld a, $80
+
     ldh [rHDMA5], a
-
-    ; --- transfer happens here ---
-
-    Nops 48
-
     ldh a, [rHDMA5]
 
-    cp $02
+    cp $ff
     jp nz, TestFailCGB
 
     jp TestSuccessCGB
