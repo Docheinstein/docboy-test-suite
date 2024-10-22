@@ -35,7 +35,7 @@ REPT 90
 ENDR
 
     ; Check value of d008: we should read $42
-    Memtest $d008, $42
+    Memcheck $d008, $42
     jp nz, TestFail
 
     jp TestSuccess

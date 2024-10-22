@@ -25,18 +25,21 @@ EntryPoint:
     ; Enable PPU again
     EnablePPU
 
+    ; Skip glitched line 0
+    Nops 114
+
     ; Bit 7 = 1 (HBlank)
-    ; Length = 64 bytes / $10 - 1 => 3
-    ld a, $83
+    ; Length = 80 bytes / $10 - 1 => 4
+    ld a, $84
     ldh [rHDMA5], a
 
     ; --- transfer happens here ---
 
-    Nops 258
+    Nops 267
 
     ldh a, [rHDMA5]
 
-    cp $ff
+    cp $01
     jp nz, TestFailCGB
 
     jp TestSuccessCGB

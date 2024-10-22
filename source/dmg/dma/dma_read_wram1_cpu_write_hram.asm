@@ -35,7 +35,7 @@ REPT 90
 ENDR
 
     ; Check value of ff88: we should read 1
-    Memtest $ff88, $01
+    Memcheck $ff88, $01
     jp nz, TestFail
 
     jp TestSuccess

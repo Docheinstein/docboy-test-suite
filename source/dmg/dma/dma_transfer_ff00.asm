@@ -21,7 +21,7 @@ EntryPoint:
     call $ff80
 
     ; Read from df00: we should read 42
-    Memtest $df00, $42
+    Memcheck $df00, $42
     jp nz, TestFail
 
     jp TestSuccess

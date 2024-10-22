@@ -1,8 +1,6 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 INCLUDE "cgb.inc"
-INCLUDE "print.inc"
-INCLUDE "debug.inc"
 
 ; Perform a basic HDMA (General Purpose) transfer.
 ; Check the maximum amount of data that can be transferred ($800 bytes)

@@ -171,11 +171,44 @@ ENDM
 
 
 ; Args:
+; \1: first address
+; \2: value
+; \3: length
+; Output:
+; Z=0 if success
+MACRO Memtest
+    ld hl, \1 ; first address
+    ld b, \2  ; value
+    ld de, \3 ; length
+
+.loop\@
+    ; Compare one byte
+    ldi a, [hl]
+    cp b
+	jp nz, .fail\@
+
+	; Restart if DE != 0
+	dec de
+	ld a, d
+	or e
+	jp nz, .loop\@
+
+	xor a
+	jp .end\@
+
+.fail\@
+    xor a
+    inc a
+.end\@
+ENDM
+
+
+; Args:
 ; \1: address
 ; \2: expected value
 ; Output
 ; Z=0 if success
-MACRO Memtest
+MACRO Memcheck
     ld hl, \1 ; address
     ld b,  \2 ; expected value
 

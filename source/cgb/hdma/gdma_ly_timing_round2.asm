@@ -2,8 +2,8 @@ INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 INCLUDE "cgb.inc"
 
-; Perform a basic HDMA (HBlank) transfer.
-; Check that HDMA5 contains the remaining transfer length and its timing.
+; Perform a basic HDMA (General Purpose) transfer.
+; Check when LY changes.
 
 EntryPoint:
     DisablePPU
@@ -22,24 +22,24 @@ EntryPoint:
     ld a, $00
     ldh [rHDMA4], a
 
-    ; Enable PPU again
     EnablePPU
 
     ; Skip glitched line 0
     Nops 114
 
-    ; Bit 7 = 1 (HBlank)
-    ; Length = 80 bytes / $10 - 1 => 4
-    ld a, $84
+    ; Bit 7 = 0 (general purpose)
+    ; Length = 640 bytes / $10 - 1 => 39 = $27
+    ld a, $27
     ldh [rHDMA5], a
 
     ; --- transfer happens here ---
 
-    Nops 161
+    Nops 12
 
-    ldh a, [rHDMA5]
+    ldh a, [rLY]
 
-    cp $03
+    cp $04
     jp nz, TestFailCGB
 
     jp TestSuccessCGB
+

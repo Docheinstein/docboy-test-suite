@@ -25,19 +25,21 @@ EntryPoint:
     ; Enable PPU again
     EnablePPU
 
+    ; Skip glitched line 0
+    Nops 114
+
     ; Bit 7 = 1 (HBlank)
-    ; Length = 64 bytes / $10 - 1 => 3
-    ld a, $83
-StartDMA:
+    ; Length = 80 bytes / $10 - 1 => 4
+    ld a, $84
     ldh [rHDMA5], a
 
     ; --- transfer happens here ---
 
-    Nops 48
+    Nops 56
 
     ldh a, [rHDMA5]
 
-    cp $02
+    cp $04
     jp nz, TestFailCGB
 
     jp TestSuccessCGB

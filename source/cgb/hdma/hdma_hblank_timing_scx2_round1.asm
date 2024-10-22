@@ -3,9 +3,14 @@ INCLUDE "common.inc"
 INCLUDE "cgb.inc"
 
 ; Perform a basic HDMA (HBlank) transfer.
-; Check that HDMA5 contains the remaining transfer length and its timing.
+; Check when STAT contains HBLANK.
+; SCX=2
 
 EntryPoint:
+    ; Set SCX=2
+    ld a, $02
+    ldh [rSCX], a
+
     DisablePPU
 
     ; Source address = D000
@@ -25,6 +30,9 @@ EntryPoint:
     ; Enable PPU again
     EnablePPU
 
+    ; Skip glitched line 0
+    Nops 114
+
     ; Bit 7 = 1 (HBlank)
     ; Length = 64 bytes / $10 - 1 => 3
     ld a, $83
@@ -32,12 +40,11 @@ EntryPoint:
 
     ; --- transfer happens here ---
 
-    Nops 191
+    Nops 54
 
-    DisablePPU
-    ldh a, [rHDMA5]
+    ldh a, [rSTAT]
 
-    cp $00
+    cp $83
     jp nz, TestFailCGB
 
     jp TestSuccessCGB

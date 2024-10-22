@@ -3,13 +3,15 @@ INCLUDE "common.inc"
 INCLUDE "cgb.inc"
 
 ; Perform a basic HDMA (HBlank) transfer.
-; Check that the first chunk of bytes instantly transferred.
+; Check when STAT contains HBLANK.
+; SCX=3
 
 EntryPoint:
-    DisablePPU
+    ; Set SCX=3
+    ld a, $03
+    ldh [rSCX], a
 
-    ; Copy data to WRAM2
-    Memset $D000, $f0, 16
+    DisablePPU
 
     ; Source address = D000
     ld a, $D0
@@ -28,18 +30,21 @@ EntryPoint:
     ; Enable PPU again
     EnablePPU
 
+    ; Skip glitched line 0
+    Nops 114
+
     ; Bit 7 = 1 (HBlank)
-    ; Length = 16 bytes / $10 - 1 => 0
-    ld a, $80
+    ; Length = 64 bytes / $10 - 1 => 3
+    ld a, $83
     ldh [rHDMA5], a
 
-    DisablePPU
+    ; --- transfer happens here ---
 
-    ; Check that the first chunk of 16 bytes are transferred.
-    ld hl, $800f
-    ld a, [hl]
+    Nops 55
 
-    cp $f0
+    ldh a, [rSTAT]
+
+    cp $80
     jp nz, TestFailCGB
 
     jp TestSuccessCGB

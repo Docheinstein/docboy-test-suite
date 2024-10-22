@@ -3,7 +3,8 @@ INCLUDE "common.inc"
 INCLUDE "cgb.inc"
 
 ; Perform a basic HDMA (HBlank) transfer.
-; Check that HDMA5 contains the remaining transfer length and its timing.
+; Check that the length of the CPU instruction that is executing
+; while the CPU is stalled does not effect HDMA timing.
 
 EntryPoint:
     DisablePPU
@@ -22,6 +23,17 @@ EntryPoint:
     ld a, $00
     ldh [rHDMA4], a
 
+    ; Reset DIV
+    xor a
+    ldh [rDIV], a
+
+    ; Reset TIMA
+    ldh [rTIMA], a
+
+    ; Enable timer at 262KHZ Hz
+    ld a, TACF_START | TACF_262KHZ
+    ldh [rTAC], a
+
     ; Enable PPU again
     EnablePPU
 
@@ -29,17 +41,20 @@ EntryPoint:
     Nops 114
 
     ; Bit 7 = 1 (HBlank)
-    ; Length = 80 bytes / $10 - 1 => 4
-    ld a, $84
+    ; Length = 640 bytes / $10 - 1 => 39 = $27
+    ld a, $a7
     ldh [rHDMA5], a
 
     ; --- transfer happens here ---
 
-    Nops 161
+REPT 144 * 40
+    nop
+ENDR
 
-    ldh a, [rHDMA5]
+    Nops 0
 
-    cp $03
+    ldh a, [rTIMA]
+    cp $19
     jp nz, TestFailCGB
 
     jp TestSuccessCGB
