@@ -105,6 +105,12 @@ MACRO PutHex16
     PutHex8
 ENDM
 
+; Args:
+; \1: ascii character
+MACRO PrintChar
+    ld a, \1
+    PutChar
+ENDM
 
 ; Args
 ; \1: string address (00 terminated)
