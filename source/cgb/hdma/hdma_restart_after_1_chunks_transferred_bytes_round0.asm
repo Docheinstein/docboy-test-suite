@@ -2,7 +2,7 @@ INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 INCLUDE "cgb.inc"
 
-; Perform a basic HDMA (HBlank) transfer and restart it after 1 transferred chunk.
+; Perform a HDMA (HBlank) transfer and restart it after 1 transferred chunk.
 ; Check that the transfer continue to transfer the new amount of requested data to transfer.
 
 EntryPoint:
