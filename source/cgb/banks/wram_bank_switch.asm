@@ -41,8 +41,9 @@ EntryPoint:
     WriteWRAM $06, $77
     WriteWRAM $07, $88
 
-    ExpectWRAM $00, $11
-    ExpectWRAM $01, $22
+    ExpectWRAM $00, $22 ; }
+                        ; } -> Maps to the same WRAM bank
+    ExpectWRAM $01, $22 ; }
     ExpectWRAM $02, $33
     ExpectWRAM $03, $44
     ExpectWRAM $04, $55
