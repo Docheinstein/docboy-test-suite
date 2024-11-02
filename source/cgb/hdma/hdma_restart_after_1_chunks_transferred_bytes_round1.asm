@@ -54,8 +54,6 @@ EntryPoint:
     ; Disable PPU
     DisablePPU
 
-    ; DumpMemoryCGB $8000, $60
-
     ; Only one chunk should have been transferred.
     Memcmp $8000, VramData, VramDataEnd1 - VramData
     jp nz, TestFailCGB
