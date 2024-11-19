@@ -83,7 +83,8 @@ MACRO DumpMemoryCGB
 	push de
 	jp nz, .loop\@
 
-    EnablePPU
+	ld a, LCDCF_ON | LCDCF_BGON
+	ldh [rLCDC], a
 
     ; HALT forever.
     HaltForever
