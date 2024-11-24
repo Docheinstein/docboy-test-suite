@@ -26,7 +26,7 @@ EntryPoint:
     ldh [rHDMA4], a
 
     ; Bit 7 = 0 (general purpose)
-    ; Length = 64 bytes / $10 - 1 => 1
+    ; Length = 64 bytes / $10 - 1 => 3
     ld a, $03
     ldh [rHDMA5], a
 
