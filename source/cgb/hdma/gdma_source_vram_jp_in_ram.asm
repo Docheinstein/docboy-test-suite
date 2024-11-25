@@ -1,15 +1,23 @@
+;! MBC_TYPE=2
+;! RAM_SIZE=3
+
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 INCLUDE "cgb.inc"
 
-; Perform a HDMA (General Purpose) transfer while executing from HRAM using VRAM as source.
+; Perform a HDMA (General Purpose) transfer while executing from HRAM using Cartridge RAM as source.
 ; HDMA should read FF instead of real data.
 
 EntryPoint:
     DisablePPU
 
-    ; Copy the code to HRAM (ff80)
-    Memcpy $ff80, Code, CodeEnd - Code
+    ; Enable Cartridge RAM
+    ld hl, $0000
+    ld a, $0A
+    ld [hl], a
+
+    ; Copy the code to RAM (A400)
+    Memcpy $A400, Code, CodeEnd - Code
 
     ; Set VRAM data
     Memset $8400, $cd, $80
@@ -30,18 +38,24 @@ EntryPoint:
     ld a, $00
     ldh [rHDMA4], a
 
-    ; Jump to code in HRAM
-    call $ff80
+    ; Jump to code in RAM
+    ld hl, $A400
+    jp hl
+
+Return:
 
     ; --- transfer happens here ---
 
     DisablePPU
 
-    ; The transferred data shouldn't have a corrupted
-    ; byte at the beginning of the first chunk since we
-    ; were reading from cpu bus, not ext bus.
+    ; The transferred data should have a corrupted
+    ; byte at the beginning of the first chunk.
+    ld hl, $8400
+    ld a, [hl]
+    cp $ff
+    jp z, TestFailCGB
 
-    Memcmp $8400, ExpectedVramData, ExpectedVramDataEnd - ExpectedVramData
+    Memcmp $8401, ExpectedVramData, ExpectedVramDataEnd - ExpectedVramData
     jp nz, TestFailCGB
 
     jp TestSuccessCGB
@@ -53,7 +67,7 @@ Code:
     ld a, $03
     ldh [rHDMA5], a
     nop
-    ret
+    jp Return
 CodeEnd:
 
 VramData:
@@ -68,7 +82,7 @@ VramData:
 VramDataEnd:
 
 ExpectedVramData:
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db      $ff, $ff, $ff, $ff, $ff, $ff, $ff
     db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
     db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
     db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff

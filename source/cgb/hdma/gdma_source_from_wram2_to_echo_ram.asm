@@ -2,36 +2,40 @@ INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 INCLUDE "cgb.inc"
 
-; Perform a HDMA (General Purpose) transfer while executing from HRAM using VRAM as source.
-; HDMA should read FF instead of real data.
+; Perform a HDMA (General Purpose) transfer using end of WRAM2 as source.
+; HDMA should read real data until cursor is within WRAM2,
+; then it should correctly read FF from when cursor is outside a valid address range.
 
 EntryPoint:
     DisablePPU
 
-    ; Copy the code to HRAM (ff80)
-    Memcpy $ff80, Code, CodeEnd - Code
+    ; Set WRAM1 data
+    Memset $C000, $ab, $80
 
     ; Set VRAM data
-    Memset $8400, $cd, $80
+    Memset $8000, $cd, $80
 
-    Memcpy $8000, VramData, VramDataEnd - VramData
+    ; Set WRAM2 data
+    Memcpy $DFE0, Data, DataEnd - Data
 
-    ; Source address = 8000
-    ld a, $80
+    ; Source address = dfe0
+    ld a, $df
     ldh [rHDMA1], a
 
-    ld a, $00
+    ld a, $e0
     ldh [rHDMA2], a
 
-    ; Dest address = 8400
-    ld a, $84
+    ; Dest address = 8000
+    ld a, $80
     ldh [rHDMA3], a
 
     ld a, $00
     ldh [rHDMA4], a
 
-    ; Jump to code in HRAM
-    call $ff80
+    ; Bit 7 = 0 (general purpose)
+    ; Length = 80 bytes / $10 - 1 => 4
+    ld a, $04
+    ldh [rHDMA5], a
 
     ; --- transfer happens here ---
 
@@ -39,37 +43,25 @@ EntryPoint:
 
     ; The transferred data shouldn't have a corrupted
     ; byte at the beginning of the first chunk since we
-    ; were reading from cpu bus, not ext bus.
+    ; were reading from wram bus, not ext bus.
 
-    Memcmp $8400, ExpectedVramData, ExpectedVramDataEnd - ExpectedVramData
+    Memcmp $8000, ExpectedVramData, ExpectedVramDataEnd - ExpectedVramData
     jp nz, TestFailCGB
 
     jp TestSuccessCGB
 
-
-Code:
-    ; Bit 7 = 0 (general purpose)
-    ; Length = 64 bytes / $10 - 1 => 3
-    ld a, $03
-    ldh [rHDMA5], a
-    nop
-    ret
-CodeEnd:
-
-VramData:
+Data:
     db $00, $11, $22, $33, $44, $55, $66, $77
     db $88, $99, $aa, $bb, $cc, $dd, $ee, $ff
     db $11, $22, $33, $44, $55, $66, $77, $88
     db $99, $aa, $bb, $cc, $dd, $ee, $ff, $00
-    db $22, $33, $44, $55, $66, $77, $88, $99
-    db $aa, $bb, $cc, $dd, $ee, $ff, $00, $11
-    db $33, $44, $55, $66, $77, $88, $99, $aa
-    db $bb, $cc, $dd, $ee, $ff, $00, $11, $22
-VramDataEnd:
+DataEnd:
 
 ExpectedVramData:
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $00, $11, $22, $33, $44, $55, $66, $77
+    db $88, $99, $aa, $bb, $cc, $dd, $ee, $ff
+    db $11, $22, $33, $44, $55, $66, $77, $88
+    db $99, $aa, $bb, $cc, $dd, $ee, $ff, $00
     db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
     db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
     db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff

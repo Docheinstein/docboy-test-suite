@@ -12,7 +12,6 @@ EntryPoint:
     Memcpy $ff80, Code, CodeEnd - Code
 
     ; Set VRAM data
-    Memset $8000, $ab, $80
     Memset $8400, $cd, $80
 
     Memcpy $8000, VramData, VramDataEnd - VramData

@@ -2,14 +2,14 @@ INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 INCLUDE "cgb.inc"
 
-; Perform a HDMA (General Purpose) transfer while executing from HRAM using VRAM as source.
+; Perform a HDMA (General Purpose) transfer while executing from HRAM using WRAM1 as source.
 ; HDMA should read FF instead of real data.
 
 EntryPoint:
     DisablePPU
 
-    ; Copy the code to HRAM (ff80)
-    Memcpy $ff80, Code, CodeEnd - Code
+    ; Copy the code to WRAM1 (C400)
+    Memcpy $C400, Code, CodeEnd - Code
 
     ; Set VRAM data
     Memset $8400, $cd, $80
@@ -30,8 +30,11 @@ EntryPoint:
     ld a, $00
     ldh [rHDMA4], a
 
-    ; Jump to code in HRAM
-    call $ff80
+    ; Jump to code in WRAM1
+    ld hl, $C400
+    jp hl
+
+Return:
 
     ; --- transfer happens here ---
 
@@ -39,7 +42,7 @@ EntryPoint:
 
     ; The transferred data shouldn't have a corrupted
     ; byte at the beginning of the first chunk since we
-    ; were reading from cpu bus, not ext bus.
+    ; were reading from wram bus, not ext bus.
 
     Memcmp $8400, ExpectedVramData, ExpectedVramDataEnd - ExpectedVramData
     jp nz, TestFailCGB
@@ -53,7 +56,7 @@ Code:
     ld a, $03
     ldh [rHDMA5], a
     nop
-    ret
+    jp Return
 CodeEnd:
 
 VramData:
