@@ -1,8 +1,6 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 INCLUDE "cgb.inc"
-INCLUDE "print.inc"
-INCLUDE "debugcgb.inc"
 
 ; Perform a HDMA (HBlank) transfer using VRAM as source.
 ; HDMA should read FF instead of real data.
