@@ -1,78 +1,75 @@
-;! MBC_TYPE=2
-;! RAM_SIZE=3
-
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 
-; Check DMA conflicts for:
-;
-; DMA source  : RAM  (a000) [ext bus] -+
-; DMA dest    : OAM  (fe00) [oam bus]  |
-; CPU routine : HRAM (ff80) [cpu bus]  |
-; CPU read    : WRAM (c000) [ext bus] -+
-;
-; CPU should read the data read by DMA instead.
+; When DMA is running, STAT mode is 0 eitehr in HBlank or in OAM scan.
+; This change shouldn't affect interrupts.
 
 EntryPoint:
     DisablePPU
 
-    ; Enable Cartridge RAM
-    ld hl, $0000
-    ld a, $0A
-    ld [hl], a
+    ; Copy some data to DMA source (VRAM : 8000)
+    Memcpy $8000, Data, DataEnd - Data
 
-    ; Copy DMA source data
-    Memcpy $a000, DmaSourceData, DmaSourceDataEnd - DmaSourceData
-
-    ; Copy DMA transfer routine
+    ; Copy the DMA transfer routine to HRAM (ff80)
     Memcpy $ff80, DmaTransferRoutine, DmaTransferRoutineEnd - DmaTransferRoutine
 
-    ; Set some data where CPU will read from
-    ld hl, $c000
-    ld a, $aa
-    ld [hl], a
+    ; Enable HBlank interrupt
+    ld a, STATF_MODE00
+    ldh [rSTAT], a
 
-    ; Reset DE and HL
-    ld de, $00
-    ld hl, $00
+    ; Reset DIV
+    xor a
+    ldh [rDIV], a
+
+    ; Reset TIMA
+    ldh [rTIMA], a
+
+    ; Enable timer at 262KHZ Hz
+    ld a, TACF_START | TACF_262KHZ
+    ldh [rTAC], a
+
+    ld b, $00
+
+    EnablePPU
+
+    ld a, IEF_STAT
+    ldh [rIE], a
+
+    ; Skip glitched line 0
+    ; Go to Oam Scan of line 1
+    Nops 108
+
+    ; Enable STAT interrupt
+    xor a
+    ldh [rIF], a
+
+    ; Enable interrupts
+    ei
 
     ; Jump to DMA transfer routine
     call $ff80
 
-    ; Check result
-    ld a, $2c
+    ld a, $30
     cp b
-
     jp nz, TestFail
+
     jp TestSuccess
 
-
 DmaTransferRoutine:
-    xor a ; af
-
-    ; Start DMA
-    ld a, $a0
+    ; Start DMA with source WRAM1 (c000)
+    ld a, $80
     ldh [rDMA], a
-
-    Nops 4
-
-    ; Try to read
-    ld hl, $c000
-    ld a, [hl]
-    ld b, a
 
     ; Wait until the end of DMA
     ld a, 40
 .dmaloop
     dec a
     jr nz, .dmaloop
-
     ret
 DmaTransferRoutineEnd:
 
 
-DmaSourceData:
-    ; INC H, INC L, ...
+Data:
     db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C
     db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C
     db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C
@@ -83,4 +80,9 @@ DmaSourceData:
     db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C
     db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C
     db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C
-DmaSourceDataEnd:
+DataEnd:
+
+SECTION "STAT handler", ROM0[$48]
+    ld a, [rTIMA]
+    ld b, a
+    ret

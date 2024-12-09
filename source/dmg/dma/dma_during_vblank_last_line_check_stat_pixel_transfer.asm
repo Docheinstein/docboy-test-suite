@@ -1,52 +1,49 @@
-;! MBC_TYPE=2
-;! RAM_SIZE=3
-
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 
-; Check DMA conflicts for:
-;
-; DMA source  : WRAM (c000) [ext bus]
-; DMA dest    : OAM  (fe00) [oam bus]
-; CPU routine : VRAM (9000) [vram bus]
-; CPU read    : HRAM (ff80) [cpu bus]
-;
-; There should be no conflicts.
+; When DMA is running, STAT mode is 0 eitehr in HBlank or in OAM scan.
+; This change shouldn't affect interrupts.
 
 EntryPoint:
     DisablePPU
 
-    ; Enable Cartridge RAM
-    ld hl, $0000
-    ld a, $0A
-    ld [hl], a
+    ; Set LYC=66
+    ld a, $66
+    ldh [rLYC], a
 
-    ; Copy CPU code
-    Memcpy $9000, Code, CodeEnd - Code
+    ; Copy some data to DMA source (WRAM1 : c000)
+    Memcpy $c000, Data, DataEnd - Data
 
-    ; Copy DMA source data
-    Memcpy $c000, DmaSourceData, DmaSourceDataEnd - DmaSourceData
+    ; Copy the DMA transfer routine to HRAM (ff80)
+    Memcpy $ff80, DmaTransferRoutine, DmaTransferRoutineEnd - DmaTransferRoutine
 
-    ; Set some data where CPU will read from
-    ld hl, $ff80
-    ld a, $aa
-    ld [hl], a
+    EnablePPU
 
-    ; Jump to CPU code
-    call $9000
+    WaitVBlank
 
-Code:
-    ; Reset DE and HL
-    ld de, $00
-    ld hl, $00
+    Nops 1116
 
-    ; Start DMA
+    ; Jump to DMA transfer routine
+    call $ff80
+
+    ld a, $83
+    cp b
+    jp nz, TestFail
+
+    jp TestSuccess
+
+DmaTransferRoutine:
+    ; Start DMA with source WRAM1 (c000)
     ld a, $c0
     ldh [rDMA], a
 
-    ; Try to read
-    ld hl, $ff80
-    ld a, [hl]
+    ; Wait Pixel Transfer
+    ld a, 8
+.waitloop
+    dec a
+    jr nz, .waitloop
+
+    ld a, [rSTAT]
     ld b, a
 
     ; Wait until the end of DMA
@@ -54,18 +51,11 @@ Code:
 .dmaloop
     dec a
     jr nz, .dmaloop
-
-    ; Check result
-    ld a, $aa
-    cp b
-
-    jp nz, TestFail
-    jp TestSuccess
-CodeEnd:
+    ret
+DmaTransferRoutineEnd:
 
 
-DmaSourceData:
-    ; INC H, INC L, ...
+Data:
     db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C
     db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C
     db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C
@@ -76,4 +66,4 @@ DmaSourceData:
     db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C
     db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C
     db $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C, $24, $2C
-DmaSourceDataEnd:
+DataEnd:
