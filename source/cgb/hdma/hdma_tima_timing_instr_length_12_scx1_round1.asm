@@ -2,8 +2,6 @@ INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 INCLUDE "cgb.inc"
 INCLUDE "apu.inc"
-INCLUDE "print.inc"
-INCLUDE "debugcgb.inc"
 
 ; Perform a basic HDMA (HBlank) transfer.
 ; Check that the length of the CPU instruction that is executing
