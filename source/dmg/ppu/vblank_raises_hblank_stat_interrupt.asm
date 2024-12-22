@@ -11,7 +11,7 @@ EntryPoint:
     ld a, IEF_STAT
     ldh [rIE], a
 
-    ; Enable VBLANK interrupt
+    ; Enable HBLANK interrupt
     ld a, STATF_MODE00
     ldh [rSTAT], a
 
