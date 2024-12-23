@@ -9,7 +9,7 @@ EntryPoint:
 
     LongWait 152 * 114 + 109
 
-    ; Read LY: it should read LY=152
+    ; Read LY: it should read 152
     ldh a, [rLY]
     cp $98
     jp nz, TestFail

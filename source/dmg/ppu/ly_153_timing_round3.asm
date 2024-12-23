@@ -7,10 +7,10 @@ INCLUDE "common.inc"
 EntryPoint:
     ResetPPU
 
-    LongWait 152 * 114 + 110
+    LongWait 152 * 114 + 111
 
-    ; Read LY: it should read LY=153
+    ; Read LY: it should read 0
     ldh a, [rLY]
-    cp $99
+    cp $00
     jp nz, TestFail
     jp TestSuccess

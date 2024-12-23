@@ -1,15 +1,22 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 
-; Check precise timing of LYC_EQ_LY for LY=LYC=0 for last scanline.
+; Check precise timing of LYC_EQ_LY for LYC=152 and LY=152.
 
 EntryPoint:
-    ResetPPU
+    DisablePPU
 
-    LongWait 152 * 114 + 112
+    ; Set LYC=152
+    ld a, $98
+    ldh [rLYC], a
+
+    EnablePPU
+
+    LongWait 151 * 114 + 110
 
     ; Read LYC_EQ_LY from stat: it should be 0
     ldh a, [rSTAT]
     cp $81
+
     jp nz, TestFail
     jp TestSuccess
