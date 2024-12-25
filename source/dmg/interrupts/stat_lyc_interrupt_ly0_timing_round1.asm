@@ -1,14 +1,14 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 
-; Check the timing of LYC_EQ_LY STAT's interrupt for LY=LYC=8.
+; Check the timing of LYC_EQ_LY STAT's interrupt for LY=LYC=0.
 
 EntryPoint:
     ResetPPU
 
     LongWait 152 * 114
 
-    ; Write LYC=8
+    ; Write LYC=0
     xor a
     ldh [rLYC], a
 

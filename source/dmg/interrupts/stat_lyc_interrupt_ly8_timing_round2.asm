@@ -1,7 +1,5 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
-INCLUDE "print.inc"
-INCLUDE "debug.inc"
 
 ; Check the timing of LYC_EQ_LY STAT's interrupt for LY=LYC=8.
 

@@ -1,9 +1,11 @@
 INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 
-; STAT interrupt with OAM mode should be triggered at dot 454.
+; Check the timing of STAT's interrupt with OAM interrupt enabled.
 
 EntryPoint:
+    Nops 114
+
     ; Reset IF
     xor a
     ldh [rIF], a
@@ -16,16 +18,13 @@ EntryPoint:
     ld a, STATF_MODE10
     ldh [rSTAT], a
 
-    ; 107 nops should be enough for IF to be set
-    Nops 107
+    ; 106 nops should not be enough for IF to be set
+    Nops 106
 
     ; Read IF
     ldh a, [rIF]
-    ld b, a
+    cp $e0
 
-    ; Check result
-    ld a, $e2
-    cp b
     jp nz, TestFail
 
     jp TestSuccess
