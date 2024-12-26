@@ -5,6 +5,8 @@ INCLUDE "common.inc"
 ; It should NOT raise a STAT interrupt.
 
 EntryPoint:
+    Nops 114
+
     ; Reset interrupts
     xor a
     ldh [rIE], a

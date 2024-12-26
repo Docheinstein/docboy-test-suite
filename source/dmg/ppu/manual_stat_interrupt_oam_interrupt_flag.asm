@@ -5,6 +5,8 @@ INCLUDE "common.inc"
 ; It should NOT set the IF's STAT flag.
 
 EntryPoint:
+    Nops 114
+
     ; Reset interrupts
     xor a
     ldh [rIE], a

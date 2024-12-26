@@ -4,6 +4,8 @@ INCLUDE "common.inc"
 ; Check how much it takes to react to a stat interrupt while halted with SCX=1.
 
 EntryPoint:
+    Nops 114
+
     ; Write SCX=0
     ld a, $01
     ldh [rSCX], a

@@ -5,8 +5,10 @@ INCLUDE "hardware.inc"
 INCLUDE "common.inc"
 INCLUDE "cgb.inc"
 INCLUDE "apu.inc"
+INCLUDE "print.inc"
+INCLUDE "debugcgb.inc"
 
-; Check what happens when both HDMA and DMA run together.
+; Check whether starting DMA during OAM Scan makes HDMA start immediately.
 ;
 ; DMA source  : RAM   (a000) [ext bus]
 ; DMA dest    : OAM   (fe00) [oam bus]
@@ -52,23 +54,30 @@ EntryPoint:
     ; Copy the DMA transfer routine
     Memcpy $ff80, DmaTransferRoutine, DmaTransferRoutineEnd - DmaTransferRoutine
 
+    ; Reset DIV
+    xor a
+    ldh [rDIV], a
+
+    ; Reset TIMA
+    ldh [rTIMA], a
+
+    ; Enable timer at 262KHZ Hz
+    ld a, TACF_START | TACF_262KHZ
+    ldh [rTAC], a
+
     ; Enable PPU
     EnablePPU
 
     ; Skip glitched line 0
-    ; Go to HBlank of line 1
-     Nops 170
+    ; Go to OAM Scan of line 1
+     Nops 106
 
     ; Jump to DMA transfer routine
     call $ff80
 
-    ; Disable PPU
-    DisablePPU
+    ld a, b
+    cp $23
 
-    Memcmp $8000, ExpectedHdmaData, ExpectedHdmaDataEnd - ExpectedHdmaData
-    jp nz, TestFailCGB
-
-    Memcmp $fe00, ExpectedDmaData, ExpectedDmaDataEnd - ExpectedDmaData
     jp nz, TestFailCGB
 
     jp TestSuccessCGB
@@ -84,6 +93,9 @@ DmaTransferRoutine:
     ; Length = 32 bytes / $10 - 1 => 1
     ld a, $81
     ldh [rHDMA5], a
+
+    ld a, [rTIMA]
+    ld b, a
 
     ; Wait until the end of DMA
     ld a, 255

@@ -4,6 +4,8 @@ INCLUDE "common.inc"
 ; Check how much it takes to react to a stat interrupt while in busy loop with SCX=3.
 
 EntryPoint:
+    Nops 114
+
     ; Write SCX=0
     ld a, $03
     ldh [rSCX], a

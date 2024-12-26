@@ -4,6 +4,8 @@ INCLUDE "common.inc"
 ; STAT interrupt with HBLANK mode should be triggered by entering HBLANK.
 
 EntryPoint:
+    Nops 114
+
     ; Reset IF
     xor a
     ldh [rIF], a
@@ -12,12 +14,12 @@ EntryPoint:
     ld a, IEF_STAT
     ldh [rIE], a
 
+    ; Go ahead of OAM scan
+    Nops 20
+
     ; Enable HBLANK interrupt
     ld a, STATF_MODE00
     ldh [rSTAT], a
-
-    ; Go ahead of OAM scan
-    Nops 20
 
     ; Enable interrupts
     ei
