@@ -25,7 +25,7 @@ roms/dmg/%.o: source/dmg/%.asm $(INCLUDES)
 
 roms/dmg/%.gb: roms/dmg/%.o
 	mkdir -p $(shell dirname $(@:roms/%.gb=symbols/%.sym))
-	rgblink -o $@ -n $(@:roms/%.gb=symbols/%.sym) $<
+	rgblink -t -o $@ -n $(@:roms/%.gb=symbols/%.sym) $<
 	rgbfix -jv $@ --ram-size $(RAM_SIZE) --mbc-type $(MBC_TYPE) --title "DOCTEST" -p 255
 
 # === CGB ===
@@ -42,7 +42,7 @@ roms/cgb/%.o: source/cgb/%.asm $(INCLUDES)
 
 roms/cgb/%.gbc: roms/cgb/%.o
 	mkdir -p $(shell dirname $(@:roms/%.gbc=symbols/%.sym))
-	rgblink -o $@ -n $(@:roms/%.gbc=symbols/%.sym) $<
+	rgblink -t -o $@ -n $(@:roms/%.gbc=symbols/%.sym) $<
 	rgbfix -jv $@ --ram-size $(RAM_SIZE) --mbc-type $(MBC_TYPE) --title "DOCTEST" -p 255 -c
 
 # === CGB Compatibilty Mode ===
@@ -62,7 +62,7 @@ roms/cgb_dmg_mode/%.o: source/cgb_dmg_mode/%.asm $(INCLUDES)
 
 roms/cgb_dmg_mode/%.gb: roms/cgb_dmg_mode/%.o
 	mkdir -p $(shell dirname $(@:roms/%.gb=symbols/%.sym))
-	rgblink -o $@ -n $(@:roms/%.gb=symbols/%.sym) $<
+	rgblink -t -o $@ -n $(@:roms/%.gb=symbols/%.sym) $<
 	rgbfix -jv $@ --ram-size $(RAM_SIZE) --mbc-type $(MBC_TYPE) --title $(TITLE) -p 255
 
 
