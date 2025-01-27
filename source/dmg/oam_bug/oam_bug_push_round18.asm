@@ -16,7 +16,7 @@ EntryPoint:
 
 	Nops 18
 	
-    ; Write something to OAM (FE00)
+    ; Write something to OAM
     ld bc, $6677
     ld sp, $fe61
     push bc
