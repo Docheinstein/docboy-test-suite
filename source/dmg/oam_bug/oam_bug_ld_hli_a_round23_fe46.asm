@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check the OAM corruption pattern for a specific combination of instruction and CPU/PPU timing.
 
@@ -24,8 +23,6 @@ EntryPoint:
 
     ; Disable PPU to read OAM safely
     DisablePPU
-
-    ;: DumpMemoryInteractive $fe00
 
     ; Compare OAM
     Memcmp $fe00, ExpectedData, ExpectedDataEnd - ExpectedData

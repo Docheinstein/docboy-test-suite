@@ -1,10 +1,11 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check the timing of STAT interrupt flag with LYC_EQ_LY.
 
 EntryPoint:
-    ResetPPU
+    ; Reset PPU
+    DisablePPU
+    EnablePPU
 
     ; Reset IF
     xor a

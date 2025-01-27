@@ -1,10 +1,11 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check how much it takes to react to a stat interrupt of OAM mode while in busy loop with SCX=0.
 
 EntryPoint:
-    ResetPPU
+    ; Reset PPU
+    DisablePPU
+    EnablePPU
 
     ; Go to next line past OAM Scan
     Nops 150

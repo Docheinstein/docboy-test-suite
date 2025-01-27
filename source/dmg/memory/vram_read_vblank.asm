@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Reading from VRAM during HBlank should read data correctly.
 

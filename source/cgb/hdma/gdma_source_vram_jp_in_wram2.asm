@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a HDMA (General Purpose) transfer while executing from WRAM2 using VRAM as source.
 ; HDMA should read FF instead of real data.
@@ -45,9 +43,9 @@ Return:
     ; were reading from wram bus, not ext bus.
 
     Memcmp $8400, ExpectedVramData, ExpectedVramDataEnd - ExpectedVramData
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 
 Code:

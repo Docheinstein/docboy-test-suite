@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check the timing of HDMA trigger with different SCX and delays.
 ; HDMA start should be postponed to the end of the current instruction.
@@ -65,6 +63,6 @@ EntryPoint:
     ld c, a
     ld a, $2e
     cp c
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess

@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Reading from VRAM with PPU off should read data correctly.
 
@@ -16,5 +14,5 @@ EntryPoint:
     ld a, [hl]
     cp $12
 
-    jp nz, TestFailCGB
-    jp TestSuccessCGB
+    jp nz, TestFail
+    jp TestSuccess

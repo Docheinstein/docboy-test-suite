@@ -1,42 +1,40 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check the CPU registers at boot time.
 
 EntryPoint:
     ; A
     cp $11
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     ; B
     ld a, $00
     cp b
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     ; C
     ld a, $00
     cp c
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     ; D
     ld a, $FF
     cp d
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     ; E
     ld a, $56
     cp e
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     ; H
     ld a, $00
     cp h
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     ; L
     ld a, $0D
     cp l
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess

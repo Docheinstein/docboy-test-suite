@@ -1,10 +1,7 @@
 ;! MBC_TYPE=16
 ;! RAM_SIZE=3
 
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "dma.inc"
-INCLUDE "rtc.inc"
+INCLUDE "docboy.inc"
 
 ; With RTC disabled, write to a RTC register and read the value back.
 ; It should read the old value, not the new one.

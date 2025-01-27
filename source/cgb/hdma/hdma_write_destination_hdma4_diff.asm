@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a HDMA (HBlank) transfer and change destination after 1 transferred chunk.
 ; Write a different HDMA4.
@@ -61,15 +59,15 @@ EntryPoint:
 
     ; 3 chunk should have been transferred to 8000 from D010
     Memcmp $8000, VramData + $10, $30
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     Memtest $8030, $ab, $30
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     Memtest $8400, $cd, $60
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 VramData:
     db $00, $11, $22, $33, $44, $55, $66, $77

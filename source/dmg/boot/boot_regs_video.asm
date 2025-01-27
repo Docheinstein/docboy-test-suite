@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check the Video registers at boot time.
 

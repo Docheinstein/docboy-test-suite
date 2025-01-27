@@ -1,8 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
-INCLUDE "dma.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check that if OBJP is written and read, it yields the same result
 ; for the first 7 bytes, while the last byte remains as it was.
@@ -29,4 +25,4 @@ EntryPoint:
     SetAndCheckOBJP 6
     SetAndCheckOBJP 7
 
-    jp TestSuccessCGB
+    jp TestSuccess

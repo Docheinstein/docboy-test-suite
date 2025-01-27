@@ -1,7 +1,5 @@
 
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
+INCLUDE "docboy.inc"
 
 ; Set WY=12, wait for line 11 than change WY 16 and restore it to 12 later.
 
@@ -22,7 +20,8 @@ EntryPoint:
     ldh [rWY], a
 
     ; Reset VRAM
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Set Window VRAM data
     Memcpy $9010, WindowVramTileData, WindowVramTileDataEnd - WindowVramTileData

@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a HDMA (General Purpose) transfer using VRAM as source.
 ; HDMA should read FF instead of real data.
@@ -43,12 +41,12 @@ EntryPoint:
     ld hl, $8400
     ld a, [hl]
     cp $ff
-    jp z, TestFailCGB
+    jp z, TestFail
 
     Memcmp $8401, ExpectedVramData, ExpectedVramDataEnd - ExpectedVramData
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 VramData:
     db $00, $11, $22, $33, $44, $55, $66, $77

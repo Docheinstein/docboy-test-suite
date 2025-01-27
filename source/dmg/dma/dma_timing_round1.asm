@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check the DMA timing by reading to OAM.
 ; It should read FF while DMA is transferring.

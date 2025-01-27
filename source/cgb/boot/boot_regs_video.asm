@@ -1,13 +1,11 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check the Video registers at boot time.
 
 MACRO Expect
     ldh a, [\1]
     cp \2
-    jp nz, TestFailCGB
+    jp nz, TestFail
 ENDM
 
 EntryPoint:
@@ -24,4 +22,4 @@ EntryPoint:
     Expect rWY, $00
     Expect rWX, $00
 
-    jp TestSuccessCGB
+    jp TestSuccess

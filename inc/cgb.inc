@@ -1,3 +1,15 @@
+DEF CGB = 1
+
+; Args:
+; \1: palette number
+; \2: color 0 upper byte
+; \3: color 0 lower byte
+; \4: color 1 upper byte
+; \5: color 1 lower byte
+; \6: color 2 upper byte
+; \7: color 2 lower byte
+; \8: color 3 upper byte
+; \9: color 3 lower byte
 MACRO SetBGP
     ; Color 0
     ld a, 8 * \1
@@ -52,15 +64,28 @@ MACRO SetBGP
     ldh [rBCPD], a
 ENDM
 
+; Args:
+; \1: palette address
+; \2: expected value
 MACRO CheckBCPD
     ld a, \1
     ldh [rBCPS], a
     ldh a, [rBCPD]
 
     cp \2
-    jp nz, TestFailCGB
+    jp nz, TestFail
 ENDM
 
+; Args:
+; \1: palette number
+; \2: color 0 upper byte
+; \3: color 0 lower byte
+; \4: color 1 upper byte
+; \5: color 1 lower byte
+; \6: color 2 upper byte
+; \7: color 2 lower byte
+; \8: color 3 upper byte
+; \9: color 3 lower byte
 MACRO CheckBGP
     CheckBCPD 8 * \1,     \2
     CheckBCPD 8 * \1 + 1, \3
@@ -72,6 +97,16 @@ MACRO CheckBGP
     CheckBCPD 8 * \1 + 7, \9
 ENDM
 
+; Args:
+; \1: palette number
+; \2: color 0 upper byte
+; \3: color 0 lower byte
+; \4: color 1 upper byte
+; \5: color 1 lower byte
+; \6: color 2 upper byte
+; \7: color 2 lower byte
+; \8: color 3 upper byte
+; \9: color 3 lower byte
 MACRO SetOBJP
     ; Color 0
     ld a, 8 * \1
@@ -126,15 +161,28 @@ MACRO SetOBJP
     ldh [rOCPD], a
 ENDM
 
+; Args:
+; \1: palette address
+; \2: expected value
 MACRO CheckOCPD
     ld a, \1
     ldh [rOCPS], a
     ldh a, [rOCPD]
 
     cp \2
-    jp nz, TestFailCGB
+    jp nz, TestFail
 ENDM
 
+; Args:
+; \1: palette number
+; \2: color 0 upper byte
+; \3: color 0 lower byte
+; \4: color 1 upper byte
+; \5: color 1 lower byte
+; \6: color 2 upper byte
+; \7: color 2 lower byte
+; \8: color 3 upper byte
+; \9: color 3 lower byte
 MACRO CheckOBJP
     CheckOCPD 8 * \1,     \2
     CheckOCPD 8 * \1 + 1, \3
@@ -149,19 +197,3 @@ ENDM
 MACRO SetDefaultBGP
     SetBGP 0, $ff, $ff, $00, $00, $00, $00, $00, $00
 ENDM
-
-TestFailCGB:
-    DisablePPU
-    SetDefaultBGP
-    EnablePPU
-    xor a
-    ldh [rVBK], a
-    jp TestFail
-
-TestSuccessCGB:
-    DisablePPU
-    SetDefaultBGP
-    EnablePPU
-    xor a
-    ldh [rVBK], a
-    jp TestSuccess

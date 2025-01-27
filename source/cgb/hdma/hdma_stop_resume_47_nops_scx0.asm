@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a HDMA (HBlank) transfer but STOPs before transfer can start.
 ; HDMA should be stopped during STOP.
@@ -62,12 +60,12 @@ EntryPoint:
 
     ; Either one or two chunks are transferred.
     Memcmp $8000, ExpectedVramDataA, ExpectedVramDataAEnd - ExpectedVramDataA
-    jp TestSuccessCGB
+    jp TestSuccess
 
     Memcmp $8000, ExpectedVramDataB, ExpectedVramDataBEnd - ExpectedVramDataB
-    jp TestSuccessCGB
+    jp TestSuccess
 
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
 VramData:
     db $00, $11, $22, $33, $44, $55, $66, $77

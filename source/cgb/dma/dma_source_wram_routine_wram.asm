@@ -1,11 +1,7 @@
 ;! MBC_TYPE=2
 ;! RAM_SIZE=3
 
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
-INCLUDE "print.inc"
-INCLUDE "debug.inc"
+INCLUDE "docboy.inc"
 
 ; Check DMA conflicts for:
 ;
@@ -51,17 +47,17 @@ ENDR
     ; Check result
     ld a, $0a
     cp d
-    jp nz, TestFailCGB
+    jp nz, TestFail
     cp e
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     ld a, $50
     cp h
-    jp nz, TestFailCGB
+    jp nz, TestFail
     cp l
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 CodeEnd:
 
 

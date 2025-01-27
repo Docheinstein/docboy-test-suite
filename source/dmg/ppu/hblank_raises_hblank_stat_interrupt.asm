@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; STAT interrupt with HBLANK mode should be triggered by entering HBLANK.
 

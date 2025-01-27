@@ -1,8 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
-INCLUDE "dma.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; LCDC[0] has a different meaning in CGB: it does not disable BG/WIN.
 
@@ -10,10 +6,11 @@ EntryPoint:
     DisablePPU
 
     ; Reset OAM
-    ResetOAM
+    Memset $fe00, $00, 160
 
     ; Reset VRAM0
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Set VRAM0 data
     Memcpy $8800, BackgroundVram0TileData, BackgroundVram0TileDataEnd - BackgroundVram0TileData
@@ -23,7 +20,8 @@ EntryPoint:
     ldh [rVBK], a
 
     ; Reset VRAM1
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     xor a
     ldh [rVBK], a

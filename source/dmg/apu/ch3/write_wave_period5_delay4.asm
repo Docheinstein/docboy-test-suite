@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "apu.inc"
+INCLUDE "docboy.inc"
 
 ; Writing to Wave RAM while it is on either writes the current byte CH3 is accessing or it is ignored.
 

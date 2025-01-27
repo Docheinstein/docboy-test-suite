@@ -1,8 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "apu.inc"
-INCLUDE "print.inc"
-INCLUDE "debug.inc"
+INCLUDE "docboy.inc"
 
 ; Disabling PPU reset NR12 and turns off CH1 DAC
 

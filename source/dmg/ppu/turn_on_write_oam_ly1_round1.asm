@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check if writes to OAM pass after PPU is turned on.
 
@@ -11,7 +10,9 @@ EntryPoint:
     ld hl, $fe00 ; OAM
     ld [hl], a
 
-    ResetPPU
+    ; Reset PPU
+    DisablePPU
+    EnablePPU
 
     Nops 126
 

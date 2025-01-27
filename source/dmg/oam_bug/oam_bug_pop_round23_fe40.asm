@@ -1,7 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "print.inc"
-INCLUDE "debug.inc"
+INCLUDE "docboy.inc"
 
 ; Check the OAM corruption pattern for a specific combination of instruction and CPU/PPU timing.
 

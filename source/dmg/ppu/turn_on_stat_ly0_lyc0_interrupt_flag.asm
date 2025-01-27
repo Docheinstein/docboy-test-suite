@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check the value of IF after PPU is turned on with LYC=0.
 ; The STAT interrupt should not be raised because of LYC_EQ_LY.
@@ -16,7 +15,9 @@ EntryPoint:
     ; Set IF=0
     ldh [rIF], a
 
-    ResetPPU
+    ; Reset PPU
+    DisablePPU
+    EnablePPU
 
     ; Read IF
     ldh a, [rIF]

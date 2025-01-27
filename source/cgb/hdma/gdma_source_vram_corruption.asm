@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a HDMA (General Purpose) transfer using VRAM as source.
 ; HDMA should read FF instead of real data.
@@ -41,9 +39,9 @@ EntryPoint:
     ; The transferred data should have a corrupted
     ; byte at the beginning of the first chunk.
     Memcmp $8400, ExpectedVramData, ExpectedVramDataEnd - ExpectedVramData
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 VramData:
     db $00, $11, $22, $33, $44, $55, $66, $77

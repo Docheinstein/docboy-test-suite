@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check that STAT interrupt is not raised after PPU is turned on with LYC=0.
 
@@ -15,7 +14,9 @@ EntryPoint:
     ; Set IF=0
     ldh [rIF], a
 
-    ResetPPU
+    ; Reset PPU
+    DisablePPU
+    EnablePPU
 
     Nops 4
 

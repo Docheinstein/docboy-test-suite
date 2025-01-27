@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a basic HDMA (HBlank) transfer.
 ; Check that HDMA5 contains the remaining transfer length and its timing.
@@ -47,6 +45,6 @@ ENDR
     ldh a, [rHDMA5]
 
     cp $ff
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess

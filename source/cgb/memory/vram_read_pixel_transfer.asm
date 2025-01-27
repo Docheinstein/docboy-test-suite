@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Reading from VRAM during Pixel Transfer should read FF instead.
 
@@ -24,5 +22,5 @@ EntryPoint:
     ld a, [hl]
     cp $ff
 
-    jp nz, TestFailCGB
-    jp TestSuccessCGB
+    jp nz, TestFail
+    jp TestSuccess

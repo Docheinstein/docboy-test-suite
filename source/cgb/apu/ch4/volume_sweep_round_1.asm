@@ -1,7 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "apu.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check the timing of CH4's volume sweep.
 ; Uses PCM (CGB only).
@@ -40,11 +37,11 @@ EntryPoint:
 
     ; Check PCM12
     cp $00
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     ; Check PCM34
     ld a, b
     cp $F0
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess

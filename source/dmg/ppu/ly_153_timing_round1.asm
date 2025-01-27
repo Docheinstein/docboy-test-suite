@@ -1,11 +1,12 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check precise timing of LY for last scanline.
 ; LY should be proceed as 152 -> 153 -> 0 in three M-cycles.
 
 EntryPoint:
-    ResetPPU
+    ; Reset PPU
+    DisablePPU
+    EnablePPU
 
     LongWait 152 * 114 + 109
 

@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check the duration of Pixel Transfer (Mode 3) with window enabled but BG off.
 

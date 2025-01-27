@@ -1,10 +1,11 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check the timing of STAT's LYC_EQ_LY interrupt for LY=LYC=0 when passing through VBlank.
 
 EntryPoint:
-    ResetPPU
+    ; Reset PPU
+    DisablePPU
+    EnablePPU
 
     ; Go out of first line
     Nops 114

@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; STAT interrupt request (due to a transition from HBLANK to OAM mode) should
 ; clear the internal edge detector, therefore LYC_EQ_LY set for the very next

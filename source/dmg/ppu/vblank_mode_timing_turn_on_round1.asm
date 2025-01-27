@@ -1,10 +1,11 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check how much time it takes to read VBLANK mode after PPU is turned on.
 
 EntryPoint:
-    ResetPPU
+    ; Reset PPU
+    DisablePPU
+    EnablePPU
 
     ; Wait last line
     WaitScanline $8f

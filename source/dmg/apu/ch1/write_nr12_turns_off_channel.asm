@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "apu.inc"
+INCLUDE "docboy.inc"
 
 ; Writing 0 to NRx2 turns off DAC and therefore channel
 

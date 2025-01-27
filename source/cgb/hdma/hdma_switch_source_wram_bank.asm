@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a HDMA (HBlank) transfer.
 ; Switch the destination VRAM bank in between the transfer.
@@ -64,13 +62,13 @@ EntryPoint:
 
     ; 1 chunk should have been transferred from WRAM2[0]
     Memcmp $8000, VramData, $10
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     ; 3 chunk should have been transferred from WRAM2[2]
     Memcmp $8010, VramData + $10, $30
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 VramData:
     db $00, $11, $22, $33, $44, $55, $66, $77

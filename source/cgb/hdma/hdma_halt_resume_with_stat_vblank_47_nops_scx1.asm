@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a HDMA (HBlank) transfer but HALTs before transfer can start.
 ; HDMA should be stopped during HALT.
@@ -63,9 +61,9 @@ EntryPoint:
     DisablePPU
 
     Memcmp $8000, ExpectedVramData, ExpectedVramDataEnd - ExpectedVramData
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 VramData:
     db $00, $11, $22, $33, $44, $55, $66, $77

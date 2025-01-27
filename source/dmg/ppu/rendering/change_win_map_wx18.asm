@@ -1,7 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
-INCLUDE "dma.inc"
+INCLUDE "docboy.inc"
 
 ; Change LCDC window tile map bit during pixel transfer at different fetcher phases.
 
@@ -26,7 +23,8 @@ EntryPoint:
     ldh [rSCX], a
 
     ; Reset VRAM and OAM
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Set VRAM data
     Memcpy $9000, VramTileData, VramTileDataEnd - VramTileData

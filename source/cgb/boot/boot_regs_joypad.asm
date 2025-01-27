@@ -1,16 +1,14 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check the Joypad registers at boot time.
 
 MACRO Expect
     ldh a, [\1]
     cp \2
-    jp nz, TestFailCGB
+    jp nz, TestFail
 ENDM
 
 EntryPoint:
     Expect rP1, $cf
 
-    jp TestSuccessCGB
+    jp TestSuccess

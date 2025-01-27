@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-
+INCLUDE "docboy.inc"
 
 ; When DMA is running, STAT mode is 0 either in HBlank or in OAM scan.
 ; This change shouldn't affect interrupts.

@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check how STOP behaves with:
 ; * Joypad    : pressed (manually on real hardware or artifically on emulators)

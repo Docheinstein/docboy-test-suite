@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Writing to STAT enables all the STAT interrupts (as if FF would have been written to STAT).
 ; Check the timing for STAT's HBlank interrupt with different SCXs.
@@ -11,8 +10,7 @@ EntryPoint:
     ld a, $02
     ldh [rSCX], a
 
-    ld a, LCDCF_ON | LCDCF_BGON
-    ldh [rLCDC], a
+    EnablePPU
 
     LongWait 114
 

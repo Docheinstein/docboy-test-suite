@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a basic HDMA (HBlank) transfer.
 ; Check when TIMA changes.
@@ -54,6 +52,6 @@ ENDR
 
     ldh a, [rTIMA]
     cp $1a
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess

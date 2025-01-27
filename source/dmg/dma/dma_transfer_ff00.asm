@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; DMA source address cannot past 0xDF00.
 ; Trying to copy from FF00 should copy from DF00 instead.

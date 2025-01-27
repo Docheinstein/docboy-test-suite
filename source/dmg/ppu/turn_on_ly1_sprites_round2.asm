@@ -1,12 +1,10 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "dma.inc"
+INCLUDE "docboy.inc"
 
 ; Check whether sprites are rendered on the second scanline after PPU is turn on.
 
 EntryPoint:
     DisablePPU
-    ResetOAM
+    Memset $fe00, $00, 160
 
     ; Add a sprite at X=8 Y=0
     ld a, $10

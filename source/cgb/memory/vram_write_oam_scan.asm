@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Writing to VRAM during OAM Scan should write data correctly.
 
@@ -27,5 +25,5 @@ EntryPoint:
     ld a, [hl]
     cp $34
 
-    jp nz, TestFailCGB
-    jp TestSuccessCGB
+    jp nz, TestFail
+    jp TestSuccess

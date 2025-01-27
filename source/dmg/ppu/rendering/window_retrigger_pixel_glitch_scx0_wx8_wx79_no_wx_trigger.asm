@@ -1,7 +1,5 @@
 
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
+INCLUDE "docboy.inc"
 
 ; Render with window enabled, wait for WY to match WY, then move WX again
 ; so that it is never triggered, and then disable it again.
@@ -23,7 +21,8 @@ EntryPoint:
     ldh [rWY], a
 
     ; Reset VRAM
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Set Window VRAM data
     Memcpy $9010, WindowVramTileData, WindowVramTileDataEnd - WindowVramTileData

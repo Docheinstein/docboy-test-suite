@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Writing to LYC the same value of the current LY should both
 ; set STAT's LYC_EQ_LY and raise the interrupt.

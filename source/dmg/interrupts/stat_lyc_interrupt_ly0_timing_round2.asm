@@ -1,10 +1,11 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check the timing of LYC_EQ_LY STAT's interrupt for LY=LYC=0.
 
 EntryPoint:
-    ResetPPU
+    ; Reset PPU
+    DisablePPU
+    EnablePPU
 
     LongWait 152 * 114
 

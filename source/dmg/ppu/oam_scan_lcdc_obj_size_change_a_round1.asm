@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
+INCLUDE "docboy.inc"
 
 ; Check timing of OAM scan by changing OBJ size during OAM scan
 ; with a sprite that is counted only OBJ size change takes effect.
@@ -9,7 +7,8 @@ EntryPoint:
     DisablePPU
 
     ; Reset VRAM
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Reset OAM
     Memset $fe00, $00, 160

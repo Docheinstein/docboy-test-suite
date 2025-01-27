@@ -1,11 +1,8 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "dma.inc"
-
+INCLUDE "docboy.inc"
 
 EntryPoint:
     DisablePPU
-    ResetOAM
+    Memset $fe00, $00, 160
     EnablePPU
 
     ld a, $90

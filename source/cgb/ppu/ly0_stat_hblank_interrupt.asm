@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check if STAT interrupt is raised for HBlank mode after turn on.
 
@@ -20,6 +18,6 @@ EntryPoint:
 
     ; Check result
     cp $e0
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess

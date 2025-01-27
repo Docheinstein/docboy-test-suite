@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "dma.inc"
+INCLUDE "docboy.inc"
 
 ; Check the duration of Pixel Transfer (Mode 3) with window enabled
 ; and sprites overlapping with the window.
@@ -10,7 +8,7 @@ EntryPoint:
     DisablePPU
 
     ; Copy OAM data
-    ResetOAM
+    Memset $fe00, $00, 160
     Memcpy $fe00, OamData, OamDataEnd - OamData
 
     ; Set WX

@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
+INCLUDE "docboy.inc"
 
 ; Render with window enabled, turn it off and reenable it again
 ; with WX moved ahead so that is possibly retrigger window.
@@ -18,7 +16,8 @@ EntryPoint:
     ldh [rWY], a
 
     ; Reset VRAM
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Place 32 tiles to VRAM Tile Data[1]
     ; Memset $9010, $ff, $0200

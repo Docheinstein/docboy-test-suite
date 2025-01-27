@@ -1,7 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "dma.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check the duration of Pixel Transfer (Mode 3), with:
 
@@ -9,7 +6,7 @@ EntryPoint:
     DisablePPU
 
     ; Set OAM Data
-    ResetOAM
+    Memset $fe00, $00, 160
     Memcpy $fe00, OamData, OamDataEnd - OamData
 
     EnablePPU
@@ -19,9 +16,9 @@ EntryPoint:
     ; We should still be in Pixel Transfer
     ldh a, [rSTAT]
     cp $83
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 OamData:
     db $10, 32, $00, $00

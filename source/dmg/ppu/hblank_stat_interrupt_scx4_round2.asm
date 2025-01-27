@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check the timing of STAT's interrupt with different SCXs with HBlank interrupt enabled.
 

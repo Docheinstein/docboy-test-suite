@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a HDMA (HBlank) transfer.
 ; Write only to HDMA1, HDMA2, HDMA4.
@@ -41,12 +39,12 @@ EntryPoint:
     DisablePPU
 
     Memtest $8000, $ab, $60
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     Memcmp $9900, VramData, $40
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 VramData:
     db $00, $11, $22, $33, $44, $55, $66, $77

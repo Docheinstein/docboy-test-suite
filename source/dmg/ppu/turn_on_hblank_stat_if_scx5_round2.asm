@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "dma.inc"
+INCLUDE "docboy.inc"
 
 ; Check IF after Pixel Transfer for different SCXs with HBlank interrupt enabled.
 
@@ -8,7 +6,7 @@ EntryPoint:
     DisablePPU
 
     ; Set OAM Data
-    ResetOAM
+    Memset $fe00, $00, 160
 
     EnablePPU
 

@@ -1,8 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
-INCLUDE "print.inc"
-INCLUDE "debugcgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check how Not Usable area behaves when writing and reading back something.
 
@@ -13,13 +9,13 @@ EntryPoint:
 
     ; Copy some data to Not Usable
     Memcpy $fea0, Data, DataEnd - Data
-    DumpMemoryCGB $fea0, 96
+    DumpMemory $fea0, 96
 
     ; Read entire area back
     Memcmp $fea0, ExpectedData, ExpectedDataEnd - ExpectedData
 
-    jp nz, TestFailCGB
-    jp TestSuccessCGB
+    jp nz, TestFail
+    jp TestSuccess
 
 Data:
     db $00, $01, $02, $03, $04, $05, $06, $07

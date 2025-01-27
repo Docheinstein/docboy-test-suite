@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; STAT write bug does not happen for CGB.
 
@@ -11,8 +9,7 @@ EntryPoint:
     ld a, $00
     ldh [rSCX], a
 
-    ld a, LCDCF_ON | LCDCF_BGON
-    ldh [rLCDC], a
+    EnablePPU
 
     LongWait 114
 
@@ -26,6 +23,6 @@ EntryPoint:
     ldh a, [rIF]
     cp $e0
 
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess

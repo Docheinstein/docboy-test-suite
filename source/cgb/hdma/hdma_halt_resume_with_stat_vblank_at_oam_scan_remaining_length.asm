@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a HDMA (HBlank) transfer but HALTs before transfer can start.
 ; HDMA should be stopped during HALT.
@@ -51,9 +49,9 @@ EntryPoint:
 
     ldh a, [rHDMA5]
     cp $03
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 
 VramData:

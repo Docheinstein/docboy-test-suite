@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Start a HDMA (HBlank) transfer during HBlank.
 ; Check the timing of the transfer.
@@ -46,9 +44,9 @@ EntryPoint:
     ldh a, [rHDMA5]
 
     cp $ff
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 VramData:
     db $00, $11, $22, $33, $44, $55, $66, $77

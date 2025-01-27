@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "dma.inc"
+INCLUDE "docboy.inc"
 
 ; Check the duration of Pixel Transfer (Mode 3) coming from a STAT interrupt, with:
 ; SCX=0
@@ -13,7 +11,7 @@ EntryPoint:
     WaitVBlank
 
     ; Set OAM Data
-    ResetOAM
+    Memset $fe00, $00, 160
     Memcpy $fe00, OamData, OamDataEnd - OamData
 
     WaitScanline 1

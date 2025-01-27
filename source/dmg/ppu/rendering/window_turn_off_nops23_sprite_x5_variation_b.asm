@@ -1,7 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
-INCLUDE "dma.inc"
+INCLUDE "docboy.inc"
 
 ; Disable window during pixel transfer at different fetcher
 ; phases (uses a sprite to change phase).
@@ -23,8 +20,9 @@ EntryPoint:
     ldh [rWX], a
 
     ; Reset VRAM and OAM
-    ResetVRAM
-    ResetOAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
+    Memset $fe00, $00, 160
 
     ; Set OAM data
     Memcpy $fe00, OamData, OamDataEnd - OamData

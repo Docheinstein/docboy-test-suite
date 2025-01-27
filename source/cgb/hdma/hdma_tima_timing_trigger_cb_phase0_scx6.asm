@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check the timing of HDMA trigger while executing CB instructions with different SCX.
 
@@ -65,6 +63,6 @@ ENDR
     ld a, [hl]
 
     cp $02
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess

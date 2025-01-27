@@ -1,8 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
-INCLUDE "dma.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check that if BGP is written and read, it yields the same result.
 
@@ -45,4 +41,4 @@ EntryPoint:
     CheckBGP 6, $00, $00, $00, $00, $00, $00, $00, $00,
     CheckBGP 7, $00, $00, $00, $00, $00, $00, $00, $00,
 
-    jp TestSuccessCGB
+    jp TestSuccess

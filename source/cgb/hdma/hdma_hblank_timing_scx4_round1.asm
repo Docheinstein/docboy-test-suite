@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a basic HDMA (HBlank) transfer.
 ; Check when STAT contains HBLANK.
@@ -45,6 +43,6 @@ EntryPoint:
     ldh a, [rSTAT]
 
     cp $83
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess

@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Writing to OAM during Pixel Transfer should fail.
 
@@ -30,5 +28,5 @@ EntryPoint:
     ld a, [hl]
     cp $12
 
-    jp nz, TestFailCGB
-    jp TestSuccessCGB
+    jp nz, TestFail
+    jp TestSuccess

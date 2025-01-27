@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "dma.inc"
+INCLUDE "docboy.inc"
 
 ; Check STAT after Pixel Transfer for different SCXs.
 
@@ -8,7 +6,7 @@ EntryPoint:
     DisablePPU
 
     ; Set OAM Data
-    ResetOAM
+    Memset $fe00, $00, 160
 
     EnablePPU
 

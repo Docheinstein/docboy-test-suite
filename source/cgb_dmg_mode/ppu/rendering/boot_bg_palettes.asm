@@ -1,9 +1,6 @@
 ;! TITLE=DOCTEST
 
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
-INCLUDE "dma.inc"
+INCLUDE "docboy.inc"
 
 ; Check initial BG palette.
 
@@ -15,15 +12,15 @@ EntryPoint:
     ldh [rBGP], a
 
     ; Reset VRAM0
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Set VRAM0 data
     Memcpy $8800, BackgroundVram0TileData, BackgroundVram0TileDataEnd - BackgroundVram0TileData
     Memcpy $9800, BackgroundVram0TileMapData, BackgroundVram0TileMapDataEnd - BackgroundVram0TileMapData
 
     ; Enable PPU
-    ld a, LCDCF_ON | LCDCF_BGON
-    ldh [rLCDC], a
+    EnablePPU
 
     HaltForever
 

@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a HDMA (General Purpose) transfer using $8000 as destination.
 ; Restart the transfer without resetting destination address.
@@ -43,9 +41,9 @@ ENDR
     ; --- transfer happens here ---
 
     Memcmp $8000, ExpectedVramData, ExpectedVramDataEnd - ExpectedVramData
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 Data:
     db $00, $11, $22, $33, $44, $55, $66, $77

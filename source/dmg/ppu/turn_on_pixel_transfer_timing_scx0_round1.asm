@@ -1,7 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "dma.inc"
-
+INCLUDE "docboy.inc"
 
 ; Check the duration of Pixel Transfer (Mode 3) at line 0, with:
 ; SCX=0
@@ -11,7 +8,7 @@ EntryPoint:
     DisablePPU
 
     ; Set OAM Data
-    ResetOAM
+    Memset $fe00, $00, 160
 
     ; Reset PPU phase
     EnablePPU

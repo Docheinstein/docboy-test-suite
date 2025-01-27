@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check the value of STAT at LY=1 after PPU is turned on with LYC=1.
 
@@ -8,7 +7,9 @@ EntryPoint:
     ld a, $01
     ldh [rLYC], a
 
-    ResetPPU
+    ; Reset PPU
+    DisablePPU
+    EnablePPU
 
     ; Wait LY=1
     Nops 110

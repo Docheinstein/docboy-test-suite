@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Writing to Not Usable area during VBlank should write data correctly.
 
@@ -30,5 +28,5 @@ EntryPoint:
     ld a, [hl]
     cp $34
 
-    jp nz, TestFailCGB
-    jp TestSuccessCGB
+    jp nz, TestFail
+    jp TestSuccess

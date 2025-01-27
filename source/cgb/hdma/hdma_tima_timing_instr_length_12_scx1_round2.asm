@@ -1,7 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
-INCLUDE "apu.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a basic HDMA (HBlank) transfer.
 ; Check that the length of the CPU instruction that is executing
@@ -62,6 +59,6 @@ EntryPoint:
 
     ldh a, [rTIMA]
     cp $a3
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess

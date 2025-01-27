@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a basic HDMA (General Purpose) transfer.
 ; Check that correct amount of data is transferred.
@@ -36,9 +34,9 @@ EntryPoint:
     ; --- transfer happens here ---
 
     Memcmp $8000, VramData, VramDataEnd2 - VramData
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 VramData:
     db $00, $11, $22, $33, $44, $55, $66, $77

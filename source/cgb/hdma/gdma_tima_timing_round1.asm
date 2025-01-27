@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a basic HDMA (General Purpose) transfer.
 ; Check when TIMA changes.
@@ -44,7 +42,7 @@ EntryPoint:
 
     ldh a, [rTIMA]
     cp $52
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 

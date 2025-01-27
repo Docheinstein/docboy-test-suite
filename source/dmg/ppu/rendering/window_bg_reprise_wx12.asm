@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
+INCLUDE "docboy.inc"
 
 ; Render with window enabled, turn it off at a certain WX
 ; and see which tile the BG fetcher will use.
@@ -18,7 +16,8 @@ EntryPoint:
     ldh [rWY], a
 
     ; Reset VRAM
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Set Window VRAM data
     Memcpy $9010, WindowVramTileData, WindowVramTileDataEnd - WindowVramTileData

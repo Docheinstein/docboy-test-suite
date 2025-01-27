@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a HDMA (General Purpose) transfer using end of WRAM2 as source.
 ; HDMA should read real data until cursor is within WRAM2,
@@ -46,9 +44,9 @@ EntryPoint:
     ; were reading from wram bus, not ext bus.
 
     Memcmp $8000, ExpectedVramData, ExpectedVramDataEnd - ExpectedVramData
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 Data:
     db $00, $11, $22, $33, $44, $55, $66, $77

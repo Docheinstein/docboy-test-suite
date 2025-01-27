@@ -1,12 +1,10 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "dma.inc"
+INCLUDE "docboy.inc"
 
 ; Check IF for STAT interrupt for line 144.
 
 EntryPoint:
     DisablePPU
-    ResetOAM
+    Memset $fe00, $00, 160
     EnablePPU
 
     LongWait 114 * 142

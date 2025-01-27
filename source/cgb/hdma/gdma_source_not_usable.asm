@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a HDMA (General Purpose) transfer using fea0 as source.
 ; HDMA should read FF instead of real data.
@@ -42,12 +40,12 @@ EntryPoint:
     ld hl, $8000
     ld a, [hl]
     cp $ff
-    jp z, TestFailCGB
+    jp z, TestFail
 
     Memcmp $8001, ExpectedVramData, ExpectedVramDataEnd - ExpectedVramData
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 Data:
     db $00, $11, $22, $33, $44, $55, $66, $77

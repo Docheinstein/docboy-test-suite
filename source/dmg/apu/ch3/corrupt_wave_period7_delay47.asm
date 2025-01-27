@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "apu.inc"
+INCLUDE "docboy.inc"
 
 ; Retriggering CH3 while it is reading a byte rom Wave RAM corrupts wave ram.
 

@@ -1,8 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "apu.inc"
-INCLUDE "print.inc"
-INCLUDE "debug.inc"
+INCLUDE "docboy.inc"
 
 ; Check that CH1 length timer turns off CH1 with the correct timing.
 

@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
+INCLUDE "docboy.inc"
 
 ; Render with window enabled, wait for WX to trigger the window,
 ; than move WX ahead so that the window will encounter it again.
@@ -19,7 +17,8 @@ EntryPoint:
     ldh [rWY], a
 
     ; Reset VRAM
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Set Window VRAM data
     Memcpy $9010, WindowVramTileData, WindowVramTileDataEnd - WindowVramTileData

@@ -1,10 +1,7 @@
 ;! MBC_TYPE=2
 ;! RAM_SIZE=3
 
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
-INCLUDE "apu.inc"
+INCLUDE "docboy.inc"
 
 ; Check what happens when both HDMA and DMA run together.
 ;
@@ -70,12 +67,12 @@ EntryPoint:
     DisablePPU
 
     Memcmp $8000, ExpectedHdmaData, ExpectedHdmaDataEnd - ExpectedHdmaData
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     Memcmp $fe00, ExpectedDmaData, ExpectedDmaDataEnd - ExpectedDmaData
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 
 DmaTransferRoutine:

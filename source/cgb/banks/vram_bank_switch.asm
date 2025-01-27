@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check that VRAM VBK can be used to switch between 2 different VRAM banks.
 
@@ -28,7 +26,7 @@ MACRO ExpectVRAM
     ld a, \2
     cp b
 
-    jp nz, TestFailCGB
+    jp nz, TestFail
 ENDM
 
 EntryPoint:
@@ -38,4 +36,4 @@ EntryPoint:
     ExpectVRAM $00, $11
     ExpectVRAM $01, $22
 
-    jp TestSuccessCGB
+    jp TestSuccess

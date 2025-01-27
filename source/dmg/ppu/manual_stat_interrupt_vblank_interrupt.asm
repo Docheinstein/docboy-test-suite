@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check what happens by writing STAT's VBLANK INTERRUPT when current mode is VBLANK.
 ; It should raise a STAT interrupt.

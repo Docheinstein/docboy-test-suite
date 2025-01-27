@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a basic HDMA (General Purpose) transfer.
 ; Check when LY changes.
@@ -39,7 +37,7 @@ EntryPoint:
     ldh a, [rLY]
 
     cp $04
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 

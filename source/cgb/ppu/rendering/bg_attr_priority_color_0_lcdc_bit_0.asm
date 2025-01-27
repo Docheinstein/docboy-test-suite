@@ -1,8 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
-INCLUDE "dma.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check that OBJ overlap BG if BG color index is 0, regardless BG priority of BG attributes.
 ; (And implicitly check for a bare working VRAM1).
@@ -11,13 +7,14 @@ EntryPoint:
     DisablePPU
 
     ; Reset OAM
-    ResetOAM
+    Memset $fe00, $00, 160
 
     ; Set OAM data
     Memcpy $fe00, OamData, OamDataEnd - OamData
 
     ; Reset VRAM0
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Set VRAM0 data
     Memcpy $8800, BackgroundVram0TileData, BackgroundVram0TileDataEnd - BackgroundVram0TileData
@@ -27,7 +24,8 @@ EntryPoint:
     ldh [rVBK], a
 
     ; Reset VRAM1
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     xor a
     ldh [rVBK], a

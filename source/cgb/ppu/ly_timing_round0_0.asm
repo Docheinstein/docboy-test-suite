@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check how much time it takes to read LY increased by 1 from boot.
 
@@ -14,7 +12,7 @@ EntryPoint:
     ; Check result
     ld a, $90
     cp b
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 

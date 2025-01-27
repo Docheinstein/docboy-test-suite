@@ -1,8 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
-INCLUDE "dma.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check that OBJ bank of OBJ attributes is honored.
 
@@ -10,13 +6,14 @@ EntryPoint:
     DisablePPU
 
     ; Reset OAM
-    ResetOAM
+    Memset $fe00, $00, 160
 
     ; Set OAM data
     Memcpy $fe00, OamData, OamDataEnd - OamData
 
     ; Reset VRAM0
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Set VRAM0 data
     Memcpy $8800, BackgroundVram0TileData, BackgroundVram0TileDataEnd - BackgroundVram0TileData
@@ -25,7 +22,8 @@ EntryPoint:
     ldh [rVBK], a
 
     ; Reset VRAM1
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Set VRAM1 data
     Memcpy $8800, BackgroundVram1TileData, BackgroundVram1TileDataEnd - BackgroundVram1TileData
@@ -40,8 +38,7 @@ EntryPoint:
     SetOBJP 1, %00011111, %00000000, %11100000, %00000011, %00000000, %01111100, %00000000, %00000000
 
     ; Enable PPU
-    ld a, LCDCF_ON | LCDCF_BGON | LCDCF_OBJON
-    ldh [rLCDC], a
+    EnablePPU_WithSprites
 
     HaltForever
 

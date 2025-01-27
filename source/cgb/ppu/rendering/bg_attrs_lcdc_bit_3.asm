@@ -1,8 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
-INCLUDE "dma.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check that BG attributes are read from tilemap at VRAM1:9C00 if LCDC[3] is set.
 ; (And implicitly check for a bare working VRAM1).
@@ -11,10 +7,11 @@ EntryPoint:
     DisablePPU
 
     ; Reset OAM
-    ResetOAM
+    Memset $fe00, $00, 160
 
     ; Reset VRAM0
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Set VRAM0 data
     Memcpy $8800, BackgroundVram0TileData, BackgroundVram0TileDataEnd - BackgroundVram0TileData
@@ -25,7 +22,8 @@ EntryPoint:
     ldh [rVBK], a
 
     ; Reset VRAM1
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     xor a
     ldh [rVBK], a

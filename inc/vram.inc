@@ -1,3 +1,0 @@
-MACRO ResetVRAM
-    Memset $8000, $00, $2000
-ENDM

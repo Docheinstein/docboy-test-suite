@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check what happens by writing STAT's HBLANK INTERRUPT when current mode is HBLANK.
 ; It should set the IF's STAT flag.

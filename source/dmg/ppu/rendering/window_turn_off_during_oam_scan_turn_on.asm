@@ -1,7 +1,5 @@
 
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
+INCLUDE "docboy.inc"
 
 ; Set WY=12, let window be rendered for some lines, then turn it off.
 ; After some lines, turn it on again.
@@ -23,7 +21,8 @@ EntryPoint:
     ldh [rWY], a
 
     ; Reset VRAM
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Set Window VRAM data
     Memcpy $9010, WindowVramTileData, WindowVramTileDataEnd - WindowVramTileData

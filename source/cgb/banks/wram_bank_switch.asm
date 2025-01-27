@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check that WRAM SVBK can be used to switch between 8 different WRAM banks.
 
@@ -28,7 +26,7 @@ MACRO ExpectWRAM
     ld a, \2
     cp b
 
-    jp nz, TestFailCGB
+    jp nz, TestFail
 ENDM
 
 EntryPoint:
@@ -51,4 +49,4 @@ EntryPoint:
     ExpectWRAM $06, $77
     ExpectWRAM $07, $88
 
-    jp TestSuccessCGB
+    jp TestSuccess

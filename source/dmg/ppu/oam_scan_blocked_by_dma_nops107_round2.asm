@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
+INCLUDE "docboy.inc"
 
 ; Running DMA during OAM scan should prevent PPU to read from OAM at all.
 
@@ -8,7 +6,8 @@ EntryPoint:
     DisablePPU
 
     ; Reset VRAM
-    ResetVRAM
+    ; Reset VRAM
+    Memset $8000, $00, $2000
 
     ; Reset OAM
     Memset $fe00, $00, 160
@@ -19,7 +18,7 @@ EntryPoint:
     ; Copy DMA transfer routine
     Memcpy $ff80, DmaTransferRoutine, DmaTransferRoutineEnd - DmaTransferRoutine
 
-    EnablePPU
+    EnablePPU_WithSprites
 
     ; Wait
     Nops 114 * 3

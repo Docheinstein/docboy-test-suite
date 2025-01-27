@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a basic HDMA (HBlank) transfer and abort it after 1 transferred chunk.
 ; Check that only a chunk of data is transferred.
@@ -56,9 +54,9 @@ EntryPoint:
     Memcmp $8000, VramData, $10
     Memtest $8010, $ab, $30
 
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 VramData:
     db $00, $11, $22, $33, $44, $55, $66, $77

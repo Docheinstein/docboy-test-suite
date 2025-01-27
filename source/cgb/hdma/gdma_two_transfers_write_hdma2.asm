@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform two HDMA (General Purpose) transfers one after the other.
 ; Reset source by writing to HDMA2.
@@ -50,9 +48,9 @@ EntryPoint:
     Memcmp $8000, VramData, $40
     Memcmp $8040, VramData, $40
 
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 VramData:
     db $00, $11, $22, $33, $44, $55, $66, $77

@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "print.inc"
+INCLUDE "docboy.inc"
 
 ; Enable Joypad D-Pad and dump P1 register.
 

@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check the value of STAT after PPU is turned on with LYC=0.
 
@@ -8,7 +7,9 @@ EntryPoint:
     xor a
     ldh [rLYC], a
 
-    ResetPPU
+    ; Reset PPU
+    DisablePPU
+    EnablePPU
 
     Nops 17
 

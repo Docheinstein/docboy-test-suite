@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check write/read behavior of FF72 register.
 
@@ -11,7 +9,7 @@ EntryPoint:
     ldh a, [$FF72]
 
     cp $00
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     ; Write FF -> Read FF
     ld a, $ff
@@ -19,6 +17,6 @@ EntryPoint:
     ldh a, [$FF72]
 
     cp $ff
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess

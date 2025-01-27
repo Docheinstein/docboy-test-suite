@@ -1,8 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "vram.inc"
-INCLUDE "dma.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check that OCPS auto increment works.
 
@@ -42,4 +38,4 @@ EntryPoint:
     SetOBJP_AutoIncrement 0, $01, $3f, $ab, $22, $a5, $f2, $27, $2e
     CheckOBJP 0, $01, $3f, $ab, $22, $a5, $f2, $27, $2e
 
-    jp TestSuccessCGB
+    jp TestSuccess

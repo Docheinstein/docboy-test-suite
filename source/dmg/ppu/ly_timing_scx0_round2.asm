@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check how much time it takes to read LY increased by 1 from boot.
 ; It should not be affected to SCX.

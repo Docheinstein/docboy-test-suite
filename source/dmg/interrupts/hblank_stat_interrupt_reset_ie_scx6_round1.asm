@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Reset IE after Pixel Transfer for different SCXs with HBlank interrupt enabled.
 

@@ -1,17 +1,15 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check the Serial registers at boot time.
 
 MACRO Expect
     ldh a, [\1]
     cp \2
-    jp nz, TestFailCGB
+    jp nz, TestFail
 ENDM
 
 EntryPoint:
     Expect rSB, $00
     Expect rSC, $7f
 
-    jp TestSuccessCGB
+    jp TestSuccess

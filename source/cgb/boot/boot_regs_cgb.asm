@@ -1,13 +1,11 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check the CGB registers at boot time.
 
 MACRO Expect
     ldh a, [\1]
     cp \2
-    jp nz, TestFailCGB
+    jp nz, TestFail
 ENDM
 
 EntryPoint:
@@ -30,4 +28,4 @@ EntryPoint:
     Expect $FF74, $00
     Expect $FF75, $8f
 
-    jp TestSuccessCGB
+    jp TestSuccess

@@ -1,10 +1,7 @@
 ;! MBC_TYPE=2
 ;! RAM_SIZE=3
 
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
-INCLUDE "apu.inc"
+INCLUDE "docboy.inc"
 
 ; Check what happens when both HDMA and DMA run together.
 ;
@@ -70,15 +67,15 @@ ENDR
     ld hl, $8000
     ld a, [hl]
     cp $ff
-    jp z, TestFailCGB
+    jp z, TestFail
 
     Memcmp $8001, ExpectedHdmaData, ExpectedHdmaDataEnd - ExpectedHdmaData
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     Memcmp $fe00, ExpectedDmaData, ExpectedDmaDataEnd - ExpectedDmaData
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 
 DmaTransferRoutine:

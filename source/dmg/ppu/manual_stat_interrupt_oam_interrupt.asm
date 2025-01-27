@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "docboy.inc"
 
 ; Check what happens by writing STAT's OAM INTERRUPT when current mode is OAM.
 ; It should NOT raise a STAT interrupt.

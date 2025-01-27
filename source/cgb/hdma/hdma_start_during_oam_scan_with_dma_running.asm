@@ -1,12 +1,7 @@
 ;! MBC_TYPE=2
 ;! RAM_SIZE=3
 
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
-INCLUDE "apu.inc"
-INCLUDE "print.inc"
-INCLUDE "debugcgb.inc"
+INCLUDE "docboy.inc"
 
 ; Check whether starting DMA during OAM Scan makes HDMA start immediately.
 ;
@@ -78,9 +73,9 @@ EntryPoint:
     ld a, b
     cp $23
 
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
 
 
 DmaTransferRoutine:

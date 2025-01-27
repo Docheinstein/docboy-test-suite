@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "docboy.inc"
 
 ; Perform a basic HDMA (General Purpose) transfer.
 ; Check the maximum amount of data that can be transferred ($800 bytes)
@@ -32,12 +30,12 @@ EntryPoint:
     ; --- transfer happens here ---
 
     Memcmp $8000, $C000, $800
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
     ld hl, $8800
     ld a, [hl]
 
     cp $00
-    jp nz, TestFailCGB
+    jp nz, TestFail
 
-    jp TestSuccessCGB
+    jp TestSuccess
