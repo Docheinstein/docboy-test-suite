@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Running DMA during OAM scan should prevent PPU to read from OAM at all.
 

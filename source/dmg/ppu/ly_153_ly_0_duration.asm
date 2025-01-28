@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; LY should not reach 154.
 ; LY is set to 0 just after scaline 153 and it remains 0 for two scanlines.

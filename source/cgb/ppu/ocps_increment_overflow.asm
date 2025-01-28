@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check what happens if OCPS address overflows.
 

@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Reading from Not Usable area with PPU off should read 00.
 

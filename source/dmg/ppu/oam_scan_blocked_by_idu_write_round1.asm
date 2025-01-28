@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "all.inc"
 
 ; Check that when IDU submit an address on the address bus (see OAM BUG)
 ; prevents PPU to read from OAM at the proper address.
@@ -10,7 +9,7 @@ EntryPoint:
     ; Copy data to OAM
     Memcpy $fe00, Data, DataEnd - Data
 
-	EnablePPU
+	EnablePPU_WithSprites
 
     ; Skip the first scanline
     Nops 103

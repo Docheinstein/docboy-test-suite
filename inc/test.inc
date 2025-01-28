@@ -20,6 +20,9 @@ MACRO TestEndCleanup
     IF CGB
         xor a
         ldh [rVBK], a
+
+        ; Reset VRAM
+        Memset $8000, $00, $2000
     ENDC
 
     ; Turn on PPU again

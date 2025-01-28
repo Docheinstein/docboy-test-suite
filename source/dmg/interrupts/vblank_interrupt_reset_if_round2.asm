@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Reset IF when mode is entering VBlank.
 

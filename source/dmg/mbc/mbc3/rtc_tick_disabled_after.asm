@@ -1,7 +1,7 @@
 ;! MBC_TYPE=16
 ;! RAM_SIZE=3
 
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check whether RTC ticks even if RTC is disabled (it should not).
 

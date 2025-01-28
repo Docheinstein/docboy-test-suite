@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the duration of Pixel Transfer (Mode 3) coming from a STAT interrupt, with:
 ; SCX=4

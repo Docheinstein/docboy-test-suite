@@ -90,8 +90,7 @@ MACRO DumpMemory
 	push de
 	jp nz, .loop\@
 
-	ld a, LCDCF_ON | LCDCF_BGON
-	ldh [rLCDC], a
+	EnablePPU
 
     ; HALT forever.
     HaltForever
@@ -99,7 +98,7 @@ ENDM
 
 
 ; Prints $80 bytes from address in stack
-MACRO DumpMemoryStrict
+MACRO DumpMemoryInteractivePage
     DisablePPU
 
     InitPrint
@@ -148,7 +147,7 @@ MACRO DumpMemoryStrict
     NewLine
 
 REPT 16
-    PutChar ' '
+    PrintChar $20 ; ' '
 ENDR
 
     ld hl, $ff91
@@ -189,7 +188,7 @@ MACRO DumpMemoryInteractive
 .print\@
     push hl
 
-    DumpMemoryStrict
+    DumpMemoryInteractivePage
 
 .wait\@
     ld a, [rP1]

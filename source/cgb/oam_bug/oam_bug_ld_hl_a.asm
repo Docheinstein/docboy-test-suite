@@ -1,6 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
-INCLUDE "cgb.inc"
+INCLUDE "all.inc"
 
 ; OAM Bug does not happen for CGB.
 
@@ -10,8 +8,7 @@ EntryPoint:
     ; Copy data to OAM
     Memcpy $fe00, Data, DataEnd - Data
 
-	ld a, LCDCF_ON | LCDCF_BGON
-	ldh [rLCDC], a
+	EnablePPU
 
     ; Skip the first scanline
     Nops 103
@@ -29,8 +26,8 @@ EntryPoint:
     ; Compare OAM
     Memcmp $fe00, ExpectedData, ExpectedDataEnd - ExpectedData
 
-    jp nz, TestFailCGB
-    jp TestSuccessCGB
+    jp nz, TestFail
+    jp TestSuccess
 
 Data:
 ; fe00

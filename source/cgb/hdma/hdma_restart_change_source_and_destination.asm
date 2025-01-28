@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (HBlank) transfer and restart it after 1 transferred chunk with a different source and dest address.
 ; Check that the transfer continue to transfer the new amount of requested data from the new addresses.

@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (General Purpose) transfer using end of WRAM2 as source.
 ; HDMA should read real data until cursor is within WRAM2,

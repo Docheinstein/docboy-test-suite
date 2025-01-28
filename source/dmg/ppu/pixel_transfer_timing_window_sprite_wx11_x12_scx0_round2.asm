@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the duration of Pixel Transfer (Mode 3) with window enabled
 ; and sprites overlapping with the window.

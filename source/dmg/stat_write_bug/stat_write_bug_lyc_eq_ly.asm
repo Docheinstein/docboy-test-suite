@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Writing to STAT enables all the STAT interrupts (as if FF would have been written to STAT).
 ; Check that this happens for LYC_EQ_LY interrupt when LYC == LY

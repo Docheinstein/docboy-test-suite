@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a basic HDMA (HBlank) transfer and abort it instantly.
 ; Check the content of HDMA5.

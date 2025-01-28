@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (HBlank) transfer.
 ; Write only to HMDMA5.

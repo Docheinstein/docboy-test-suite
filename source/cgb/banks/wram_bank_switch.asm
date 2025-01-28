@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check that WRAM SVBK can be used to switch between 8 different WRAM banks.
 

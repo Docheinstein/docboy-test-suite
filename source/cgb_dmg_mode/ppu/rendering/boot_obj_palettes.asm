@@ -1,6 +1,6 @@
 ;! TITLE=DOCTEST
 
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check initial OBJ palette.
 

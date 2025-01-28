@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Turning on PPU with STAT's OAM interrupt flag set shouldn't set IF's STAT bit nor raise interrupt.
 

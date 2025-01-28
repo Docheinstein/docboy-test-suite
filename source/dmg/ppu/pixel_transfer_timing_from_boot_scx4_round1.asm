@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the duration of Pixel Transfer with a certain SCX coming from boot.
 

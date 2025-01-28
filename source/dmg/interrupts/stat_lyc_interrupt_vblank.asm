@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check that LYC_EQ_LY for LY=LYC=0 triggers only once when passing through VBlank.
 

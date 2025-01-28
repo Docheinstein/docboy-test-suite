@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; TODO: test on real hardware.
 ; Check how much it takes to react to a vblank interrupt while in busy loop.

@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check whether sprites are rendered on the first scanline after PPU is turn on.
 
@@ -12,7 +12,7 @@ EntryPoint:
     ld [hli], a
     ld [hli], a
 
-    EnablePPU
+    EnablePPU_WithSprites
 
     Nops 60
 

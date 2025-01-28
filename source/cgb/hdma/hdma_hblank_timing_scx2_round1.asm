@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a basic HDMA (HBlank) transfer.
 ; Check when STAT contains HBLANK.

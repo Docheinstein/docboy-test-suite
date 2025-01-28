@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check what happens by writing STAT's OAM INTERRUPT when current mode is OAM.
 ; It should NOT raise a STAT interrupt.

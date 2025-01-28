@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Reading from VRAM during Pixel Transfer should read FF instead.
 

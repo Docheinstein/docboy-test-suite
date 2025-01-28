@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Disabling PPU reset NR12 and turns off CH1 DAC
 

@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the timing of LYC_EQ_LY STAT's interrupt for LY=LYC=8.
 

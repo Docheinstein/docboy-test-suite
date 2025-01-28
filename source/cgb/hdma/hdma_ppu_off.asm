@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (HBlank) transfer with PPU off.
 ; Check that only the first chunk of data is transferred.

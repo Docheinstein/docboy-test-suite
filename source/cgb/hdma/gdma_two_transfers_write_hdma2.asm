@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform two HDMA (General Purpose) transfers one after the other.
 ; Reset source by writing to HDMA2.

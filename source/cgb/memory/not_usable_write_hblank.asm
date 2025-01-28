@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Writing to Not Usable area during HBlank should write data correctly.
 

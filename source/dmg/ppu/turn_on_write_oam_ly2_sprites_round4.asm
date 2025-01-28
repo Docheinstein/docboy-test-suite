@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check if writes to OAM pass after PPU is turned on.
 
@@ -12,7 +12,7 @@ EntryPoint:
 
     ; Reset PPU
     DisablePPU
-    EnablePPU
+    EnablePPU_WithSprites
 
     Nops 243
 

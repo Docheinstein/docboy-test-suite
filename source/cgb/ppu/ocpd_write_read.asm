@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check that if OBJP is written and read, it yields the same result
 ; for the first 7 bytes, while the last byte remains as it was.

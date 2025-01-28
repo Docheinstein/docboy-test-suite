@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the timing of STAT's LYC_EQ_LY interrupt for LY=LYC=0 when passing through VBlank.
 

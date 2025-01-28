@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a basic HDMA (HBlank) transfer.
 ; Check that HDMA5 contains the remaining transfer length and its timing.

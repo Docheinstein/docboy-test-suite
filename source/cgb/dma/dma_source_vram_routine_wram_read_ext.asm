@@ -1,7 +1,7 @@
 ;! MBC_TYPE=2
 ;! RAM_SIZE=3
 
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check DMA conflicts for:
 ;

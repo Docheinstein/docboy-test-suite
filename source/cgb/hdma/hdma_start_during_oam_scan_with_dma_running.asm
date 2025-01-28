@@ -1,7 +1,7 @@
 ;! MBC_TYPE=2
 ;! RAM_SIZE=3
 
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check whether starting DMA during OAM Scan makes HDMA start immediately.
 ;

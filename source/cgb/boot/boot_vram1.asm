@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the content of VRAM at boot time.
 ; It should be zero-initialized.

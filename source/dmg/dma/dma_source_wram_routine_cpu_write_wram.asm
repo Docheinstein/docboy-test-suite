@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check what happens by trying to write to WRAM2 while DMA is copying from WRAM1.
 ; It should be ignored since DMA is using the same bus.

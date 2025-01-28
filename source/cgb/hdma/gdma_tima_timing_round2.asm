@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a basic HDMA (General Purpose) transfer.
 ; Check when TIMA changes.

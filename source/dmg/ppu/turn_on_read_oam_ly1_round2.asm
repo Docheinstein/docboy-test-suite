@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check what is read from OAM at LY=1 after PPU is turned on.
 

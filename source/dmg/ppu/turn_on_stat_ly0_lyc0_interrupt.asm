@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check that STAT interrupt is not raised after PPU is turned on with LYC=0.
 

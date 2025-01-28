@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "all.inc"
 
 ; Running DMA during OAM scan should prevent PPU to read from OAM at all.
 
@@ -40,7 +39,7 @@ DmaTransferRoutine:
     dec a
     jr nz, .dmaloop2
 
-    EnablePPU
+    EnablePPU_WithSprites
 
     ; Wait until the end of DMA
     ld a, 37

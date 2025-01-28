@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check what happens by writing STAT's VBLANK INTERRUPT when current mode is VBLANK.
 ; It should set the IF's STAT flag.

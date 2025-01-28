@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check that CH1 length timer turns off CH1 with the correct timing.
 ; Here APU is disabled for a certain time.

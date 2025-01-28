@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check whether interrupt can occur in the middle of a CB-prefixed instruction.
 

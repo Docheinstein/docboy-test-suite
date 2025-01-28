@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (General Purpose) transfer using OAM as source.
 ; HDMA should read FF instead of real data.

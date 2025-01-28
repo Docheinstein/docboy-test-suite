@@ -1,7 +1,7 @@
 ;! MBC_TYPE=2
 ;! RAM_SIZE=3
 
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (General Purpose) transfer using Cartridge RAM as source.
 ; Restart the transfer without resetting source address.

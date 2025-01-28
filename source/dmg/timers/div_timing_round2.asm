@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check how much time it takes for DIV to increase by 1 after a reset.
 

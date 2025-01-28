@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the timing of CH1's square wave position.
 ; Uses PCM (CGB only).

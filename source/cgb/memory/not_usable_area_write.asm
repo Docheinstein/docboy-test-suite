@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check how Not Usable area behaves when writing and reading back something.
 
@@ -9,7 +9,6 @@ EntryPoint:
 
     ; Copy some data to Not Usable
     Memcpy $fea0, Data, DataEnd - Data
-    DumpMemory $fea0, 96
 
     ; Read entire area back
     Memcmp $fea0, ExpectedData, ExpectedDataEnd - ExpectedData

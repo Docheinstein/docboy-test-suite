@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (HBlank) transfer but HALTs before transfer can start.
 ; HDMA should be stopped during HALT.

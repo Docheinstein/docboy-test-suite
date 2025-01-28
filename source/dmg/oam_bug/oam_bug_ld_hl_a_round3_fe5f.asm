@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the OAM corruption pattern for a specific combination of instruction and CPU/PPU timing.
 
@@ -86,8 +86,7 @@ DoTest:
     ld hl, $d002
     ld b, [hl]
 
-	ld a, LCDCF_ON | LCDCF_BGON
-	ldh [rLCDC], a
+	EnablePPU
 
     ; Skip the first scanline
     Nops 103

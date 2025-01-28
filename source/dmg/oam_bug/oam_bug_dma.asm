@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "all.inc"
 
 ; DMA does not cause OAM Bug.
 

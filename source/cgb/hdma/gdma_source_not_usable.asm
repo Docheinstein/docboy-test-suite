@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (General Purpose) transfer using fea0 as source.
 ; HDMA should read FF instead of real data.

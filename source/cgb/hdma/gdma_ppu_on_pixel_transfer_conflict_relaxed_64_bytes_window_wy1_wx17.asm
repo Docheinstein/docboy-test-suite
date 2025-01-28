@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (General Purpose) transfer with PPU on during Pixel Transfer.
 ; Check the data after the transfer.

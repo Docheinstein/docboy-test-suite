@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Writing to LYC affects STAT LYC_EQ_LY bit.
 

@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (HBlank) transfer and restart it after 1 transferred chunk.
 ; Write a different HDMA2.

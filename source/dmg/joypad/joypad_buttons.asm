@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Enable Joypad buttons and dump P1 register.
 
@@ -12,6 +12,7 @@ EntryPoint:
     ld a, [rP1]
     push af
 
+    DisablePPU
     InitPrint
     PrintString "P1: "
     pop af

@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check if STAT interrupt is raised for HBlank mode after turn on.
 

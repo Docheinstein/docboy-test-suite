@@ -1,7 +1,7 @@
 ;! MBC_TYPE=16
 ;! RAM_SIZE=3
 
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check whether writing 1 -> 0 to RTC latch register actually copies RTC registers.
 

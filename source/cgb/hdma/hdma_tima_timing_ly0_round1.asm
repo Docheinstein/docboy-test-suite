@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a basic HDMA (HBlank) transfer at (glitched) line 0.
 ; Check when TIMA changes.

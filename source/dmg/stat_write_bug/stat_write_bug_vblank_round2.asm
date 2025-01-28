@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Writing to STAT enables all the STAT interrupts (as if FF would have been written to STAT).
 ; Check the timing for STAT's VBlank interrupt.

@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (General Purpose) transfer with PPU on during Pixel Transfer.
 ; Check the data after the transfer.
@@ -31,7 +31,7 @@ EntryPoint:
     ldh [rHDMA4], a
 
     ; Enable PPU
-    EnablePPU
+    EnablePPU_WithSprites
 
     ; Skip glitched line 0
     Nops 110

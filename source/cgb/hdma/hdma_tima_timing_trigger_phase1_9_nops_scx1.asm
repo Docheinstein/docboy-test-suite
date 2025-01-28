@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the timing of HDMA trigger with different SCX and delays.
 ; HDMA start should be postponed to the end of the current instruction.

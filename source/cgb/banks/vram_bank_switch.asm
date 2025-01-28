@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check that VRAM VBK can be used to switch between 2 different VRAM banks.
 

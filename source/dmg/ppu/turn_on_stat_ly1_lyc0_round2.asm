@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the value of STAT at LY=1 after PPU is turned on with LYC=0.
 

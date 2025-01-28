@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the timing of HDMA trigger while executing CB instructions with different SCX.
 

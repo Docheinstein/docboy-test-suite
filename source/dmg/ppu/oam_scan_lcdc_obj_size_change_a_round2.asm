@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check timing of OAM scan by changing OBJ size during OAM scan
 ; with a sprite that is counted only OBJ size change takes effect.

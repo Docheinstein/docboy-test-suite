@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (General Purpose) transfer with PPU on during OAM scan.
 ; Check that data is transferred correctly with no conflicts.

@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (HBlank) transfer with PPU on, then turn it off during LY=1 HBlank, and then turn it on again.
 ; Check that data is transferred.

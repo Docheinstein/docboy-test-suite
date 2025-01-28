@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; STAT interrupt request (due to a transition from HBLANK to OAM mode) should
 ; not be raised, if it's not a raising edge for the internal edge dector, moreover

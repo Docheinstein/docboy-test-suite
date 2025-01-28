@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the initial value of BG palettes.
 ; They should be all white (FF7F).

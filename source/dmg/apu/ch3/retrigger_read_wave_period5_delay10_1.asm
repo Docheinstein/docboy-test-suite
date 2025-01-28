@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Reading from Wave RAM either reads the current byte CH3 is accessing or $FF.
 ; Check what happens when channel is retriggered.

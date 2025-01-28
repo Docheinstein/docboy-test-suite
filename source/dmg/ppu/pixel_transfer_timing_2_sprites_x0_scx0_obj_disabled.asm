@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the duration of Pixel Transfer (Mode 3), with:
 ; SCX=0
@@ -15,8 +15,7 @@ EntryPoint:
     DisablePPU
 
     ; Enable PPU with OBJ disable
-    ld a, LCDCF_ON | LCDCF_BGON
-	ldh [rLCDC], a
+    EnablePPU
 
     Nops 174
 

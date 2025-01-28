@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check if STAT interrupt flag is raised when DMA is active during OAM Scan with STAT HBlank interrupt enabled.
 ;

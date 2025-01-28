@@ -1,7 +1,7 @@
 ;! MBC_TYPE=16
 ;! RAM_SIZE=3
 
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Write an out of range value to RTC register and read it back.
 

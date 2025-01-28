@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check how much it takes to react to a stat interrupt while in busy loop with SCX=2.
 

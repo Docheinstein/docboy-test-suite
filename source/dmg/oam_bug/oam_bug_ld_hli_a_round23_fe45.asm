@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the OAM corruption pattern for a specific combination of instruction and CPU/PPU timing.
 
@@ -8,8 +8,7 @@ EntryPoint:
     ; Copy data to OAM
     Memcpy $fe00, Data, DataEnd - Data
 
-	ld a, LCDCF_ON | LCDCF_BGON
-	ldh [rLCDC], a
+	EnablePPU
 
     ; Skip the first scanline
     Nops 103

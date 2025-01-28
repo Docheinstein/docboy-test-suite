@@ -1,7 +1,7 @@
 ;! MBC_TYPE=19
 ;! RAM_SIZE=3
 
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; RTC shouldn't work for MBC3 type without RTC.
 

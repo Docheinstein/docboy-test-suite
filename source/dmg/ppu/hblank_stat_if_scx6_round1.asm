@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check IF after Pixel Transfer for different SCXs with HBlank interrupt enabled.
 

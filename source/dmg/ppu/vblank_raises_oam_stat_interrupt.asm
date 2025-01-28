@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; STAT interrupt with OAM mode should be triggered by entering VBLANK.
 

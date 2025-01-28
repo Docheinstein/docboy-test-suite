@@ -1,5 +1,4 @@
-INCLUDE "hardware.inc"
-INCLUDE "common.inc"
+INCLUDE "all.inc"
 
 ; Check that CPU write prevents PPU to read from OAM at the proper address.
 
@@ -9,7 +8,7 @@ EntryPoint:
     ; Copy data to OAM
     Memcpy $fe00, Data, DataEnd - Data
 
-	EnablePPU
+	EnablePPU_WithSprites
 
     ; Skip the first scanline
     Nops 103

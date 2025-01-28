@@ -1,7 +1,7 @@
 ;! MBC_TYPE=2
 ;! RAM_SIZE=3
 
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (General Purpose) transfer using end of VRAM as source.
 ; HDMA should read FF instead of real data until cursor is within VRAM,

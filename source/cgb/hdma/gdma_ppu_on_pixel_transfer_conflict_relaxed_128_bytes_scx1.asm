@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (General Purpose) transfer with PPU on during HBlank.
 ; Check that data is not transferred when the PPU reads VRAM.

@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Retriggering CH3 while it is reading a byte rom Wave RAM corrupts wave ram.
 

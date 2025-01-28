@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Start a HDMA (HBlank) transfer during HBlank.
 ; Check the timing of the transfer.

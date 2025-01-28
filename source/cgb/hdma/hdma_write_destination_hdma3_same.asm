@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (HBlank) transfer and change destination after 1 transferred chunk.
 ; Write the same HDMA3.

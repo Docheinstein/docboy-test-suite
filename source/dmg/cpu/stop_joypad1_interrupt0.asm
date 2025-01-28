@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check how STOP behaves with:
 ; * Joypad    : pressed (manually on real hardware or artifically on emulators)

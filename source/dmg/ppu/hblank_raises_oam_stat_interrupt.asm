@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; STAT interrupt with OAM mode should not be triggered by entering HBLANK.
 

@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the timing of CH4's volume sweep.
 ; Uses PCM (CGB only).

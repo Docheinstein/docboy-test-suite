@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Perform a HDMA (HBlank) transfer with PPU on, then turn it off during LY=1 Oam Scan.
 ; Check that three chunks of data are transferred.

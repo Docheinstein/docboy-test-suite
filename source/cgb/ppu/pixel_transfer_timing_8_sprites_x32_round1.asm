@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check the duration of Pixel Transfer (Mode 3), with:
 
@@ -9,7 +9,7 @@ EntryPoint:
     Memset $fe00, $00, 160
     Memcpy $fe00, OamData, OamDataEnd - OamData
 
-    EnablePPU
+    EnablePPU_WithSprites
 
     Nops 186
 

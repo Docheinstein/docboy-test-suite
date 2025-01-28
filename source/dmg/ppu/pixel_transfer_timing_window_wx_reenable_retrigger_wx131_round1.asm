@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Render with window enabled, turn it off and reenable it again
 ; with WX moved ahead so that is possibly retrigger window.

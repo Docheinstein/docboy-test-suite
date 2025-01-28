@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Check precise timing of LYC_EQ_LY for LYC=152 and LY=152.
 

@@ -1,4 +1,4 @@
-INCLUDE "docboy.inc"
+INCLUDE "all.inc"
 
 ; Writing to TIMA while it is reloading should write TIMA instead of TMA.
 
