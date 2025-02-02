@@ -5,6 +5,21 @@ INCLUDE "all.inc"
 ; * Interrupt : nothing pending
 
 EntryPoint:
+    ; Enable timer at 262KHZ Hz
+    ld a, TACF_START | TACF_262KHZ
+    ldh [rTAC], a
+
+    ; Reset TIMA
+    ld a, $00
+    ldh [rTIMA], a
+
+    ; Reset DIV
+    xor a
+    ldh [rDIV], a
+
+    ; Wait a bit so that TIMA can overflow and increase DIV
+    LongWait 1024
+
     ; Reset interrupts
     xor a
     ldh [rIF], a

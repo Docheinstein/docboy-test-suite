@@ -5,16 +5,28 @@ INCLUDE "all.inc"
 ; * Interrupt : not pending
 
 EntryPoint:
+    ; Enable timer at 262KHZ Hz
+    ld a, TACF_START | TACF_262KHZ
+    ldh [rTAC], a
+
+    ; Reset TIMA
+    ld a, $00
+    ldh [rTIMA], a
+
+    ; Reset DIV
+    xor a
+    ldh [rDIV], a
+
+    ; Wait a bit so that TIMA can overflow and increase DIV
+    LongWait 1024
+
     ; Reset interrupts
     xor a
     ldh [rIF], a
 
-    ; Enable timer interrupt
+    ; Enable timer interrupt (so that we can exit halt state when TIMA overflows)
     ld a, $04
     ldh [rIE], a
-
-    ; Enable timer
-    ldh [rTAC], a
 
     ; React to D-Pad
     ld a, $20
@@ -31,7 +43,7 @@ EntryPoint:
 
     ; Check that DIV has not been reset
     ld a, [rDIV]
-    cp $ac
+    cp $20
     jp nz, TestFail
 
     jp TestSuccess

@@ -1,8 +1,9 @@
 INCLUDE "all.inc"
 
 ; Check how STOP behaves with:
+; * KEY1      : 0
 ; * Joypad    : not pressed
-; * Interrupt : pending
+; * Interrupt : nothing pending
 
 EntryPoint:
     ; Enable timer at 262KHZ Hz
@@ -20,8 +21,8 @@ EntryPoint:
     ; Wait a bit so that TIMA can overflow and increase DIV
     LongWait 1024
 
-    ; Manually set Serial interrupt flag.
-    ld a, $08
+    ; Reset interrupts
+    xor a
     ldh [rIF], a
     ldh [rIE], a
 
@@ -31,11 +32,11 @@ EntryPoint:
 
     xor a
     db $10 ; STOP -> should work
-    inc a
+    inc a  ; <- this should be ignored
     inc a
 
-    ; Check that STOP consumed 1 byte
-    cp 2
+    ; Check that STOP consumed 2 bytes
+    cp 1
     jp nz, TestFail
 
     ; Check that DIV has been reset

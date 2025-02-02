@@ -1,10 +1,17 @@
 INCLUDE "all.inc"
 
 ; Check how STOP behaves with:
+; * KEY1      : 1
 ; * Joypad    : not pressed
 ; * Interrupt : pending
+; * IME       : 0
 
 EntryPoint:
+    ; Prepare speed switch
+    ld a, $01
+    ldh [rKEY1], a
+    ldh a, [rKEY1]
+
     ; Enable timer at 262KHZ Hz
     ld a, TACF_START | TACF_262KHZ
     ldh [rTAC], a
@@ -43,7 +50,9 @@ EntryPoint:
     cp 0
     jp nz, TestFail
 
+    ; Read KEY1: we should be in double speed mode
+    ldh a, [rKEY1]
+    cp $fe
+
     jp TestSuccess
-
-
 

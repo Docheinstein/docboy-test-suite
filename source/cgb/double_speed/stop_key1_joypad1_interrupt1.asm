@@ -1,10 +1,16 @@
 INCLUDE "all.inc"
 
 ; Check how STOP behaves with:
-; * Joypad    : not pressed
+; * KEY1      : 1
+; * Joypad    : pressed (manually on real hardware or artifically on emulators)
 ; * Interrupt : pending
 
 EntryPoint:
+    ; Prepare speed switch
+    ld a, $01
+    ldh [rKEY1], a
+    ldh a, [rKEY1]
+
     ; Enable timer at 262KHZ Hz
     ld a, TACF_START | TACF_262KHZ
     ldh [rTAC], a
@@ -23,6 +29,8 @@ EntryPoint:
     ; Manually set Serial interrupt flag.
     ld a, $08
     ldh [rIF], a
+
+    ld a, $08
     ldh [rIE], a
 
     ; React to D-Pad
@@ -30,7 +38,7 @@ EntryPoint:
     ldh [rP1], a
 
     xor a
-    db $10 ; STOP -> should work
+    db $10 ; STOP -> should behaves as NOP
     inc a
     inc a
 
@@ -38,12 +46,17 @@ EntryPoint:
     cp 2
     jp nz, TestFail
 
-    ; Check that DIV has been reset
+    ; Check that DIV has not been reset
     ld a, [rDIV]
-    cp 0
+    cp $10
     jp nz, TestFail
 
+    ; Read KEY1: we should still be in single speed mode
+    ldh a, [rKEY1]
+    cp $7f
+
     jp TestSuccess
+
 
 
 

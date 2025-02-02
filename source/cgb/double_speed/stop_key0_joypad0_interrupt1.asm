@@ -1,6 +1,7 @@
 INCLUDE "all.inc"
 
 ; Check how STOP behaves with:
+; * KEY1      : 0
 ; * Joypad    : not pressed
 ; * Interrupt : pending
 
