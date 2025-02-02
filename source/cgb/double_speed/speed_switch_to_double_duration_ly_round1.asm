@@ -1,24 +1,26 @@
 INCLUDE "all.inc"
 
-; Check that PPU speed remains the same also in double speed mode.
+; Check the duration of speed switch from single to double speed by evaluating LY.
 
 EntryPoint:
     ; Prepare speed switch
     ld a, $01
     ldh [rKEY1], a
 
-    ; Change speed
-    stop
-
     ; Reset PPU
     DisablePPU
     EnablePPU
 
-    LongWait 2 * $40 * 114
+    LongWait 42 * 114
+
+    Nops 26
+
+    ; Switch to double speed
+    stop
 
     ; Read LY
     ldh a, [rLY]
-    cp $40
+    cp $1f
 
     jp nz, TestFail
     jp TestSuccess

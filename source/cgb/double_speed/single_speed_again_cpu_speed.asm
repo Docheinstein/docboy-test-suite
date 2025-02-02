@@ -1,17 +1,26 @@
 INCLUDE "all.inc"
 
-; Check that CPU goes at double speed in double speed mode.
+; Check that CPU goes at single speed in single speed mode when switched back from double speed mode.
 
 EntryPoint:
+    ; Disable APU and PPU to avoid odd mode
+    DisablePPU
+    DisableAPU
+
     ; Prepare speed switch
     ld a, $01
     ldh [rKEY1], a
 
-    ; Change speed
+    ; Switch to double speed
     stop
 
-    ; Reset PPU
-    DisablePPU
+    ; Prepare speed switch
+    ld a, $01
+    ldh [rKEY1], a
+
+    ; Switch to single speed
+    stop
+
     EnablePPU
 
     ; Enable LYC_EQ_LY interrupt for LY = $10
@@ -43,11 +52,11 @@ ENDR
 TestContinue:
     ; Read DIV
     ld a, b
-    cp $07
+    cp $03
     jp nz, TestFail
 
     ld a, c
-    cp $14
+    cp $84
     jp nz, TestFail
 
     jp TestSuccess

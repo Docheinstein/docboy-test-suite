@@ -9,7 +9,6 @@ EntryPoint:
     ; Prepare speed switch
     ld a, $01
     ldh [rKEY1], a
-    ldh a, [rKEY1]
 
     ; Enable timer at 262KHZ Hz
     ld a, TACF_START | TACF_262KHZ

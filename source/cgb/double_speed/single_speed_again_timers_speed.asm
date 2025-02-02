@@ -1,17 +1,26 @@
 INCLUDE "all.inc"
 
-; Check that timers go at double speed in double speed mode.
+; Check that CPU goes at single speed in single speed mode when switched back from double speed mode.
 
 EntryPoint:
+    ; Disable APU and PPU to avoid odd mode
+    DisablePPU
+    DisableAPU
+
     ; Prepare speed switch
     ld a, $01
     ldh [rKEY1], a
 
-    ; Change speed
+    ; Switch to double speed
     stop
 
-    ; Reset PPU
-    DisablePPU
+    ; Prepare speed switch
+    ld a, $01
+    ldh [rKEY1], a
+
+    ; Switch to single speed
+    stop
+
     EnablePPU
 
     ; Reset DIV
@@ -44,7 +53,7 @@ EntryPoint:
 TestContinue:
     ; Read DIV
     ldh a, [rDIV]
-    cp $01
+    cp $00
 
     jp nz, TestFail
     jp TestSuccess
