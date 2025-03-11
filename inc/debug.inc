@@ -103,6 +103,10 @@ MACRO DumpMemoryInteractivePage
 
     InitPrint
 
+    IF CGB
+        SetDefaultBGP
+    ENDC
+
     pop bc
 
     ld hl, $ff91
