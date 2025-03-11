@@ -1,19 +1,17 @@
 INCLUDE "all.inc"
 
 ; Perform a basic HDMA (General Purpose) transfer and make destination address exceed 0x9FFF.
-; The transfer should be aborted (it does not overflow, as it happens for source address)
-; and the CPU should be unblocked as soon as the transfer is aborted.
-
+; The transfer should overflow and continue to 0x8000 and complete normally.
 
 EntryPoint:
     DisablePPU
 
-    ; Dest address = FF80 (9F80)
+    ; Set WRAM data
     Memset $C000, $ab, $80
     Memcpy $C000, Data, DataEnd - Data
 
-    ; Dest address = FF80
-    ld a, $FF
+    ; Dest address = 9F80
+    ld a, $9F
     ldh [rHDMA3], a
 
     ld a, $80
@@ -30,17 +28,6 @@ EntryPoint:
     ld a, $00
     ldh [rHDMA2], a
 
-    ; Reset DIV
-    xor a
-    ldh [rDIV], a
-
-    ; Reset TIMA
-    ldh [rTIMA], a
-
-    ; Enable timer at 262KHZ Hz
-    ld a, TACF_START | TACF_262KHZ
-    ldh [rTAC], a
-
     ; Bit 7 = 0 (general purpose)
     ; Length = 256 bytes
     ld a, $0f
@@ -48,10 +35,8 @@ EntryPoint:
 
     ; --- transfer happens here ---
 
-    Nops 2
-
-    ldh a, [rTIMA]
-    cp $12
+    ldh a, [rHDMA5]
+    cp $ff
 
     jp nz, TestFail
     jp TestSuccess

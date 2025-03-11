@@ -1,6 +1,6 @@
 INCLUDE "all.inc"
 
-; Perform a basic HDMA (General Purpose) transfer and make destination address exceed 0x9FFF.
+; Perform a basic HDMA (General Purpose) transfer and make destination address exceed 0xFFFF.
 ; The transfer should be aborted (it does not overflow, as it happens for source address).
 ; Then write to HDMA4 and start it again.
 
@@ -14,7 +14,7 @@ EntryPoint:
     Memcpy $C100, Data, DataEnd - Data
     Memcpy $C180, Data, DataEnd - Data
 
-    ; Dest address = FF80 (9F80)
+    ; Dest address = FF80
     ld a, $FF
     ldh [rHDMA3], a
 
@@ -33,8 +33,8 @@ EntryPoint:
     ldh [rHDMA2], a
 
     ; Bit 7 = 0 (general purpose)
-    ; Length = 256 bytes
-    ld a, $0f
+    ; Length = 232 bytes
+    ld a, $0d
     ldh [rHDMA5], a
 
     ; --- transfer happens here ---
@@ -43,7 +43,7 @@ EntryPoint:
     Memset $9F00, $ef, $100
 
     ; Write to HDMA4: it should reset cursor
-    ld a, $40
+    ld a, $80
     ldh [rHDMA4], a
 
     ; Bit 7 = 0 (general purpose)
@@ -89,18 +89,18 @@ ExpectedVramData8000:
     db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
     db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
     db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
+    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
+    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
+    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
+    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
+    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
+    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
+    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
+    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
     db $00, $11, $22, $33, $44, $55, $66, $77
     db $88, $99, $aa, $bb, $cc, $dd, $ee, $ff
     db $11, $22, $33, $44, $55, $66, $77, $88
     db $99, $aa, $bb, $cc, $dd, $ee, $ff, $00
-    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
-    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
-    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
-    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
-    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
-    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
-    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
-    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
     db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
     db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
     db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd

@@ -1,8 +1,7 @@
 INCLUDE "all.inc"
 
 ; Perform a basic HDMA (General Purpose) transfer and make destination address reach exactly 0xA000.
-; The transfer should be compled as normal, but the destination address and cursor are reset to
-; 0x8000 also in this case.
+; The transfer should be completed as normal, but the destination address and cursor overflow to 0x8000.
 
 EntryPoint:
     DisablePPU
@@ -11,8 +10,8 @@ EntryPoint:
     Memset $C000, $ab, $80
     Memcpy $C000, Data, DataEnd - Data
 
-    ; Dest address = FF80 (9F80)
-    ld a, $FF
+    ; Dest address = 9F80
+    ld a, $9F
     ldh [rHDMA3], a
 
     ld a, $E0

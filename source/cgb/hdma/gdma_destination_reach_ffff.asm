@@ -1,8 +1,7 @@
 INCLUDE "all.inc"
 
-; Perform a basic HDMA (General Purpose) transfer and make destination address reach exactly 0xA000.
-; The transfer should be completed as normal, but the destination address and cursor overflow to 0x8000.
-; Then start it again: it should start from 0x8000 again.
+; Perform a basic HDMA (General Purpose) transfer and make destination address reach exactly 0xFFFF.
+; The transfer should be completed as normal, but the destination address and cursor are reset to 0x8000.
 
 EntryPoint:
     DisablePPU
@@ -11,8 +10,8 @@ EntryPoint:
     Memset $C000, $ab, $80
     Memcpy $C000, Data, DataEnd - Data
 
-    ; Dest address = 9F80
-    ld a, $9F
+    ; Dest address = FF80 (9F80)
+    ld a, $FF
     ldh [rHDMA3], a
 
     ld a, $E0
@@ -28,15 +27,6 @@ EntryPoint:
 
     ld a, $00
     ldh [rHDMA2], a
-
-    ; Bit 7 = 0 (general purpose)
-    ; Length = 32 bytes
-    ld a, $01
-    ldh [rHDMA5], a
-
-    ; --- transfer happens here ---
-
-    Memset $9F00, $ef, $100
 
     ; Bit 7 = 0 (general purpose)
     ; Length = 32 bytes
@@ -73,10 +63,10 @@ Data:
 DataEnd:
 
 ExpectedVramData8000:
-    db $22, $33, $44, $55, $66, $77, $88, $99
-    db $aa, $bb, $cc, $dd, $ee, $ff, $00, $11
-    db $33, $44, $55, $66, $77, $88, $99, $aa
-    db $bb, $cc, $dd, $ee, $ff, $00, $11, $22
+    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
+    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
+    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
+    db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
     db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
     db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
     db $cd, $cd, $cd, $cd, $cd, $cd, $cd, $cd
@@ -120,8 +110,8 @@ ExpectedVramData9F00:
     db $ef, $ef, $ef, $ef, $ef, $ef, $ef, $ef
     db $ef, $ef, $ef, $ef, $ef, $ef, $ef, $ef
     db $ef, $ef, $ef, $ef, $ef, $ef, $ef, $ef
-    db $ef, $ef, $ef, $ef, $ef, $ef, $ef, $ef
-    db $ef, $ef, $ef, $ef, $ef, $ef, $ef, $ef
-    db $ef, $ef, $ef, $ef, $ef, $ef, $ef, $ef
-    db $ef, $ef, $ef, $ef, $ef, $ef, $ef, $ef
+    db $00, $11, $22, $33, $44, $55, $66, $77
+    db $88, $99, $aa, $bb, $cc, $dd, $ee, $ff
+    db $11, $22, $33, $44, $55, $66, $77, $88
+    db $99, $aa, $bb, $cc, $dd, $ee, $ff, $00
 ExpectedVramData9F00End:

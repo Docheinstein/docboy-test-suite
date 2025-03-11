@@ -1,8 +1,8 @@
 INCLUDE "all.inc"
 
-; Perform a basic HDMA (General Purpose) transfer and make destination address reach exactly 0xA000.
-; The transfer should be completed as normal, but the destination address and cursor overflow to 0x8000.
-; Then start it again and read HDMA5: it should contain 0xFF, since the transfer completes successfully.
+; Perform a basic HDMA (General Purpose) transfer and make destination address reach exactly 0xFFFF.
+; The transfer should be completed as normal, but the destination address and cursor are reset to 0x8000.
+; HDMA5 should contain 0xFF, since the transfer completed successfully.
 
 EntryPoint:
     DisablePPU
@@ -11,8 +11,8 @@ EntryPoint:
     Memset $C000, $ab, $80
     Memcpy $C000, Data, DataEnd - Data
 
-    ; Dest address = 9F80
-    ld a, $9F
+    ; Dest address = FFE0
+    ld a, $FF
     ldh [rHDMA3], a
 
     ld a, $E0
@@ -28,15 +28,6 @@ EntryPoint:
 
     ld a, $00
     ldh [rHDMA2], a
-
-    ; Bit 7 = 0 (general purpose)
-    ; Length = 32 bytes
-    ld a, $01
-    ldh [rHDMA5], a
-
-    ; --- transfer happens here ---
-
-    Memset $9F00, $ef, $100
 
     ; Bit 7 = 0 (general purpose)
     ; Length = 32 bytes

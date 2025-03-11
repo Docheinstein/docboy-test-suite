@@ -1,21 +1,24 @@
 INCLUDE "all.inc"
 
-; Perform a basic HDMA (General Purpose) transfer and make destination address reach exactly 0xA000.
-; The transfer should be completed as normal, but the destination address and cursor overflow to 0x8000.
-; Then start it again and read HDMA5: it should contain 0xFF, since the transfer completes successfully.
+; Perform a basic HDMA (General Purpose) transfer and make destination address exceed 0xFFFF.
+; The transfer should be aborted (it does not overflow, as it happens for source address).
+; Then start it again: it should start from 0x8000 again and the timing should be "normal".
 
 EntryPoint:
     DisablePPU
 
     ; Set WRAM data
-    Memset $C000, $ab, $80
+    Memset $C000, $ab, $200
     Memcpy $C000, Data, DataEnd - Data
+    Memcpy $C080, Data, DataEnd - Data
+    Memcpy $C100, Data, DataEnd - Data
+    Memcpy $C180, Data, DataEnd - Data
 
-    ; Dest address = 9F80
-    ld a, $9F
+    ; Dest address = FF80 (9F80)
+    ld a, $FF
     ldh [rHDMA3], a
 
-    ld a, $E0
+    ld a, $80
     ldh [rHDMA4], a
 
     ; Set VRAM data
@@ -29,24 +32,33 @@ EntryPoint:
     ld a, $00
     ldh [rHDMA2], a
 
+    ; Reset DIV
+    xor a
+    ldh [rDIV], a
+
+    ; Reset TIMA
+    ldh [rTIMA], a
+
+    ; Enable timer at 262KHZ Hz
+    ld a, TACF_START | TACF_262KHZ
+    ldh [rTAC], a
+
     ; Bit 7 = 0 (general purpose)
-    ; Length = 32 bytes
-    ld a, $01
+    ; Length = 256 bytes
+    ld a, $0f
     ldh [rHDMA5], a
 
     ; --- transfer happens here ---
 
-    Memset $9F00, $ef, $100
-
     ; Bit 7 = 0 (general purpose)
-    ; Length = 32 bytes
-    ld a, $01
+    ; Length = 256 bytes
+    ld a, $0f
     ldh [rHDMA5], a
 
     ; --- transfer happens here ---
 
-    ldh a, [rHDMA5]
-    cp $ff
+    ldh a, [rTIMA]
+    cp $33
 
     jp nz, TestFail
     jp TestSuccess

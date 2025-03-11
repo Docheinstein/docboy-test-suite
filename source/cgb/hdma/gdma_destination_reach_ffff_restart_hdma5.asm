@@ -1,8 +1,8 @@
 INCLUDE "all.inc"
 
-; Perform a basic HDMA (General Purpose) transfer and make destination address exceed 0x9FFF.
-; The transfer should be aborted (it does not overflow, as it happens for source address).
-; HDMA5 should contain the remaining chunks to transfer after the abort.
+; Perform a basic HDMA (General Purpose) transfer and make destination address reach exactly 0xFFFF.
+; The transfer should be completed as normal, but the destination address and cursor are reset to 0x8000.
+; Then start it again and read HDMA5: it should contain 0xFF, since the transfer completes successfully.
 
 EntryPoint:
     DisablePPU
@@ -15,7 +15,7 @@ EntryPoint:
     ld a, $FF
     ldh [rHDMA3], a
 
-    ld a, $80
+    ld a, $E0
     ldh [rHDMA4], a
 
     ; Set VRAM data
@@ -29,27 +29,24 @@ EntryPoint:
     ld a, $00
     ldh [rHDMA2], a
 
-    ; Reset DIV
-    xor a
-    ldh [rDIV], a
-
-    ; Reset TIMA
-    ldh [rTIMA], a
-
-    ; Enable timer at 262KHZ Hz
-    ld a, TACF_START | TACF_262KHZ
-    ldh [rTAC], a
-
     ; Bit 7 = 0 (general purpose)
-    ; Length = 256 bytes
-    ld a, $0f
+    ; Length = 32 bytes
+    ld a, $01
     ldh [rHDMA5], a
 
     ; --- transfer happens here ---
 
-    ; Read HDMA5
+    Memset $9F00, $ef, $100
+
+    ; Bit 7 = 0 (general purpose)
+    ; Length = 32 bytes
+    ld a, $01
+    ldh [rHDMA5], a
+
+    ; --- transfer happens here ---
+
     ldh a, [rHDMA5]
-    cp $87
+    cp $ff
 
     jp nz, TestFail
     jp TestSuccess

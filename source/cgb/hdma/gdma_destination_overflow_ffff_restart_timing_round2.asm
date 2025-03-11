@@ -1,6 +1,6 @@
 INCLUDE "all.inc"
 
-; Perform a basic HDMA (General Purpose) transfer and make destination address exceed 0x9FFF.
+; Perform a basic HDMA (General Purpose) transfer and make destination address exceed 0xFFFF.
 ; The transfer should be aborted (it does not overflow, as it happens for source address).
 ; Then start it again: it should start from 0x8000 again and the timing should be "normal".
 
@@ -57,8 +57,10 @@ EntryPoint:
 
     ; --- transfer happens here ---
 
+    Nops 1
+
     ldh a, [rTIMA]
-    cp $33
+    cp $34
 
     jp nz, TestFail
     jp TestSuccess
