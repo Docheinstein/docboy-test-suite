@@ -38,7 +38,6 @@ EntryPoint:
 
     ; Read PCM3
     ldh a, [rPCM34]
-    DumpRegisters
     cp $0b
 
     jp nz, TestFail

@@ -1,6 +1,6 @@
 INCLUDE "all.inc"
 
-; Check the timing of vblank interrupt in double speed mode.
+; Check the timing of vblank interrupt in double speed mode while halted.
 
 EntryPoint:
     ; Prepare speed switch
@@ -25,20 +25,25 @@ EntryPoint:
     ld a, $01
     ldh [rIE], a
 
+    ; Reset DIV
+    ldh [rDIV], a
+
     ; Enable interrupt
     ei
 
-    xor a
-
-REPT 200
-    inc a
-ENDR
+    ; Halt
+    halt
+    nop
 
     ; We should not reach this point
     jp TestFail
 
 TestFinish:
-    cp $65
+    Nops 15
+
+    ldh a, [rDIV]
+    cp $02
+
     jp nz, TestFail
 
     jp TestSuccess

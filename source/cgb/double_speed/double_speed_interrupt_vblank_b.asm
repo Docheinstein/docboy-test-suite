@@ -38,7 +38,6 @@ ENDR
     jp TestFail
 
 TestFinish:
-    DumpRegisters
     cp $64
 
     jp nz, TestFail
