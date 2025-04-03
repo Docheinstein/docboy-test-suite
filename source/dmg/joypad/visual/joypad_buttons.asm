@@ -1,6 +1,6 @@
 INCLUDE "all.inc"
 
-; Enable Joypad buttons and dump P1 register.
+; Enable Joypad Buttons and dump P1 register.
 
 EntryPoint:
     ; React to buttons
