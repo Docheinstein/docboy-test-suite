@@ -55,6 +55,7 @@ EntryPoint:
     ldh a, [rKEY1]
     cp $fe
 
+    jp nz, TestFail
     jp TestSuccess
 
 SECTION "Serial handler", ROM0[$58]

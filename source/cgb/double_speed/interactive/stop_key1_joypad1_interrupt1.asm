@@ -54,6 +54,7 @@ EntryPoint:
     ldh a, [rKEY1]
     cp $7f
 
+    jp nz, TestFail
     jp TestSuccess
 
 
