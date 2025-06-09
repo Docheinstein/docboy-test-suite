@@ -3,7 +3,6 @@ INCLUDE "all.inc"
 ; Check the timing of timer interrupt during speed switch to single speed.
 
 EntryPoint:
-    ; Disable APU and PPU to avoid odd mode
     DisablePPU
     DisableAPU
 
@@ -42,7 +41,9 @@ EntryPoint:
     ; Switch to single speed
     stop
 
-    Nops 60
+    Nops 42
+
+    Nops 18
 
     ; Read DIV
     ldh a, [rDIV]

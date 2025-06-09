@@ -40,7 +40,7 @@ EntryPoint:
     ldh [rHDMA5], a
 
     ; --- transfer happens here ---
-    Nops 33
+    Nops 147
 
     ldh a, [rLY]
     cp $04

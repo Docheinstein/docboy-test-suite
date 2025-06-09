@@ -3,7 +3,6 @@ INCLUDE "all.inc"
 ; Check KEY1 after an interrupt is triggered during speed switch to single speed.
 
 EntryPoint:
-    ; Disable APU and PPU to avoid odd mode
     DisablePPU
     DisableAPU
 

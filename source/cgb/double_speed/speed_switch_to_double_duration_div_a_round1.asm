@@ -1,6 +1,6 @@
 INCLUDE "all.inc"
 
-; Check the duration of speed switch from single to double speed by evaluating LY.
+; Check the duration of speed switch from single to double speed by evaluating DIV.
 
 EntryPoint:
     ; Prepare speed switch

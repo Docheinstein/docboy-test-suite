@@ -3,7 +3,6 @@ INCLUDE "all.inc"
 ; Check what happens to DIV during a speed switch from double to single speed.
 
 EntryPoint:
-    ; Disable APU and PPU to avoid odd mode
     DisablePPU
     DisableAPU
 

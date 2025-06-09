@@ -7,7 +7,10 @@ EntryPoint:
     ld a, $01
     ldh [rKEY1], a
 
+    ; Switch to double speed
     stop
+
+    Nops 1
 
     ; Prepare speed switch
     ld a, $01
@@ -30,7 +33,7 @@ DmaTransferRoutine:
     ld a, $c0
     ldh [rDMA], a
 
-    ; Change speed
+    ; Switch to single speed
     stop
 
     ; Wait until the end of DMA

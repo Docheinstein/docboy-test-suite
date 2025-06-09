@@ -3,7 +3,6 @@ INCLUDE "all.inc"
 ; Check what happens to TIMA during a speed switch from double to single speed when timer runs at 65KHz.
 
 EntryPoint:
-    ; Disable APU and PPU to avoid odd mode
     DisablePPU
     DisableAPU
 
@@ -13,6 +12,8 @@ EntryPoint:
 
     ; Switch to double speed
     stop
+
+    Nops 1
 
     ; Prepare speed switch
     ld a, $01

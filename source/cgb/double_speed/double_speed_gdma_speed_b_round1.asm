@@ -32,7 +32,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 228
+    Nops 114
 
     ; Bit 7 = 0 (general purpose)
     ; Length = 640 bytes / $10 - 1 => 39 = $27
@@ -40,7 +40,7 @@ EntryPoint:
     ldh [rHDMA5], a
 
     ; --- transfer happens here ---
-    Nops 32
+    Nops 146
 
     ldh a, [rLY]
     cp $03

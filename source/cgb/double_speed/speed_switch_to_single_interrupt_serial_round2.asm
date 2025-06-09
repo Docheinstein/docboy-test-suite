@@ -3,7 +3,6 @@ INCLUDE "all.inc"
 ; Check the timing of serial interrupt during speed switch to single speed.
 
 EntryPoint:
-    ; Disable APU and PPU to avoid odd mode
     DisablePPU
     DisableAPU
 
@@ -13,6 +12,8 @@ EntryPoint:
 
     ; Switch to double speed
     stop
+
+    Nops 1
 
     ; Prepare speed switch
     ld a, $01
