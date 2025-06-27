@@ -1,7 +1,6 @@
 INCLUDE "all.inc"
 
 ; Check the timing of CH4's volume sweep.
-; Uses PCM (CGB only).
 
 EntryPoint:
     ; Reset DIV
@@ -27,7 +26,7 @@ EntryPoint:
     ld a, $8F
     ldh [rNR44], a
 
-    LongWait 16340
+    LongWait 16341
 
     ; Read PCMs
     ldh a, [rPCM34]
@@ -41,7 +40,7 @@ EntryPoint:
 
     ; Check PCM34
     ld a, b
-    cp $F0
+    cp $E0
     jp nz, TestFail
 
     jp TestSuccess

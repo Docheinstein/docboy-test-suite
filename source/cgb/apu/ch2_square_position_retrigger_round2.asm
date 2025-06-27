@@ -1,11 +1,9 @@
 INCLUDE "all.inc"
 
-; Check the timing of CH1's square wave position.
-; Uses PCM (CGB only).
+; Check the timing of CH2's square wave position.
 
 EntryPoint:
     DisableAPU
-
     EnableAPU
 
     ; Initial length = 1
@@ -35,7 +33,7 @@ EntryPoint:
     ld a, $CF
     ldh [rNR24], a
 
-    Nops 18
+    Nops 19
 
     ; Read PCMs
     ldh a, [rPCM34]
@@ -44,7 +42,7 @@ EntryPoint:
     ldh a, [rPCM12]
 
     ; Check PCM12
-    cp $00
+    cp $F0
     jp nz, TestFail
 
     ; Check PCM34

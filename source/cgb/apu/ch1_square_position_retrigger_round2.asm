@@ -5,28 +5,39 @@ INCLUDE "all.inc"
 
 EntryPoint:
     DisableAPU
-
     EnableAPU
+
+    xor a
+    ldh [rNR10], a
 
     ; Initial length = 1
     ld a, $01
-    ldh [rNR21], a
+    ldh [rNR11], a
 
     ; Initial volume = F
     ld a, $F0
-    ldh [rNR22], a
+    ldh [rNR12], a
 
     ; Period = 0x7FD
     ld a, $FD
-    ldh [rNR23], a
+    ldh [rNR13], a
 
     ; Trigger = 1
     ; Length enable = 1
     ld a, $CF
-    ldh [rNR24], a
+    ldh [rNR14], a
 
     ; Wait
-    Nops 41
+    Nops 20
+
+    ; Retrigger
+
+    ; Trigger = 1
+    ; Length enable = 1
+    ld a, $CF
+    ldh [rNR14], a
+
+    Nops 19
 
     ; Read PCMs
     ldh a, [rPCM34]
@@ -35,7 +46,7 @@ EntryPoint:
     ldh a, [rPCM12]
 
     ; Check PCM12
-    cp $F0
+    cp $0F
     jp nz, TestFail
 
     ; Check PCM34

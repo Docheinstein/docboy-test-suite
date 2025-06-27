@@ -5,7 +5,6 @@ INCLUDE "all.inc"
 
 EntryPoint:
     DisableAPU
-
     EnableAPU
 
     xor a
