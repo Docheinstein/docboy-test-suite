@@ -7,6 +7,7 @@ ENDR
 ENDM
 
 MACRO LongWait
+IF \1 > 16
 ; Args:
 ; \1: number of cycles to wait (MUST BE > 8)
 ld de, ((\1) / 8) - ((\1) % 8 < 2)   ; 3
@@ -20,4 +21,7 @@ ld de, ((\1) / 8) - ((\1) % 8 < 2)   ; 3
 REPT (((\1) % 8) + 8 - 2) % 8
     nop
 ENDR
+ELSE
+Nops \1
+ENDC
 ENDM
