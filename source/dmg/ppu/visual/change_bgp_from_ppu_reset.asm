@@ -25,12 +25,12 @@ EntryPoint:
     ; - Begin of frame -
 
     ; Skip 1 frame
-    LongWait 114 * 154
+    Wait 114 * 154
 
     ; - Begin of frame -
 
     ; Wait middle of line 8
-    LongWait 950
+    Wait 950
 
     ; Write different BGP
     ld a, %11100111

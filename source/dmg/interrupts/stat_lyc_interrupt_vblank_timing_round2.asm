@@ -27,7 +27,7 @@ EntryPoint:
 
 
     ; Go to line 8 of next frame
-    LongWait 162 * 114
+    Wait 162 * 114
 
     ; 56 nops should read DIV=$13
     Nops 56

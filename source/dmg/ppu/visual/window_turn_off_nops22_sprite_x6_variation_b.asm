@@ -42,7 +42,7 @@ EntryPoint:
     ; -- Begin of frame --
 
     ; Go to line 8 of next frame
-    LongWait 163 * 114
+    Wait 163 * 114
 
     ; Go to pixel transfer of line 8
     Nops 22

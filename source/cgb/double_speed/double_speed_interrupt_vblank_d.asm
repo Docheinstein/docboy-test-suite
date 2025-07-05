@@ -33,7 +33,7 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    LongWait 20 * 114 * 2
+    Wait 20 * 114 * 2
 
     ; Enable VBlank interrupt
     xor a

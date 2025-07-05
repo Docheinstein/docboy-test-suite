@@ -7,7 +7,7 @@ EntryPoint:
     Memset $fe00, $00, 160
     EnablePPU
 
-    LongWait 114 * 143
+    Wait 114 * 143
 
     ld a, STATF_MODE10
     ldh [rSTAT], a

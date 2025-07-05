@@ -29,7 +29,7 @@ EntryPoint:
 
 StartWait:
     ; Go to line 8 of next frame
-    LongWait 162 * 114
+    Wait 162 * 114
 
     ld a, b
     cp 1

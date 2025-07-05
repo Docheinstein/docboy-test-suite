@@ -17,7 +17,7 @@ EntryPoint:
     ld a, $20
     ldh [rTIMA], a
 
-    LongWait 2039
+    Wait 2039
 
     Nops 1
 

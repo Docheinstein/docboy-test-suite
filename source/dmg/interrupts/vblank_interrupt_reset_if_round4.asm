@@ -13,7 +13,7 @@ EntryPoint:
 
     ei
 
-    LongWait 114 * 143 + 112
+    Wait 114 * 143 + 112
 
     ; Reset IF
     xor a

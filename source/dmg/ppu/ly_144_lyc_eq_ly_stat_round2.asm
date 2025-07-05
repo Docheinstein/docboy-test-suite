@@ -8,7 +8,7 @@ EntryPoint:
     ld a, $90
     ldh [rLYC], a
 
-    LongWait 114 * 143
+    Wait 114 * 143
 
     Nops 106
 

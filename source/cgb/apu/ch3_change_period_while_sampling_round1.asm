@@ -31,7 +31,7 @@ EntryPoint:
     ld a, $00
     ldh [rNR34], a
 
-    LongWait 893
+    Wait 893
 
     ldh a, [rPCM34]
     cp $09

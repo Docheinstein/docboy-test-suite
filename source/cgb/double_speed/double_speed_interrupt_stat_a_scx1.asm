@@ -21,7 +21,7 @@ EntryPoint:
 
     EnablePPU
 
-    LongWait 2 * 114 * 2
+    Wait 2 * 114 * 2
 
     ; Enable STAT interrupt
     ld a, IEF_STAT

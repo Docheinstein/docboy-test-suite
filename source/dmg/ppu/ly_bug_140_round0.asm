@@ -11,7 +11,7 @@ EntryPoint:
     DisablePPU
     EnablePPU
 
-    LongWait 140 * 114
+    Wait 140 * 114
     
     Nops 109
 

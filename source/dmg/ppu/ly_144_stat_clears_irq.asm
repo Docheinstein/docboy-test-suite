@@ -12,7 +12,7 @@ EntryPoint:
 
     EnablePPU
 
-    LongWait 114 * 143
+    Wait 114 * 143
 
     ; Wait HBlank
     Nops 70

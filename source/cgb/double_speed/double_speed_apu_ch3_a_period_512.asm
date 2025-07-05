@@ -34,7 +34,7 @@ EntryPoint:
     ld a, $86
     ldh [rNR34], a
 
-    LongWait 3094
+    Wait 3094
 
     ; Read PCM3
     ldh a, [rPCM34]

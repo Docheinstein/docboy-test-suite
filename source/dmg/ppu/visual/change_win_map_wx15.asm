@@ -39,8 +39,8 @@ EntryPoint:
     ld [hl], b
 
     ; Wait for the next frame
-    LongWait 114 * 154
-    LongWait 114 * 8
+    Wait 114 * 154
+    Wait 114 * 8
 
     Nops 26
 

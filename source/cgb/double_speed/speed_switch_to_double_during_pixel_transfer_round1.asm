@@ -24,7 +24,7 @@ EntryPoint:
     EnablePPU_WithSprites
 
     ; Go to line 30
-    LongWait 114 * 30
+    Wait 114 * 30
 
     Nops 50
 

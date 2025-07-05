@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Check that CH1 period sweep turns off CH1 with the correct timing.
 
 EntryPoint:
-    LongWait 5120
+    Wait 5120
 
     EnableAPU
 

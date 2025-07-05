@@ -26,12 +26,12 @@ EntryPoint:
     ; - Begin of frame -
 
     ; Skip 1 frame
-    LongWait 114 * 154
+    Wait 114 * 154
 
     ; - Begin of frame -
 
     ; Wait 7 lines
-    LongWait 114 * 7
+    Wait 114 * 7
 	
 	; Add some phase
 	Nops 0

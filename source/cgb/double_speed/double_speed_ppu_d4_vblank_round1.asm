@@ -47,7 +47,7 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    LongWait 61 * 228
+    Wait 61 * 228
 
     Nops 152
 

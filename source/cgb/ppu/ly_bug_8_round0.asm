@@ -25,11 +25,11 @@ EntryPoint:
 	; Switch to single speed
     stop
 
-    LongWait 21 * 114
+    Wait 21 * 114
     
     Nops 55
 
-    LongWait 8 * 114
+    Wait 8 * 114
     
     Nops 0
 

@@ -14,7 +14,7 @@ EntryPoint:
     ldh [rKEY1], a
 
     ; Wait so that DIV will be > 0
-    LongWait 256
+    Wait 256
 
     ; Change speed
     stop

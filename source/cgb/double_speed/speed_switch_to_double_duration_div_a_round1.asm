@@ -21,7 +21,7 @@ EntryPoint:
     ld a, TACF_START | TACF_4KHZ
     ldh [rTAC], a
 
-    LongWait 52
+    Wait 52
 
     ; Read DIV
     ldh a, [rDIV]

@@ -27,7 +27,7 @@ REPT 16
     stop
 ENDR
 
-    LongWait 38 * 114
+    Wait 38 * 114
 
     Nops 91
 

@@ -6,7 +6,7 @@ INCLUDE "all.inc"
 EntryPoint:
     DisableAPU
 
-    LongWait 512
+    Wait 512
 
     EnableAPU
 

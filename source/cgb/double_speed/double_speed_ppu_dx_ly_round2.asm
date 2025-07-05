@@ -34,7 +34,7 @@ ENDR
     ; Switch to single speed
     stop
 
-    LongWait 38 * 114
+    Wait 38 * 114
 
     Nops 3
 

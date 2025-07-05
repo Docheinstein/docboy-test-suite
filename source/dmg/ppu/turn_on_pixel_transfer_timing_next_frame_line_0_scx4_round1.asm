@@ -17,7 +17,7 @@ EntryPoint:
     ; Reset PPU phase
     EnablePPU
 
-    LongWait 154 * 114
+    Wait 154 * 114
     Nops 60
 
     ; We should still be in Pixel Transfer

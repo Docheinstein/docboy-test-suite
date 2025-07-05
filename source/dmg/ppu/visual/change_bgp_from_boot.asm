@@ -16,24 +16,24 @@ EntryPoint:
     ldh [rBGP], a
 
     ; Busy wait until next frame's VBlank to write to VRAM
-    LongWait 114 * 144
+    Wait 114 * 144
 
     ; Set BG VRAM data
     Memcpy $9010, BackgroundVramTileData, BackgroundVramTileDataEnd - BackgroundVramTileData
     Memcpy $9809, BackgroundVramTileMapData, BackgroundVramTileMapDataEnd - BackgroundVramTileMapData
 
     ; Align with begin of next frame
-    LongWait 644
+    Wait 644
 
     ; - Begin of frame -
 
     ; Skip 1 frame
-    LongWait 114 * 154
+    Wait 114 * 154
 
     ; - Begin of frame -
 
     ; Wait middle of line 8
-    LongWait 950
+    Wait 950
 
     ; Write different BGP
     ld a, %11100111

@@ -10,7 +10,7 @@ EntryPoint:
     DisablePPU
     EnablePPU
 
-    LongWait 114 * 42
+    Wait 114 * 42
 
     ; Prepare speed switch
     ld a, $01
@@ -36,7 +36,7 @@ EntryPoint:
     ldh [rDIV], a
 
     ; Wait a bit so that TIMA can overflow and increase DIV
-    LongWait 1024
+    Wait 1024
 
     ; Manually set Serial interrupt flag.
     ld a, IEF_TIMER

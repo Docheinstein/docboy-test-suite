@@ -38,7 +38,7 @@ Loop:
     ; -- Begin of frame --
 
     ; Wait 8 lines
-    LongWait 8 * 114
+    Wait 8 * 114
 
     ; Go to pixel transfer of line 8
     Nops 21
@@ -64,7 +64,7 @@ TestRestart:
     ; Soft Breakpoint: good time to take a screenshot
     ld b, b
     
-    LongWait 1125
+    Wait 1125
 
     jp Loop
 

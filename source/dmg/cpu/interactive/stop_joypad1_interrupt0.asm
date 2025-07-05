@@ -18,7 +18,7 @@ EntryPoint:
     ldh [rDIV], a
 
     ; Wait a bit so that TIMA can overflow and increase DIV
-    LongWait 1024
+    Wait 1024
 
     ; Reset interrupts
     xor a

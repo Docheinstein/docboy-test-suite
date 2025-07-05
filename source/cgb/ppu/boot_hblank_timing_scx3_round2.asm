@@ -7,7 +7,7 @@ EntryPoint:
     ld a, $03
     ldh [rSCX], a
 
-    LongWait 14 * 114
+    Wait 14 * 114
 
     Nops 10
 

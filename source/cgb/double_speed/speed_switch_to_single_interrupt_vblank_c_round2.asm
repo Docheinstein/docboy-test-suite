@@ -36,7 +36,7 @@ EntryPoint:
     DisablePPU
     EnablePPU
 
-    LongWait 114 * 143
+    Wait 114 * 143
 
     ; Prepare speed switch
     ld a, $01

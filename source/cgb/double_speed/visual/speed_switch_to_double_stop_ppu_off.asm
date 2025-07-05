@@ -36,7 +36,7 @@ EntryPoint:
 
     ; Let it run for 60 frames
 REPT 60
-    LongWait 114 * 154
+    Wait 114 * 154
 ENDR
 
     DisablePPU

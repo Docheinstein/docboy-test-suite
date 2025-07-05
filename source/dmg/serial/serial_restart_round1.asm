@@ -17,7 +17,7 @@ EntryPoint:
     ld a, $81
     ldh [rSC], a
 
-    LongWait 1014
+    Wait 1014
 
     ldh a, [rSC]
     cp $ff

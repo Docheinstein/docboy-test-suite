@@ -30,7 +30,7 @@ EntryPoint:
 
     ; Wait 70 frames (> 1 second)
     REPT 70
-        LongWait 154 * 114
+        Wait 154 * 114
     ENDR
 
     ; Set latch to 0

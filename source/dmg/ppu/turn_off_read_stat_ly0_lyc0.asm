@@ -9,7 +9,7 @@ EntryPoint:
     ld a, $00
     ld [rLYC], a
 
-    LongWait 10 * 114
+    Wait 10 * 114
 
     DisablePPU
 

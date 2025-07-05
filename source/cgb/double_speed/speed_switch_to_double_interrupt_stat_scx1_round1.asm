@@ -21,7 +21,7 @@ EntryPoint:
     EnablePPU
 
     ; Go to line 42
-    LongWait 114 * 42
+    Wait 114 * 42
 
     ; Reset IF
     xor a

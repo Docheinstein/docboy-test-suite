@@ -37,7 +37,7 @@ EntryPoint:
 
     ; --- transfer happens here ---
 
-    LongWait 32 * 114
+    Wait 32 * 114
 
     DisablePPU
 

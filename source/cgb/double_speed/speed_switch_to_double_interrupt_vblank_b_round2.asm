@@ -28,7 +28,7 @@ EntryPoint:
     EnablePPU
 
     ; Go to line 42
-    LongWait 114 * 42
+    Wait 114 * 42
 
     ; Enable VBlank interrupt
     xor a

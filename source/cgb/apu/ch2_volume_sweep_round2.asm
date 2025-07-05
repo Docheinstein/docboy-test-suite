@@ -28,7 +28,7 @@ EntryPoint:
     ld a, $8F
     ldh [rNR24], a
 
-    LongWait 16337
+    Wait 16337
 
     ; Read PCMs
     ldh a, [rPCM34]

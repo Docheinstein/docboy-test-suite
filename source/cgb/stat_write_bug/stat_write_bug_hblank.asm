@@ -11,7 +11,7 @@ EntryPoint:
 
     EnablePPU
 
-    LongWait 114
+    Wait 114
 
     xor a
     ldh [rIF], a

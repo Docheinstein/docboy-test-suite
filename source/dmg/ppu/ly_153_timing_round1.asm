@@ -8,7 +8,7 @@ EntryPoint:
     DisablePPU
     EnablePPU
 
-    LongWait 152 * 114 + 109
+    Wait 152 * 114 + 109
 
     ; Read LY: it should read 152
     ldh a, [rLY]

@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Check that CH1 length timer turns off CH1 with the correct timing.
 
 EntryPoint:
-    LongWait 2048
+    Wait 2048
 
     EnableAPU
 

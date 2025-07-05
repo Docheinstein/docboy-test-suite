@@ -11,7 +11,7 @@ EntryPoint:
 
     EnablePPU
 
-    LongWait 152 * 114 + 113 + 110
+    Wait 152 * 114 + 113 + 110
 
     ; Read LYC_EQ_LY from stat: it should be 1
     ldh a, [rSTAT]

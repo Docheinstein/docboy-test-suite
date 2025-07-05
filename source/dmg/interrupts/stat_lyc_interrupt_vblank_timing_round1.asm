@@ -26,7 +26,7 @@ EntryPoint:
     ldh [rLYC], a
 
     ; Go to line 8 of next frame
-    LongWait 162 * 114
+    Wait 162 * 114
 
     ; 55 nops should read DIV=$12
     Nops 55

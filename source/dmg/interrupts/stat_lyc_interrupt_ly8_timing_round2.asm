@@ -7,7 +7,7 @@ EntryPoint:
     DisablePPU
     EnablePPU
 
-    LongWait 7 * 114
+    Wait 7 * 114
 
     ; Write LYC=8
     ld a, 8

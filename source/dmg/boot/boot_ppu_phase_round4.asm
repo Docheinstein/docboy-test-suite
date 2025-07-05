@@ -4,7 +4,7 @@ INCLUDE "all.inc"
 
 EntryPoint:
     ; Wait for the next frame first VBlank cycle
-    LongWait 114 * 144 + 8
+    Wait 114 * 144 + 8
 
     ; Read STAT's mode bits
     ldh a, [rSTAT]

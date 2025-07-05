@@ -8,7 +8,7 @@ EntryPoint:
     ld a, $8f
     ldh [rLYC], a
 
-    LongWait 114 * 142
+    Wait 114 * 142
 
     Nops 106
 

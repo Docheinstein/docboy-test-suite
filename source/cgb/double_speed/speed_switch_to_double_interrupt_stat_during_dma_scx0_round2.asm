@@ -32,7 +32,7 @@ EntryPoint:
     EnablePPU
 
     ; Go to last line before VBlank
-    LongWait 114 * 143
+    Wait 114 * 143
 
     ; Enable HBlank interrupt
     ld a, STATF_MODE00

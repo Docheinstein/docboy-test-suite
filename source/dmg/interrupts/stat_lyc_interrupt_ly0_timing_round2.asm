@@ -7,7 +7,7 @@ EntryPoint:
     DisablePPU
     EnablePPU
 
-    LongWait 152 * 114
+    Wait 152 * 114
 
     ; Write LYC=0
     xor a

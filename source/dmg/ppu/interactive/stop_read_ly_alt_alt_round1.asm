@@ -7,7 +7,7 @@ EntryPoint:
     EnablePPU
 
     ; Go to line 20
-    LongWait 30 * 114 + 64
+    Wait 30 * 114 + 64
 
     stop
 

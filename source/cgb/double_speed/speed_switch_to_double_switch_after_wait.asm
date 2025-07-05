@@ -8,7 +8,7 @@ EntryPoint:
     ldh [rKEY1], a
 
     ; Wait a bit
-    LongWait 1000
+    Wait 1000
 
     ; Change speed
     stop

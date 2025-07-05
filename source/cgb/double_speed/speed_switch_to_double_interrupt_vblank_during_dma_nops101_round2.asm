@@ -31,7 +31,7 @@ EntryPoint:
     EnablePPU
 
     ; Go to VBlank
-    LongWait 114 * 143
+    Wait 114 * 143
 
     Nops 101
 
