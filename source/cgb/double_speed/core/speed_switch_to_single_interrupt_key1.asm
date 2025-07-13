@@ -39,7 +39,7 @@ EntryPoint:
     ; Switch to single speed
     stop
 
-    ; Read DIV
+    ; Read KEY1
     ldh a, [rKEY1]
     cp $7e
 

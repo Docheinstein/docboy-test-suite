@@ -1,6 +1,6 @@
 INCLUDE "all.inc"
 
-; Check the timing of STAT interrupt during speed switch to single speed.
+; Check the timing of DIV during speed switch to single speed.
 
 EntryPoint:
     DisablePPU
