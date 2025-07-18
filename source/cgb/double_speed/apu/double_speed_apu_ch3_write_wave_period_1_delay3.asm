@@ -1,11 +1,23 @@
 INCLUDE "all.inc"
 
-; Writing to Wave RAM while it is on either writes the current byte CH3 is accessing or it is ignored.
+; Writing to Wave RAM while it is on either writes the current byte CH3 is accessing.
 
 EntryPoint:
-    EnableAPU
+    xor a
+    ldh [rDIV], a
+
+    DisableAPU
 
     Memcpy $FF30, WaveRam, WaveRamEnd - WaveRam
+
+    ; Prepare speed switch
+    ld a, $01
+    ldh [rKEY1], a
+
+    ; Switch to double speed
+    stop
+
+    EnableAPU
 
     ; Enable = 1
     ld a, $80
@@ -15,14 +27,14 @@ EntryPoint:
     ld a, $00
     ldh [rNR32], a
 
-    ; Period = 5
-    ld a, $FB
+    ; Period = 1
+    ld a, $FF
     ldh [rNR33], a
 
     ld a, $87
     ldh [rNR34], a
 
-    Nops 1
+    Nops 3
 
     ; Write to wave ream
     ldh [$FF30], a
@@ -33,6 +45,7 @@ EntryPoint:
 
     ; Read wave ram
     Memcmp $ff30, ExpectedWaveRam, ExpectedWaveRamEnd - ExpectedWaveRam
+
     jp nz, TestFail
 
     jp TestSuccess
@@ -43,6 +56,6 @@ db $88,$99,$AA,$BB,$CC,$DD,$EE,$FF
 WaveRamEnd:
 
 ExpectedWaveRam:
-db $87,$11,$22,$33,$44,$55,$66,$77
+db $00,$87,$22,$33,$44,$55,$66,$77
 db $88,$99,$AA,$BB,$CC,$DD,$EE,$FF
 ExpectedWaveRamEnd:

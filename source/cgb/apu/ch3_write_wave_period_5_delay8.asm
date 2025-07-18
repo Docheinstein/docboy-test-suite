@@ -1,6 +1,6 @@
 INCLUDE "all.inc"
 
-; Writing to Wave RAM while it is on either writes the current byte CH3 is accessing or it is ignored.
+; Writing to Wave RAM while it is on either writes the current byte CH3 is accessing.
 
 EntryPoint:
     EnableAPU
@@ -22,7 +22,7 @@ EntryPoint:
     ld a, $87
     ldh [rNR34], a
 
-    Nops 1
+    Nops 8
 
     ; Write to wave ream
     ldh [$FF30], a
@@ -43,6 +43,6 @@ db $88,$99,$AA,$BB,$CC,$DD,$EE,$FF
 WaveRamEnd:
 
 ExpectedWaveRam:
-db $87,$11,$22,$33,$44,$55,$66,$77
+db $00,$87,$22,$33,$44,$55,$66,$77
 db $88,$99,$AA,$BB,$CC,$DD,$EE,$FF
 ExpectedWaveRamEnd:

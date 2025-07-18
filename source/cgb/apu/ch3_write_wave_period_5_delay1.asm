@@ -1,6 +1,6 @@
 INCLUDE "all.inc"
 
-; Writing to Wave RAM while it is on either writes the current byte CH3 is accessing or it is ignored.
+; Writing to Wave RAM while it is on either writes the current byte CH3 is accessing.
 
 EntryPoint:
     EnableAPU

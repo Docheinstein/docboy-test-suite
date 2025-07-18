@@ -1,3 +1,17 @@
+MACRO TestStashRegisters
+    push af
+    push bc
+    push de
+    push hl
+ENDM
+
+MACRO TestUnstashRegisters
+    pop hl
+    pop de
+    pop bc
+    pop af
+ENDM
+
 MACRO TestEndCleanup
     ; Disable interrupts
     di
@@ -29,6 +43,34 @@ MACRO TestEndCleanup
     EnablePPU
 ENDM
 
+MACRO TestPrintTilemapDumpRegistersOnInput
+    WaitVBlank
+
+    ; Turn the LCD off
+    DisablePPU
+
+    ; Copy the tilemap to VRAM
+	Memcpy $9000, \1, \2
+
+    ; Turn on LCD on
+    EnablePPU
+
+    ; Enable input
+    ld a, $00
+    ldh [rP1], a
+
+    ; Busy wait for input
+.loop:
+    ldh a, [rP1]
+    and $0f
+    cp $0f
+    jp z, .loop
+
+    ; Dump registers as cached after the failure
+    TestUnstashRegisters
+    DumpRegisters
+ENDM
+
 ; Args:
 ; \1: tilemap start
 ; \2: tilemap end
@@ -52,8 +94,9 @@ TestSuccess:
 	TestPrintTilemap TestSuccessTilemap, TestSuccessTilemapEnd - TestSuccessTilemap
 
 TestFail:
+    TestStashRegisters
     TestEndCleanup
-    TestPrintTilemap TestFailTilemap, TestFailTilemapEnd - TestFailTilemap
+    TestPrintTilemapDumpRegistersOnInput TestFailTilemap, TestFailTilemapEnd - TestFailTilemap
 
 TestSuccessTilemap:
     db $00, $00, $00, $00, $00, $00, $00, $ff
