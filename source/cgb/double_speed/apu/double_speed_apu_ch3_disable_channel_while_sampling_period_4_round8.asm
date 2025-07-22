@@ -3,9 +3,19 @@ INCLUDE "all.inc"
 ; Disable the channel through NR30 with various wave period and timing.
 
 EntryPoint:
+    xor a
+    ldh [rDIV], a
+
     DisableAPU
 
     Memcpy $FF30, WaveRam, WaveRamEnd - WaveRam
+
+    ; Prepare speed switch
+    ld a, $01
+    ldh [rKEY1], a
+
+    ; Switch to double speed
+    stop
 
     EnableAPU
 
@@ -18,22 +28,18 @@ EntryPoint:
     ldh [rNR30], a
 
     ; Period
-    ld a, $FE
+    ld a, $FC
     ldh [rNR33], a
 
     ; Trigger = 1
     ld a, $87
     ldh [rNR34], a
 
-    Nops 4096
-
-    Nops 4
+    Nops 8
 
     ; Enable = 0
     ld a, $00
     ldh [rNR30], a
-
-    Nops 1024
 
     ; Enable = 1
     ld a, $80
@@ -44,7 +50,7 @@ EntryPoint:
     ldh [rNR34], a
 
     ldh a, [rPCM34]
-    cp $01
+    cp $03
 
     jp nz, TestFail
     jp TestSuccess

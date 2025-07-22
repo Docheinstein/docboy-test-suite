@@ -7,6 +7,8 @@ EntryPoint:
 
     Memcpy $FF30, WaveRam, WaveRamEnd - WaveRam
 
+    Nops 6
+
     EnableAPU
 
     ; Volume = 100
@@ -18,7 +20,7 @@ EntryPoint:
     ldh [rNR30], a
 
     ; Period
-    ld a, $FE
+    ld a, $FF
     ldh [rNR33], a
 
     ; Trigger = 1
@@ -26,8 +28,6 @@ EntryPoint:
     ldh [rNR34], a
 
     Nops 4096
-
-    Nops 4
 
     ; Enable = 0
     ld a, $00
@@ -50,6 +50,6 @@ EntryPoint:
     jp TestSuccess
 
 WaveRam:
-db $12,$34,$56,$78,$9A,$BC,$DE,$FE
-db $DC,$BA,$98,$76,$54,$32,$13,$45
+db $12,$34,$56,$78,$EA,$BC,$DE,$FE
+db $DC,$BA,$D8,$76,$54,$32,$13,$45
 WaveRamEnd:

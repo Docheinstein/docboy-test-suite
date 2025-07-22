@@ -44,7 +44,7 @@ EntryPoint:
     ldh [rNR34], a
 
     ldh a, [rPCM34]
-    cp $0f
+    cp $03
 
     jp nz, TestFail
     jp TestSuccess
