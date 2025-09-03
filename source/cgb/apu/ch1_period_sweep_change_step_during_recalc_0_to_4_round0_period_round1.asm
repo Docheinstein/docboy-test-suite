@@ -24,7 +24,7 @@ EntryPoint:
     ld a, $A0
     ldh [rNR12], a
 
-    ; Period = 63
+    ; Period = 65
     ld a, $BF
     ldh [rNR13], a
 

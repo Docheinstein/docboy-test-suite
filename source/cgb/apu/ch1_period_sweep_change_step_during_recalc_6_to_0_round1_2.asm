@@ -24,7 +24,7 @@ EntryPoint:
     ld a, $A0
     ldh [rNR12], a
 
-    ; Period = 12800
+    ; Period = 1280
     ld a, $00
     ldh [rNR13], a
 
