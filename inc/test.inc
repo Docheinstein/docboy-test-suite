@@ -12,10 +12,7 @@ MACRO TestUnstashRegisters
     pop af
 ENDM
 
-MACRO TestEndCleanup
-    ; Disable interrupts
-    di
-
+MACRO TestPrepareEnd
     ; Turn off PPU
     DisablePPU
 
@@ -38,17 +35,9 @@ MACRO TestEndCleanup
         ; Reset VRAM
         Memset $8000, $00, $2000
     ENDC
-
-    ; Turn on PPU again
-    EnablePPU
 ENDM
 
 MACRO TestPrintTilemapDumpRegistersOnInput
-    WaitVBlank
-
-    ; Turn the LCD off
-    DisablePPU
-
     ; Copy the tilemap to VRAM
 	Memcpy $9000, \1, \2
 
@@ -75,11 +64,6 @@ ENDM
 ; \1: tilemap start
 ; \2: tilemap end
 MACRO TestPrintTilemap
-    WaitVBlank
-
-    ; Turn the LCD off
-    DisablePPU
-
     ; Copy the tilemap to VRAM
 	Memcpy $9000, \1, \2
 
@@ -90,12 +74,30 @@ MACRO TestPrintTilemap
 ENDM
 
 TestSuccess:
-    TestEndCleanup
+    ; Disable interrupts
+    di
+
+    ; Set special value in memory for fast test check ($01)
+    ld hl, $fff0
+    ld [hl], $01
+
+    ; Print success screen
+    TestPrepareEnd
 	TestPrintTilemap TestSuccessTilemap, TestSuccessTilemapEnd - TestSuccessTilemap
 
 TestFail:
+    ; Disable interrupts
+    di
+
+    ; Cache current registers
     TestStashRegisters
-    TestEndCleanup
+
+    ; Set special value in memory for fast test check ($02)
+    ld hl, $fff0
+    ld [hl], $02
+
+    ; Print fail screen
+    TestPrepareEnd
     TestPrintTilemapDumpRegistersOnInput TestFailTilemap, TestFailTilemapEnd - TestFailTilemap
 
 TestSuccessTilemap:
