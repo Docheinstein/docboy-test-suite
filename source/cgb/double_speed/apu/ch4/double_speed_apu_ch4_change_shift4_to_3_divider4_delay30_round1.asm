@@ -1,0 +1,48 @@
+INCLUDE "all.inc"
+
+; Check what happens to CH4 when NR43 shift is changed while it's active.
+
+EntryPoint:
+    xor a
+    ldh [rDIV], a
+
+    DisableAPU
+
+    ; Prepare speed switch
+    ld a, $01
+    ldh [rKEY1], a
+
+    ; Switch to double speed
+    stop
+
+    EnableAPU
+
+    ; Initial volume = F
+    ld a, $F0
+    ldh [rNR42], a
+
+    ; Clock shift = 4
+    ; LFSR width = 0 (15 bit)
+    ; Clock divider = 4
+    ld a, $44
+    ldh [rNR43], a
+
+    ; Trigger = 1
+    ld a, $80
+    ldh [rNR44], a
+
+    Nops 30
+
+    ; Clock shift = 3
+    ; LFSR width = 0 (15 bit)
+    ; Clock divider = 4
+    ld a, $34
+    ldh [rNR43], a
+
+    Wait 3678
+
+    ldh a, [rPCM34]
+    cp $00
+
+    jp nz, TestFail
+    jp TestSuccess
