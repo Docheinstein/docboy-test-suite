@@ -23,10 +23,13 @@ roms/dmg/%.o: source/dmg/%.asm $(INCLUDES)
 	$(eval RAM_SIZE := $(shell sed -nr 's#;! RAM_SIZE=([0-9]+)#\1#p' $<))
 	$(eval RAM_SIZE := $(or $(RAM_SIZE),"0"))
 
+	$(eval ROM_TYPE := $(shell sed -nr 's#;! ROM_TYPE=([0-9]+)#\1#p' $<))
+	$(eval ROM_TYPE := $(or $(ROM_TYPE),"0"))
+
 roms/dmg/%.gb: roms/dmg/%.o
 	mkdir -p $(shell dirname $(@:roms/%.gb=symbols/%.sym))
 	rgblink -t -o $@ -n $(@:roms/%.gb=symbols/%.sym) $<
-	rgbfix -jv $@ --ram-size $(RAM_SIZE) --mbc-type $(MBC_TYPE) --title "DOCTEST" -p 255
+	rgbfix -jv $@ --ram-size $(RAM_SIZE) --rom-version $(ROM_TYPE) --mbc-type $(MBC_TYPE) --title "DOCTEST" -p 255
 
 # === CGB ===
 
@@ -40,10 +43,13 @@ roms/cgb/%.o: source/cgb/%.asm $(INCLUDES)
 	$(eval RAM_SIZE := $(shell sed -nr 's#;! RAM_SIZE=([0-9]+)#\1#p' $<))
 	$(eval RAM_SIZE := $(or $(RAM_SIZE),"0"))
 
+	$(eval ROM_TYPE := $(shell sed -nr 's#;! ROM_TYPE=([0-9]+)#\1#p' $<))
+	$(eval ROM_TYPE := $(or $(ROM_TYPE),"0"))
+
 roms/cgb/%.gbc: roms/cgb/%.o
 	mkdir -p $(shell dirname $(@:roms/%.gbc=symbols/%.sym))
 	rgblink -t -o $@ -n $(@:roms/%.gbc=symbols/%.sym) $<
-	rgbfix -jv $@ --ram-size $(RAM_SIZE) --mbc-type $(MBC_TYPE) --title "DOCTEST" -p 255 -c
+	rgbfix -jv $@ --ram-size $(RAM_SIZE) --rom-version $(ROM_TYPE) --mbc-type $(MBC_TYPE) --title "DOCTEST" -p 255 -c
 
 # === CGB Compatibilty Mode ===
 
@@ -57,12 +63,15 @@ roms/cgb_dmg_mode/%.o: source/cgb_dmg_mode/%.asm $(INCLUDES)
 	$(eval RAM_SIZE := $(shell sed -nr 's#;! RAM_SIZE=([0-9]+)#\1#p' $<))
 	$(eval RAM_SIZE := $(or $(RAM_SIZE),"0"))
 
+	$(eval ROM_TYPE := $(shell sed -nr 's#;! ROM_TYPE=([0-9]+)#\1#p' $<))
+	$(eval ROM_TYPE := $(or $(ROM_TYPE),"0"))
+
 	$(eval TITLE := $(shell sed -nr 's#;! TITLE=([0-9a-zA-Z]+)#\1#p' $<))
 	$(eval TITLE := $(or $(TITLE),"DOCTEST"))
 
 roms/cgb_dmg_mode/%.gb: roms/cgb_dmg_mode/%.o
 	mkdir -p $(shell dirname $(@:roms/%.gb=symbols/%.sym))
 	rgblink -t -o $@ -n $(@:roms/%.gb=symbols/%.sym) $<
-	rgbfix -jv $@ --ram-size $(RAM_SIZE) --mbc-type $(MBC_TYPE) --title $(TITLE) -p 255
+	rgbfix -jv $@ --ram-size $(RAM_SIZE) --rom-version $(ROM_TYPE) --mbc-type $(MBC_TYPE) --title $(TITLE) -p 255
 
 
