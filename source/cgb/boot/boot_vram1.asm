@@ -1,6 +1,6 @@
 INCLUDE "all.inc"
 
-; Check the content of VRAM at boot time.
+; Check the content of VRAM bank 1 at boot time.
 ; It should be zero-initialized.
 
 EntryPoint:
