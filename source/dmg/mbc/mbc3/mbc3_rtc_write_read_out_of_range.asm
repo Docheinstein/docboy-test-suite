@@ -2,9 +2,9 @@
 ;! RAM_SIZE=3
 
 INCLUDE "all.inc"
+INCLUDE "mbc/mbc3.inc"
 
-; With RTC disabled, write to a RTC register and read the value back.
-; It should read the old value, not the new one.
+; Write an out of range value to RTC register and read it back.
 
 EntryPoint:
     ; Enable RTC
@@ -21,23 +21,22 @@ EntryPoint:
     ld a, RTC_S
     ld [rRTCSEL], a
 
-    ; Set latch to 1
+    ; Write an out of range value to RTC seconds (62)
+    ld a, $3e
+    ld [rRTCRW], a
+
+    ; Reload latch with 0 -> 1
+    xor a
+    ld [rRTCLATCH], a
     ld a, 1
     ld [rRTCLATCH], a
 
-    ; Read RTC register
+    ; Wait a bit after reload
+    Nops 4
+
+    ; Read RTC register: it should read the same value
     ld a, [rRTCRW]
+    cp $3e
 
-    ; Increment and write it back
-    ld b, a
-    inc a
-    ld [rRTCRW], a
-
-    ; Read RTC register back again
-    ld a, [rRTCRW]
-
-    ; Check the result
-    cp b
     jp z, TestSuccess
-
     jp TestFail

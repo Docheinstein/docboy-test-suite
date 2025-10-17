@@ -2,8 +2,9 @@
 ;! RAM_SIZE=3
 
 INCLUDE "all.inc"
+INCLUDE "mbc/mbc3.inc"
 
-; Check whether RTC ticks even if RTC is disabled (it should not).
+; Writing to seconds register should reset the internal counter: it should take exactly 1 second to tick again.
 
 EntryPoint:
     ; Enable RTC
@@ -16,34 +17,31 @@ EntryPoint:
     xor a
     ld [rRTCRW], a
 
-    ; Disable RTC
-    xor a
-    ld [rRTCEN], a
-
     ; Use RTC seconds register
     ld a, RTC_S
     ld [rRTCSEL], a
 
-    ; Set latch to 0
-    xor a
-    ld [rRTCLATCH], a
+    ; Write RTC register
+    ld a, $10
+    ld [rRTCRW], a
 
-    ; Read RTC register
-    ld a, [rRTCRW]
-    ld b, a
-
-    ; Wait 70 frames (> 1 second)
+    ; Wait less than 1 second
     REPT 70
         Wait 154 * 114
     ENDR
 
-    ; Set latch to 1
+    ; Reload latch with 0 -> 1
+    xor a
+    ld [rRTCLATCH], a
     ld a, 1
     ld [rRTCLATCH], a
 
+    ; Wait a bit after reload
+    Nops 4
+
     ; Read RTC register
     ld a, [rRTCRW]
-    cp b
-    jp z, TestSuccess
+    cp $11
 
-    jp TestFail
+    jp nz, TestFail
+    jp TestSuccess

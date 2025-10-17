@@ -2,8 +2,9 @@
 ;! RAM_SIZE=3
 
 INCLUDE "all.inc"
+INCLUDE "mbc/mbc3.inc"
 
-; Check whether writing 0 -> 2 to RTC latch register actually copies RTC registers.
+; Write an out of range value to RTC register and read it back.
 
 EntryPoint:
     ; Enable RTC
@@ -20,26 +21,22 @@ EntryPoint:
     ld a, RTC_S
     ld [rRTCSEL], a
 
-    ; Set latch to 0
+    ; Write an out of range value to RTC seconds
+    ld a, $7e
+    ld [rRTCRW], a
+
+    ; Reload latch with 0 -> 1
     xor a
     ld [rRTCLATCH], a
-
-    ; Read RTC register
-    ld a, [rRTCRW]
-    ld b, a
-
-    ; Wait 70 frames (> 1 second)
-    REPT 70
-        Wait 154 * 114
-    ENDR
-
-    ; Set latch to 2
-    ld a, 2
+    ld a, 1
     ld [rRTCLATCH], a
 
-    ; Read RTC register
-    ld a, [rRTCRW]
-    cp b
-    jp nz, TestSuccess
+    ; Wait a bit after reload
+    Nops 4
 
+    ; Read RTC register: it should read only the used bits
+    ld a, [rRTCRW]
+    cp $3e
+
+    jp z, TestSuccess
     jp TestFail

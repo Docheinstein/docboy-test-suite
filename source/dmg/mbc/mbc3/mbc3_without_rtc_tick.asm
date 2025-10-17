@@ -1,9 +1,11 @@
-;! MBC_TYPE=16
+;! MBC_TYPE=19
 ;! RAM_SIZE=3
 
 INCLUDE "all.inc"
+INCLUDE "mbc/mbc3.inc"
 
-; Check whether writing 0 -> 1 to RTC latch register actually copies RTC registers.
+; RTC shouldn't work for MBC3 type without RTC.
+; Note: does not pass on my Everdrive x7: probably it does not honor the cartridge and always enables the RTC instead.
 
 EntryPoint:
     ; Enable RTC
@@ -20,26 +22,36 @@ EntryPoint:
     ld a, RTC_S
     ld [rRTCSEL], a
 
-    ; Set latch to 0
+    ; Reload latch with 0 -> 1
     xor a
     ld [rRTCLATCH], a
+    ld a, 1
+    ld [rRTCLATCH], a
+
+    ; Wait a bit after reload
+    Nops 4
 
     ; Read RTC register
     ld a, [rRTCRW]
-    ld b, a
+    ld c, a
 
     ; Wait 70 frames (> 1 second)
     REPT 70
         Wait 154 * 114
     ENDR
 
-    ; Set latch to 1
+    ; Reload latch with 0 -> 1
+    xor a
+    ld [rRTCLATCH], a
     ld a, 1
     ld [rRTCLATCH], a
 
+    ; Wait a bit after reload
+    Nops 4
+
     ; Read RTC register
     ld a, [rRTCRW]
-    cp b
-    jp nz, TestSuccess
+    cp c
 
-    jp TestFail
+    jp nz, TestFail
+    jp TestSuccess

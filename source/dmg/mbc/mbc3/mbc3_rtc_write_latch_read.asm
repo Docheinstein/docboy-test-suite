@@ -2,9 +2,9 @@
 ;! RAM_SIZE=3
 
 INCLUDE "all.inc"
+INCLUDE "mbc/mbc3.inc"
 
-; With RTC disabled, write to a RTC register, latch, and read the value back.
-; It should read the new value.
+; Write to a RTC register, latch, and read the value back while RTC is stopped.
 
 EntryPoint:
     ; Enable RTC
@@ -21,27 +21,35 @@ EntryPoint:
     ld a, RTC_S
     ld [rRTCSEL], a
 
-    ; Set latch to 0
+    ; Reload latch with 0 -> 1
     xor a
     ld [rRTCLATCH], a
+    ld a, 1
+    ld [rRTCLATCH], a
+
+    ; Wait a bit after reload
+    Nops 4
 
     ; Read RTC register
     ld a, [rRTCRW]
 
     ; Increment and write it back
-    ld b, a
+    ld c, a
     inc a
     ld [rRTCRW], a
 
-    ; Set latch to 1
+    ; Reload latch with 0 -> 1
+    xor a
+    ld [rRTCLATCH], a
     ld a, 1
     ld [rRTCLATCH], a
 
+    ; Wait a bit after reload
+    Nops 4
+
     ; Read RTC register back again
     ld a, [rRTCRW]
+    cp c
 
-    ; Check the result
-    cp b
-    jp nz, TestSuccess
-
-    jp TestFail
+    jp z, TestFail
+    jp TestSuccess
