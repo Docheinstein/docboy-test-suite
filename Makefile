@@ -1,74 +1,43 @@
 INCLUDES := $(shell find inc -name "*.inc")
 
-DMG_SOURCES := $(shell find source/dmg -name "*.asm")
-DMG_TARGETS := $(DMG_SOURCES:source/dmg/%.asm=roms/dmg/%.gb)
+# <variant-name> <extension> <pre-include-header>
+define define_targets
+# Look for all the .asm files under the variant folder
+	SOURCES_$(1) := $$(shell find source/$(1) -name "*.asm")
+	TARGETS_$(1) := $$(SOURCES_$(1):source/$(1)/%.asm=roms/$(1)/%.$(2))
 
-CGB_SOURCES := $(shell find source/cgb -name "*.asm")
-CGB_TARGETS := $(CGB_SOURCES:source/cgb/%.asm=roms/cgb/%.gbc)
+roms/$(1)/%.o: source/$(1)/%.asm $$(INCLUDES)
+# Build object file
+	mkdir -p $$(dir $$@)
+	rgbasm -i inc -P $(3) -o $$@ $$<
 
-CGB_DMG_MODE_SOURCES := $(shell find source/cgb_dmg_mode -name "*.asm")
-CGB_DMG_MODE_TARGETS := $(CGB_DMG_MODE_SOURCES:source/cgb_dmg_mode/%.asm=roms/cgb_dmg_mode/%.gb)
+# Parse options from source file in the form ";! <VAR>:=<VALUE>"
+	$$(eval $$(shell sed -nr 's#;! ([A-Z_]+)=([0-9A-Za-z_]+)#\1:=\2#p' $$<))
 
-all: $(DMG_TARGETS) $(CGB_TARGETS) $(CGB_DMG_MODE_TARGETS)
+# Set default values for unset options
+	$$(eval MBC_TYPE := $$(or $$(MBC_TYPE),0))
+	$$(eval RAM_SIZE := $$(or $$(RAM_SIZE),0))
+	$$(eval TITLE := $$(or $(TITLE),DOCTEST))
+	$$(eval OLD_LICENSE := $$(or $$(OLD_LICENSE),0))
 
-# === DMG ===
+roms/$(1)/%.$(2): roms/$(1)/%.o
+# Link object
+	mkdir -p $$(dir $$(@:roms/%.$(2)=symbols/%.sym))
+	rgblink -t -o $$@ -n $$(@:roms/%.$(2)=symbols/%.sym) $$<
+	rgbfix -jv $$@ --ram-size $$(RAM_SIZE) --mbc-type $$(MBC_TYPE) --title $$(TITLE) --old-license $$(OLD_LICENSE) -p 255
+endef
 
-roms/dmg/%.o: source/dmg/%.asm $(INCLUDES)
-	mkdir -p $(shell dirname $@)
-	rgbasm -i inc -P "dmg.inc" -o $@ $<
+$(eval $(call define_targets,dmg,gb,dmg.inc))
+$(eval $(call define_targets,cgb,gbc,cgb.inc))
+$(eval $(call define_targets,cgb_dmg_mode,gb,cgb.inc))
 
-	$(eval MBC_TYPE := $(shell sed -nr 's#;! MBC_TYPE=([0-9]+)#\1#p' $<))
-	$(eval MBC_TYPE := $(or $(MBC_TYPE),"0"))
+all: $(TARGETS_cgb) $(TARGETS_cgb_dmg_mode) $(TARGETS_dmg)
 
-	$(eval RAM_SIZE := $(shell sed -nr 's#;! RAM_SIZE=([0-9]+)#\1#p' $<))
-	$(eval RAM_SIZE := $(or $(RAM_SIZE),"0"))
+clean:
+	rm -rf roms symbols
 
-	$(eval TITLE := $(shell sed -nr 's#;! TITLE=([0-9a-zA-Z]+)#\1#p' $<))
-	$(eval TITLE := $(or $(TITLE),"DOCTEST"))
+dmg: $(TARGETS_dmg)
+cgb: $(TARGETS_cgb)
+cgb_dmg_mode: $(TARGETS_cgb_dmg_mode)
 
-roms/dmg/%.gb: roms/dmg/%.o
-	mkdir -p $(shell dirname $(@:roms/%.gb=symbols/%.sym))
-	rgblink -t -o $@ -n $(@:roms/%.gb=symbols/%.sym) $<
-	rgbfix -jv $@ --ram-size $(RAM_SIZE) --mbc-type $(MBC_TYPE) --title $(TITLE) -p 255
-
-# === CGB ===
-
-roms/cgb/%.o: source/cgb/%.asm $(INCLUDES)
-	mkdir -p $(shell dirname $@)
-	rgbasm -i inc -P "cgb.inc"  -o $@ $<
-
-	$(eval MBC_TYPE := $(shell sed -nr 's#;! MBC_TYPE=([0-9]+)#\1#p' $<))
-	$(eval MBC_TYPE := $(or $(MBC_TYPE),"0"))
-
-	$(eval RAM_SIZE := $(shell sed -nr 's#;! RAM_SIZE=([0-9]+)#\1#p' $<))
-	$(eval RAM_SIZE := $(or $(RAM_SIZE),"0"))
-
-	$(eval TITLE := $(shell sed -nr 's#;! TITLE=([0-9a-zA-Z]+)#\1#p' $<))
-	$(eval TITLE := $(or $(TITLE),"DOCTEST"))
-
-roms/cgb/%.gbc: roms/cgb/%.o
-	mkdir -p $(shell dirname $(@:roms/%.gbc=symbols/%.sym))
-	rgblink -t -o $@ -n $(@:roms/%.gbc=symbols/%.sym) $<
-	rgbfix -jv $@ --ram-size $(RAM_SIZE)  --mbc-type $(MBC_TYPE) --title $(TITLE) -p 255 -c
-
-# === CGB Compatibilty Mode ===
-
-roms/cgb_dmg_mode/%.o: source/cgb_dmg_mode/%.asm $(INCLUDES)
-	mkdir -p $(shell dirname $@)
-	rgbasm -i inc -P "cgb.inc" -o $@ $<
-
-	$(eval MBC_TYPE := $(shell sed -nr 's#;! MBC_TYPE=([0-9]+)#\1#p' $<))
-	$(eval MBC_TYPE := $(or $(MBC_TYPE),"0"))
-
-	$(eval RAM_SIZE := $(shell sed -nr 's#;! RAM_SIZE=([0-9]+)#\1#p' $<))
-	$(eval RAM_SIZE := $(or $(RAM_SIZE),"0"))
-
-	$(eval TITLE := $(shell sed -nr 's#;! TITLE=([0-9a-zA-Z]+)#\1#p' $<))
-	$(eval TITLE := $(or $(TITLE),"DOCTEST"))
-
-roms/cgb_dmg_mode/%.gb: roms/cgb_dmg_mode/%.o
-	mkdir -p $(shell dirname $(@:roms/%.gb=symbols/%.sym))
-	rgblink -t -o $@ -n $(@:roms/%.gb=symbols/%.sym) $<
-	rgbfix -jv $@ --ram-size $(RAM_SIZE) --mbc-type $(MBC_TYPE) --title $(TITLE) -p 255
-
-
+.PHONY: all clean dmg cgb cgb_dmg_mode
