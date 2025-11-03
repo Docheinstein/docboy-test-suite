@@ -1,5 +1,10 @@
 INCLUDES := $(shell find inc -name "*.inc")
 
+define newline
+
+
+endef
+
 # <variant-name> <extension> <pre-include-header>
 define define_targets
 # Look for all the .asm files under the variant folder
@@ -11,13 +16,15 @@ roms/$(1)/%.o: source/$(1)/%.asm $$(INCLUDES)
 	mkdir -p $$(dir $$@)
 	rgbasm -i inc -P $(3) -o $$@ $$<
 
-# Parse options from source file in the form ";! <VAR>:=<VALUE>"
-	$$(eval $$(shell sed -nr 's#;! ([A-Z_]+)=([0-9A-Za-z_]+)#\1:=\2#p' $$<))
+# Parse options from source file in the form ";! <VAR>=<VALUE>"
+# Note: shell command replaces newlines with whitespaces: replace them back with newlines
+# so that eval can consider them as separate commands (variable definitions).
+	$$(eval $$(subst ;,$$(newline),$$(shell sed -nr 's#;! ([A-Z_]+)=([0-9A-Za-z_]+)#\1 := \2;#p' $$<)))
 
 # Set default values for unset options
 	$$(eval MBC_TYPE := $$(or $$(MBC_TYPE),0))
 	$$(eval RAM_SIZE := $$(or $$(RAM_SIZE),0))
-	$$(eval TITLE := $$(or $(TITLE),DOCTEST))
+	$$(eval TITLE := $$(or $$(TITLE),DOCTEST))
 	$$(eval OLD_LICENSE := $$(or $$(OLD_LICENSE),0))
 
 roms/$(1)/%.$(2): roms/$(1)/%.o
