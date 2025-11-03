@@ -26,12 +26,13 @@ roms/$(1)/%.o: source/$(1)/%.asm $$(INCLUDES)
 	$$(eval RAM_SIZE := $$(or $$(RAM_SIZE),0))
 	$$(eval TITLE := $$(or $$(TITLE),DOCTEST))
 	$$(eval OLD_LICENSE := $$(or $$(OLD_LICENSE),0))
+	$$(eval NEW_LICENSE := $$(or $$(NEW_LICENSE),0))
 
 roms/$(1)/%.$(2): roms/$(1)/%.o
 # Link object
 	mkdir -p $$(dir $$(@:roms/%.$(2)=symbols/%.sym))
 	rgblink -t -o $$@ -n $$(@:roms/%.$(2)=symbols/%.sym) $$<
-	rgbfix -jv $$@ --ram-size $$(RAM_SIZE) --mbc-type $$(MBC_TYPE) --title $$(TITLE) --old-license $$(OLD_LICENSE) -p 255
+	rgbfix -jv $$@ --ram-size $$(RAM_SIZE) --mbc-type $$(MBC_TYPE) --title $$(TITLE) --old-license $$(OLD_LICENSE) --new-licensee $$(NEW_LICENSE) -p 255
 endef
 
 $(eval $(call define_targets,dmg,gb,dmg.inc))
