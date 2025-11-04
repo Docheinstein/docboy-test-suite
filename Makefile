@@ -5,7 +5,7 @@ define newline
 
 endef
 
-# <variant-name> <extension> <pre-include-header>
+# <variant-name> <extension> <pre-include-header> <flags>
 define define_targets
 # Look for all the .asm files under the variant folder
 SOURCES_$(1) := $$(shell find source/$(1) -name "*.asm")
@@ -40,11 +40,11 @@ roms/$(1)/%.$(2): roms/$(1)/%.o
 	rgblink -t -o $$@ -n $$(@:roms/%.$(2)=symbols/%.sym) $$<
 	rgbfix -jv $$@ --ram-size $$(RAM_SIZE) --mbc-type $$(MBC_TYPE) --title $$(TITLE) \
 		--old-license $$(OLD_LICENSE) --new-licensee $$(NEW_LICENSE) \
-		$$(COLOR_ONLY_FLAG) $$(COLOR_COMPATIBLE_FLAG) -p 255
+		$$(COLOR_ONLY_FLAG) $$(COLOR_COMPATIBLE_FLAG) $(4) -p 255
 endef
 
 $(eval $(call define_targets,dmg,gb,dmg.inc))
-$(eval $(call define_targets,cgb,gbc,cgb.inc))
+$(eval $(call define_targets,cgb,gbc,cgb.inc,-c))
 $(eval $(call define_targets,cgb_dmg_mode,gb,cgb.inc))
 
 all: $(TARGETS_cgb) $(TARGETS_cgb_dmg_mode) $(TARGETS_dmg)
