@@ -5,16 +5,16 @@ INCLUDE "all.inc"
 EntryPoint:
     ; Write 00 -> Read FE
     ld a, $00
-    ldh [$FF6C], a
-    ldh a, [$FF6C]
+    ldh [rOPRI], a
+    ldh a, [rOPRI]
 
     cp $fe
     jp nz, TestFail
 
     ; Write FF -> Read FF
     ld a, $ff
-    ldh [$FF6C], a
-    ldh a, [$FF6C]
+    ldh [rOPRI], a
+    ldh a, [rOPRI]
 
     cp $ff
     jp nz, TestFail

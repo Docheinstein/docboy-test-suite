@@ -1,16 +1,15 @@
-;! TITLE=ABSORPTION
+;! TITLE=REDUCTIONS
 ;! OLD_LICENSE=1
-;! COLOR_COMPATIBLE=1
 
 INCLUDE "all.inc"
 
-; Not in DMG mode if CGB flag is 80.
+; BGP must be honored in DMG mode.
 
 EntryPoint:
     DisablePPU
 
     ; Write BG palette
-    ld a, %11100100
+    ld a, %00100111
     ldh [rBGP], a
 
     ; Reset VRAM0

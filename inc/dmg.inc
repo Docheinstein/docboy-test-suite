@@ -1,1 +1,1 @@
-DEF CGB = 0
+DEF CGB_FLAG = $00

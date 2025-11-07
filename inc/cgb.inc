@@ -1,4 +1,7 @@
-DEF CGB = 1
+DEF CGB_FLAG = $80
+
+DEF rKEY0 = $FF4C
+DEF rOPRI = $FF6C
 
 ; Args:
 ; \1: palette number

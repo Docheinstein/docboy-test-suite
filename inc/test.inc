@@ -85,6 +85,9 @@ TestSuccess:
     TestPrepareEnd
 	TestPrintTilemap TestSuccessTilemap, TestSuccessTilemapEnd - TestSuccessTilemap
 
+TestFailBeep:
+	Beep
+
 TestFail:
     ; Disable interrupts
     di

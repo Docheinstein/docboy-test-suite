@@ -1,10 +1,11 @@
 ;! TITLE=ABSORPTION
 ;! OLD_LICENSE=1
-;! COLOR_ONLY=1
+
+DEF CGB_FLAG = $c0
 
 INCLUDE "all.inc"
 
-; Not in DMG mode if CGB flag is C0.
+; DMG mode palette is not loaded if CGB flag is c0.
 
 EntryPoint:
     DisablePPU

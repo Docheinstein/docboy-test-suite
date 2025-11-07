@@ -39,21 +39,22 @@ roms/$(1)/%.$(2): roms/$(1)/%.o
 	mkdir -p $$(dir $$(@:roms/%.$(2)=symbols/%.sym))
 	rgblink -t -o $$@ -n $$(@:roms/%.$(2)=symbols/%.sym) $$<
 	rgbfix -jv $$@ --ram-size $$(RAM_SIZE) --mbc-type $$(MBC_TYPE) --title $$(TITLE) \
-		--old-license $$(OLD_LICENSE) --new-licensee $$(NEW_LICENSE) \
-		$$(COLOR_ONLY_FLAG) $$(COLOR_COMPATIBLE_FLAG) $(4) -p 255
+		--old-license $$(OLD_LICENSE) --new-licensee $$(NEW_LICENSE) $(4) -p 255
 endef
 
 $(eval $(call define_targets,dmg,gb,dmg.inc))
-$(eval $(call define_targets,cgb,gbc,cgb.inc,-c))
-$(eval $(call define_targets,cgb_dmg_mode,gb,cgb.inc))
+$(eval $(call define_targets,cgb,gbc,cgb.inc))
+$(eval $(call define_targets,cgb_dmg_mode,gb,cgb_dmg_mode.inc))
+$(eval $(call define_targets,cgb_dmg_ext_mode,gb,cgb_dmg_ext_mode.inc))
 
-all: $(TARGETS_cgb) $(TARGETS_cgb_dmg_mode) $(TARGETS_dmg)
+all: $(TARGETS_cgb) $(TARGETS_cgb_dmg_mode) $(TARGETS_cgb_dmg_ext_mode) $(TARGETS_dmg)
 
 clean:
 	rm -rf roms symbols
 
-dmg: $(TARGETS_dmg)
 cgb: $(TARGETS_cgb)
 cgb_dmg_mode: $(TARGETS_cgb_dmg_mode)
+cgb_dmg_ext_mode: $(TARGETS_cgb_dmg_ext_mode)
+dmg: $(TARGETS_dmg)
 
-.PHONY: all clean dmg cgb cgb_dmg_mode
+.PHONY: all clean cgb  cgb_dmg_mode cgb_dmg_ext_mode dmg

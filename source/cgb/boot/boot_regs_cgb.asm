@@ -9,6 +9,7 @@ MACRO Expect
 ENDM
 
 EntryPoint:
+    Expect rKEY0, $ff
     Expect rKEY1, $7e
     Expect rVBK, $fe
     Expect rHDMA1, $ff
@@ -22,7 +23,7 @@ EntryPoint:
     Expect rOCPS, $c1
     ; Expect rOCPD, $00
     Expect rSVBK, $f8
-    Expect $FF6C, $fe
+    Expect rOPRI, $fe
     Expect $FF72, $00
     Expect $FF73, $00
     Expect $FF74, $00

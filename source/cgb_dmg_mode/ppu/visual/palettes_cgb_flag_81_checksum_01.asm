@@ -1,29 +1,11 @@
 ;! TITLE=ABSORPTION
 ;! OLD_LICENSE=1
 
-INCLUDE "hardware.inc"
+DEF CGB_FLAG = $81
 
-SECTION "Header", ROM0[$100]
-    nop
-	jp EntryPoint
+INCLUDE "all.inc"
 
-	ds $143 - @, 0
-	db $01
-	ds $150 - @, 0
-
-SECTION "Home", ROM0[$150]
-
-INCLUDE "apu.inc"
-INCLUDE "cksum.inc"
-INCLUDE "debug.inc"
-INCLUDE "delay.inc"
-INCLUDE "halt.inc"
-INCLUDE "memory.inc"
-INCLUDE "ppu.inc"
-INCLUDE "print.inc"
-INCLUDE "test.inc"
-
-; DMG mode if CGB flag is 01.
+; DMG mode palette is not loaded if CGB flag is 81.
 
 EntryPoint:
     DisablePPU
