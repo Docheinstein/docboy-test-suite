@@ -1,6 +1,6 @@
 INCLUDE "all.inc"
 
-; Check the Serial registers at boot time.
+; Check the Serial registers at boot time in DMG mode.
 
 MACRO Expect
     ldh a, [\1]
@@ -10,6 +10,6 @@ ENDM
 
 EntryPoint:
     Expect rSB, $00
-    Expect rSC, $7c
+    Expect rSC, $7e
 
     jp TestSuccess

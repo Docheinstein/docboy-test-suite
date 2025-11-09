@@ -1,6 +1,6 @@
 INCLUDE "all.inc"
 
-; Check the Serial registers at boot time.
+; Check the Joypad registers at boot time in DMG mode.
 
 MACRO Expect
     ldh a, [\1]
@@ -9,7 +9,6 @@ MACRO Expect
 ENDM
 
 EntryPoint:
-    Expect rSB, $00
-    Expect rSC, $7c
+    Expect rP1, $ff
 
     jp TestSuccess
