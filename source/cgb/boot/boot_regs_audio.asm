@@ -1,6 +1,6 @@
 INCLUDE "all.inc"
 
-; Check the Video registers at boot time.
+; Check the Audio registers at boot time.
 
 MACRO Expect
     ldh a, [\1]
