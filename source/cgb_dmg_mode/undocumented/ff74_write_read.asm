@@ -8,7 +8,7 @@ EntryPoint:
     ldh [$FF74], a
     ldh a, [$FF74]
 
-    cp $00
+    cp $ff
     jp nz, TestFail
 
     ; Write FF -> Read FF
