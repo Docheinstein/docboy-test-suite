@@ -21,7 +21,7 @@ roms/$(1)/%.o: source/$(1)/%.asm $$(INCLUDES)
 	$$(eval RAM_SIZE := 0)
 	$$(eval TITLE := DOCTEST)
 	$$(eval OLD_LICENSE := 0)
-	$$(eval NEW_LICENSE := 0)
+	$$(eval NEW_LICENSE := "")
 	$$(eval COLOR_ONLY := 0)
 	$$(eval COLOR_COMPATIBLE := 0)
 
