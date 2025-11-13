@@ -1,5 +1,5 @@
-;! TITLE=DEMANDING
-;! OLD_LICENSE=1
+Title "DEMANDING"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

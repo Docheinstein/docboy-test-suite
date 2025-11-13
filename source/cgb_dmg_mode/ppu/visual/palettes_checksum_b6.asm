@@ -1,5 +1,5 @@
-;! TITLE=SUMMARIES
-;! OLD_LICENSE=1
+Title "SUMMARIES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

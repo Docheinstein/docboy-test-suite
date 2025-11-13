@@ -1,5 +1,5 @@
-;! TITLE=PROPOSITION
-;! OLD_LICENSE=1
+Title "PROPOSITION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=CAMBRIDGE
-;! OLD_LICENSE=1
+Title "CAMBRIDGE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=BIOLOGICAL
-;! OLD_LICENSE=1
+Title "BIOLOGICAL"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

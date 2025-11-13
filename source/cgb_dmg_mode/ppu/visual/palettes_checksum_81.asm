@@ -1,5 +1,5 @@
-;! TITLE=MACEDONIA
-;! OLD_LICENSE=1
+Title "MACEDONIA"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

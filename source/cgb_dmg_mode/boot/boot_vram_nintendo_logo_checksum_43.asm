@@ -1,5 +1,5 @@
-;! TITLE=INVESTIGATE
-;! OLD_LICENSE=1
+Title "INVESTIGATE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

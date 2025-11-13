@@ -1,5 +1,5 @@
-;! TITLE=IMMIGRANTS
-;! OLD_LICENSE=1
+Title "IMMIGRANTS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

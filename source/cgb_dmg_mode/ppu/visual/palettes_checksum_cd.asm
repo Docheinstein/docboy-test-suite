@@ -1,5 +1,5 @@
-;! TITLE=ENDANGERED
-;! OLD_LICENSE=1
+Title "ENDANGERED"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

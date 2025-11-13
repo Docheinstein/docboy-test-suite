@@ -1,5 +1,5 @@
-;! TITLE=LIKELIHOOD
-;! OLD_LICENSE=1
+Title "LIKELIHOOD"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

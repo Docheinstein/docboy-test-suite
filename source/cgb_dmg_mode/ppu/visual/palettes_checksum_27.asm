@@ -1,5 +1,5 @@
-;! TITLE=SUPPORTERS
-;! OLD_LICENSE=1
+Title "SUPPORTERS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

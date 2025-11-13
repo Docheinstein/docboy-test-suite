@@ -1,5 +1,5 @@
-;! TITLE=REFLECTIONS
-;! OLD_LICENSE=1
+Title "REFLECTIONS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

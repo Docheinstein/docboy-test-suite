@@ -1,5 +1,5 @@
-;! TITLE=ARMSTRONG
-;! OLD_LICENSE=1
+Title "ARMSTRONG"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

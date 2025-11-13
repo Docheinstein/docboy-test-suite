@@ -1,5 +1,5 @@
-;! TITLE=HUNTINGTON
-;! OLD_LICENSE=1
+Title "HUNTINGTON"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

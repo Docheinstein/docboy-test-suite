@@ -1,5 +1,5 @@
-;! TITLE=RESERVOIR
-;! OLD_LICENSE=1
+Title "RESERVOIR"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

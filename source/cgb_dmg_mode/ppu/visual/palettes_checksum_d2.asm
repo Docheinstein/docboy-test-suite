@@ -1,5 +1,5 @@
-;! TITLE=ECOLOGICAL
-;! OLD_LICENSE=1
+Title "ECOLOGICAL"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

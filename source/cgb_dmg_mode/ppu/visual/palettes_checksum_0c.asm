@@ -1,5 +1,5 @@
-;! TITLE=COPYRIGHTS
-;! OLD_LICENSE=1
+Title "COPYRIGHTS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

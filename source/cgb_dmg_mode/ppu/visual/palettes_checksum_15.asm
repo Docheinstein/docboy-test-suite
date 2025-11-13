@@ -1,5 +1,5 @@
-;! TITLE=THOROUGHLY
-;! OLD_LICENSE=1
+Title "THOROUGHLY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

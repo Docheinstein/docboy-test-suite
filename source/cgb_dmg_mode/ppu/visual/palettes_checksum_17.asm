@@ -1,5 +1,5 @@
-;! TITLE=POWERPOINT
-;! OLD_LICENSE=1
+Title "POWERPOINT"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

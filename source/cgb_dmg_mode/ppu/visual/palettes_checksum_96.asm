@@ -1,5 +1,5 @@
-;! TITLE=EMPIRICAL
-;! OLD_LICENSE=1
+Title "EMPIRICAL"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

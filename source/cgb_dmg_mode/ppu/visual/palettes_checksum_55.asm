@@ -1,5 +1,5 @@
-;! TITLE=DISPOSITION
-;! OLD_LICENSE=1
+Title "DISPOSITION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=LANDSCAPES
-;! OLD_LICENSE=1
+Title "LANDSCAPES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

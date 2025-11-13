@@ -1,5 +1,5 @@
-;! TITLE=VISIBILITY
-;! OLD_LICENSE=1
+Title "VISIBILITY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=SHEFFIELD
-;! OLD_LICENSE=1
+Title "SHEFFIELD"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

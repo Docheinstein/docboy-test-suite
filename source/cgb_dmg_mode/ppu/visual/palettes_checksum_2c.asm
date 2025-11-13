@@ -1,5 +1,5 @@
-;! TITLE=COORDINATED
-;! OLD_LICENSE=1
+Title "COORDINATED"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

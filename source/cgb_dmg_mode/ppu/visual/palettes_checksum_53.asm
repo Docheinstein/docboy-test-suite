@@ -1,5 +1,5 @@
-;! TITLE=POSITIONING
-;! OLD_LICENSE=1
+Title "POSITIONING"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

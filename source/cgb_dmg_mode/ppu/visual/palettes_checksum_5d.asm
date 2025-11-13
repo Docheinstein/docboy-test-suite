@@ -1,5 +1,5 @@
-;! TITLE=TRANSCRIPTS
-;! OLD_LICENSE=1
+Title "TRANSCRIPTS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=MADAGASCAR
-;! OLD_LICENSE=1
+Title "MADAGASCAR"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

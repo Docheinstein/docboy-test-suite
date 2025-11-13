@@ -1,5 +1,5 @@
-;! TITLE=EDITORIALS
-;! OLD_LICENSE=1
+Title "EDITORIALS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

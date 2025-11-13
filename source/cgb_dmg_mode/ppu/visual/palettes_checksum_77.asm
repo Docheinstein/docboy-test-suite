@@ -1,5 +1,5 @@
-;! TITLE=CARIBBEAN
-;! OLD_LICENSE=1
+Title "CARIBBEAN"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=ENCOURAGES
-;! OLD_LICENSE=1
+Title "ENCOURAGES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

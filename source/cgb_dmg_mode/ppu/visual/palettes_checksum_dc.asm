@@ -1,5 +1,5 @@
-;! TITLE=DELEGATION
-;! OLD_LICENSE=1
+Title "DELEGATION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=TOURNAMENTS
-;! OLD_LICENSE=1
+Title "TOURNAMENTS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

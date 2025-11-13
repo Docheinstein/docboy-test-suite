@@ -1,5 +1,5 @@
-;! TITLE=HARASSMENT
-;! OLD_LICENSE=1
+Title "HARASSMENT"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

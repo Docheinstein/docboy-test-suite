@@ -1,5 +1,5 @@
-;! TITLE=PROGRAMMERS
-;! OLD_LICENSE=1
+Title "PROGRAMMERS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

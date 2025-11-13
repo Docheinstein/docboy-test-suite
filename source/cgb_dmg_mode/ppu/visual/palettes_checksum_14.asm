@@ -1,5 +1,5 @@
-;! TITLE=OPPOSITION
-;! OLD_LICENSE=1
+Title "OPPOSITION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

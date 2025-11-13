@@ -1,5 +1,5 @@
-;! TITLE=TELESCOPE
-;! OLD_LICENSE=1
+Title "TELESCOPE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

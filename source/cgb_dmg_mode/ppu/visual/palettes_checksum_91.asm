@@ -1,5 +1,5 @@
-;! TITLE=COLLEAGUE
-;! OLD_LICENSE=1
+Title "COLLEAGUE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=REPUBLICANS
-;! OLD_LICENSE=1
+Title "REPUBLICANS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

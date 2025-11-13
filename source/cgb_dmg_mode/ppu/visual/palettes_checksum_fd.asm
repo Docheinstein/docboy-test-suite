@@ -1,5 +1,5 @@
-;! TITLE=ESTIMATION
-;! OLD_LICENSE=1
+Title "ESTIMATION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

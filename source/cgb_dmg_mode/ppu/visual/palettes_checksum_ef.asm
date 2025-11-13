@@ -1,5 +1,5 @@
-;! TITLE=HELICOPTER
-;! OLD_LICENSE=1
+Title "HELICOPTER"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

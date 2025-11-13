@@ -1,5 +1,5 @@
-;! TITLE=INTERNSHIP
-;! OLD_LICENSE=1
+Title "INTERNSHIP"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

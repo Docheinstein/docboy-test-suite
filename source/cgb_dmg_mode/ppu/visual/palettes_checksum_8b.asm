@@ -1,5 +1,5 @@
-;! TITLE=FIREPLACE
-;! OLD_LICENSE=1
+Title "FIREPLACE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

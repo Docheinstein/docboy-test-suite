@@ -1,5 +1,5 @@
-;! TITLE=PEDIATRIC
-;! OLD_LICENSE=1
+Title "PEDIATRIC"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

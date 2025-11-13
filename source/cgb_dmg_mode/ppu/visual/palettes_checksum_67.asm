@@ -1,5 +1,5 @@
-;! TITLE=RESOLUTIONS
-;! OLD_LICENSE=1
+Title "RESOLUTIONS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

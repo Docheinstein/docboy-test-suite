@@ -1,5 +1,5 @@
-;! TITLE=ROOMMATES
-;! OLD_LICENSE=1
+Title "ROOMMATES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

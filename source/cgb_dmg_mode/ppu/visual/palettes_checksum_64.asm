@@ -1,5 +1,5 @@
-;! TITLE=RESPIRATORY
-;! OLD_LICENSE=1
+Title "RESPIRATORY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

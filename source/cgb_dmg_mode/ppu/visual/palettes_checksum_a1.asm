@@ -1,5 +1,5 @@
-;! TITLE=UPGRADING
-;! OLD_LICENSE=1
+Title "UPGRADING"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

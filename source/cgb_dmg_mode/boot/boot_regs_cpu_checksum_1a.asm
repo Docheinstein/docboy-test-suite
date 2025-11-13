@@ -1,5 +1,5 @@
-;! TITLE=PROMOTIONS
-;! OLD_LICENSE=1
+Title "PROMOTIONS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

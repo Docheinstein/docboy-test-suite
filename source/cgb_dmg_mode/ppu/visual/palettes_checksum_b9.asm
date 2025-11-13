@@ -1,5 +1,5 @@
-;! TITLE=PROVINCES
-;! OLD_LICENSE=1
+Title "PROVINCES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

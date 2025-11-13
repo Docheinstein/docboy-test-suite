@@ -1,5 +1,5 @@
-;! TITLE=MECHANICAL
-;! OLD_LICENSE=1
+Title "MECHANICAL"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

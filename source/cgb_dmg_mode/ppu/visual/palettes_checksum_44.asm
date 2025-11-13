@@ -1,5 +1,5 @@
-;! TITLE=AUTOMOBILES
-;! OLD_LICENSE=1
+Title "AUTOMOBILES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

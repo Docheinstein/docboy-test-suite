@@ -1,5 +1,5 @@
-;! TITLE=DEUTSCHLAND
-;! OLD_LICENSE=1
+Title "DEUTSCHLAND"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

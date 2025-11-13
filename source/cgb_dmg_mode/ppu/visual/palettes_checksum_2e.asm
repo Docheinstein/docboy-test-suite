@@ -1,5 +1,5 @@
-;! TITLE=COMFORTABLE
-;! OLD_LICENSE=1
+Title "COMFORTABLE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

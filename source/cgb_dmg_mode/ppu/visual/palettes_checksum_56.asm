@@ -1,5 +1,5 @@
-;! TITLE=CONVENTIONS
-;! OLD_LICENSE=1
+Title "CONVENTIONS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

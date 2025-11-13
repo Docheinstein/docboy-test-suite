@@ -1,5 +1,5 @@
-;! TITLE=CHARITABLE
-;! OLD_LICENSE=1
+Title "CHARITABLE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

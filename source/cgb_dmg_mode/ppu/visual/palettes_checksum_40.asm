@@ -1,5 +1,5 @@
-;! TITLE=LIGHTWEIGHT
-;! OLD_LICENSE=1
+Title "LIGHTWEIGHT"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

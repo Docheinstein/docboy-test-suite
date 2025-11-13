@@ -1,5 +1,5 @@
-;! TITLE=CONCEPTUAL
-;! OLD_LICENSE=1
+Title "CONCEPTUAL"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

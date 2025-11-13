@@ -1,5 +1,5 @@
-;! TITLE=CONVICTED
-;! OLD_LICENSE=1
+Title "CONVICTED"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

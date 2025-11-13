@@ -1,5 +1,5 @@
-;! TITLE=ECONOMIES
-;! OLD_LICENSE=1
+Title "ECONOMIES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

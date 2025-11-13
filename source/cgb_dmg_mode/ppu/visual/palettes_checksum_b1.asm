@@ -1,5 +1,5 @@
-;! TITLE=SPOKESMAN
-;! OLD_LICENSE=1
+Title "SPOKESMAN"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

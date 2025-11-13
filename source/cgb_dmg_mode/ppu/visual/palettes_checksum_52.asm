@@ -1,5 +1,5 @@
-;! TITLE=GROUNDWATER
-;! OLD_LICENSE=1
+Title "GROUNDWATER"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

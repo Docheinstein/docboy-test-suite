@@ -1,5 +1,5 @@
-;! TITLE=CANCELLATION
-;! OLD_LICENSE=1
+Title "CANCELLATION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

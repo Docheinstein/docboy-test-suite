@@ -1,5 +1,5 @@
-;! TITLE=INCIDENCE
-;! OLD_LICENSE=1
+Title "INCIDENCE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

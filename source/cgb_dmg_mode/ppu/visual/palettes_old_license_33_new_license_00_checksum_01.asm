@@ -1,6 +1,6 @@
-;! TITLE=ABSORPTION
-;! OLD_LICENSE=51
-;! NEW_LICENSE=0
+Title "ABSORPTION"
+OldLicenseeCode $33
+NewLicenseeCodeStr "00"
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=ANTIBODIES
-;! OLD_LICENSE=1
+Title "ANTIBODIES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

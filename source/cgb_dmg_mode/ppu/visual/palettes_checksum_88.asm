@@ -1,5 +1,5 @@
-;! TITLE=CHANGELOG
-;! OLD_LICENSE=1
+Title "CHANGELOG"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

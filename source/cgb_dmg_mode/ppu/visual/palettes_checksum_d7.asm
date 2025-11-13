@@ -1,5 +1,5 @@
-;! TITLE=AZERBAIJAN
-;! OLD_LICENSE=1
+Title "AZERBAIJAN"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

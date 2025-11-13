@@ -1,5 +1,5 @@
-;! TITLE=CANCELLED
-;! OLD_LICENSE=1
+Title "CANCELLED"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

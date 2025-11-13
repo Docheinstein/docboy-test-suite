@@ -1,5 +1,5 @@
-;! TITLE=HOMETOWN
-;! OLD_LICENSE=1
+Title "HOMETOWN"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

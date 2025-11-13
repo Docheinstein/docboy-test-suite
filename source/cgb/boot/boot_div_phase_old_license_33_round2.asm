@@ -1,4 +1,4 @@
-;! OLD_LICENSE=51
+OldLicenseeCode $33
 
 INCLUDE "all.inc"
 

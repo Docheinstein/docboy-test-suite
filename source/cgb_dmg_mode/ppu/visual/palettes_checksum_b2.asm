@@ -1,5 +1,5 @@
-;! TITLE=CONTINENT
-;! OLD_LICENSE=1
+Title "CONTINENT"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

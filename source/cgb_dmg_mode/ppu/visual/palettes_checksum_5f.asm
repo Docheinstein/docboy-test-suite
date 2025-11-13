@@ -1,5 +1,5 @@
-;! TITLE=SUBMISSIONS
-;! OLD_LICENSE=1
+Title "SUBMISSIONS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

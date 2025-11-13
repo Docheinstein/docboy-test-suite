@@ -1,5 +1,5 @@
-;! TITLE=METALLICA
-;! OLD_LICENSE=1
+Title "METALLICA"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

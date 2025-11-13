@@ -1,5 +1,5 @@
-;! TITLE=CONTROLLERS
-;! OLD_LICENSE=1
+Title "CONTROLLERS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,3 +1,6 @@
+IF !DEF(MEMORY_INC)
+DEF MEMORY_INC EQU 1
+
 ; Args:
 ; \1: destination address
 ; \2: value
@@ -134,3 +137,5 @@ MACRO Memcheck
     inc a
 .end\@
 ENDM
+
+ENDC

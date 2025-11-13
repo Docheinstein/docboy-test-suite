@@ -1,5 +1,5 @@
-;! TITLE=HOUSEWIVES
-;! OLD_LICENSE=1
+Title "HOUSEWIVES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

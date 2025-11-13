@@ -1,3 +1,6 @@
+IF !DEF(DELAY_INC)
+DEF DELAY_INC EQU 1
+
 ; Args:
 ; \1: number of nops
 MACRO Nops
@@ -39,3 +42,5 @@ ELSE
     ShortWait \1
 ENDC
 ENDM
+
+ENDC

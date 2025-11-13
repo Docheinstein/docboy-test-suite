@@ -1,6 +1,6 @@
-;! TITLE=REDUCTIONS
-;! OLD_LICENSE=0
-;! NEW_LICENSE=0
+Title "REDUCTIONS"
+OldLicenseeCode $00
+NewLicenseeCodeStr "00"
 
 INCLUDE "all.inc"
 

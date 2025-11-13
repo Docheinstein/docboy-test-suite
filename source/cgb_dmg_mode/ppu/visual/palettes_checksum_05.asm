@@ -1,5 +1,5 @@
-;! TITLE=CONSTRAINT
-;! OLD_LICENSE=1
+Title "CONSTRAINT"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

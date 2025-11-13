@@ -1,5 +1,5 @@
-;! TITLE=GREENHOUSE
-;! OLD_LICENSE=1
+Title "GREENHOUSE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

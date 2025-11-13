@@ -1,5 +1,5 @@
-;! TITLE=INSULATION
-;! OLD_LICENSE=1
+Title "INSULATION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

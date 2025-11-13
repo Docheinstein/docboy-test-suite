@@ -1,4 +1,7 @@
-DEF LcdPosition = $c000 ; WRAM1
+IF !DEF(PRINT_INC)
+DEF PRINT_INC EQU 1
+
+DEF LcdPosition EQU $c000 ; WRAM1
 
 ; Args:
 ; de: position (as VRAM tile)
@@ -239,3 +242,5 @@ db $70, $70, $18, $18, $18, $18, $0c, $0c, $18, $18, $18, $18, $70, $70, $00, $0
 db $00, $00, $00, $00, $60, $60, $f2, $f2, $9e, $9e, $0c, $0c, $00, $00, $00, $00,
 db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00,
 AsciiTilemapEnd:
+
+ENDC

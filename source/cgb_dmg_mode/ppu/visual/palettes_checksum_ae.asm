@@ -1,5 +1,5 @@
-;! TITLE=RETRIEVAL
-;! OLD_LICENSE=1
+Title "RETRIEVAL"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=WESTMINSTER
-;! OLD_LICENSE=1
+Title "WESTMINSTER"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

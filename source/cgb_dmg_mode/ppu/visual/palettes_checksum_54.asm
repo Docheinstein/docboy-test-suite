@@ -1,5 +1,5 @@
-;! TITLE=POWERSELLER
-;! OLD_LICENSE=1
+Title "POWERSELLER"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

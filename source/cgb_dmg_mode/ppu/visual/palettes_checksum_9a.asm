@@ -1,5 +1,5 @@
-;! TITLE=CHECKLIST
-;! OLD_LICENSE=1
+Title "CHECKLIST"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=CUMULATIVE
-;! OLD_LICENSE=1
+Title "CUMULATIVE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

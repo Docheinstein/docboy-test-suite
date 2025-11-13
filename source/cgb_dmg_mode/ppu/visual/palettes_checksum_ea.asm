@@ -1,5 +1,5 @@
-;! TITLE=THEREAFTER
-;! OLD_LICENSE=1
+Title "THEREAFTER"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=TELECHARGER
-;! OLD_LICENSE=1
+Title "TELECHARGER"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

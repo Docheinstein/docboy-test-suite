@@ -1,5 +1,5 @@
-;! TITLE=CLASSIFIEDS
-;! OLD_LICENSE=1
+Title "CLASSIFIEDS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

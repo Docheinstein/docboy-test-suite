@@ -1,5 +1,5 @@
-;! TITLE=ACTIVISTS
-;! OLD_LICENSE=1
+Title "ACTIVISTS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

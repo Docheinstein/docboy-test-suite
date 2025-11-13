@@ -1,5 +1,5 @@
-;! TITLE=ABORIGINAL
-;! OLD_LICENSE=1
+Title "ABORIGINAL"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

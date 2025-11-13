@@ -1,5 +1,5 @@
-;! TITLE=ARBITRATION
-;! OLD_LICENSE=1
+Title "ARBITRATION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

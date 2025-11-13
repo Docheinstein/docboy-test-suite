@@ -1,5 +1,5 @@
-;! TITLE=COMMUNIST
-;! OLD_LICENSE=1
+Title "COMMUNIST"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

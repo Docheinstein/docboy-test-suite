@@ -1,5 +1,5 @@
-;! TITLE=CALIBRATION
-;! OLD_LICENSE=1
+Title "CALIBRATION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

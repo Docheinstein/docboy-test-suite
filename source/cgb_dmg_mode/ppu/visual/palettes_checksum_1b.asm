@@ -1,5 +1,5 @@
-;! TITLE=SUPPORTING
-;! OLD_LICENSE=1
+Title "SUPPORTING"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

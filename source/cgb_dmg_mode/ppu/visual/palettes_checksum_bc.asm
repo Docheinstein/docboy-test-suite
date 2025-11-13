@@ -1,5 +1,5 @@
-;! TITLE=LOOKSMART
-;! OLD_LICENSE=1
+Title "LOOKSMART"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

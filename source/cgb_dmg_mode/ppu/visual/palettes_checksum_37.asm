@@ -1,5 +1,5 @@
-;! TITLE=SECRETARIAT
-;! OLD_LICENSE=1
+Title "SECRETARIAT"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

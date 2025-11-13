@@ -1,5 +1,5 @@
-;! TITLE=CONSORTIUM
-;! OLD_LICENSE=1
+Title "CONSORTIUM"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

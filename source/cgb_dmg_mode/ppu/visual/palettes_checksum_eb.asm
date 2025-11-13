@@ -1,5 +1,5 @@
-;! TITLE=EARTHQUAKE
-;! OLD_LICENSE=1
+Title "EARTHQUAKE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

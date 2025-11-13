@@ -1,5 +1,5 @@
-;! TITLE=INSTRUCTOR
-;! OLD_LICENSE=1
+Title "INSTRUCTOR"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

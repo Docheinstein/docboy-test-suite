@@ -1,5 +1,5 @@
-;! TITLE=SCREENSHOTS
-;! OLD_LICENSE=1
+Title "SCREENSHOTS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

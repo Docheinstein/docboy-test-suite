@@ -1,5 +1,5 @@
-;! TITLE=HYDRAULIC
-;! OLD_LICENSE=1
+Title "HYDRAULIC"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

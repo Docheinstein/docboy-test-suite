@@ -1,5 +1,5 @@
-;! TITLE=TERRORISTS
-;! OLD_LICENSE=1
+Title "TERRORISTS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

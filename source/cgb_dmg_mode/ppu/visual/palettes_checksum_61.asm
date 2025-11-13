@@ -1,5 +1,5 @@
-;! TITLE=PROPRIETARY
-;! OLD_LICENSE=1
+Title "PROPRIETARY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

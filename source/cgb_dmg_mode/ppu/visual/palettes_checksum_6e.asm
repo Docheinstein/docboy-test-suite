@@ -1,5 +1,5 @@
-;! TITLE=CONTROVERSY
-;! OLD_LICENSE=1
+Title "CONTROVERSY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

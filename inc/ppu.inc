@@ -1,3 +1,8 @@
+IF !DEF(PPU_INC)
+DEF PPU_INC EQU 1
+
+INCLUDE "hardware.inc"
+
 MACRO EnablePPU
 	ld a, LCDCF_ON | LCDCF_BGON
 	ldh [rLCDC], a
@@ -48,3 +53,5 @@ MACRO WaitVBlank
 	cp 144
 	jr nz,.loop\@
 ENDM
+
+ENDC

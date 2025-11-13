@@ -1,5 +1,5 @@
-;! TITLE=DETECTIVE
-;! OLD_LICENSE=1
+Title "DETECTIVE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

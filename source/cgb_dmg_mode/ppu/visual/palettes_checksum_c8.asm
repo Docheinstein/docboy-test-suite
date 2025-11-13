@@ -1,5 +1,5 @@
-;! TITLE=ACCREDITED
-;! OLD_LICENSE=1
+Title "ACCREDITED"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

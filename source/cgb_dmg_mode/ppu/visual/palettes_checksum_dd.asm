@@ -1,5 +1,5 @@
-;! TITLE=AMBASSADOR
-;! OLD_LICENSE=1
+Title "AMBASSADOR"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

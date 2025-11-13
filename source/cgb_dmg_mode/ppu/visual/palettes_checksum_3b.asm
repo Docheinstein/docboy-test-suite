@@ -1,5 +1,5 @@
-;! TITLE=CONFIGURING
-;! OLD_LICENSE=1
+Title "CONFIGURING"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

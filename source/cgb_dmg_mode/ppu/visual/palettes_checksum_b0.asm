@@ -1,5 +1,5 @@
-;! TITLE=ENCLOSURE
-;! OLD_LICENSE=1
+Title "ENCLOSURE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

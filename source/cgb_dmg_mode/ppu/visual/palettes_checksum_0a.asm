@@ -1,5 +1,5 @@
-;! TITLE=TRANSLATOR
-;! OLD_LICENSE=1
+Title "TRANSLATOR"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

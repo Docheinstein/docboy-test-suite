@@ -1,5 +1,5 @@
-;! TITLE=LIABILITIES
-;! OLD_LICENSE=1
+Title "LIABILITIES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

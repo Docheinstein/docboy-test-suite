@@ -1,5 +1,5 @@
-;! TITLE=SYMPATHY
-;! OLD_LICENSE=1
+Title "SYMPATHY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

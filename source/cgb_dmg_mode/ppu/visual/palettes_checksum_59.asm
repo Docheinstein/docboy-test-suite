@@ -1,5 +1,5 @@
-;! TITLE=TERMINOLOGY
-;! OLD_LICENSE=1
+Title "TERMINOLOGY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

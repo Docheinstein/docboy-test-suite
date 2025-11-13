@@ -1,5 +1,5 @@
-;! TITLE=OCCURRENCE
-;! OLD_LICENSE=1
+Title "OCCURRENCE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

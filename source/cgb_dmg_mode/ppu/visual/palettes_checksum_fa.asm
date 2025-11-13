@@ -1,5 +1,5 @@
-;! TITLE=GENERATORS
-;! OLD_LICENSE=1
+Title "GENERATORS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

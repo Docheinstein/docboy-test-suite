@@ -1,5 +1,5 @@
-;! TITLE=AEROSPACE
-;! OLD_LICENSE=1
+Title "AEROSPACE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

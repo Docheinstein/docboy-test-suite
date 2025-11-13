@@ -1,5 +1,5 @@
-;! TITLE=IMMUNOLOGY
-;! OLD_LICENSE=1
+Title "IMMUNOLOGY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

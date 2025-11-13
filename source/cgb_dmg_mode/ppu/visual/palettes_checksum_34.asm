@@ -1,5 +1,5 @@
-;! TITLE=CONDITIONAL
-;! OLD_LICENSE=1
+Title "CONDITIONAL"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

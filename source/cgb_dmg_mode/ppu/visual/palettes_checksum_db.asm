@@ -1,5 +1,5 @@
-;! TITLE=CHANCELLOR
-;! OLD_LICENSE=1
+Title "CHANCELLOR"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

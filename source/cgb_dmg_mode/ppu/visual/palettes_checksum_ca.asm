@@ -1,5 +1,5 @@
-;! TITLE=SYNTHESIS
-;! OLD_LICENSE=1
+Title "SYNTHESIS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

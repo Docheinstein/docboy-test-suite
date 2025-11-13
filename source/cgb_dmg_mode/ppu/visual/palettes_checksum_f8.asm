@@ -1,5 +1,5 @@
-;! TITLE=IRRIGATION
-;! OLD_LICENSE=1
+Title "IRRIGATION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

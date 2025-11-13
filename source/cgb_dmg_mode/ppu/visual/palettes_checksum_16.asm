@@ -1,5 +1,5 @@
-;! TITLE=SURPRISING
-;! OLD_LICENSE=1
+Title "SURPRISING"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=SMITHSONIAN
-;! OLD_LICENSE=1
+Title "SMITHSONIAN"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

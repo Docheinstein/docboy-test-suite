@@ -1,5 +1,5 @@
-;! TITLE=THREATENING
-;! OLD_LICENSE=1
+Title "THREATENING"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

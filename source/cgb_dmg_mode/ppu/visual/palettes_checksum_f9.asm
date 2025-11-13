@@ -1,5 +1,5 @@
-;! TITLE=REVELATION
-;! OLD_LICENSE=1
+Title "REVELATION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

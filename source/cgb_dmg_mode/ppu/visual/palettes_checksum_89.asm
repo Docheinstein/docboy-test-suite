@@ -1,5 +1,5 @@
-;! TITLE=SACRIFICE
-;! OLD_LICENSE=1
+Title "SACRIFICE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

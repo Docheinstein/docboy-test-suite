@@ -1,5 +1,5 @@
-;! TITLE=BEASTALITY
-;! OLD_LICENSE=1
+Title "BEASTALITY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

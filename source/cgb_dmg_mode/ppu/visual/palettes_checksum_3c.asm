@@ -1,5 +1,5 @@
-;! TITLE=INTEGRATING
-;! OLD_LICENSE=1
+Title "INTEGRATING"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=PENETRATION
-;! OLD_LICENSE=1
+Title "PENETRATION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

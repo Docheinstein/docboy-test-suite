@@ -1,5 +1,5 @@
-;! TITLE=THERAPIST
-;! OLD_LICENSE=1
+Title "THERAPIST"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

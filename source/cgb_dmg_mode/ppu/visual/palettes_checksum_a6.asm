@@ -1,5 +1,5 @@
-;! TITLE=FRONTPAGE
-;! OLD_LICENSE=1
+Title "FRONTPAGE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

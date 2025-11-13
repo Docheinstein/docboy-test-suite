@@ -1,5 +1,5 @@
-;! TITLE=FRONTIER
-;! OLD_LICENSE=1
+Title "FRONTIER"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

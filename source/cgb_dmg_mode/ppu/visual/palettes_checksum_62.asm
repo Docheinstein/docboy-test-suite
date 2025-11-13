@@ -1,5 +1,5 @@
-;! TITLE=SOUTHAMPTON
-;! OLD_LICENSE=1
+Title "SOUTHAMPTON"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

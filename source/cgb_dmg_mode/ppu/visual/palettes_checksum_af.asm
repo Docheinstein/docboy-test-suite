@@ -1,5 +1,5 @@
-;! TITLE=TERMINALS
-;! OLD_LICENSE=1
+Title "TERMINALS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

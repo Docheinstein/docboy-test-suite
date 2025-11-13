@@ -1,5 +1,5 @@
-;! TITLE=CITIZENSHIP
-;! OLD_LICENSE=1
+Title "CITIZENSHIP"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

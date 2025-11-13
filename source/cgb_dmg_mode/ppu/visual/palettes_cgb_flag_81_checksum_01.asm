@@ -1,5 +1,5 @@
-;! TITLE=ABSORPTION
-;! OLD_LICENSE=1
+Title "ABSORPTION"
+OldLicenseeCode $01
 
 DEF CGB_FLAG = $81
 

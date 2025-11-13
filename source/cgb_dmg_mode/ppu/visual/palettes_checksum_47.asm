@@ -1,5 +1,5 @@
-;! TITLE=SUBSCRIBERS
-;! OLD_LICENSE=1
+Title "SUBSCRIBERS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

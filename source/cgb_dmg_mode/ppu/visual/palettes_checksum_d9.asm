@@ -1,5 +1,5 @@
-;! TITLE=ALEXANDRIA
-;! OLD_LICENSE=1
+Title "ALEXANDRIA"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

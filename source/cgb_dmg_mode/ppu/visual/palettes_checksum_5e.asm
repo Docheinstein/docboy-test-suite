@@ -1,5 +1,5 @@
-;! TITLE=JOURNALISTS
-;! OLD_LICENSE=1
+Title "JOURNALISTS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

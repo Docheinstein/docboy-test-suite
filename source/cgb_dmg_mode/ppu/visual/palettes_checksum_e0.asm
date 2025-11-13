@@ -1,5 +1,5 @@
-;! TITLE=PROCEEDING
-;! OLD_LICENSE=1
+Title "PROCEEDING"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

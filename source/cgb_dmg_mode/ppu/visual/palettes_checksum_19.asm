@@ -1,5 +1,5 @@
-;! TITLE=POPULARITY
-;! OLD_LICENSE=1
+Title "POPULARITY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

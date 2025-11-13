@@ -1,5 +1,5 @@
-;! TITLE=EFFICIENTLY
-;! OLD_LICENSE=1
+Title "EFFICIENTLY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

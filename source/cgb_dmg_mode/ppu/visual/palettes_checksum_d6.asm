@@ -1,5 +1,5 @@
-;! TITLE=GEOLOGICAL
-;! OLD_LICENSE=1
+Title "GEOLOGICAL"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=ACADEMICS
-;! OLD_LICENSE=1
+Title "ACADEMICS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

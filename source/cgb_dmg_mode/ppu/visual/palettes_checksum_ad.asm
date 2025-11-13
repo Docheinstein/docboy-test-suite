@@ -1,5 +1,5 @@
-;! TITLE=SWAZILAND
-;! OLD_LICENSE=1
+Title "SWAZILAND"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

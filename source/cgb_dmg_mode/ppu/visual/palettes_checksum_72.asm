@@ -1,5 +1,5 @@
-;! TITLE=PRISONER
-;! OLD_LICENSE=1
+Title "PRISONER"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

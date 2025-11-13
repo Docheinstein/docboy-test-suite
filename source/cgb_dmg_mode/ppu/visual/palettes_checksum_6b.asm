@@ -1,5 +1,5 @@
-;! TITLE=SENSITIVITY
-;! OLD_LICENSE=1
+Title "SENSITIVITY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

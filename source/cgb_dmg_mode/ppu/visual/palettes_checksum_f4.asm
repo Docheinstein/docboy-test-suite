@@ -1,5 +1,5 @@
-;! TITLE=SUBJECTIVE
-;! OLD_LICENSE=1
+Title "SUBJECTIVE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

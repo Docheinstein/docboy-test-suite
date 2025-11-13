@@ -1,5 +1,5 @@
-;! TITLE=EXPIRATION
-;! OLD_LICENSE=1
+Title "EXPIRATION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

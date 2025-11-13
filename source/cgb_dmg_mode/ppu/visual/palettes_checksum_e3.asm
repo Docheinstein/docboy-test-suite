@@ -1,5 +1,5 @@
-;! TITLE=ACCOMPLISH
-;! OLD_LICENSE=1
+Title "ACCOMPLISH"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

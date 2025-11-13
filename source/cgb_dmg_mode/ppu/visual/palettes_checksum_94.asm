@@ -1,5 +1,5 @@
-;! TITLE=MEDIAWIKI
-;! OLD_LICENSE=1
+Title "MEDIAWIKI"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

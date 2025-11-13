@@ -1,5 +1,5 @@
-;! TITLE=ACCORDANCE
-;! OLD_LICENSE=1
+Title "ACCORDANCE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

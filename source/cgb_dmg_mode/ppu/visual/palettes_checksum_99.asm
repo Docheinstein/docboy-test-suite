@@ -1,5 +1,5 @@
-;! TITLE=DEFENSIVE
-;! OLD_LICENSE=1
+Title "DEFENSIVE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

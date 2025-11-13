@@ -1,5 +1,5 @@
-;! TITLE=DAUGHTERS
-;! OLD_LICENSE=1
+Title "DAUGHTERS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=ORGANISED
-;! OLD_LICENSE=1
+Title "ORGANISED"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

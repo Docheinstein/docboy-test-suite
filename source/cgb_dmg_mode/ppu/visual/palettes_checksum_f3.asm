@@ -1,5 +1,5 @@
-;! TITLE=FORWARDING
-;! OLD_LICENSE=1
+Title "FORWARDING"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

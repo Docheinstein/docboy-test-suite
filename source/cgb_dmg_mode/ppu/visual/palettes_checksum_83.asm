@@ -1,5 +1,5 @@
-;! TITLE=CHALLENGE
-;! OLD_LICENSE=1
+Title "CHALLENGE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=SUPERVISORS
-;! OLD_LICENSE=1
+Title "SUPERVISORS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

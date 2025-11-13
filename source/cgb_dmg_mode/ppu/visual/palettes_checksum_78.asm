@@ -1,5 +1,5 @@
-;! TITLE=FINDARTICLES
-;! OLD_LICENSE=1
+Title "FINDARTICLES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

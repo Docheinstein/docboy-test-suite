@@ -1,5 +1,5 @@
-;! TITLE=FRANKFURT
-;! OLD_LICENSE=1
+Title "FRANKFURT"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

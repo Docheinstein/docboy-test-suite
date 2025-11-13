@@ -1,5 +1,5 @@
-;! TITLE=ANTARCTICA
-;! OLD_LICENSE=1
+Title "ANTARCTICA"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

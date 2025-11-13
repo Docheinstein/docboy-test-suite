@@ -1,3 +1,6 @@
+IF !DEF(CKSUM_INC)
+DEF CKSUM_INC EQU 1
+
 ; Args:
 ; \1: address
 ; \2: length
@@ -25,3 +28,5 @@ MACRO Checksum
 	; Set result to A
 	ld a, d
 ENDM
+
+ENDC

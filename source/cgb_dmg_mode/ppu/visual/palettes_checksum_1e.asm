@@ -1,5 +1,5 @@
-;! TITLE=DIFFERENCES
-;! OLD_LICENSE=1
+Title "DIFFERENCES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

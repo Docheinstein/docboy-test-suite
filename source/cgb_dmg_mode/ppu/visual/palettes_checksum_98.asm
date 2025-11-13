@@ -1,5 +1,5 @@
-;! TITLE=GIBRALTAR
-;! OLD_LICENSE=1
+Title "GIBRALTAR"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

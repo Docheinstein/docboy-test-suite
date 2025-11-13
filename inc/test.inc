@@ -1,3 +1,12 @@
+IF !DEF(TEST_INC)
+DEF TEST_INC EQU 1
+
+include "apu.inc"
+include "ppu.inc"
+include "memory.inc"
+include "debug.inc"
+include "halt.inc"
+
 MACRO TestStashRegisters
     push af
     push bc
@@ -112,3 +121,5 @@ TestFailTilemap:
     db $18, $18, $18, $18, $18, $18, $18, $18
     db $18, $18, $18, $18, $18, $18, $18, $18
 TestFailTilemapEnd:
+
+ENDC

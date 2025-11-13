@@ -1,5 +1,5 @@
-;! TITLE=REPLICATION
-;! OLD_LICENSE=1
+Title "REPLICATION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

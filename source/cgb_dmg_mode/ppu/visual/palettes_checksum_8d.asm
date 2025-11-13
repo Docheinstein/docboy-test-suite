@@ -1,5 +1,5 @@
-;! TITLE=FORBIDDEN
-;! OLD_LICENSE=1
+Title "FORBIDDEN"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=BIOGRAPHIES
-;! OLD_LICENSE=1
+Title "BIOGRAPHIES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

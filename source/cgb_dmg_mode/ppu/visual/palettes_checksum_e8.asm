@@ -1,5 +1,5 @@
-;! TITLE=INDONESIAN
-;! OLD_LICENSE=1
+Title "INDONESIAN"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

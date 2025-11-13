@@ -1,1 +1,8 @@
-DEF CGB_FLAG = $00
+IF !DEF(DMG_INC)
+DEF DMG_INC EQU 1
+
+INCLUDE "header.inc"
+
+CgbFlag $00
+
+ENDC

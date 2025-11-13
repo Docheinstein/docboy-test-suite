@@ -1,5 +1,5 @@
-;! TITLE=PORTSMOUTH
-;! OLD_LICENSE=1
+Title "PORTSMOUTH"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

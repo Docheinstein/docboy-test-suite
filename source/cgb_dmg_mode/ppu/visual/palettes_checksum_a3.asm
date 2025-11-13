@@ -1,5 +1,5 @@
-;! TITLE=UNDERTAKE
-;! OLD_LICENSE=1
+Title "UNDERTAKE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

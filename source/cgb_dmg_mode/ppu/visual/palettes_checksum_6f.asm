@@ -1,5 +1,5 @@
-;! TITLE=SYRACUSE
-;! OLD_LICENSE=1
+Title "SYRACUSE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

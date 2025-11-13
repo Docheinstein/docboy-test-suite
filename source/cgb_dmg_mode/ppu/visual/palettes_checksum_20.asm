@@ -1,5 +1,5 @@
-;! TITLE=REPOSITORY
-;! OLD_LICENSE=1
+Title "REPOSITORY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

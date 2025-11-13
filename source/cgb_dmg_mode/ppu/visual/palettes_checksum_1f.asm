@@ -1,5 +1,5 @@
-;! TITLE=TRACTOR
-;! OLD_LICENSE=1
+Title "TRACTOR"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

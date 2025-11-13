@@ -1,5 +1,5 @@
-;! TITLE=REFURBISHED
-;! OLD_LICENSE=1
+Title "REFURBISHED"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

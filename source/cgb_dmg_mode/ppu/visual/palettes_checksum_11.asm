@@ -1,5 +1,5 @@
-;! TITLE=PERSISTENT
-;! OLD_LICENSE=1
+Title "PERSISTENT"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

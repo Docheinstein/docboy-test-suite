@@ -1,5 +1,5 @@
-;! TITLE=REFERENCED
-;! OLD_LICENSE=1
+Title "REFERENCED"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

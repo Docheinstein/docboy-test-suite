@@ -1,5 +1,5 @@
-;! TITLE=TRANSSEXUAL
-;! OLD_LICENSE=1
+Title "TRANSSEXUAL"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

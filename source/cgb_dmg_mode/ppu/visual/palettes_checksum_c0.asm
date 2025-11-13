@@ -1,5 +1,5 @@
-;! TITLE=YORKSHIRE
-;! OLD_LICENSE=1
+Title "YORKSHIRE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

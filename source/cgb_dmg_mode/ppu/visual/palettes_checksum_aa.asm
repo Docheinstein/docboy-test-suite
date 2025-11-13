@@ -1,5 +1,5 @@
-;! TITLE=CONSIDERS
-;! OLD_LICENSE=1
+Title "CONSIDERS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

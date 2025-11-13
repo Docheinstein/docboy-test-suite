@@ -1,5 +1,5 @@
-;! TITLE=BANGLADESH
-;! OLD_LICENSE=1
+Title "BANGLADESH"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

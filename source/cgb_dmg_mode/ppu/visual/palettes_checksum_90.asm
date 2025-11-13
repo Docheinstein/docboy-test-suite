@@ -1,5 +1,5 @@
-;! TITLE=ASSEMBLED
-;! OLD_LICENSE=1
+Title "ASSEMBLED"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

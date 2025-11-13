@@ -1,3 +1,8 @@
+IF !DEF(APU_INC)
+DEF APU_INC EQU 1
+
+INCLUDE "hardware.inc"
+
 MACRO EnableAPU
     ld a, $80
     ldh [rNR52], a
@@ -49,3 +54,5 @@ MACRO Beep
     ld a, $87
     ldh [rNR14], a
 ENDM
+
+ENDC

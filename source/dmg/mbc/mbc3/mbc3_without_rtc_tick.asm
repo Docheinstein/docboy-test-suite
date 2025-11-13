@@ -1,5 +1,5 @@
-;! MBC_TYPE=19
-;! RAM_SIZE=3
+CartridgeType $13
+RamSize $03
 
 INCLUDE "all.inc"
 INCLUDE "mbc/mbc3.inc"

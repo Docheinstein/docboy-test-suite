@@ -1,5 +1,5 @@
-;! TITLE=CHAMPAGNE
-;! OLD_LICENSE=1
+Title "CHAMPAGNE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

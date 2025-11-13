@@ -1,5 +1,5 @@
-;! TITLE=DEPENDENCE
-;! OLD_LICENSE=1
+Title "DEPENDENCE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

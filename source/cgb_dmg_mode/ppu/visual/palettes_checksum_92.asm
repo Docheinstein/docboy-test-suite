@@ -1,5 +1,5 @@
-;! TITLE=DOMINICAN
-;! OLD_LICENSE=1
+Title "DOMINICAN"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

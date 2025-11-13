@@ -1,5 +1,5 @@
-;! TITLE=AUDITOR
-;! OLD_LICENSE=1
+Title "AUDITOR"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

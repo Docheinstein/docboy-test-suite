@@ -1,5 +1,5 @@
-;! TITLE=SYNDICATION
-;! OLD_LICENSE=1
+Title "SYNDICATION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

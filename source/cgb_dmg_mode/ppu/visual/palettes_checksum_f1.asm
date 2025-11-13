@@ -1,5 +1,5 @@
-;! TITLE=VIETNAMESE
-;! OLD_LICENSE=1
+Title "VIETNAMESE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

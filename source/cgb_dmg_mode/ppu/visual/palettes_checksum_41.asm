@@ -1,5 +1,5 @@
-;! TITLE=NEGOTIATION
-;! OLD_LICENSE=1
+Title "NEGOTIATION"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

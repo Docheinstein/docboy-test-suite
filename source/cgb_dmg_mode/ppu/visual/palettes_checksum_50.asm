@@ -1,5 +1,5 @@
-;! TITLE=UNNECESSARY
-;! OLD_LICENSE=1
+Title "UNNECESSARY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

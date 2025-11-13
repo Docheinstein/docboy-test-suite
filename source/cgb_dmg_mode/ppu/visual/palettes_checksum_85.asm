@@ -1,5 +1,5 @@
-;! TITLE=FREELANCE
-;! OLD_LICENSE=1
+Title "FREELANCE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

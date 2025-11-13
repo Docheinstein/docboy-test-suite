@@ -1,5 +1,5 @@
-;! TITLE=ALBUQUERQUE
-;! OLD_LICENSE=1
+Title "ALBUQUERQUE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

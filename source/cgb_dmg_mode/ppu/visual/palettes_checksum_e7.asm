@@ -1,5 +1,5 @@
-;! TITLE=ACDBENTITY
-;! OLD_LICENSE=1
+Title "ACDBENTITY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

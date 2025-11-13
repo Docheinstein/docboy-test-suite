@@ -1,5 +1,5 @@
-;! TITLE=MORRISON
-;! OLD_LICENSE=1
+Title "MORRISON"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

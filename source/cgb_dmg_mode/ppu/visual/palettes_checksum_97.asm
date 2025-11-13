@@ -1,5 +1,5 @@
-;! TITLE=PAINTBALL
-;! OLD_LICENSE=1
+Title "PAINTBALL"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

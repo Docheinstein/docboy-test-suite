@@ -1,5 +1,5 @@
-;! TITLE=INSTRUMENTS
-;! OLD_LICENSE=1
+Title "INSTRUMENTS"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

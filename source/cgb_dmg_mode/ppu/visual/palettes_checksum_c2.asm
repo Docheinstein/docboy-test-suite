@@ -1,5 +1,5 @@
-;! TITLE=BENEFICIAL
-;! OLD_LICENSE=1
+Title "BENEFICIAL"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

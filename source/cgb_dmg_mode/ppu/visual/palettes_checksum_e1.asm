@@ -1,5 +1,5 @@
-;! TITLE=BLACKBERRY
-;! OLD_LICENSE=1
+Title "BLACKBERRY"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

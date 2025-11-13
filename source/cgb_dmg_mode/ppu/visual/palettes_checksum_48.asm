@@ -1,5 +1,5 @@
-;! TITLE=EQUILIBRIUM
-;! OLD_LICENSE=1
+Title "EQUILIBRIUM"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=LONGITUDE
-;! OLD_LICENSE=1
+Title "LONGITUDE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=HEADPHONES
-;! OLD_LICENSE=1
+Title "HEADPHONES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=INEXPENSIVE
-;! OLD_LICENSE=1
+Title "INEXPENSIVE"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

@@ -1,5 +1,5 @@
-;! TITLE=INSTITUTES
-;! OLD_LICENSE=1
+Title "INSTITUTES"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 

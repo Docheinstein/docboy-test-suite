@@ -1,3 +1,10 @@
+IF !DEF(DEBUG_INC)
+DEF DEBUG_INC EQU 1
+
+INCLUDE "hardware.inc"
+INCLUDE "ppu.inc"
+INCLUDE "print.inc"
+
 MACRO DumpRegisters
     ; Disable interrupts
     di
@@ -229,3 +236,5 @@ MACRO DumpMemoryInteractive
     ld [hl], a
     jp .printsetup\@
 ENDM
+
+ENDC

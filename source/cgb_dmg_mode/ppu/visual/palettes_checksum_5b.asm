@@ -1,5 +1,5 @@
-;! TITLE=CONTRIBUTOR
-;! OLD_LICENSE=1
+Title "CONTRIBUTOR"
+OldLicenseeCode $01
 
 INCLUDE "all.inc"
 
