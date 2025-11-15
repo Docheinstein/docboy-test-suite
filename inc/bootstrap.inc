@@ -70,7 +70,7 @@ ENDC
     db HEADER_CARTRIDGE_TYPE
 
     ; $148
-    ds $148 - @, $00
+    ds $149 - @, $00
 
     ; $149
     db HEADER_RAM_SIZE
