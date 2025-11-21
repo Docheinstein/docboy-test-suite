@@ -19,7 +19,7 @@ EntryPoint:
     Wait 110
 
     ldh a, [rSTAT]
-    cp $80
+    cp $81
 
     jp nz, TestFail
     jp TestSuccess
