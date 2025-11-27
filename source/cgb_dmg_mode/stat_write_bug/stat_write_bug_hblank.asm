@@ -21,7 +21,7 @@ EntryPoint:
     ldh [rSTAT], a
 
     ldh a, [rIF]
-    DumpRegisters
+    cp $e0
 
     jp nz, TestFail
 
