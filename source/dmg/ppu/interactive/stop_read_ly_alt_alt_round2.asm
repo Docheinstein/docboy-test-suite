@@ -6,7 +6,7 @@ EntryPoint:
     DisablePPU
     EnablePPU
 
-    ; Go to line 20
+    ; Go to line 30
     Wait 30 * 114 + 64
 
     stop

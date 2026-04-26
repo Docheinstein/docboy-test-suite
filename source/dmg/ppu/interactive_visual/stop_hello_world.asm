@@ -7,6 +7,10 @@ INCLUDE "all.inc"
 EntryPoint:
     DisablePPU
 
+    ; React to both buttons and D-Pad
+    ld a, $00
+    ldh [rP1], a
+
     InitPrint
     PrintString "Hello World!"
 
