@@ -1,6 +1,9 @@
 INCLUDE "all.inc"
 
-; If Joypad Interrupt is enabled and Joypad is pressed before STOP, STOP is not exited because it's halted.
+; If Joypad is pressed before STOP, but Joypad interrupt is enabled:
+; - CPU enters HALT state instead of STOP state.
+; - HALT is exited when button is pressed because Joypad interrupt is enabled
+;   (even on button release, because of switch bouncing)
 
 EntryPoint:
     DisablePPU
@@ -20,4 +23,4 @@ EntryPoint:
     stop
 
     ; Never reached
-    jp TestFail
+    jp TestSuccess
