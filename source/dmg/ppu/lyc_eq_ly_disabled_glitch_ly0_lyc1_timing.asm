@@ -6,7 +6,7 @@ MACRO ReadSTAT
     EnablePPU
 
     ; Delay
-    Nops \1
+    Wait \1
 
     ld a, [rSTAT]
     and STATF_LYCF

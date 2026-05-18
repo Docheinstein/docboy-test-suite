@@ -29,10 +29,10 @@ REPT 60
 ENDR
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Go to Pixel Transfer
-    Nops 80
+    Wait 80
 
     stop
 

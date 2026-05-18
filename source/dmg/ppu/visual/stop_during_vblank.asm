@@ -29,7 +29,7 @@ REPT 60
 ENDR
 
     ; Go to VBlank
-    Nops 114 * 144
+    Wait 114 * 144
 
     stop
 

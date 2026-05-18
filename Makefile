@@ -19,7 +19,7 @@ roms/$(1)/%.o: source/$(1)/%.asm $$(INCLUDES)
 roms/$(1)/%.$(2): roms/$(1)/%.o
 # Link object
 	mkdir -p $$(dir $$(@:roms/%.$(2)=symbols/%.sym))
-	rgblink -t -o $$@ -n $$(@:roms/%.$(2)=symbols/%.sym) $$<
+	rgblink -o $$@ -n $$(@:roms/%.$(2)=symbols/%.sym) $$<
 	rgbfix -v $$@ $(4) -p 255
 endef
 
