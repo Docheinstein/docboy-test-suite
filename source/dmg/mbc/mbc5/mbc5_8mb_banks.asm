@@ -4,7 +4,7 @@ RomSize $08
 INCLUDE "all.inc"
 INCLUDE "mbc/mbc5.inc"
 
-; Check the initial values of RTC latch before any reload.
+; Check that ROM banks are working even for large ROM (8 MB).
 
 EntryPoint:
     ; Map bank $0000 to $4000:$7FFF
