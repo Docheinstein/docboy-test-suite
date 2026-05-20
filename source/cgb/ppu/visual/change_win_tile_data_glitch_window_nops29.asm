@@ -64,17 +64,17 @@ FOR I, 128
     ld a, 16 + I / 8
     ldh [rWX], a
 
-    Nops NUM_NOPS - 5
+    Wait NUM_NOPS - 5
 
     ld a, LCDCF_ON | LCDCF_BGON | LCDCF_WINON | LCDCF_BG9800 | LCDCF_WIN9800 | LCDCF_BG8000 ; Set
     ldh [rLCDC], a
 
-	Nops NUM_NOPS_IN_BEETWEN
+	Wait NUM_NOPS_IN_BEETWEN
 
 	ld a, LCDCF_ON | LCDCF_BGON | LCDCF_WINON | LCDCF_BG9800 | LCDCF_WIN9800 | LCDCF_BG8800 ; Reset
     ldh [rLCDC], a
 
-    Nops (114 - NUM_NOPS - NUM_NOPS_IN_BEETWEN - 10)
+    Wait (114 - NUM_NOPS - NUM_NOPS_IN_BEETWEN - 10)
 ENDR
 
     halt

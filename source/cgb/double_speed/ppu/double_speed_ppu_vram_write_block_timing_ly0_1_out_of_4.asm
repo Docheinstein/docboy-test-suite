@@ -6,7 +6,7 @@ MACRO WriteToVRAM
     EnablePPU
 
     ; Delay
-    Nops \1
+    Wait \1
 
     ld [hli], a
 

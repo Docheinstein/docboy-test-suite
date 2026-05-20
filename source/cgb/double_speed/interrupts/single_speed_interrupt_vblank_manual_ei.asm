@@ -23,7 +23,7 @@ EntryPoint:
     ld a, $01
     ldh [rKEY1], a
 
-    Nops 1
+    Wait 1
 
     ; Switch to double speed
     stop
@@ -31,7 +31,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip some lines
-    Nops 114 * 142
+    Wait 114 * 142
 
     ; Reset IF
     xor a

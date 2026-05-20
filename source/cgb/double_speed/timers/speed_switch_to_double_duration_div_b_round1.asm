@@ -10,7 +10,7 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    Nops 1
+    Wait 1
 
     ; Reset DIV
     xor a

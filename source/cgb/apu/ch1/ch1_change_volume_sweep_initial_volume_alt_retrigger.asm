@@ -30,7 +30,7 @@ EntryPoint:
     ld a, $87
     ldh [rNR14], a
 
-    Nops 16
+    Wait 16
 
     ; Initial volume = A
     ; Envelope direction = 0
@@ -38,7 +38,7 @@ EntryPoint:
     ld a, $B1
     ldh [rNR12], a
 
-    Nops 32
+    Wait 32
 
     ; Trigger = 1
     ld a, $87

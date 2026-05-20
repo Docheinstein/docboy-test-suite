@@ -8,7 +8,7 @@ EntryPoint:
     WaitScanline 143
 
     ; Skip 10 lines
-    Nops 10 * 114
+    Wait 10 * 114
 
     ; Read LY
     ldh a, [rLY]
@@ -20,7 +20,7 @@ EntryPoint:
     jp nz, TestFail
 
     ; Skip a line
-    Nops 114
+    Wait 114
 
     ; Read LY
     ldh a, [rLY]

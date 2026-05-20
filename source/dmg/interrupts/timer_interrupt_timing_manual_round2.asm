@@ -19,14 +19,14 @@ EntryPoint:
     ldh [rIF], a
 
     ; Busy loop
-    Nops 64
+    Wait 64
 
     ; If this is reached Timer interrupt or Timer is not working
     jp TestFail
 
 TestFinish:
     ; 100 nops should read DIV=02
-    Nops 100
+    Wait 100
 
     ; Read DIV
     ldh a, [rDIV]

@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Reset IF after Pixel Transfer for different SCXs with HBlank interrupt enabled.
 
 EntryPoint:
-    Nops 123
+    Wait 123
 
     ld a, $00
     ldh [rSCX], a
@@ -30,19 +30,19 @@ EntryPoint:
     ld a, TACF_START | TACF_262KHZ
     ldh [rTAC], a
 
-    Nops 28
+    Wait 28
 
     ; Reset IF
     ld a, $01
     ldh [rIF], a
 
-    Nops 3
+    Wait 3
 
     jp TestFail
 
 
 TestContinue:
-    Nops 3
+    Wait 3
 
     ldh a, [rTIMA]
     cp $0c

@@ -37,14 +37,14 @@ EntryPoint:
     WaitScanline 1
 
     ; Wait so that a part of the window is render.
-    Nops 21
+    Wait 21
 
     ; Disable window
     ld a, LCDCF_ON | LCDCF_BGON | LCDCF_WIN9C00
     ldh [rLCDC], a
 
     ; Let some BG fetch run.
-    Nops 6
+    Wait 6
 
     ; Set WX=132
     ld a, 132
@@ -54,7 +54,7 @@ EntryPoint:
     ld a, LCDCF_ON | LCDCF_BGON | LCDCF_WINON | LCDCF_WIN9C00
     ldh [rLCDC], a
 
-    Nops 16
+    Wait 16
 
     ; We should already be in HBlank
     ldh a, [rSTAT]

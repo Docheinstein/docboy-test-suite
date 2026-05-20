@@ -9,7 +9,7 @@ EntryPoint:
 
     Wait 114
 
-    Nops 30
+    Wait 30
 
     ; Set LYC=66
     ld a, $01

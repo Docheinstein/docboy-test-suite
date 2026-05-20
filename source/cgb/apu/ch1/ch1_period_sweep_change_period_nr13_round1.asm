@@ -40,7 +40,7 @@ EntryPoint:
 
     ; (Period sweep ticks around here)
 
-    Nops 123
+    Wait 123
 
     ldh a, [rPCM12]
     cp $00

@@ -11,7 +11,7 @@ EntryPoint:
     WaitScanline $8f
 
     ; 102 nops should read VBLANK.
-    Nops 102
+    Wait 102
 
     ; Check result
     ldh a, [rSTAT]

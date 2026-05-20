@@ -26,7 +26,7 @@ EntryPoint:
     ; Go to line 30
     Wait 114 * 30
 
-    Nops 50
+    Wait 50
 
     ; <-- Switch at dot ~ 200 -->
 
@@ -35,7 +35,7 @@ EntryPoint:
 
     ; <-- Resume at dot ~ 80 -->
 
-    Nops 135
+    Wait 135
 
     ; Read STAT
     ldh a, [rSTAT]

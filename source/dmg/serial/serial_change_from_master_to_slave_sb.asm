@@ -7,7 +7,7 @@ EntryPoint:
     ld a, $81
     ldh [rSC], a
 
-    Nops 512
+    Wait 512
 
     ; Change clock selector from master to slave
     ld a, $80

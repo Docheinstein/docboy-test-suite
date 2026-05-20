@@ -35,7 +35,7 @@ TestStart:
     ld a, $05
     ldh [rSCX], a
 
-    Nops 99
+    Wait 99
 
     ; We should already be in HBlank
     ldh a, [rSTAT]

@@ -35,7 +35,7 @@ TestStart:
     ld a, $04
     ldh [rSCX], a
 
-    Nops 98
+    Wait 98
 
     ; We should still be in Pixel Transfer
     ldh a, [rSTAT]

@@ -19,7 +19,7 @@ EntryPoint:
 
     EnablePPU
 
-    Nops 57
+    Wait 57
 
     jp TestSuccess
 

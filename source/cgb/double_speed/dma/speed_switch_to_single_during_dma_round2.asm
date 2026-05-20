@@ -10,7 +10,7 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    Nops 1
+    Wait 1
 
     ; Prepare speed switch
     ld a, $01
@@ -42,7 +42,7 @@ DmaTransferRoutine:
     dec a
     jr nz, .dmaloop
 
-    Nops 2
+    Wait 2
 
     ; Read from OAM
     ld hl, $fe02

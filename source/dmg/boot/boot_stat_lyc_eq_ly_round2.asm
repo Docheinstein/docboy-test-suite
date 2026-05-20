@@ -4,7 +4,7 @@ INCLUDE "all.inc"
 
 EntryPoint:
     ; Wait for first scanline.
-    Nops 10
+    Wait 10
 
     ; Read STAT
     ldh a, [rSTAT]

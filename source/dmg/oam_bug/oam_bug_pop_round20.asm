@@ -11,9 +11,9 @@ EntryPoint:
 	EnablePPU
 
     ; Skip the first scanline
-    Nops 102
+    Wait 102
 
-	Nops 20
+	Wait 20
 	
     ; Write something to OAM
     ld bc, $6677

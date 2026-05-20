@@ -32,14 +32,14 @@ EntryPoint:
     ldh [rDIV], a
 
     ; Wait
-    Nops 114
+    Wait 114
 
     ; We should not reach this point
     jp TestFail
 
 TestFinish:
     ; 26 nops should read DIV=2
-    Nops 26
+    Wait 26
 
     ldh a, [rDIV]
     cp $02

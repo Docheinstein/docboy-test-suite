@@ -56,7 +56,7 @@ Loop:
     ; Disable window before pixel transfer
     ld [hl], b
 
-    Nops 22
+    Wait 22
 
     ; Enable window
     ld [hl], c

@@ -28,7 +28,7 @@ Round1:
     ldh [rTAC], a
 
     ; 8 nops should read IF=0
-    Nops 8
+    Wait 8
 
     ; Load IF
     ldh a, [rIF]
@@ -65,7 +65,7 @@ Round2:
     ldh [rTAC], a
 
     ; 9 nops should read IF=1
-    Nops 9
+    Wait 9
 
     ; Load IF
     ldh a, [rIF]

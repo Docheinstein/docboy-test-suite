@@ -43,7 +43,7 @@ ENDR
     Wait 114 * 42
 
     ; Go to Pixel Transfer
-    Nops 40
+    Wait 40
 
 BeforeStop:
     stop

@@ -26,20 +26,20 @@ EntryPoint:
     ldh [rNR34], a
 
     ; Wait a bit
-    Nops 128
+    Wait 128
 
     ; Read
     ldh a, [$FF30]
     ld b, a
-    Nops 1
+    Wait 1
 
     ldh a, [$FF30]
     ld c, a
-    Nops 1
+    Wait 1
 
     ldh a, [$FF30]
     ld d, a
-    Nops 1
+    Wait 1
 
     ldh a, [$FF30]
     ld e, a

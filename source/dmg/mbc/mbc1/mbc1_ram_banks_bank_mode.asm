@@ -9,7 +9,7 @@ INCLUDE "mbc/mbc1.inc"
 EntryPoint:
     ; Enable RAM
     ld hl, rMBC1_RAM
-    ld [hl], MBC1_RAM_ON
+    ld [hl], MBC_RAM_ON
 
     ; Enable banking mode 1
     ld hl, rMBC1_BANK_MODE

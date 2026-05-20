@@ -46,7 +46,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 160
+    Wait 160
 
     ; Start HDMA
     ; Bit 7 = 1 (HBlank)

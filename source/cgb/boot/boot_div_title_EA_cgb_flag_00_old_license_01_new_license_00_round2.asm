@@ -14,7 +14,7 @@ INCLUDE "all.inc"
 ; Note the value of DIV depends on the cartridge header as the boot rom takes different execution paths.
 
 EntryPoint:
-    Nops 24
+    Wait 24
     ldh a, [rDIV]
 
     cp $38

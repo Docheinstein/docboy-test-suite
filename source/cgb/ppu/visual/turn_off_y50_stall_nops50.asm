@@ -45,13 +45,13 @@ REPT 154
     ; Disable PPU
     DisablePPU
 
-    Nops 50
+    Wait 50
 
     ; Enable PPU, but with another map
 	ld a, LCDCF_ON | LCDCF_BGON | LCDCF_BG9C00
 	ldh [rLCDC], a
 
-	Nops 4
+	Wait 4
 ENDR
 
     ; Soft Breakpoint (good time to take a screenshot)
@@ -61,7 +61,7 @@ Loop:
     ; Disable PPU
     DisablePPU
 
-    Nops 50
+    Wait 50
 
     ; Enable PPU, but with another map
 	ld a, LCDCF_ON | LCDCF_BGON | LCDCF_BG9C00

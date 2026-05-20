@@ -41,11 +41,11 @@ EntryPoint:
     ld a, $87
     ldh [rNR14], a
 
-    Nops 8
+    Wait 8
 
     ld [hl], a
 
-    Nops 6
+    Wait 6
 
     ldh a, [rNR52]
     cp $f1

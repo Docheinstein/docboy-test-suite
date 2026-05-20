@@ -18,7 +18,7 @@ EntryPoint:
 
     stop
 
-    Nops 4
+    Wait 4
 
     HaltForever
 

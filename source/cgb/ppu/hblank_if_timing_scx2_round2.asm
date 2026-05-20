@@ -18,13 +18,13 @@ EntryPoint:
 
     EnablePPU
 
-    Nops 114
+    Wait 114
 
     ; Reset IF
     xor a
     ldh [rIF], a
 
-    Nops 56
+    Wait 56
 
     ; Read IF
     ldh a, [rIF]

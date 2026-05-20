@@ -16,7 +16,7 @@ EntryPoint:
 
     ; Skip glitched line 0
     ; Go to HBlank of line 1
-    Nops 212
+    Wait 212
 
     ; Jump to DMA transfer routine
     call $ff80

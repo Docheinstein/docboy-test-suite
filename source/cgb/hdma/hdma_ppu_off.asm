@@ -35,7 +35,7 @@ EntryPoint:
 
     ; Wait for enough HBlanks to happen
     ; (no precise timing check)
-    Nops 4 * 114
+    Wait 4 * 114
 
     Memcmp $8000, ExpectedVramData, ExpectedVramDataEnd - ExpectedVramData
     jp nz, TestFail

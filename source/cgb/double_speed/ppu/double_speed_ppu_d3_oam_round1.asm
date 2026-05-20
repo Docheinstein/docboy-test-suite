@@ -35,7 +35,7 @@ EntryPoint:
     
     Wait 38 * 114
 
-    Nops 211
+    Wait 211
 
     ; Read STAT
     ldh a, [rSTAT]

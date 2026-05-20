@@ -9,7 +9,7 @@ INCLUDE "mbc/mbc1.inc"
 EntryPoint:
     ; Enable RAM
     ld hl, rMBC1_RAM
-    ld [hl], MBC1_RAM_ON
+    ld [hl], MBC_RAM_ON
 
     ; Check content
     Memtest $A000, $FF, $2000

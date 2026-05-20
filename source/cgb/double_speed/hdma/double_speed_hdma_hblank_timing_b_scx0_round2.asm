@@ -14,7 +14,7 @@ EntryPoint:
     ; Change speed
     stop
 
-    Nops 1
+    Wait 1
 
     ; Set SCX=0
     ld a, $00
@@ -38,7 +38,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 228
+    Wait 228
 
     ; Bit 7 = 1 (HBlank)
     ; Length = 64 bytes / $10 - 1 => 3
@@ -47,7 +47,7 @@ EntryPoint:
 
     ; --- transfer happens here ---
 
-    Nops 117
+    Wait 117
 
     ldh a, [rSTAT]
 

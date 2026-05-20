@@ -18,12 +18,12 @@ EntryPoint:
     ld a, $01
     ldh [rKEY1], a
 
-    Nops 16
+    Wait 16
 
     ; Switch to double speed
     stop
 
-    Nops 60
+    Wait 60
 
     ; Check TIMA
     ldh a, [rTIMA]

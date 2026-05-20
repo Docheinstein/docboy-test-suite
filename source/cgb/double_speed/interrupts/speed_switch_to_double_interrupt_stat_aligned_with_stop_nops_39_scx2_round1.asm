@@ -33,12 +33,12 @@ EntryPoint:
     xor a
     ldh [rDIV], a
 
-    Nops 39
+    Wait 39
 
     db $10
     nop
     
-    Nops 61
+    Wait 61
 	
     ldh a, [rDIV]
     cp $00

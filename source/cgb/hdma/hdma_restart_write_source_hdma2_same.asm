@@ -30,7 +30,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Bit 7 = 1 (HBlank)
     ; Length = 64 bytes / $10 - 1 => 3
@@ -38,7 +38,7 @@ EntryPoint:
     ldh [rHDMA5], a
 
     ; Wait an HBlank
-    Nops 114
+    Wait 114
 
     ; Source address = D00F
     ld a, $00
@@ -51,7 +51,7 @@ EntryPoint:
 
     ; Wait for enough HBlanks for transfer to happen
     ; (no precise timing check)
-    Nops 5 * 114
+    Wait 5 * 114
 
     ; Disable PPU
     DisablePPU

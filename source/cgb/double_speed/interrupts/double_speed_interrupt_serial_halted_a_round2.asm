@@ -42,7 +42,7 @@ EntryPoint:
     jp TestFail
 
 TestFinish:
-    Nops 52
+    Wait 52
 
     ldh a, [rDIV]
     cp $11

@@ -7,9 +7,9 @@ INCLUDE "mbc/huc3.inc"
 ; Check that RAM Read Only mode works.
 
 EntryPoint:
-    ; Enable RAM R/W
-    ld a, RAMRO
-    ld [rMAP], a
+    ; Disable RAM R/W
+    ld a, HUC3_RAM_RO
+    ld [rHUC3_MAP], a
 
     ld a, [$A000]
     ld b, a

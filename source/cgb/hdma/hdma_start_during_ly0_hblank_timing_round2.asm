@@ -30,7 +30,7 @@ EntryPoint:
     EnablePPU
 
     ; Wait for HBLank of LY=0
-    Nops 60
+    Wait 60
 
     ; Bit 7 = 1 (HBlank)
     ; Length = 64 bytes / $10 - 1 => 3
@@ -39,7 +39,7 @@ EntryPoint:
 
     ; --- transfer happens here ---
 
-    Nops 312
+    Wait 312
 
     ldh a, [rHDMA5]
 

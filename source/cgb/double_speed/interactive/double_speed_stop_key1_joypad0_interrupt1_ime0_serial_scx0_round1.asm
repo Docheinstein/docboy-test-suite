@@ -56,7 +56,7 @@ EntryPoint:
     inc a
     inc a
 
-    Nops 9
+    Wait 9
 
     ldh a, [rSTAT]
     cp $83

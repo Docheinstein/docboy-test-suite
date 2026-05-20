@@ -53,7 +53,7 @@ EntryPoint:
     ld a, $87
     ldh [rNR14], a
 
-    Nops 1
+    Wait 1
 
     ld [hl], b
     ld [hl], c

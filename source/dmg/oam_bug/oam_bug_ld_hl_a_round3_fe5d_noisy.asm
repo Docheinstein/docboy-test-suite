@@ -89,12 +89,12 @@ DoTest:
 	EnablePPU
 
     ; Skip the first scanline
-    Nops 103
+    Wait 103
 
-	Nops 3
+	Wait 3
 	
     ; Write to OAM
-    Nops 2
+    Wait 2
     ld hl, $fe5d
     ld [hl], b
 

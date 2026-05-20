@@ -18,7 +18,7 @@ EntryPoint:
 	; Switch to double speed
     stop
     
-    Nops 54
+    Wait 54
 
     ; Read STAT
     ldh a, [rSTAT]

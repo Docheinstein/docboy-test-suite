@@ -64,7 +64,7 @@ REPT 154
 
     Wait 99
 
-    Nops 4
+    Wait 4
 ENDR
 
     ; Soft Breakpoint (good time to take a screenshot)

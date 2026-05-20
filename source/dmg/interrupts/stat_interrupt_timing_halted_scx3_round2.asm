@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Check how much it takes to react to a stat interrupt while halted with SCX=3.
 
 EntryPoint:
-    Nops 114
+    Wait 114
 
     ; Write SCX=0
     ld a, $03
@@ -32,7 +32,7 @@ EntryPoint:
 
 TestFinish:
     ; 61 nops should read DIV=2
-    Nops 61
+    Wait 61
 
     ; Read DIV
     ldh a, [rDIV]

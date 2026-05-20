@@ -30,14 +30,14 @@ EntryPoint:
     ld a, $83
     ldh [rHDMA5], a
 
-    Nops 114
+    Wait 114
 
     ; --- transfer happens here ---
     ldh a, [rHDMA5]
     cp $ff
     jp nz, TestFail
 
-    Nops 114 * 3
+    Wait 114 * 3
 
     Memtest $8000, $00, VramDataEnd - VramData
     jp nz, TestFail

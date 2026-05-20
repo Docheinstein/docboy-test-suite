@@ -12,11 +12,11 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    Nops 1
+    Wait 1
 
     EnableAPU
 
-    Nops 1
+    Wait 1
 
     xor a
     ldh [rDIV], a

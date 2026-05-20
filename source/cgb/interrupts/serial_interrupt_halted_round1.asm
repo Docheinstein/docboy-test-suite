@@ -23,7 +23,7 @@ EntryPoint:
 
     halt
 
-    Nops 60
+    Wait 60
 
     ldh a, [rDIV]
     cp $10

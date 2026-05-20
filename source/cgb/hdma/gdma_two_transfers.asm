@@ -32,7 +32,7 @@ EntryPoint:
 
     ; --- first transfer happens here ---
 
-    Nops 10
+    Wait 10
 
     ; Start it again
     ldh [rHDMA5], a

@@ -19,14 +19,14 @@ EntryPoint:
     EnablePPU
 
     ; Wait
-    Nops 114 * 13
+    Wait 114 * 13
 
-    Nops 110
+    Wait 110
 
 	ld a, LCDCF_ON | LCDCF_BGON | LCDCF_OBJON | LCDCF_OBJ16
 	ldh [rLCDC], a
 
-	Nops 61
+	Wait 61
 
     ; Check STAT
 	ldh a, [rSTAT]

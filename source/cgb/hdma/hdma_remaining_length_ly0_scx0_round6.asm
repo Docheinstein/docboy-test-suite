@@ -31,7 +31,7 @@ EntryPoint:
 
     ; --- transfer happens here ---
 
-    Nops 258
+    Wait 258
 
     ldh a, [rHDMA5]
 

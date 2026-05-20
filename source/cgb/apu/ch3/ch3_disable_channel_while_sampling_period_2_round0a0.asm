@@ -25,7 +25,7 @@ EntryPoint:
     ld a, $87
     ldh [rNR34], a
 
-    Nops 4096
+    Wait 4096
 
     ; Enable = 0
     ld a, $00

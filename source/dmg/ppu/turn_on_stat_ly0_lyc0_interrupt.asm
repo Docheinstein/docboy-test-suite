@@ -18,7 +18,7 @@ EntryPoint:
     DisablePPU
     EnablePPU
 
-    Nops 4
+    Wait 4
 
     jp TestSuccess
 

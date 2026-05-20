@@ -12,7 +12,7 @@ EntryPoint:
     EnablePPU
 
     ; Wait LY=1
-    Nops 111
+    Wait 111
 
     ; Read STAT
     ldh a, [rSTAT]

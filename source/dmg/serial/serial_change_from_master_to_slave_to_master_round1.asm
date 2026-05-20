@@ -7,13 +7,13 @@ EntryPoint:
     ld a, $81
     ldh [rSC], a
 
-    Nops 512
+    Wait 512
 
     ; Change clock selector from master to slave
     ld a, $80
     ldh [rSC], a
 
-    Nops 1024
+    Wait 1024
 
     ldh a, [rSC]
     ld b, a
@@ -22,7 +22,7 @@ EntryPoint:
     ld a, $81
     ldh [rSC], a
 
-    Nops 1010
+    Wait 1010
 
     ldh a, [rSC]
     cp $ff

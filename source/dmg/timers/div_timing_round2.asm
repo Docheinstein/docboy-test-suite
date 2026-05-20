@@ -7,7 +7,7 @@ EntryPoint:
     ldh [rDIV], a
 
     ; 61 nops should read DIV=1
-    Nops 61
+    Wait 61
 
     ; Load DIV
     ldh a, [rDIV]

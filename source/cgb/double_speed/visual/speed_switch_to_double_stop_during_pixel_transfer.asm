@@ -40,10 +40,10 @@ REPT 60
 ENDR
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Go to Pixel Transfer
-    Nops 40
+    Wait 40
 
     ; Switch to double speed
     stop

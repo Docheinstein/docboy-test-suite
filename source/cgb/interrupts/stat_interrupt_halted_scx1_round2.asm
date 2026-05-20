@@ -16,7 +16,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Reset IF
     xor a
@@ -32,7 +32,7 @@ EntryPoint:
 
     halt
 
-    Nops 62
+    Wait 62
 
     ldh a, [rDIV]
     cp $04

@@ -41,7 +41,7 @@ Loop:
     Wait 8 * 114
 
     ; Go to pixel transfer of line 8
-    Nops 22
+    Wait 22
 
     ; Change SCY
     ld a, $01

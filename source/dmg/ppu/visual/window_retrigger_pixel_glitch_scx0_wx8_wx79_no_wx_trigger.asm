@@ -34,7 +34,7 @@ EntryPoint:
 
 Loop:
     ; Adjust phase to avoid flickr.
-    Nops 3
+    Wait 3
 
     ; Set WX=8
     ld a, 8

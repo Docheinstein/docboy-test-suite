@@ -11,7 +11,7 @@ EntryPoint:
 
     EnablePPU_WithSprites
 
-    Nops 177
+    Wait 177
 
     ; We should still be in Pixel Transfer
     ldh a, [rSTAT]

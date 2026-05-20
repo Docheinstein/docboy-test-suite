@@ -35,7 +35,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Bit 7 = 1 (HBlank)
     ; Length = 640 bytes / $10 - 1 => 39 = $27
@@ -48,7 +48,7 @@ REPT 144 * 40
     nop
 ENDR
 
-    Nops 0
+    Wait 0
 
     ldh a, [rTIMA]
     cp $19

@@ -8,7 +8,7 @@ EntryPoint:
     ldh [rSCX], a
 
     ; 66 nops should read HBLANK.
-    Nops 66
+    Wait 66
 
     ; Check result
     ldh a, [rSTAT]

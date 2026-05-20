@@ -10,7 +10,7 @@ EntryPoint:
 
     EnablePPU
 
-    Nops 123
+    Wait 123
 
     ld a, $07
     ldh [rSCX], a
@@ -24,7 +24,7 @@ EntryPoint:
     xor a
     ldh [rIF], a
 
-    Nops 33
+    Wait 33
 
     ldh a, [rIF]
     cp $e0

@@ -15,7 +15,7 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    Nops 1
+    Wait 1
 
     EnableAPU
 

@@ -19,7 +19,7 @@ EntryPoint:
 
     Wait 2039
 
-    Nops 1
+    Wait 1
 
     ldh a, [rTIMA]
     cp $28

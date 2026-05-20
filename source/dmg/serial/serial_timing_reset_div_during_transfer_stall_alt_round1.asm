@@ -9,14 +9,14 @@ EntryPoint:
 
 Loop:
     ldh [rDIV], a
-    Nops 29
+    Wait 29
 
 REPT 128
     ldh [rDIV], a
-    Nops 28
+    Wait 28
 ENDR
 
-    Nops 863
+    Wait 863
 
     ld a, [rSC]
     cp $ff

@@ -16,7 +16,7 @@ EntryPoint:
     ldh [rSTAT], a
 
     ; 107 nops should be enough for LY to be increased
-    Nops 107
+    Wait 107
 
     ; Read LY
     ldh a, [rLY]

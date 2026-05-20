@@ -1,9 +1,17 @@
-DEF RTC_S           EQU $08
-DEF RTC_M           EQU $09
-DEF RTC_H           EQU $0A
-DEF RTC_DL          EQU $0B
-DEF RTC_DH          EQU $0C
-DEF rRTCEN          EQU $0000
-DEF rRTCSEL         EQU $4000
-DEF rRTCLATCH       EQU $6000
-DEF rRTCRW          EQU $A000
+IF !DEF(MBC3_INC)
+DEF MBC3_INC EQU 1
+
+include "mbc/mbc.inc"
+
+DEF MBC3_RTC_S           EQU $08
+DEF MBC3_RTC_M           EQU $09
+DEF MBC3_RTC_H           EQU $0A
+DEF MBC3_RTC_DL          EQU $0B
+DEF MBC3_RTC_DH          EQU $0C
+
+DEF rMBC3_RTC_EN          EQU $0000
+DEF rMBC3_RTC_SEL         EQU $4000
+DEF rMBC3_RTC_LATCH       EQU $6000
+DEF rMBC3_RTC_RW          EQU $A000
+
+ENDC

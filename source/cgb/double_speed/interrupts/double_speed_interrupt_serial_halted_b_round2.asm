@@ -10,7 +10,7 @@ EntryPoint:
     ; Change speed
     stop
 
-    Nops 1
+    Wait 1
 
     ; Enable SERIAL interrupt
     ld a, IEF_SERIAL
@@ -44,7 +44,7 @@ EntryPoint:
     jp TestFail
 
 TestFinish:
-    Nops 52
+    Wait 52
 
     ldh a, [rDIV]
     cp $11

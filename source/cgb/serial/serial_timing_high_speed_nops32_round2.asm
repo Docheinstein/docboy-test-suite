@@ -7,13 +7,13 @@ EntryPoint:
     xor a
     ldh [rDIV], a
 
-    Nops 32
+    Wait 32
 
     ; Start serial transfer at high speed mode
     ld a, $83
     ldh [rSC], a
 
-    Nops 28
+    Wait 28
 
     ldh a, [rSC]
 	cp $7f

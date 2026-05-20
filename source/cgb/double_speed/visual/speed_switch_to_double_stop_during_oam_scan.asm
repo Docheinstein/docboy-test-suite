@@ -40,7 +40,7 @@ REPT 60
 ENDR
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Switch to double speed
     stop

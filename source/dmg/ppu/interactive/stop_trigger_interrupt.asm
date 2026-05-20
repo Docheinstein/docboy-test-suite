@@ -29,7 +29,7 @@ EntryPoint:
 
     stop
 
-    Nops 16
+    Wait 16
 
     jp TestFail
 

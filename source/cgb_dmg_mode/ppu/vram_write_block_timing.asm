@@ -6,10 +6,10 @@ MACRO WriteToVRAM
     EnablePPU
 
     ; Skip first scanline, just in case
-    Nops 114
+    Wait 114
 
     ; Delay
-    Nops \1
+    Wait \1
 
     ld [hli], a
 

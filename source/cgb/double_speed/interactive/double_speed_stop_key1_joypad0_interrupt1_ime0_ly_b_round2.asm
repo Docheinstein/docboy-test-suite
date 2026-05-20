@@ -19,7 +19,7 @@ EntryPoint:
     ; Change to double
     stop
 
-    Nops 1
+    Wait 1
 
     ; Prepare speed switch
     ld a, $01
@@ -67,7 +67,7 @@ EntryPoint:
     ldh a, [rKEY1]
     cp $fe
 
-    Nops 41
+    Wait 41
 
     ldh a, [rLY]
     cp $25

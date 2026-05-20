@@ -10,7 +10,7 @@ EntryPoint:
     DisableAPU
     EnableAPU
 
-    Nops 1
+    Wait 1
 
     ; Initial volume = F
     ld a, $F0
@@ -22,7 +22,7 @@ EntryPoint:
     ld a, $0c
     ldh [rNR43], a
 
-    Nops 1
+    Wait 1
 
     ; Trigger = 1
     ld a, $80

@@ -10,7 +10,7 @@ EntryPoint:
     ; Change speed
     stop
 
-    Nops 1
+    Wait 1
 
     ; Reset PPU
     DisablePPU
@@ -29,7 +29,7 @@ EntryPoint:
 
     xor a
 
-    Nops $62
+    Wait $62
 
     ldh a, [rSTAT]
     cp $80

@@ -12,12 +12,12 @@ EntryPoint:
     ld a, $80
     ldh [rNR14], a
 
-    Nops 4
+    Wait 4
 
     xor a
     ldh [rNR12], a
 
-    Nops 4
+    Wait 4
 
     ldh a, [rNR52]
 

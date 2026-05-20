@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Reset IF when mode is entering OAM.
 
 EntryPoint:
-    Nops 114
+    Wait 114
 
     ; Reset IF
     xor a
@@ -17,7 +17,7 @@ EntryPoint:
     ld a, STATF_MODE10
     ldh [rSTAT], a
 
-    Nops 106
+    Wait 106
 
     xor a
     ldh [rIF], a

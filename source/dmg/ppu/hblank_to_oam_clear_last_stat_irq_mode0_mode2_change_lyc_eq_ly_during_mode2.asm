@@ -10,7 +10,7 @@ EntryPoint:
     Wait 42 * 114
 
     ; Skip OAM Scan
-    Nops 20
+    Wait 20
 
     ; Reset IF
     xor a
@@ -41,7 +41,7 @@ Loop1:
 FirstInterrupt:
     ld hl, SecondInterrupt
 
-    Nops 40
+    Wait 40
 
     ; Enable HBLANK and STAT interrupt
     ld a, STATF_MODE00 | STATF_MODE10 | STATF_LYC

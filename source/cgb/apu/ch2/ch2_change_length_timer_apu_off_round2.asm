@@ -9,7 +9,7 @@ EntryPoint:
     DisableAPU
     EnableAPU
 
-    Nops 4
+    Wait 4
 
     ; Initial length = 32
     ld a, $20

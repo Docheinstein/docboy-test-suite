@@ -4,7 +4,7 @@ INCLUDE "all.inc"
 
 EntryPoint:
     ; 6 nops should read DIV=AC
-    Nops 6
+    Wait 6
 
     ; Load DIV
     ldh a, [rDIV]

@@ -28,7 +28,7 @@ EntryPoint:
     ; Reset TIMA
     ldh [rTIMA], a
 
-    Nops 2
+    Wait 2
 
     ; Check TIMA
     ldh a, [rTIMA]

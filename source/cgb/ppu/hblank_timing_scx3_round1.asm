@@ -11,9 +11,9 @@ EntryPoint:
 
     EnablePPU
 
-    Nops 114
+    Wait 114
 
-    Nops 59
+    Wait 59
 
     ; Read STAT
     ldh a, [rSTAT]

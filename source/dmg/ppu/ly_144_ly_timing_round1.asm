@@ -10,7 +10,7 @@ EntryPoint:
 
     Wait 114 * 143
 
-    Nops 104
+    Wait 104
 
     ldh a, [rLY]
     cp $8f

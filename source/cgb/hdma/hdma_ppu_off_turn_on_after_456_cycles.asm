@@ -34,7 +34,7 @@ EntryPoint:
     ; --- a chunk of data is transferred here ---
 
     ; Wait some time
-    Nops 4 * 114
+    Wait 4 * 114
 
     ; Turn on PPU
     EnablePPU
@@ -43,7 +43,7 @@ EntryPoint:
 
     ; Wait for enough HBlanks to happen
     ; (no precise timing check)
-    Nops 4 * 114
+    Wait 4 * 114
 
     DisablePPU
 

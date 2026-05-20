@@ -19,7 +19,7 @@ EntryPoint:
 
     EnablePPU
 
-    Nops 108
+    Wait 108
 
     jp TestFail
 

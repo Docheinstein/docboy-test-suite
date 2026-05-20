@@ -46,7 +46,7 @@ REPT 144 * 40
     nop
 ENDR
 
-    Nops 2
+    Wait 2
 
     ldh a, [rTIMA]
 

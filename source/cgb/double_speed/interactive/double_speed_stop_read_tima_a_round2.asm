@@ -24,11 +24,11 @@ EntryPoint:
     ldh [rTAC], a
 
     ; Wait a bit
-    Nops 256
+    Wait 256
 
     stop
 
-    Nops 1
+    Wait 1
 
     ldh a, [rTIMA]
     cp $42

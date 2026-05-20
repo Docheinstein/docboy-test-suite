@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Reset IF when mode is entering OAM.
 
 EntryPoint:
-    Nops 114
+    Wait 114
 
     ; Reset IF
     xor a
@@ -19,14 +19,14 @@ EntryPoint:
 
     ei
 
-    Nops 107
+    Wait 107
 
     ; Reset IF
     xor a
     ldh [rIF], a
 
     ; Read IF
-    Nops 3
+    Wait 3
 
     jp TestFail
 

@@ -32,7 +32,7 @@ EntryPoint:
     ld a, $01
     ldh [rKEY1], a
 
-    Nops 9
+    Wait 9
 
     ; Switch to single speed
     stop

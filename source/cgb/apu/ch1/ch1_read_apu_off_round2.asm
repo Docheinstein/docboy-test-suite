@@ -28,7 +28,7 @@ EntryPoint:
     ld a, $87
     ldh [rNR14], a
 
-    Nops 2
+    Wait 2
 
     DisableAPU
 

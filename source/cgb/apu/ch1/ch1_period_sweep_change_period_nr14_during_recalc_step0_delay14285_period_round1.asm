@@ -39,7 +39,7 @@ EntryPoint:
 
     Wait 1024
 
-    Nops 1
+    Wait 1
 
     ldh a, [rPCM12]
     cp $00

@@ -28,7 +28,7 @@ EntryPoint:
     ld a, $87
     ldh [rNR14], a
 
-    Nops 3
+    Wait 3
 
     ; Trigger = 0
     ld a, $07

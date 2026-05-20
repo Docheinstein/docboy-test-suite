@@ -46,5 +46,5 @@ REPT 10
     ld [hli], a  ; Executed and will have effect
     inc a        ; Not executed: a remains $01
 ENDR
-    Nops 140     ; Covers the rest of DMA transfer
+    Wait 140     ; Covers the rest of DMA transfer
 CodeEnd:

@@ -39,7 +39,7 @@ Loop:
     ; 8 nops are enough to read the first WX, so it encounters
     ; the second WX as first window trigger and the window
     ; will be rendered as usual.
-    Nops 8
+    Wait 8
 
     ; Set WX
     ld a, 63

@@ -27,7 +27,7 @@ EntryPoint:
     WaitScanline 7
 
     ; Go out of OAM scan
-    Nops 20
+    Wait 20
 
     ; Reset interrupts
     xor a
@@ -44,13 +44,13 @@ EntryPoint:
     ; Enable OAM interrupt
     ei
 
-    Nops 114
+    Wait 114
 
     jp TestFail
 
 TestStart:
     ; Wait until end of Pixel Transfer
-    Nops 59
+    Wait 59
 
     ldh a, [rSTAT]
     ld b, a

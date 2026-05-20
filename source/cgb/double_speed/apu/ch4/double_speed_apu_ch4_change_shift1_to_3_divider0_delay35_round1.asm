@@ -31,7 +31,7 @@ EntryPoint:
     ld a, $80
     ldh [rNR44], a
 
-    Nops 35
+    Wait 35
 
     ; Clock shift = 3
     ; LFSR width = 0 (15 bit)

@@ -26,7 +26,7 @@ EntryPoint:
 
     EnableAPU
 
-    Nops 1
+    Wait 1
 
     ; Pace = 1
     ; Direction = 0 (increase)

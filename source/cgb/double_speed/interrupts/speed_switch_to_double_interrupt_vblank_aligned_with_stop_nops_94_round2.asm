@@ -24,12 +24,12 @@ EntryPoint:
     xor a
     ldh [rDIV], a
 
-    Nops 94
+    Wait 94
 
     db $10 ; STOP -> should work
     nop
 
-    Nops 62
+    Wait 62
 
     ldh a, [rDIV]
     cp $01

@@ -43,7 +43,7 @@ ENDR
     Wait 114 * 42
 
     ; Go to HBlank
-    Nops 80
+    Wait 80
 
 BeforeStop:
     stop

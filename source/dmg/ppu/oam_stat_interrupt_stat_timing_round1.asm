@@ -16,7 +16,7 @@ EntryPoint:
     ldh [rSTAT], a
 
     ; 106 nops should not be enough for read OAM mode from STAT
-    Nops 106
+    Wait 106
 
     ; Read IF
     ldh a, [rSTAT]

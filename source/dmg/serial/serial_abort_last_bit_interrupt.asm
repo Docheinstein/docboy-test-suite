@@ -17,7 +17,7 @@ EntryPoint:
     ld a, $81
     ldh [rSC], a
 
-    Nops 980
+    Wait 980
 
     ; Stop serial transfer
     ld a, $00

@@ -21,7 +21,7 @@ EntryPoint:
 
     Wait 2 * 114 * 2
 
-    Nops 1
+    Wait 1
 
     ; Enable STAT interrupt
     ld a, IEF_STAT

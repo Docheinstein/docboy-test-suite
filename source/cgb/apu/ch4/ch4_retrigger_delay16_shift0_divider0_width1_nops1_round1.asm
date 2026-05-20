@@ -11,7 +11,7 @@ EntryPoint:
     DisableAPU
     EnableAPU
 
-    Nops 1
+    Wait 1
 
     ld a, $F0
     ldh [rNR42], a
@@ -26,7 +26,7 @@ EntryPoint:
     ld a, $80
     ldh [rNR44], a
 
-    Nops 16
+    Wait 16
 
     ldh [rNR44], a
 

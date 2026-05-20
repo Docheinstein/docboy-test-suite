@@ -51,15 +51,15 @@ EntryPoint:
     ; Trigger = 1
     ld a, $87
     ldh [rNR14], a
-    Nops 4
+    Wait 4
     ldh [rNR14], a
 
-    Nops 1
+    Wait 1
 
     ld [hl], b
     ld [hl], c
 
-    Nops 8
+    Wait 8
 
     ldh a, [rNR52]
     cp $f1

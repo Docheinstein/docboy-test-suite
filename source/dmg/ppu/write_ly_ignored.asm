@@ -4,7 +4,7 @@ INCLUDE "all.inc"
 
 EntryPoint:
     ; Wait for start of scanline
-    Nops 8
+    Wait 8
 
     ; Write to LY
     ld a, $42

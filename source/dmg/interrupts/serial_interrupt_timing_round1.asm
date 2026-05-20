@@ -26,14 +26,14 @@ EntryPoint:
     ldh [rSC], a
 
     ; Busy loop
-    Nops 1024
+    Wait 1024
 
     ; If this is reached either Serial interrupt is not working or Serial is not working
     jp TestFail
 
 TestFinish:
     ; 52 nops should read DIV=10
-    Nops 52
+    Wait 52
 
     ; Read DIV
     ldh a, [rDIV]

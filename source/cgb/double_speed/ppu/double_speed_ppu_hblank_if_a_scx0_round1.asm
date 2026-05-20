@@ -32,7 +32,7 @@ EntryPoint:
     xor a
     ldh [rIF], a
 
-    Nops 117
+    Wait 117
 
     ; Read IF
     ldh a, [rIF]

@@ -13,7 +13,7 @@ EntryPoint:
     ld a, $20
     ldh [rNR32], a
 
-    Nops 1024
+    Wait 1024
 
     ldh a, [rPCM34]
     cp $00

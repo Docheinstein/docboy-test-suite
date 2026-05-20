@@ -13,7 +13,7 @@ EntryPoint:
 
     EnablePPU
 
-    Nops 59
+    Wait 59
 
     ldh a, [rIF]
     cp $e0

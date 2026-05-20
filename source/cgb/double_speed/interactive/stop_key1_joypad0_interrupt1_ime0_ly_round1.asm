@@ -45,9 +45,9 @@ EntryPoint:
     inc a
     inc a
 
-    Nops 19
+    Wait 19
 
-    Nops 135
+    Wait 135
 
     ldh a, [rLY]
     cp $33

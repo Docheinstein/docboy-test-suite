@@ -4,7 +4,7 @@ INCLUDE "all.inc"
 
 EntryPoint:
     ; 8 nops should read OAM SCAN from STAT mode
-    Nops 8
+    Wait 8
 
     ; Read STAT's mode bits
     ldh a, [rSTAT]

@@ -33,7 +33,7 @@ DmaTransferRoutine:
     dec a
     jr nz, .dmaloop
 
-    Nops 3
+    Wait 3
 
     ; Read from OAM
     ld hl, $fe02

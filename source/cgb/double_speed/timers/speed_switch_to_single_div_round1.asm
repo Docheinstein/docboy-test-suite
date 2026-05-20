@@ -19,12 +19,12 @@ EntryPoint:
     ld a, $01
     ldh [rKEY1], a
 
-    Nops 1
+    Wait 1
 
     ; Switch to double speed
     stop
 
-    Nops 60
+    Wait 60
 
     ldh a, [rDIV]
     cp $00

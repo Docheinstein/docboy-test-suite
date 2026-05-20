@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Check the timing of STAT's interrupt with OAM interrupt enabled.
 
 EntryPoint:
-    Nops 114
+    Wait 114
 
     ; Reset IF
     xor a

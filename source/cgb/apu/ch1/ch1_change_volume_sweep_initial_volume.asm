@@ -33,7 +33,7 @@ EntryPoint:
     ; Tick volume sweep
     Wait 16384 * 2
 
-    Nops 16
+    Wait 16
 
     ; Initial volume = 8
     ; Envelope direction = 1

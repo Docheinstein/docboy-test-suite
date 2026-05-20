@@ -11,7 +11,7 @@ EntryPoint:
 
     EnablePPU_WithSprites
 
-    Nops 181
+    Wait 181
 
     ; We should already be in HBlank
     ldh a, [rSTAT]

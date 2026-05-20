@@ -25,13 +25,13 @@ EntryPoint:
     ld a, $80
     ldh [rNR34], a
 
-    Nops 1024
+    Wait 1024
 
     ; Enable = 0
     ld a, $00
     ldh [rNR30], a
 
-    Nops 1024
+    Wait 1024
 
     ; Enable = 1
     ld a, $80

@@ -32,7 +32,7 @@ DmaTransferRoutine:
     dec a
     jr nz, .dmaloop
 
-    Nops 1
+    Wait 1
 
     ; Try to read from OAM (fe00): we should read 24
     ld a, [hl]

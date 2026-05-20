@@ -37,7 +37,7 @@ EntryPoint:
 
     ; (Period sweep ticks here)
 
-    Nops 147
+    Wait 147
 
     ldh a, [rPCM12]
     cp $00

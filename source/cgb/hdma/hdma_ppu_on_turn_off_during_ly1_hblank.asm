@@ -36,13 +36,13 @@ EntryPoint:
     ; --- transfer happens here ---
 
     ; Wait for LY=1 HBlank
-    Nops 50 + 114
+    Wait 50 + 114
 
     DisablePPU
 
     ; Wait for enough HBlanks to happen
     ; (no precise timing check)
-    Nops 4 * 114
+    Wait 4 * 114
 
     DisablePPU
 

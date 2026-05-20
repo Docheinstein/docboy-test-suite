@@ -17,7 +17,7 @@ EntryPoint:
     xor a
     ldh [rIF], a
 
-    Nops 56
+    Wait 56
 
     ldh [rSTAT], a
 

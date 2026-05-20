@@ -13,7 +13,7 @@ EntryPoint:
     Wait 42 * 114
 
     ; Skip OAM Scan
-    Nops 20
+    Wait 20
 
     ; Reset IF
     xor a

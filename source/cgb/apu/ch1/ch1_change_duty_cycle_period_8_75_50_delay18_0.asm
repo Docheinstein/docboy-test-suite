@@ -28,7 +28,7 @@ EntryPoint:
     ld a, $87
     ldh [rNR14], a
 
-    Nops 18
+    Wait 18
 
     ; Duty Cycle = 50%
     ld a, $80

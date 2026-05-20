@@ -16,7 +16,7 @@ EntryPoint:
     ldh [rTAC], a
 
     ; Wait for bit 7 to go high
-    Nops 280
+    Wait 280
 
     stop
 

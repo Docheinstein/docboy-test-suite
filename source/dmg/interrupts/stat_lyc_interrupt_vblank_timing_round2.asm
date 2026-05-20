@@ -8,7 +8,7 @@ EntryPoint:
     EnablePPU
 
     ; Go out of first line
-    Nops 114
+    Wait 114
 
     ; Enable interrupt
     ei
@@ -30,7 +30,7 @@ EntryPoint:
     Wait 162 * 114
 
     ; 56 nops should read DIV=$13
-    Nops 56
+    Wait 56
 
     ldh a, [rDIV]
     cp $13

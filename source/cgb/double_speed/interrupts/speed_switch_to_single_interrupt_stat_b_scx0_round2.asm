@@ -42,12 +42,12 @@ EntryPoint:
     ldh [rSTAT], a
 
     ; Phase
-    Nops 1
+    Wait 1
 
     ; Switch to single speed
     stop
 
-    Nops 7
+    Wait 7
 
     ; Read DIV
     ldh a, [rDIV]

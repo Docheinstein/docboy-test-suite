@@ -17,7 +17,7 @@ EntryPoint:
     ; Jump to DMA transfer routine
     call $ff80
 
-    Nops 31
+    Wait 31
 
     ; Should be in HBlank
 

@@ -42,7 +42,7 @@ EntryPoint:
 
     halt
 
-    Nops 60
+    Wait 60
 
     ; Read DIV
     ldh a, [rDIV]

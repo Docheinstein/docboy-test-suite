@@ -33,9 +33,9 @@ EntryPoint:
 	; Switch to double speed
     stop
 
-    Nops 30 * 228
+    Wait 30 * 228
 
-    Nops 212
+    Wait 212
 
     ; Read STAT
     ldh a, [rSTAT]

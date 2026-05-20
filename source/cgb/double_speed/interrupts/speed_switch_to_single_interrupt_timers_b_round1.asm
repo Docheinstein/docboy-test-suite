@@ -36,14 +36,14 @@ EntryPoint:
     ld a, TACF_START | TACF_65KHZ
     ldh [rTAC], a
 
-    Nops 1
+    Wait 1
 
     ; Switch to single speed
     stop
 
-    Nops 42
+    Wait 42
 
-    Nops 17
+    Wait 17
 
     ; Read DIV
     ldh a, [rDIV]

@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Check IF after Pixel Transfer for different SCXs with HBlank interrupt enabled.
 
 EntryPoint:
-    Nops 123
+    Wait 123
 
     ld a, $07
     ldh [rSCX], a
@@ -17,7 +17,7 @@ EntryPoint:
     xor a
     ldh [rIF], a
 
-    Nops 45
+    Wait 45
 
     ldh a, [rIF]
     cp $e2

@@ -23,7 +23,7 @@ EntryPoint:
     ld a, $01
     ldh [rKEY1], a
 
-    Nops 5
+    Wait 5
 
     ; Switch to double speed
     stop

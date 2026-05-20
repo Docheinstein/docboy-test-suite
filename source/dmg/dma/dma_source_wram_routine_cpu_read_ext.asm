@@ -53,7 +53,7 @@ DmaTransferRoutine:
     ld a, $c0
     ldh [rDMA], a
 
-    Nops 4
+    Wait 4
 
     ; Try to read
     ld hl, $a000

@@ -8,7 +8,7 @@ EntryPoint:
     EnablePPU
 
     ; Go out of first line
-    Nops 114
+    Wait 114
 
     ; Enable interrupt
     ei

@@ -15,7 +15,7 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    Nops 1
+    Wait 1
 
     EnableAPU
 
@@ -34,7 +34,7 @@ EntryPoint:
     ld a, $FF
     ldh [rNR13], a
 
-    Nops 1
+    Wait 1
 
     ; Trigger = 1
     ld a, $87

@@ -40,10 +40,10 @@ REPT 60
 ENDR
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Go to VBlank
-    Nops 114 * 144
+    Wait 114 * 144
 
     ; Switch to double speed
     stop

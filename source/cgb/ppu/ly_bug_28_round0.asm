@@ -27,11 +27,11 @@ EntryPoint:
 
     Wait 21 * 114
     
-    Nops 55
+    Wait 55
 
     Wait 28 * 114
     
-    Nops 0
+    Wait 0
 
     ; Read LY
     ldh a, [rLY]

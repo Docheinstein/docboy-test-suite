@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Check the timing of STAT's interrupt with different SCXs with HBlank interrupt enabled.
 
 EntryPoint:
-    Nops 123
+    Wait 123
 
     ld a, $00
     ldh [rSCX], a
@@ -19,7 +19,7 @@ EntryPoint:
 
     ei
 
-    Nops 44
+    Wait 44
 
     di
 

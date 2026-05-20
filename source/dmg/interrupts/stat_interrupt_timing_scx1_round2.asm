@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Check how much it takes to react to a stat interrupt while in busy loop with SCX=1.
 
 EntryPoint:
-    Nops 114
+    Wait 114
 
     ; Write SCX=0
     ld a, $01
@@ -24,14 +24,14 @@ EntryPoint:
     ldh [rDIV], a
 
     ; Busy loop
-    Nops 80
+    Wait 80
 
     ; If this is reached either STAT interrupt is not working or PPU is not working
     jp TestFail
 
 TestFinish:
     ; 62 nops should read DIV=2
-    Nops 62
+    Wait 62
 
     ; Read DIV
     ldh a, [rDIV]

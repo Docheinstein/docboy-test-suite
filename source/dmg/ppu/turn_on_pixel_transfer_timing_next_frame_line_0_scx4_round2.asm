@@ -18,7 +18,7 @@ EntryPoint:
     EnablePPU
 
     Wait 154 * 114
-    Nops 61
+    Wait 61
 
     ; We should still be in Pixel Transfer
     ldh a, [rSTAT]

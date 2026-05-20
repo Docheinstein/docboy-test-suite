@@ -42,7 +42,7 @@ EntryPoint:
     ; Switch to single speed
     stop
 
-    Nops 62
+    Wait 62
 
     ; Read DIV
     ldh a, [rDIV]

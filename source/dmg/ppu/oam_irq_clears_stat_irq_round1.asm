@@ -32,7 +32,7 @@ EntryPoint:
     ; Enable interrupt: this should raise an interrupt
     ei
 
-    Nops 2
+    Wait 2
 
 TestContinue:
     ld hl, TestFail
@@ -41,14 +41,14 @@ TestContinue:
     ; (this should not raise an interrupt because has already been handled)
     ei
 
-    Nops 2
+    Wait 2
 
     ; Wait for next line so that LYC=LY
     ; The STAT interrupt should raised because the internal edge detector has been cleared.
 
     ld hl, TestSuccess
 
-    Nops 20
+    Wait 20
 
     jp TestFail
 

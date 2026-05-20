@@ -41,7 +41,7 @@ Loop:
     WaitScanline 14
 
     ; Wait some time
-    Nops 8
+    Wait 8
 
     ; Turn window off
     ld a, LCDCF_ON | LCDCF_BGON  | LCDCF_WIN9C00

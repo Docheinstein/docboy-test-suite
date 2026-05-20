@@ -14,7 +14,7 @@ EntryPoint:
 	; Switch to double speed
     stop
     
-    Nops 1
+    Wait 1
     
 	; Prepare speed switch
     ld a, $01
@@ -34,7 +34,7 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    Nops 43
+    Wait 43
 
     ; Read STAT
     ldh a, [rSTAT]

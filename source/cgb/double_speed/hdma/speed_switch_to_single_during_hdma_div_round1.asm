@@ -30,7 +30,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 228
+    Wait 228
 
     ; Enable STAT interrupt
     ld a, IEF_STAT
@@ -52,7 +52,7 @@ EntryPoint:
     ; Change speed to double
     stop
 
-    Nops 63
+    Wait 63
 
     ldh a, [rDIV]
     cp $01

@@ -10,7 +10,7 @@ EntryPoint:
     ; Change speed
     stop
 
-    Nops 1
+    Wait 1
 
     ; Reset PPU
     DisablePPU
@@ -45,7 +45,7 @@ EntryPoint:
     jp TestFail
 
 TestFinish:
-    Nops 2
+    Wait 2
 
     ldh a, [rDIV]
     cp $01

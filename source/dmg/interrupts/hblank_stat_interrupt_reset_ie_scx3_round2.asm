@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Reset IE after Pixel Transfer for different SCXs with HBlank interrupt enabled.
 
 EntryPoint:
-    Nops 123
+    Wait 123
 
     ld a, $03
     ldh [rSCX], a
@@ -19,13 +19,13 @@ EntryPoint:
 
     ei
 
-    Nops 44
+    Wait 44
 
     ; Reset IE
     xor a
     ldh [rIE], a
 
-    Nops 3
+    Wait 3
 
     jp TestFail
 

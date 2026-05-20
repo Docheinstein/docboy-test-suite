@@ -27,7 +27,7 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    Nops 4
+    Wait 4
 
     ; Read DIV
     ldh a, [rDIV]

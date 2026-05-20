@@ -32,19 +32,19 @@ EntryPoint:
     ld a, $FF
     ldh [rNR13], a
 
-    Nops 1
+    Wait 1
 
     ; Trigger = 1
     ld a, $87
     ldh [rNR14], a
 
-    Nops 5
+    Wait 5
 
     ; Trigger = 1
     ld a, $87
     ldh [rNR14], a
 
-    Nops 3
+    Wait 3
 
     ldh a, [rPCM12]
     cp $0f

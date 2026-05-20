@@ -10,7 +10,7 @@ EntryPoint:
     Wait 114 * 143
 
     ; Wait HBlank
-    Nops 70
+    Wait 70
 
     ld a, STATF_MODE00
     ldh [rSTAT], a
@@ -21,7 +21,7 @@ EntryPoint:
     xor a
     ldh [rIF], a
 
-    Nops 26
+    Wait 26
 
     ldh a, [rIF]
     cp $e0

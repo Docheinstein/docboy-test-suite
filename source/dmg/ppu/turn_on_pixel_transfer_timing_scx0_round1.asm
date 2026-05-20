@@ -13,7 +13,7 @@ EntryPoint:
     ; Reset PPU phase
     EnablePPU
 
-    Nops 59
+    Wait 59
 
     ; We should still be in Pixel Transfer
     ldh a, [rSTAT]

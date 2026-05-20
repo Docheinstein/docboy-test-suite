@@ -18,12 +18,12 @@ EntryPoint:
     ld a, $01
     ldh [rKEY1], a
 
-    Nops 112
+    Wait 112
 
     ; Switch to double speed
     stop
 
-    Nops 61
+    Wait 61
 
     ; Check DIV
     ldh a, [rDIV]

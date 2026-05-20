@@ -23,7 +23,7 @@ EntryPoint:
     ld a, $87
     ldh [rNR34], a
 
-    Nops 47
+    Wait 47
 
     ; Retrigger
     ldh [rNR34], a

@@ -8,7 +8,7 @@ EntryPoint:
     EnablePPU
 
     ; Go to next line past OAM Scan
-    Nops 150
+    Wait 150
 
     ; Enable interrupt
     ei
@@ -25,14 +25,14 @@ EntryPoint:
     ldh [rDIV], a
 
     ; Busy loop
-    Nops 80
+    Wait 80
 
     ; If this is reached either STAT interrupt is not working or PPU is not working
     jp TestFail
 
 TestFinish:
     ; 54 nops should read DIV=2
-    Nops 54
+    Wait 54
 
     ; Read DIV
     ldh a, [rDIV]

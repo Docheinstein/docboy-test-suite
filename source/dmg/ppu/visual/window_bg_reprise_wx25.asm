@@ -29,7 +29,7 @@ EntryPoint:
 
 Loop:
     ; Adjust phase to avoid flickr.
-    Nops 3
+    Wait 3
 
     ; Set WX=25
     ld a, 25
@@ -42,7 +42,7 @@ Loop:
     WaitScanline 12
 
     ; Wait so that a part of the window is render.
-    Nops 16
+    Wait 16
 
     ; Disable window
     ld a, LCDCF_ON | LCDCF_BGON | LCDCF_WIN9C00

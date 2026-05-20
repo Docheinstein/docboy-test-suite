@@ -21,7 +21,7 @@ EntryPoint:
     Wait 9 * 114 + 109
     Wait 9 * 114 + 109
 
-    Nops 3
+    Wait 3
 
     ldh a, [rSTAT]
     cp $80

@@ -20,7 +20,7 @@ EntryPoint:
     ldh [rSTAT], a
 
     ; 103 nops should be enough for IF to be set
-    Nops 103
+    Wait 103
 
     ; Read IF
     ldh a, [rIF]

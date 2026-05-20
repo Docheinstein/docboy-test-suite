@@ -24,7 +24,7 @@ EntryPoint:
     ; Enable PPU again
     EnablePPU
 
-    Nops 114
+    Wait 114
 
 
     ; Bit 7 = 1 (HBlank)
@@ -34,7 +34,7 @@ EntryPoint:
 
     ; --- transfer happens here ---
 
-    Nops 372
+    Wait 372
 
     ldh a, [rHDMA5]
 

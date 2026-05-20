@@ -48,7 +48,7 @@ DmaTransferRoutine:
     ld a, $88
     ldh [rDMA], a
 
-    Nops 4
+    Wait 4
 
     ; Try to read
     ld hl, $ff80

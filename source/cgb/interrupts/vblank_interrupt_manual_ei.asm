@@ -21,7 +21,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip some lines
-    Nops 114 * 142
+    Wait 114 * 142
 
     ; Reset IF
     xor a

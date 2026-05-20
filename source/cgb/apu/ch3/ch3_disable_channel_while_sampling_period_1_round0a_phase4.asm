@@ -7,7 +7,7 @@ EntryPoint:
 
     Memcpy $FF30, WaveRam, WaveRamEnd - WaveRam
 
-    Nops 4
+    Wait 4
 
     EnableAPU
 
@@ -27,13 +27,13 @@ EntryPoint:
     ld a, $87
     ldh [rNR34], a
 
-    Nops 4096
+    Wait 4096
 
     ; Enable = 0
     ld a, $00
     ldh [rNR30], a
 
-    Nops 1024
+    Wait 1024
 
     ; Enable = 1
     ld a, $80

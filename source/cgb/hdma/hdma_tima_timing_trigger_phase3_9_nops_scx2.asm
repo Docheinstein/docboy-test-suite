@@ -42,13 +42,13 @@ EntryPoint:
     ldh [rTAC], a
 
     ; Add phase to timer
-    Nops 3
+    Wait 3
 
     ; Enable PPU
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 160
+    Wait 160
 
     ; Start HDMA
     ; Bit 7 = 1 (HBlank)
@@ -56,7 +56,7 @@ EntryPoint:
     ld a, $80
     ldh [rHDMA5], a
 
-    Nops 9
+    Wait 9
 
     ldh a, [rTIMA]
 

@@ -11,7 +11,7 @@ EntryPoint:
     ld a, $81
     ldh [rSC], a
 
-    Nops 1015
+    Wait 1015
 
     ldh a, [rSC]
 	cp $fd

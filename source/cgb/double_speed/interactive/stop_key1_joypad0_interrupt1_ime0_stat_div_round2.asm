@@ -45,7 +45,7 @@ EntryPoint:
     inc a
     inc a
 
-    Nops 61
+    Wait 61
 
     ldh a, [rDIV]
     cp $01

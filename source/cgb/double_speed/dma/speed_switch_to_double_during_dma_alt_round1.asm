@@ -24,7 +24,7 @@ DmaTransferRoutine:
     ld a, $c0
     ldh [rDMA], a
 
-    Nops 4
+    Wait 4
 
     ; Change speed
     stop
@@ -35,7 +35,7 @@ DmaTransferRoutine:
     dec a
     jr nz, .dmaloop
 
-    Nops 1
+    Wait 1
 
     ; Read from OAM
     ld hl, $fe02

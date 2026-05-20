@@ -32,7 +32,7 @@ EntryPoint:
     ld a, TACF_START | TACF_65KHZ
     ldh [rTAC], a
 
-    Nops 8
+    Wait 8
 
     ; Write $06 to TIMA
     ldh [rTIMA], a

@@ -12,12 +12,12 @@ EntryPoint:
     ldh [rKEY1], a
 
     ; This delay does not affect the timing
-    Nops 64
+    Wait 64
 
     ; Switch to double speed
     stop
 
-    Nops 60
+    Wait 60
 
     ldh a, [rDIV]
     cp $00

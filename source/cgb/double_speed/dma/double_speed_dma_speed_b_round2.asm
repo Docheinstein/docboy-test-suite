@@ -13,7 +13,7 @@ EntryPoint:
     ; Change speed
     stop
 
-    Nops 1
+    Wait 1
 
     ; Copy some data to DMA source (WRAM1 : c000)
     Memcpy $c000, Data, DataEnd - Data
@@ -35,7 +35,7 @@ DmaTransferRoutine:
     dec a
     jr nz, .dmaloop
 
-    Nops 4
+    Wait 4
 
     ; Read from OAM
     ld hl, $fe02

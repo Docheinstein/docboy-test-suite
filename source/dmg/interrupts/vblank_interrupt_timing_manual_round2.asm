@@ -24,14 +24,14 @@ EntryPoint:
     ldh [rIF], a
 
     ; Busy loop
-    Nops 64
+    Wait 64
 
     ; If this is reached VBLANK interrupt or PPU is not working
     jp TestFail
 
 TestFinish:
     ; 108 nops should read DIV=02
-    Nops 108
+    Wait 108
 
     ; Read DIV
     ldh a, [rDIV]

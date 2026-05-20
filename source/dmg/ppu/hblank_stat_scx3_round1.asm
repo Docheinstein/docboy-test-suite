@@ -3,12 +3,12 @@ INCLUDE "all.inc"
 ; Check STAT after Pixel Transfer for different SCXs.
 
 EntryPoint:
-    Nops 123
+    Wait 123
 
     ld a, $03
     ldh [rSCX], a
 
-    Nops 56
+    Wait 56
 
     ldh a, [rSTAT]
     cp $83

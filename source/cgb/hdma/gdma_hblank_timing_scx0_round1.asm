@@ -29,7 +29,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Bit 7 = 0 (General Purpose)
     ; Length = 64 bytes / $10 - 1 => 3
@@ -38,7 +38,7 @@ EntryPoint:
 
     ; --- transfer happens here ---
 
-    Nops 21
+    Wait 21
 
     ldh a, [rSTAT]
 

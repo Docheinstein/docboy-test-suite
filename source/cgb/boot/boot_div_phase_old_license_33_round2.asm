@@ -7,7 +7,7 @@ INCLUDE "all.inc"
 ; Here we are checking for a specific instance of header (in particular, it is the same of little-things-gb/whichboot).
 
 EntryPoint:
-    Nops 18
+    Wait 18
     ldh a, [rDIV]
 
     cp $1f

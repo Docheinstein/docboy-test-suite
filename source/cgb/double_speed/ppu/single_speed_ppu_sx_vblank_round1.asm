@@ -29,7 +29,7 @@ ENDR
 
     Wait 51 * 114
 
-    Nops 16
+    Wait 16
 
     ; Read STAT
     ldh a, [rSTAT]

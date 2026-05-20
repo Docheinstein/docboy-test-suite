@@ -52,12 +52,12 @@ FOR I, 128
     ld a, 8
     ldh [rWX], a
 
-    Nops NUM_NOPS
+    Wait NUM_NOPS
 
     ld a, I
     ldh [rWX], a
 
-    Nops (114 - NUM_NOPS - 10)
+    Wait (114 - NUM_NOPS - 10)
 ENDR
 
     halt

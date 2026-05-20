@@ -39,7 +39,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Bit 7 = 1 (HBlank)
     ; Length = 64 bytes / $10 - 1 => 3
@@ -63,7 +63,7 @@ EntryPoint:
 
     halt
 
-    Nops 50
+    Wait 50
 
     ; Disable the PPU again
     DisablePPU

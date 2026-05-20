@@ -34,12 +34,12 @@ EntryPoint:
     ld a, $87
     ldh [rNR34], a
 	
-	Nops 9
+	Wait 9
 
     ld a, $E0
     ldh [rNR33], a
 
-	Nops 29
+	Wait 29
 
     ldh a, [rPCM34]
     cp $04

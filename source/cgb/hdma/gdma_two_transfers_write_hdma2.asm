@@ -33,7 +33,7 @@ EntryPoint:
 
     ; --- first transfer happens here ---
 
-    Nops 10
+    Wait 10
 
     ; Write HDMA2: reset cursor
     ld a, $00

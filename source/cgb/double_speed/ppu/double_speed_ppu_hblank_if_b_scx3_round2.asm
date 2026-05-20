@@ -23,7 +23,7 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    Nops 1
+    Wait 1
 
     ; Enable PPU
     EnablePPU
@@ -34,7 +34,7 @@ EntryPoint:
     xor a
     ldh [rIF], a
 
-    Nops 120
+    Wait 120
 
     ; Read IF
     ldh a, [rIF]

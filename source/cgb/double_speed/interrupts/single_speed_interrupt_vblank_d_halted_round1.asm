@@ -42,7 +42,7 @@ EntryPoint:
 
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Reset IF
     xor a
@@ -54,7 +54,7 @@ EntryPoint:
 
     halt
 
-    Nops 0
+    Wait 0
 
     ldh a, [rDIV]
     cp $24

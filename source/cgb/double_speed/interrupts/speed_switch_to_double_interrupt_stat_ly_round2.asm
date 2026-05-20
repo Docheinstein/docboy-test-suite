@@ -33,7 +33,7 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    Nops 98
+    Wait 98
 
     ; Read LY
     ldh a, [rLY]

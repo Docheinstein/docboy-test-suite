@@ -7,7 +7,7 @@ EntryPoint:
     DisablePPU
     EnablePPU
 
-    Nops 14
+    Wait 14
 
     ; Read STAT
     ld hl, rSTAT

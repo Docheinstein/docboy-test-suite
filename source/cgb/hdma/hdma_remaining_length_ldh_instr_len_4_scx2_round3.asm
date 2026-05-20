@@ -29,7 +29,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Bit 7 = 1 (HBlank)
     ; Length = 80 bytes / $10 - 1 => 4
@@ -38,7 +38,7 @@ EntryPoint:
 
     ; --- transfer happens here ---
 
-    Nops 162
+    Wait 162
 
     ldh a, [rHDMA5]
 

@@ -14,7 +14,7 @@ EntryPoint:
 	; Switch to double speed
     stop
     
-    Nops 1
+    Wait 1
     
 	; Prepare speed switch
     ld a, $01
@@ -23,7 +23,7 @@ EntryPoint:
 	; Switch to single speed
     stop
     
-    Nops 60
+    Wait 60
 
     ; Read DIV
     ldh a, [rDIV]

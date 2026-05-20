@@ -13,7 +13,7 @@ EntryPoint:
 
     Wait 114
 
-    Nops 108
+    Wait 108
 
     xor a
     ldh [rIF], a

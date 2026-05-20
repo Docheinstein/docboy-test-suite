@@ -30,7 +30,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 110
+    Wait 110
 
     ; Bit 7 = 0 (general purpose)
     ; Length = 32 bytes / $10 - 1 => 1

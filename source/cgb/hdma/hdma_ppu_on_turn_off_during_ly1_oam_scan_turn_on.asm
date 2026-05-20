@@ -36,19 +36,19 @@ EntryPoint:
     ; --- transfer happens here ---
 
     ; Wait for LY=1 OamScan
-    Nops 100
+    Wait 100
 
     DisablePPU
 
     ; Wait for enough HBlanks to happen
     ; (no precise timing check)
-    Nops 4 * 114
+    Wait 4 * 114
 
     EnablePPU
 
     ; Wait for enough HBlanks to happen
     ; (no precise timing check)
-    Nops 4 * 114
+    Wait 4 * 114
 
     DisablePPU
 

@@ -14,7 +14,7 @@ EntryPoint:
     DisablePPU
     EnablePPU
 
-    Nops 15
+    Wait 15
 
     ; Write OAM
     ld a, $02

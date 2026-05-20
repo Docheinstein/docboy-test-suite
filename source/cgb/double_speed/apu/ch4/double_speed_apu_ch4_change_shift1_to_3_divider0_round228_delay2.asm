@@ -17,7 +17,7 @@ EntryPoint:
 
     EnableAPU
 
-    Nops 2
+    Wait 2
 
     ; Initial volume = F
     ld a, $F0
@@ -33,7 +33,7 @@ EntryPoint:
     ld a, $80
     ldh [rNR44], a
 
-    Nops 228
+    Wait 228
 
     ; Clock shift = 3
     ; LFSR width = 0 (15 bit)

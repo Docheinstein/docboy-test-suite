@@ -31,7 +31,7 @@ EntryPoint:
     ld a, $00
     ldh [rTIMA], a
 
-    Nops 1
+    Wait 1
 
     ; Reset DIV
     xor a
@@ -54,7 +54,7 @@ EntryPoint:
     inc a
     inc a
 
-    Nops 60
+    Wait 60
 
     ldh a, [rDIV]
     cp $00

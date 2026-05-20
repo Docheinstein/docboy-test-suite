@@ -44,7 +44,7 @@ ENDR
     DisablePPU
 
     Wait 105 * 114
-    Nops 75
+    Wait 75
 
     ; Enable PPU
 	EnablePPU

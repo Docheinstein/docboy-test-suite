@@ -17,7 +17,7 @@ EntryPoint:
     Wait 152 * 114 + 109
     Wait 152 * 114 + 109
 
-    Nops 8
+    Wait 8
 
     ; Read LY: it should read 0
     ldh a, [rLY]

@@ -41,7 +41,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Bit 7 = 1 (HBlank)
     ; Length = 16 bytes / $10 - 1 => 0
@@ -55,7 +55,7 @@ EntryPoint:
     dec a
     jr nz, .loop
 
-    Nops 3
+    Wait 3
 
     ldh a, [rTIMA]
     cp $a3

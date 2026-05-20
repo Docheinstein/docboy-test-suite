@@ -48,7 +48,7 @@ EntryPoint:
 
     ; --- transfer happens here ---
 
-    Nops 2
+    Wait 2
 
     ldh a, [rTIMA]
     cp $12

@@ -45,7 +45,7 @@ REPT 144 * 40
     nop
 ENDR
 
-    Nops 3
+    Wait 3
 
     ldh a, [rTIMA]
     cp $fe

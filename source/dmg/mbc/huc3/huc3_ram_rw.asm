@@ -8,8 +8,8 @@ INCLUDE "mbc/huc3.inc"
 
 EntryPoint:
     ; Enable RAM R/W
-    ld a, RAMRW
-    ld [rMAP], a
+    ld a, HUC3_RAM_RW
+    ld [rHUC3_MAP], a
 
     ld a, $66
     ld [$A000], a

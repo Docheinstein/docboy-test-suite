@@ -3,15 +3,15 @@ INCLUDE "all.inc"
 ; Check the timing of serial transfer with a certain alignment.
 
 EntryPoint:
-    Nops 3
+    Wait 3
 
-    Nops 64
+    Wait 64
 
     ; Start serial transfer
     ld a, $81
     ldh [rSC], a
 
-    Nops 957 - 64 + 64
+    Wait 957 - 64 + 64
 
     ldh a, [rSC]
 	cp $ff

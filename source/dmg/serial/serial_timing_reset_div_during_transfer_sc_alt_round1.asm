@@ -3,19 +3,19 @@ INCLUDE "all.inc"
 ; Check the timing of serial transfer if DIV is reset during a transfer.
 
 EntryPoint:
-    Nops 3
+    Wait 3
 
-    Nops 64
+    Wait 64
 
     ; Start serial transfer
     ld a, $81
     ldh [rSC], a
 
-    Nops 96
+    Wait 96
 
     ldh [rDIV], a
 
-    Nops 957 - 128 - 1
+    Wait 957 - 128 - 1
 
     ldh a, [rSC]
 	cp $ff

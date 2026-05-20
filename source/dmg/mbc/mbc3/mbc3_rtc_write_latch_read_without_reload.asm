@@ -9,37 +9,37 @@ INCLUDE "mbc/mbc3.inc"
 EntryPoint:
     ; Enable RTC
     ld a, $0a
-    ld [rRTCEN], a
+    ld [rMBC3_RTC_EN], a
 
     ; Disable RTC tick
-    ld a, RTC_DH
-    ld [rRTCSEL], a
+    ld a, MBC3_RTC_DH
+    ld [rMBC3_RTC_SEL], a
     ld a, $40
-    ld [rRTCRW], a
+    ld [rMBC3_RTC_RW], a
 
     ; Use RTC seconds register
-    ld a, RTC_S
-    ld [rRTCSEL], a
+    ld a, MBC3_RTC_S
+    ld [rMBC3_RTC_SEL], a
 
     ; Reload latch with 0 -> 1
     xor a
-    ld [rRTCLATCH], a
+    ld [rMBC3_RTC_LATCH], a
     ld a, 1
-    ld [rRTCLATCH], a
+    ld [rMBC3_RTC_LATCH], a
 
     ; Wait a bit after reload
-    Nops 4
+    Wait 4
 
     ; Read RTC register
-    ld a, [rRTCRW]
+    ld a, [rMBC3_RTC_RW]
 
     ; Increment and write it back
     ld c, a
     inc a
-    ld [rRTCRW], a
+    ld [rMBC3_RTC_RW], a
 
     ; Read RTC register back again (without reloading)
-    ld a, [rRTCRW]
+    ld a, [rMBC3_RTC_RW]
     cp c
 
     jp nz, TestFail

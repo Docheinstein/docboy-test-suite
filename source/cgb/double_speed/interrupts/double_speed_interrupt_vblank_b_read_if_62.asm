@@ -27,7 +27,7 @@ EntryPoint:
 
     xor a
 
-    Nops $62
+    Wait $62
 
     ldh a, [rIF]
     cp $e0

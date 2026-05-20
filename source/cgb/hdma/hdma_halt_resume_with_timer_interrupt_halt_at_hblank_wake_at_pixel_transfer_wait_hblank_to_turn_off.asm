@@ -39,7 +39,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Bit 7 = 1 (HBlank)
     ; Length = 64 bytes / $10 - 1 => 3
@@ -61,11 +61,11 @@ EntryPoint:
     ld a, TACF_START | TACF_65KHZ
     ldh [rTAC], a
 
-    Nops 60
+    Wait 60
     
     halt
 
-    Nops 40
+    Wait 40
 
     ; Disable the PPU again
     DisablePPU

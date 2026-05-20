@@ -9,24 +9,24 @@ INCLUDE "mbc/mbc3.inc"
 EntryPoint:
     ; Enable RTC
     ld a, $0a
-    ld [rRTCEN], a
+    ld [rMBC3_RTC_EN], a
 
     ; Enable RTC tick
-    ld a, RTC_DH
-    ld [rRTCSEL], a
+    ld a, MBC3_RTC_DH
+    ld [rMBC3_RTC_SEL], a
     xor a
-    ld [rRTCRW], a
+    ld [rMBC3_RTC_RW], a
 
     ; Set latch to 0
     xor a
-    ld [rRTCLATCH], a
+    ld [rMBC3_RTC_LATCH], a
 
     ; Use RTC seconds register
-    ld a, RTC_S
-    ld [rRTCSEL], a
+    ld a, MBC3_RTC_S
+    ld [rMBC3_RTC_SEL], a
 
     ; Read RTC register (without reloading)
-    ld a, [rRTCRW]
+    ld a, [rMBC3_RTC_RW]
     ld h, a
 
     ; Wait 70 frames (> 1 second)
@@ -36,12 +36,12 @@ EntryPoint:
 
     ; Set latch to 0 -> 2
     ld a, 2
-    ld [rRTCLATCH], a
+    ld [rMBC3_RTC_LATCH], a
 
-    Nops 4
+    Wait 4
 
     ; Read RTC register
-    ld a, [rRTCRW]
+    ld a, [rMBC3_RTC_RW]
     ld l, a
 
     ; There's a 1/60 change we've been unlikely, do another attempt just in case
@@ -51,7 +51,7 @@ EntryPoint:
     ENDR
 
     ; Read RTC register
-    ld a, [rRTCRW]
+    ld a, [rMBC3_RTC_RW]
 
     cp l
     jp nz, TestFail

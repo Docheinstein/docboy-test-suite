@@ -11,7 +11,7 @@ EntryPoint:
     ld a, $83
     ldh [rSC], a
 
-    Nops 28
+    Wait 28
 
     ldh a, [rSC]
 	cp $7f

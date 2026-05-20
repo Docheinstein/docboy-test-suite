@@ -48,7 +48,7 @@ Loop:
     WaitScanline 12
     WaitMode 0
 
-    Nops 40
+    Wait 40
 
     ; Set WY back
     ld a, 12

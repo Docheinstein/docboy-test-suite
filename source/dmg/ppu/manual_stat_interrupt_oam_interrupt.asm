@@ -4,7 +4,7 @@ INCLUDE "all.inc"
 ; It should NOT raise a STAT interrupt.
 
 EntryPoint:
-    Nops 114
+    Wait 114
 
     ; Reset interrupts
     xor a
@@ -22,7 +22,7 @@ EntryPoint:
     ld a, %00010
     ldh [rIE], a
 
-    Nops 2
+    Wait 2
 
     jp TestSuccess
 

@@ -18,7 +18,7 @@ EntryPoint:
     DisablePPU
     EnablePPU
     
-	Nops 1
+	Wait 1
 
 	; Prepare speed switch
     ld a, $01
@@ -29,9 +29,9 @@ EntryPoint:
         
     Wait 78 * 114
 
-    Nops 3
+    Wait 3
     
-    Nops 3
+    Wait 3
 
     ; Read STAT
     ldh a, [rSTAT]

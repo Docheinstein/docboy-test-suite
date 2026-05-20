@@ -20,7 +20,7 @@ EntryPoint:
 
 Loop:
     ldh [rDIV], a
-    Nops 23
+    Wait 23
 
     inc bc
     jp Loop

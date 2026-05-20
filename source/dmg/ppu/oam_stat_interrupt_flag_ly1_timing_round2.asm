@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Check the timing of STAT's interrupt with OAM interrupt enabled.
 
 EntryPoint:
-    Nops 114
+    Wait 114
 
     ; Reset IF
     xor a
@@ -18,7 +18,7 @@ EntryPoint:
     ldh [rSTAT], a
 
     ; 107 nops should be enough for IF to be set
-    Nops 107
+    Wait 107
 
     ; Read IF
     ldh a, [rIF]

@@ -13,7 +13,7 @@ EntryPoint:
     ; Change speed
     stop
 
-    Nops 1
+    Wait 1
 
     ; Prepare speed switch again
     ld a, $01

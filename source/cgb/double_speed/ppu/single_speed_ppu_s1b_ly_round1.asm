@@ -14,7 +14,7 @@ EntryPoint:
 	; Switch to double speed
     stop
     
-    Nops 1
+    Wait 1
     
 	; Prepare speed switch
     ld a, $01
@@ -29,7 +29,7 @@ EntryPoint:
     
     Wait 78 * 114
 
-    Nops 109
+    Wait 109
 
     ; Read LY
     ldh a, [rLY]

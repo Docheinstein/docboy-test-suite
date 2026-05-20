@@ -29,7 +29,7 @@ ENDR
 
     Wait 38 * 114
 
-    Nops 90
+    Wait 90
 
     ; Read LY
     ldh a, [rLY]

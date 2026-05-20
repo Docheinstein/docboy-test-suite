@@ -14,7 +14,7 @@ EntryPoint:
     ld a, $01
     ldh [rKEY1], a
 
-    Nops 1
+    Wait 1
 
     ; Switch to single speed
     stop
@@ -43,7 +43,7 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    Nops 3
+    Wait 3
 
     ; Read DIV
     ldh a, [rDIV]

@@ -33,7 +33,7 @@ Round1:
     ldh [rTAC], a
 
     ; Wait for DIV[7] to be 1
-    Nops 24
+    Wait 24
 
     ; Write to TAC
     xor a

@@ -27,12 +27,12 @@ EntryPoint:
     ld a, $87
     ldh [rNR14], a
 	
-	Nops 3
+	Wait 3
 
     ; Retrigger
     ldh [rNR14], a
 
-	Nops 21
+	Wait 21
 
     ldh a, [rPCM12]
     cp $0f

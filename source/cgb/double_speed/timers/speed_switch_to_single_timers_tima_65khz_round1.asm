@@ -13,7 +13,7 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    Nops 1
+    Wait 1
 
     ; Prepare speed switch
     ld a, $01
@@ -34,7 +34,7 @@ EntryPoint:
     ld a, $01
     ldh [rKEY1], a
 
-    Nops 8
+    Wait 8
 
     ; Switch to single speed
     stop

@@ -8,7 +8,7 @@ EntryPoint:
     ldh [rSCX], a
 
     ; 65 nops should read PIXEL TRANSFER.
-    Nops 65
+    Wait 65
 
     ; Check result
     ldh a, [rSTAT]

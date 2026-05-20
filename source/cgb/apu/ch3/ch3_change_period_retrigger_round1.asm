@@ -25,13 +25,13 @@ EntryPoint:
     ld a, $80
     ldh [rNR34], a
 
-    Nops 4096
+    Wait 4096
 
     ; Trigger = 1
     ld a, $81
     ldh [rNR34], a
 
-    Nops 379
+    Wait 379
 
     ldh a, [rPCM34]
     cp $05

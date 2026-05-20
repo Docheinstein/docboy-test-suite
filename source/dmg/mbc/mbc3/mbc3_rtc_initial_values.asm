@@ -9,46 +9,46 @@ INCLUDE "mbc/mbc3.inc"
 EntryPoint:
     ; Enable RTC
     ld a, $0a
-    ld [rRTCEN], a
+    ld [rMBC3_RTC_EN], a
 
     ; Use RTC seconds register
-    ld a, RTC_S
-    ld [rRTCSEL], a
+    ld a, MBC3_RTC_S
+    ld [rMBC3_RTC_SEL], a
 
     ; Read RTC register
-    ld a, [rRTCRW]
+    ld a, [rMBC3_RTC_RW]
     ld e, a
 
     ; Use RTC minutes register
-    ld a, RTC_M
-    ld [rRTCSEL], a
+    ld a, MBC3_RTC_M
+    ld [rMBC3_RTC_SEL], a
 
     ; Read RTC register
-    ld a, [rRTCRW]
+    ld a, [rMBC3_RTC_RW]
     ld d, a
 
     ; Use RTC hours register
-    ld a, RTC_H
-    ld [rRTCSEL], a
+    ld a, MBC3_RTC_H
+    ld [rMBC3_RTC_SEL], a
 
     ; Read RTC register
-    ld a, [rRTCRW]
+    ld a, [rMBC3_RTC_RW]
     ld c, a
 
     ; Use RTC days low register
-    ld a, RTC_DL
-    ld [rRTCSEL], a
+    ld a, MBC3_RTC_DL
+    ld [rMBC3_RTC_SEL], a
 
     ; Read RTC register
-    ld a, [rRTCRW]
+    ld a, [rMBC3_RTC_RW]
     ld b, a
 
     ; Use RTC days high register
-    ld a, RTC_DH
-    ld [rRTCSEL], a
+    ld a, MBC3_RTC_DH
+    ld [rMBC3_RTC_SEL], a
 
     ; Read RTC register
-    ld a, [rRTCRW]
+    ld a, [rMBC3_RTC_RW]
 
     ; Must be all zeroed
     cp $00

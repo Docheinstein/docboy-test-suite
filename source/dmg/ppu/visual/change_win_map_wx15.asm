@@ -42,7 +42,7 @@ EntryPoint:
     Wait 114 * 154
     Wait 114 * 8
 
-    Nops 26
+    Wait 26
 
 DoIt:
     ; Change window tilemap and switch it back to the default again

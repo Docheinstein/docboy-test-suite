@@ -36,7 +36,7 @@ EntryPoint:
 
     ; Skip glitched line 0
     ; Go to Oam Scan of line 1
-    Nops 108
+    Wait 108
 
     ; Enable STAT interrupt
     xor a

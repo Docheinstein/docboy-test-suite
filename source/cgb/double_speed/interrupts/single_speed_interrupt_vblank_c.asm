@@ -40,7 +40,7 @@ EntryPoint:
     stop
 
     ; Skip some lines
-    Nops 51 * 114
+    Wait 51 * 114
 
     ; Reset IF
     xor a

@@ -31,10 +31,10 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Go to Pixel Transfer
-    Nops 40
+    Wait 40
 
     stop
 

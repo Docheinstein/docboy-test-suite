@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Check how much time it takes to read LY increased by 1 from boot.
 
 EntryPoint:
-    Nops 65
+    Wait 65
 
     ; Read LY
     ldh a, [rLY]

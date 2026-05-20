@@ -38,7 +38,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Bit 7 = 1 (HBlank)
     ; Length = 64 bytes / $10 - 1 => 3
@@ -53,7 +53,7 @@ EntryPoint:
     ldh [rIE], a
 
     ; Go to HBlank of line 1
-    Nops 47
+    Wait 47
 
     halt
 

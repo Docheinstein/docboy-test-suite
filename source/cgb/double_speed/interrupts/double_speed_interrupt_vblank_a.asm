@@ -10,7 +10,7 @@ EntryPoint:
     ; Change speed
     stop
 
-    Nops 1
+    Wait 1
 
     ; Reset PPU
     DisablePPU

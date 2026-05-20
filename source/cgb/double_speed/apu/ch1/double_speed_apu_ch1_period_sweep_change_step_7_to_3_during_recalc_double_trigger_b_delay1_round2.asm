@@ -26,7 +26,7 @@ EntryPoint:
 
     EnableAPU
 
-    Nops 1
+    Wait 1
 
     ; Pace = 1
     ; Direction = 0 (increase)
@@ -49,7 +49,7 @@ EntryPoint:
     ; Trigger = 1
     ld a, $87
     ldh [rNR14], a
-    Nops 1
+    Wait 1
     ld [de], a
     ld [hl], b
 

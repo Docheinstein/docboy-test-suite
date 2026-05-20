@@ -47,14 +47,14 @@ EntryPoint:
     ld a, $20
     ldh [rP1], a
 
-    Nops 1
+    Wait 1
 
     xor a
     db $10 ; STOP -> should work
     inc a
     inc a
 
-    Nops 60
+    Wait 60
 
     ldh a, [rDIV]
     cp $00

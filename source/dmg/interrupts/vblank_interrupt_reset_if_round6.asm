@@ -20,7 +20,7 @@ EntryPoint:
     ldh [rIF], a
 
     ; Read IF
-    Nops 3
+    Wait 3
 
     jp TestFail
 

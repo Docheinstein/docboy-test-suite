@@ -4,7 +4,7 @@ INCLUDE "all.inc"
 
 EntryPoint:
 	; Wait a certain time
-	Nops 128
+	Wait 128
 	
     ; Enable SERIAL interrupt
     ld a, IEF_SERIAL

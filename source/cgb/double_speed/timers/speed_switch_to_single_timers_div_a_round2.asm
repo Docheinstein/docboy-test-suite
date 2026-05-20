@@ -24,7 +24,7 @@ EntryPoint:
     ; Switch to single speed
     stop
 
-    Nops 61
+    Wait 61
 
     ldh a, [rDIV]
     cp $01

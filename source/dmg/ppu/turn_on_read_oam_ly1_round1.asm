@@ -15,7 +15,7 @@ EntryPoint:
     EnablePPU
 
     ; Wait LY=1
-    Nops 107
+    Wait 107
 
     ; Read OAM
     ld hl, $fe00

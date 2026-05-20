@@ -14,7 +14,7 @@ EntryPoint:
     DisablePPU
     EnablePPU
 
-    Nops 127
+    Wait 127
 
     ; Read VRAM
     ld hl, $8000

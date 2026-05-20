@@ -23,11 +23,11 @@ EntryPoint:
     ld a, $87
     ldh [rNR34], a
 
-    Nops 126 ; 00
-    Nops 255 ; 11
+    Wait 126 ; 00
+    Wait 255 ; 11
 
     ; Push the CH3 timer somewhere in the middle
-    Nops 100
+    Wait 100
 
     ; Retrigger with:
     ; Period = 1

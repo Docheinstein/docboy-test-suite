@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; STAT interrupt with VBLANK mode should not be triggered by entering HBLANK.
 
 EntryPoint:
-    Nops 114
+    Wait 114
 
     ; Reset IF
     xor a
@@ -14,7 +14,7 @@ EntryPoint:
     ldh [rIE], a
 
     ; Go ahead of OAM scan
-    Nops 20
+    Wait 20
 
     ; Enable VBLANK interrupt
     ld a, STATF_MODE01
@@ -24,7 +24,7 @@ EntryPoint:
     ei
 
     ; Reach HBLANK
-    Nops 80
+    Wait 80
 
     ; This should be reached
     jp TestSuccess

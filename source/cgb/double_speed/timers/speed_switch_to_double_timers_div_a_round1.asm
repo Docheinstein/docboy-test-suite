@@ -14,7 +14,7 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    Nops 60
+    Wait 60
 
     ldh a, [rDIV]
     cp $00

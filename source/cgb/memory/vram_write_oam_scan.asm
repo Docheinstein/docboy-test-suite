@@ -13,7 +13,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Write to VRAM again
     ld a, $34

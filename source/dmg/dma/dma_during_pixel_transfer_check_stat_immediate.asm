@@ -16,7 +16,7 @@ EntryPoint:
 
     ; Skip glitched line 0
     ; Go to Pixel Transfer of line 1
-    Nops 160
+    Wait 160
 
     ; Jump to DMA transfer routine
     call $ff80

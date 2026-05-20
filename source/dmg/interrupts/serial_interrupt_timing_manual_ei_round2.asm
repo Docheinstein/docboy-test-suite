@@ -23,7 +23,7 @@ EntryPoint:
 
 TestFinish:
     ; 106 nops should read DIV=02
-    Nops 106
+    Wait 106
 
     ; Read DIV
     ldh a, [rDIV]

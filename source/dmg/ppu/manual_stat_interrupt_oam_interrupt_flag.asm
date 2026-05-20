@@ -4,7 +4,7 @@ INCLUDE "all.inc"
 ; It should NOT set the IF's STAT flag.
 
 EntryPoint:
-    Nops 114
+    Wait 114
 
     ; Reset interrupts
     xor a

@@ -20,7 +20,7 @@ EntryPoint:
 
     WaitVBlank
 
-    Nops 1116
+    Wait 1116
 
     ; Jump to DMA transfer routine
     call $ff80

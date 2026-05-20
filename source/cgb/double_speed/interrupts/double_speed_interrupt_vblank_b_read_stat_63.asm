@@ -27,7 +27,7 @@ EntryPoint:
 
     xor a
 
-    Nops $63
+    Wait $63
 
     ldh a, [rSTAT]
     cp $81

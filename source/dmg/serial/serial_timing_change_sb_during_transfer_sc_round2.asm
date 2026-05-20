@@ -3,19 +3,19 @@ INCLUDE "all.inc"
 ; Check the timing at which SB content changes.
 
 EntryPoint:
-    Nops 3
+    Wait 3
 
-    Nops 0
+    Wait 0
 
     ; Start serial transfer
     ld a, $81
     ldh [rSC], a
 
-    Nops 4 * 128
+    Wait 4 * 128
 
-    Nops 61
+    Wait 61
 
-    Nops 1
+    Wait 1
 
     ldh a, [rSB]
 	cp $1f
@@ -25,7 +25,7 @@ EntryPoint:
 	ld a, %10101000
     ldh [rSB], a
 
-    Nops 371
+    Wait 371
 
     ldh a, [rSC]
     cp $7f

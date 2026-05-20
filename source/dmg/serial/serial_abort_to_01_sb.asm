@@ -11,14 +11,14 @@ EntryPoint:
     ld a, $81
     ldh [rSC], a
 
-    Nops 256
+    Wait 256
 
     ; Stop serial transfer
     ld a, $01
     ldh [rSC], a
 
     ; Wait a bit
-    Nops 1024
+    Wait 1024
 
     ldh a, [rSB]
     cp $cf

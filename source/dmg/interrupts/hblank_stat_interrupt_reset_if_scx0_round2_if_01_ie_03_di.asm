@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Reset IF after Pixel Transfer for different SCXs with HBlank interrupt enabled.
 
 EntryPoint:
-    Nops 123
+    Wait 123
 
     ld a, $00
     ldh [rSCX], a
@@ -19,7 +19,7 @@ EntryPoint:
 
     ei
 
-    Nops 40
+    Wait 40
 
     ; Reset IF
     ld a, $01

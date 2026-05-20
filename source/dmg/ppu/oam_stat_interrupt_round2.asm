@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Check the timing of STAT's interrupt with OAM interrupt enabled.
 
 EntryPoint:
-    Nops 140
+    Wait 140
 
     ld a, $00
     ldh [rSCX], a
@@ -19,7 +19,7 @@ EntryPoint:
 
     ei
 
-    Nops 77
+    Wait 77
 
     di
 

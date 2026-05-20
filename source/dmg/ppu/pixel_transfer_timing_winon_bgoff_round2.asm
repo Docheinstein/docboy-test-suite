@@ -21,7 +21,7 @@ EntryPoint:
     ; Wait until next line
     WaitScanline 2
 
-    Nops 51
+    Wait 51
 
     ; We should already be in HBlank
     ldh a, [rSTAT]

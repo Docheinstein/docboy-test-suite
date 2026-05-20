@@ -24,7 +24,7 @@ EntryPoint:
 
     ; Wait for enough HBlanks to happen
     ; (no precise timing check)
-    Nops 4 * 114
+    Wait 4 * 114
 
     ; Disable the PPU again
     DisablePPU

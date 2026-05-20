@@ -45,7 +45,7 @@ EntryPoint:
     Wait 162 * 114
 
     ; Go to pixel transfer of line 8
-    Nops 24
+    Wait 24
 
     ; Disable window
     ld a, LCDCF_ON | LCDCF_BGON | LCDCF_OBJON | LCDCF_WIN9C00

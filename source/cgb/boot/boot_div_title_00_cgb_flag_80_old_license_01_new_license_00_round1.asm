@@ -11,7 +11,7 @@ RomVersion $00
 INCLUDE "all.inc"
 
 EntryPoint:
-    Nops 14
+    Wait 14
     ldh a, [rDIV]
 
     cp $2f

@@ -36,7 +36,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 114
+    Wait 114
 
     ; Bit 7 = 1 (general purpose)
     ; Length = 64 bytes / $10 - 1 => 3
@@ -47,7 +47,7 @@ EntryPoint:
 
     ; Wait for enough HBlanks to happen
     ; (no precise timing check
-    Nops 4 * 114
+    Wait 4 * 114
 
     DisablePPU
 

@@ -10,12 +10,12 @@ EntryPoint:
 
     EnablePPU
 
-    Nops 123
+    Wait 123
 
     ld a, $05
     ldh [rSCX], a
 
-    Nops 47
+    Wait 47
 
     ldh a, [rSTAT]
     cp $80

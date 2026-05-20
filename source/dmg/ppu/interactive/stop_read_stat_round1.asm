@@ -11,7 +11,7 @@ EntryPoint:
 
     stop
 
-    Nops 56
+    Wait 56
 
     ; Read STAT
     ldh a, [rSTAT]

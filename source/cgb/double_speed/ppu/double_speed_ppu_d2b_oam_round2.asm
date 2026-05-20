@@ -14,7 +14,7 @@ EntryPoint:
 	; Switch to double speed
     stop
     
-    Nops 1
+    Wait 1
     
     ; Reset PPU
     DisablePPU
@@ -22,7 +22,7 @@ EntryPoint:
     
     Wait 78 * 114
 
-    Nops 224
+    Wait 224
 
     ; Read STAT
     ldh a, [rSTAT]

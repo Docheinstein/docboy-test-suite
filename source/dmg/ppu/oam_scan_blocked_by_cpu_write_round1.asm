@@ -11,16 +11,16 @@ EntryPoint:
 	EnablePPU_WithSprites
 
     ; Skip the first scanline
-    Nops 103
+    Wait 103
 
-	Nops 8
+	Wait 8
 	
     ; Write something to OAM
     ld a, $00
     ld hl, $fe40
     ld [hl], a
 
-    Nops 55
+    Wait 55
 
     ld a, [rSTAT]
     cp $83

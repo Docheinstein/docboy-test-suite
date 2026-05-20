@@ -22,14 +22,14 @@ EntryPoint:
     ldh [rTAC], a
 
     ; Busy loop
-    Nops 64
+    Wait 64
 
     ; If this is reached Timer interrupt or Timer is not working
     jp TestFail
 
 TestFinish:
     ; 35 nops should read DIV=0
-    Nops 35
+    Wait 35
 
     ; Read DIV
     ldh a, [rDIV]

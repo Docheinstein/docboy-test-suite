@@ -32,7 +32,7 @@ EntryPoint:
 
     Wait 16384 * 4
 
-    Nops 16
+    Wait 16
 
     ; Initial volume = a
     ; Envelope direction = 1
@@ -40,7 +40,7 @@ EntryPoint:
     ld a, $ad
     ldh [rNR12], a
 
-    Nops 32
+    Wait 32
 
     ldh a, [rPCM12]
     cp $0a

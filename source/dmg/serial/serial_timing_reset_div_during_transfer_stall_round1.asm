@@ -21,7 +21,7 @@ EntryPoint:
     ; Resetting DIV with this timing prevents serial tranfser to proceed further.
 REPT 128
     ldh [rDIV], a
-    Nops 22
+    Wait 22
 
     inc bc
 ENDR

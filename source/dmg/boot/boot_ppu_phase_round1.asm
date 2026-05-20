@@ -4,7 +4,7 @@ INCLUDE "all.inc"
 
 EntryPoint:
     ; 7 nops should read VBLANK from STAT mode
-    Nops 7
+    Wait 7
 
     ; Read STAT's mode bits
     ldh a, [rSTAT]

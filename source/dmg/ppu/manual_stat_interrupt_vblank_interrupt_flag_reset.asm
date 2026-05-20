@@ -23,7 +23,7 @@ EntryPoint:
     xor a
     ldh [rIF], a
 
-    Nops 2
+    Wait 2
 
     ; Check IF: STAT flag should be unset
     ldh a, [rIF]

@@ -35,7 +35,7 @@ EntryPoint:
     ; Enable interrupt: this should raise an interrupt
     ei
 
-    Nops 2
+    Wait 2
 
 TestContinue:
     ld hl, TestFail
@@ -44,13 +44,13 @@ TestContinue:
     ; (this should not raise an interrupt because has already been handled)
     ei
 
-    Nops 2
+    Wait 2
 
     ; At this point we just wait for the next STAT interrupt:
     ; we should receive the interrupt coming from STAT's HBLANK at LY=2.
     ld hl, TestCheck
 
-    Nops 190
+    Wait 190
 
     jp TestFail
 

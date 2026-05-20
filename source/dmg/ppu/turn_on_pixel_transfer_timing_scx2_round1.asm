@@ -18,7 +18,7 @@ EnableIt:
     ; Reset PPU phase
     EnablePPU
 
-    Nops 60
+    Wait 60
 
     ; We should still be in Pixel Transfer
     ldh a, [rSTAT]

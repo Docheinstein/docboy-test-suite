@@ -3,7 +3,7 @@ INCLUDE "all.inc"
 ; Check the timing of STAT's interrupt with OAM interrupt enabled.
 
 EntryPoint:
-    Nops 140
+    Wait 140
 
     ld a, $00
     ldh [rSCX], a
@@ -17,7 +17,7 @@ EntryPoint:
     xor a
     ldh [rIF], a
 
-    Nops 75
+    Wait 75
     ldh a, [rIF]
 
     cp $e0

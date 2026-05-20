@@ -65,7 +65,7 @@ EntryPoint:
     ldh a, [rKEY1]
     cp $fe
 
-    Nops 42
+    Wait 42
 
     ldh a, [rLY]
     cp $25

@@ -17,7 +17,7 @@ EntryPoint:
     ; Jump to DMA transfer routine
     call $ff80
 
-    Nops 30
+    Wait 30
 
     ; Should be in Pixel Transfer
 

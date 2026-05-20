@@ -65,7 +65,7 @@ EntryPoint:
 
     ; Skip glitched line 0
     ; Go to OAM Scan of line 1
-     Nops 106
+     Wait 106
 
     ; Jump to DMA transfer routine
     call $ff80

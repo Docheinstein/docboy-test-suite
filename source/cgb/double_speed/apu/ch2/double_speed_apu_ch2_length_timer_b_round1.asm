@@ -14,7 +14,7 @@ EntryPoint:
 
     EnableAPU
 
-    Nops 1
+    Wait 1
 
     xor a
     ldh [rDIV], a

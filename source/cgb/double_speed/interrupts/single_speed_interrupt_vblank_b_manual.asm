@@ -22,7 +22,7 @@ EntryPoint:
     ld a, $01
     ldh [rKEY1], a
 
-    Nops 1
+    Wait 1
 
     ; Switch to single speed
     stop
@@ -31,7 +31,7 @@ EntryPoint:
     ei
 
     ; Skip some lines
-    Nops 20 * 114
+    Wait 20 * 114
 
     ; Reset IF
     xor a

@@ -39,7 +39,7 @@ Loop:
     ; 16 nops are enough to read both the first WX and the second WX,
     ; this increases the internal line counter and the window
     ; will render only last 3 lines of the window tile.
-    Nops 16
+    Wait 16
 
     ; Set WX
     ld a, 63

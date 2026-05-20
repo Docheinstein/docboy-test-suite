@@ -16,7 +16,7 @@ EntryPoint:
 
     ; Skip glitched line 0
     ; Go to HBlank of line 1
-    Nops 180
+    Wait 180
 
     ; Jump to DMA transfer routine
     call $ff80
@@ -38,7 +38,7 @@ DmaTransferRoutine:
     dec a
     jr nz, .waitloop
 
-    Nops 1
+    Wait 1
 
     ldh a, [rSTAT]
     ld b, a

@@ -18,7 +18,7 @@ EntryPoint:
     ; Change speed
     stop
 
-    Nops 1
+    Wait 1
 
     ; Source address = D000
     ld a, $D0
@@ -38,7 +38,7 @@ EntryPoint:
     EnablePPU
 
     ; Skip glitched line 0
-    Nops 228
+    Wait 228
 
     ; Bit 7 = 1 (HBlank)
     ; Length = 80 bytes / $10 - 1 => 4
@@ -47,7 +47,7 @@ EntryPoint:
 
     ; --- transfer happens here ---
 
-    Nops 121
+    Wait 121
 
     ldh a, [rHDMA5]
     cp $03

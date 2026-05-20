@@ -14,7 +14,7 @@ EntryPoint:
 	; Switch to double speed
     stop
 
-    Nops 1
+    Wait 1
 
 	; Prepare speed switch
     ld a, $01
@@ -32,12 +32,12 @@ EntryPoint:
     xor a
     ldh [rDIV], a
 
-    Nops 93
+    Wait 93
 
     db $10 ; STOP -> should work
     nop
 
-    Nops 27
+    Wait 27
 
     ldh a, [rDIV]
     cp $10

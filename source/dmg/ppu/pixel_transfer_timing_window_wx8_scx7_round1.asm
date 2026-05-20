@@ -25,7 +25,7 @@ EntryPoint:
     ; Wait until next line
     WaitScanline 2
 
-    Nops 52
+    Wait 52
 
     ; We should still be in Pixel Transfer
     ldh a, [rSTAT]

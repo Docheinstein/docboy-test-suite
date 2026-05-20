@@ -33,7 +33,7 @@ EntryPoint:
     ; Go to VBlank
     Wait 114 * 143
 
-    Nops 100
+    Wait 100
 
     ; Jump to DMA transfer routine
     call $ff80
@@ -52,7 +52,7 @@ DmaTransferRoutine:
     dec a
     jr nz, .dmaloop
 
-    Nops 1
+    Wait 1
 
     ; Read from OAM
     ld hl, $fe02

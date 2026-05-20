@@ -11,7 +11,7 @@ EntryPoint:
 
     stop
 
-    Nops 170
+    Wait 170
 
     ; Read STAT
     ldh a, [rLY]

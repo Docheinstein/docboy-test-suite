@@ -6,10 +6,10 @@ MACRO WriteToOAM
     EnablePPU
 
     ; Skip first scanline, just in case
-    Nops 228
+    Wait 228
 
     ; Delay
-    Nops \1
+    Wait \1
 
     ld [hli], a
 

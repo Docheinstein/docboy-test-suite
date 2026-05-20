@@ -7,18 +7,18 @@ EntryPoint:
     ld a, $81
     ldh [rSC], a
 
-    Nops 512
+    Wait 512
 
     ; Stop serial transfer
     ld a, $81
     ldh [rSC], a
 
-    Nops 512
+    Wait 512
 
     ldh a, [rSC]
     cp $ff
 
-    Nops 502
+    Wait 502
 
     ldh a, [rSC]
     cp $ff

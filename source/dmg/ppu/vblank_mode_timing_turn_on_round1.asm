@@ -11,7 +11,7 @@ EntryPoint:
     WaitScanline $8f
 
     ; 101 nops should read HBLANK.
-    Nops 101
+    Wait 101
 
     ; Check result
     ldh a, [rSTAT]

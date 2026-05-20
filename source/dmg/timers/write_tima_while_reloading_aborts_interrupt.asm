@@ -32,13 +32,13 @@ EntryPoint:
     ld a, TACF_START | TACF_65KHZ
     ldh [rTAC], a
 
-    Nops 8
+    Wait 8
 
     ; Write something to TIMA
     ldh [rTIMA], a
 
     ; Just wait a bit to see if interrupt comes
-    Nops 10
+    Wait 10
 
     ; Disable interrupts now to continue executing safely
     di

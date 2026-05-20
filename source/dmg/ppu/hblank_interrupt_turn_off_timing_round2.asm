@@ -28,12 +28,12 @@ EntryPoint:
     ei
 
     ; Wait some time
-    Nops 54
+    Wait 54
 
     ; Disable PPU
     DisablePPU
 
-    Nops 20
+    Wait 20
 
     jp TestFail
 

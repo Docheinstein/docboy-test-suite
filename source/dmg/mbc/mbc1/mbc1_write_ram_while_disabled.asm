@@ -9,7 +9,7 @@ INCLUDE "mbc/mbc1.inc"
 EntryPoint:
     ; Enable RAM
     ld hl, rMBC1_RAM
-    ld [hl], MBC1_RAM_ON
+    ld [hl], MBC_RAM_ON
 
     ; Write a value to RAM
     ld hl, $A080
@@ -17,7 +17,7 @@ EntryPoint:
 
     ; Disable RAM
     ld hl, rMBC1_RAM
-    ld [hl], MBC1_RAM_OFF
+    ld [hl], MBC_RAM_OFF
 
     ; (Attempt) to write another value to RAM
     ld hl, $A080
@@ -25,7 +25,7 @@ EntryPoint:
 
     ; Enable RAM
     ld hl, rMBC1_RAM
-    ld [hl], MBC1_RAM_ON
+    ld [hl], MBC_RAM_ON
 
     ; Read the value back
     ld hl, $A080

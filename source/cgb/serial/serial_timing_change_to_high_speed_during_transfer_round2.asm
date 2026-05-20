@@ -11,13 +11,13 @@ EntryPoint:
     ld a, $81
     ldh [rSC], a
 
-    Nops 512
+    Wait 512
 
     ; Start serial transfer at high speed mode
     ld a, $83
     ldh [rSC], a
 
-    Nops 29
+    Wait 29
 
     ldh a, [rSC]
 	cp $7f

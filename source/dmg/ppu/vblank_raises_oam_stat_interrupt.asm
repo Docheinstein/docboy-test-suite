@@ -15,7 +15,7 @@ EntryPoint:
     ldh [rSTAT], a
 
     ; Reach the end of the scanline
-    Nops 90
+    Wait 90
 
     ; Reset IF
     xor a
@@ -24,7 +24,7 @@ EntryPoint:
     ; Enable interrupts
     ei
 
-    Nops 16
+    Wait 16
 
     ; This should not be reached
     jp TestFail

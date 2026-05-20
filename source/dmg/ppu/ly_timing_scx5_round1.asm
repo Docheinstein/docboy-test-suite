@@ -9,7 +9,7 @@ EntryPoint:
     ldh [rSCX], a
 
     ; 115 nops should read LY=0
-    Nops 115
+    Wait 115
 
     ; Read LY
     ldh a, [rLY]

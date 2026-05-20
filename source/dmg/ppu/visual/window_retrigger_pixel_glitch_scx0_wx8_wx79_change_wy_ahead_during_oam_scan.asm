@@ -38,7 +38,7 @@ Loop:
     ldh [rWY], a
 
     ; Adjust phase to avoid flickr.
-    Nops 3
+    Wait 3
 
     ; Set WX=8
     ld a, 8
@@ -56,7 +56,7 @@ Loop:
     ldh [rWY], a
 
     ; Wait so that a part of the window is render.
-    Nops 16
+    Wait 16
 
     ; Set WX=79
     ld a, 79

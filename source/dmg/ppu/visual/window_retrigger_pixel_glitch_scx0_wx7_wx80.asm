@@ -34,7 +34,7 @@ EntryPoint:
 
 Loop:
     ; Adjust phase to avoid flickr.
-    Nops 3
+    Wait 3
 
     ; Set WX=7
     ld a, 7
@@ -47,7 +47,7 @@ Loop:
     WaitScanline 12
 
     ; Wait so that a part of the window is render.
-    Nops 16
+    Wait 16
 
     ; Set WX=80
     ld a, 80

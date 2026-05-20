@@ -34,7 +34,7 @@ EntryPoint:
     Wait 114 * 7
 	
 	; Add some phase
-	Nops 1
+	Wait 1
 	
 	; Wait to read HBlank from STAT to proceed
     ld b, %11
@@ -44,7 +44,7 @@ WaitHBlankLoop:
     jp nz, WaitHBlankLoop
 
 	; Wait middle of line 8
-    Nops 79
+    Wait 79
 
     ; Write different BGP
     ld a, %11100111

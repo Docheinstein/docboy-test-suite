@@ -16,7 +16,7 @@ EntryPoint:
 
     Wait 2 * 114 * 143 + 114
 
-    Nops 1
+    Wait 1
 
     ; Enable VBlank interrupt
     xor a

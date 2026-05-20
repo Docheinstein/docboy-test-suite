@@ -34,7 +34,7 @@ EntryPoint:
     ld a, $87
     ldh [rNR34], a
 
-    Nops 3
+    Wait 3
 
     ; Write to wave ream
     ldh [$FF30], a

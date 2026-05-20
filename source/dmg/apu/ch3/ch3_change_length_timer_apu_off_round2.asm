@@ -9,7 +9,7 @@ EntryPoint:
     DisableAPU
     EnableAPU
 
-    Nops 4
+    Wait 4
 
     ; DAC = 1
     ld a, $80

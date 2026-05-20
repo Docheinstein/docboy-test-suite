@@ -11,7 +11,7 @@ EntryPoint:
 
     DisablePPU
 
-    Nops 2
+    Wait 2
 
 ReadIt:
     ; Read STAT

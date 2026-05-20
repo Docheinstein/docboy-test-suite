@@ -21,9 +21,9 @@ EntryPoint:
     EnablePPU_WithSprites
 
     ; Wait
-    Nops 114 * 3
+    Wait 114 * 3
 
-    Nops 105
+    Wait 105
 
     ; Jump to DMA transfer routine
     call $ff80
@@ -41,7 +41,7 @@ DmaTransferRoutine:
     ldh [rDMA], a
 
     ; Wait until end of Pixel Transfer
-    Nops 84
+    Wait 84
 
     ldh a, [rSTAT]
     ld b, a

@@ -12,7 +12,7 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    Nops 1
+    Wait 1
 
     ; Reset DIV
     xor a
@@ -26,7 +26,7 @@ EntryPoint:
     ldh [rTAC], a
 
     ; Wait a bit
-    Nops 256
+    Wait 256
 
     stop
 

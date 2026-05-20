@@ -11,7 +11,7 @@ EntryPoint:
     EnablePPU
 
     ; Go to next line
-    Nops 114
+    Wait 114
 
     ; Enable interrupt
     ei
@@ -28,7 +28,7 @@ EntryPoint:
     ldh [rDIV], a
 
     ; Busy loop
-    Nops 80
+    Wait 80
 
     ; If this is reached either STAT interrupt is not working or PPU is not working
     jp TestFail
@@ -45,14 +45,14 @@ TestStart:
     ei
 
     ; Busy loop
-    Nops 80
+    Wait 80
 
     ; If this is reached either STAT interrupt is not working or PPU is not working
     jp TestFail
 
 TestFinish:
     ; 21 nops should read DIV=2
-    Nops 21
+    Wait 21
 
     ; Read DIV
     ldh a, [rDIV]

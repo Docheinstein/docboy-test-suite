@@ -17,7 +17,7 @@ EntryPoint:
 
     EnableAPU
 
-    Nops 4
+    Wait 4
 
     ; Initial volume = F
     ld a, $F0

@@ -1,0 +1,11 @@
+IF !DEF(MBC5_INC)
+DEF MBC5_INC EQU 1
+
+include "mbc/mbc.inc"
+
+DEF rMBC5_RAM                   EQU $0000
+DEF rMBC5_LOWER_ROM_BANK        EQU $2000
+DEF rMBC5_UPPER_ROM_BANK        EQU $4000
+DEF rMBC5_BANK_MODE             EQU $6000
+
+ENDC

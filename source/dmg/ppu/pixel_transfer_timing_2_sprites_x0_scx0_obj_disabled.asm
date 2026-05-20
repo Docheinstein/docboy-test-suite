@@ -17,7 +17,7 @@ EntryPoint:
     ; Enable PPU with OBJ disable
     EnablePPU
 
-    Nops 174
+    Wait 174
 
     ; We should already be in HBlank
     ldh a, [rSTAT]

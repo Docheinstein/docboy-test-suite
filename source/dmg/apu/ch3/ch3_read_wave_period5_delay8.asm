@@ -22,7 +22,7 @@ EntryPoint:
     ld a, $87
     ldh [rNR34], a
 
-    Nops 8
+    Wait 8
 
     ldh a, [$FF30]
 

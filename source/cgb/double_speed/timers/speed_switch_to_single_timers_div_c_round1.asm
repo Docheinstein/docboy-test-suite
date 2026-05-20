@@ -17,19 +17,19 @@ EntryPoint:
     ; Switch to double speed
     stop
 
-    Nops 1
+    Wait 1
 
     ; Prepare speed switch
     ld a, $01
     ldh [rKEY1], a
 
     ; This delay does not affect the timing
-    Nops 65
+    Wait 65
 
     ; Switch to single speed
     stop
 
-    Nops 60
+    Wait 60
 
     ldh a, [rDIV]
     cp $00
